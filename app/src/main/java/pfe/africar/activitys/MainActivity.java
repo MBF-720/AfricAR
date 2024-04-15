@@ -1,16 +1,19 @@
 package pfe.africar.activitys;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
 
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import pfe.africar.R;
@@ -18,134 +21,222 @@ import pfe.africar.R;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db = FirebaseFirestore.getInstance();
 
-        // Ajout d'un document à la collection Personnes
-        Map<String, Object> personne1 = new HashMap<>();
-        personne1.put("nom", "Nom de la personne");
-        personne1.put("prenom", "Prénom de la personne");
-        personne1.put("email", "Email de la personne");
-        personne1.put("motDePasse", "Mot de passe de la personne");
+        // Ajouter une collection "Ecoles"
+        ajouterEcoles();
+    }
 
-        db.collection("Personnes")
-                .document("personneId1")
-                .set(personne1)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "Document Personnes ajouté avec succès"))
-                .addOnFailureListener(e -> Log.w(TAG, "Erreur lors de l'ajout du document Personnes", e));
+    // Méthode pour ajouter des écoles
+    private void ajouterEcoles() {
+        ajouterEcole("Ecole 1", "Actualités de l'école 1");
+        ajouterEcole("Ecole 2", "Actualités de l'école 2");
+    }
 
-        // Ajout d'un document à la collection Eleves
-        Map<String, Object> eleve1 = new HashMap<>();
-        eleve1.put("personne", db.collection("Personnes").document("personneId1"));
-        eleve1.put("notes", Arrays.asList());
-        eleve1.put("moyenne", 0.0);
-
-        db.collection("Eleves")
-                .document("eleveId1")
-                .set(eleve1)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "Document Eleves ajouté avec succès"))
-                .addOnFailureListener(e -> Log.w(TAG, "Erreur lors de l'ajout du document Eleves", e));
-
-        // Ajout d'un document à la collection Professeurs
-        Map<String, Object> professeur1 = new HashMap<>();
-        professeur1.put("personne", db.collection("Personnes").document("personneId2"));
-        professeur1.put("matieres", Arrays.asList());
-
-        db.collection("Professeurs")
-                .document("professeurId1")
-                .set(professeur1)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "Document Professeurs ajouté avec succès"))
-                .addOnFailureListener(e -> Log.w(TAG, "Erreur lors de l'ajout du document Professeurs", e));
-
-        // Ajout d'un document à la collection Admins
-        Map<String, Object> admin1 = new HashMap<>();
-        admin1.put("personne", db.collection("Personnes").document("personneId3"));
-
-        db.collection("Admins")
-                .document("adminId1")
-                .set(admin1)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "Document Admins ajouté avec succès"))
-                .addOnFailureListener(e -> Log.w(TAG, "Erreur lors de l'ajout du document Admins", e));
-
-        // Ajout d'un document à la collection Ecoles
-        Map<String, Object> ecole1 = new HashMap<>();
-        ecole1.put("nom", "Nom de l'école");
-        ecole1.put("classes", Arrays.asList());
-        ecole1.put("salles", Arrays.asList());
-        ecole1.put("actualites", "");
+    private void ajouterEcole(String nom, String actualites) {
+        Map<String, Object> ecole = new HashMap<>();
+        ecole.put("nom", nom);
+        ecole.put("actualites", actualites);
 
         db.collection("Ecoles")
-                .document("ecoleId1")
-                .set(ecole1)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "Document Ecoles ajouté avec succès"))
-                .addOnFailureListener(e -> Log.w(TAG, "Erreur lors de l'ajout du document Ecoles", e));
+                .add(ecole)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Ecole ajoutée avec succès !");
+                            DocumentReference ecoleRef = task.getResult();
+                            ajouterPersonnes(ecoleRef);
+                        } else {
+                            Log.w(TAG, "Erreur lors de l'ajout de l'école", task.getException());
+                        }
+                    }
+                });
+    }
 
-        // Ajout d'un document à la collection Classes
-        Map<String, Object> classe1 = new HashMap<>();
-        classe1.put("niveau", 1);
-        classe1.put("eleves", Arrays.asList());
-        classe1.put("professeurs", Arrays.asList());
+    // Méthode pour ajouter des collections "Personnes" pour chaque école
+    private void ajouterPersonnes(DocumentReference ecoleRef) {
+        ajouterPersonne(ecoleRef, "Nom de la personne 1", "Prénom de la personne 1", "Email de la personne 1", "Mot de passe de la personne 1");
+    }
 
-        db.collection("Classes")
-                .document("classeId1")
-                .set(classe1)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "Document Classes ajouté avec succès"))
-                .addOnFailureListener(e -> Log.w(TAG, "Erreur lors de l'ajout du document Classes", e));
+    private void ajouterPersonne(DocumentReference ecoleRef, String nom, String prenom, String email, String motDePasse) {
+        Map<String, Object> personne = new HashMap<>();
+        personne.put("nom", nom);
+        personne.put("prenom", prenom);
+        personne.put("email", email);
+        personne.put("motDePasse", motDePasse);
 
-        // Ajout d'un document à la collection Salles
-        Map<String, Object> salle1 = new HashMap<>();
-        salle1.put("numero", 101);
+        ecoleRef.collection("Personnes")
+                .document("personneId1")
+                .set(personne)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Personne ajoutée avec succès !");
+                            ajouterEleve(ecoleRef);
+                            ajouterAdmin(ecoleRef);
+                            ajouterProfesseur(ecoleRef);
+                            ajouterClasse(ecoleRef);
+                            ajouterMatiere(ecoleRef);
+                            ajouterSalle(ecoleRef);
+                            ajouterStatistique(ecoleRef);
+                        } else {
+                            Log.w(TAG, "Erreur lors de l'ajout de la personne", task.getException());
+                        }
+                    }
+                });
+    }
 
-        db.collection("Salles")
-                .document("salleId1")
-                .set(salle1)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "Document Salles ajouté avec succès"))
-                .addOnFailureListener(e -> Log.w(TAG, "Erreur lors de l'ajout du document Salles", e));
+    // Méthode utilitaire pour créer un objet élève
+    private void ajouterEleve(DocumentReference ecoleRef) {
+        Map<String, Object> eleve = new HashMap<>();
+        eleve.put("nom", "Nom de l'élève");
+        eleve.put("prenom", "Prénom de l'élève");
+        eleve.put("email", "Email de l'élève");
+        eleve.put("motDePasse", "Mot de passe de l'élève");
 
-        // Ajout d'un document à la collection Cours
-        Map<String, Object> cours1 = new HashMap<>();
-        cours1.put("intitule", "Mathématiques");
-        cours1.put("matiere", db.collection("Matieres").document("matiereId1"));
+        ecoleRef.collection("Eleves")
+                .add(eleve)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Élève ajouté avec succès !");
+                        } else {
+                            Log.w(TAG, "Erreur lors de l'ajout de l'élève", task.getException());
+                        }
+                    }
+                });
+    }
 
-        db.collection("Cours")
-                .document("coursId1")
-                .set(cours1)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "Document Cours ajouté avec succès"))
-                .addOnFailureListener(e -> Log.w(TAG, "Erreur lors de l'ajout du document Cours", e));
+    // Méthode utilitaire pour créer un objet admin
+    private void ajouterAdmin(DocumentReference ecoleRef) {
+        Map<String, Object> admin = new HashMap<>();
+        admin.put("nom", "Nom de l'admin");
+        admin.put("prenom", "Prénom de l'admin");
+        admin.put("email", "Email de l'admin");
+        admin.put("motDePasse", "Mot de passe de l'admin");
 
-        // Ajout d'un document à la collection Matieres
-        Map<String, Object> matiere1 = new HashMap<>();
-        matiere1.put("nom", "Mathématiques");
+        ecoleRef.collection("Admins")
+                .add(admin)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Admin ajouté avec succès !");
+                        } else {
+                            Log.w(TAG, "Erreur lors de l'ajout de l'admin", task.getException());
+                        }
+                    }
+                });
+    }
 
-        db.collection("Matieres")
-                .document("matiereId1")
-                .set(matiere1)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "Document Matieres ajouté avec succès"))
-                .addOnFailureListener(e -> Log.w(TAG, "Erreur lors de l'ajout du document Matieres", e));
+    // Méthode utilitaire pour créer un objet professeur
+    private void ajouterProfesseur(DocumentReference ecoleRef) {
+        Map<String, Object> professeur = new HashMap<>();
+        professeur.put("nom", "Nom du professeur");
+        professeur.put("prenom", "Prénom du professeur");
+        professeur.put("email", "Email du professeur");
+        professeur.put("motDePasse", "Mot de passe du professeur");
 
-        // Ajout d'un document à la collection TPs
-        Map<String, Object> tp1 = new HashMap<>();
-        tp1.put("realiteAugmentee", true);
+        ecoleRef.collection("Professeurs")
+                .add(professeur)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Professeur ajouté avec succès !");
+                        } else {
+                            Log.w(TAG, "Erreur lors de l'ajout du professeur", task.getException());
+                        }
+                    }
+                });
+    }
 
-        db.collection("TPs")
-                .document("tpId1")
-                .set(tp1)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "Document TPs ajouté avec succès"))
-                .addOnFailureListener(e -> Log.w(TAG, "Erreur lors de l'ajout du document TPs", e));
+    // Méthode utilitaire pour créer un objet classe
+    private void ajouterClasse(DocumentReference ecoleRef) {
+        Map<String, Object> classe = new HashMap<>();
+        classe.put("nom", "Nom de la classe");
+        classe.put("professeurPrincipal", "professeurId1");
+        classe.put("eleves", Arrays.asList("eleveId1", "eleveId2"));
 
-        // Ajout d'un document à la collection Quizzes
-        Map<String, Object> quiz1 = new HashMap<>();
-        quiz1.put("questions", Arrays.asList());
+        ecoleRef.collection("Classes")
+                .add(classe)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Classe ajoutée avec succès !");
+                        } else {
+                            Log.w(TAG, "Erreur lors de l'ajout de la classe", task.getException());
+                        }
+                    }
+                });
+    }
 
-        db.collection("Quizzes")
-                .document("quizId1")
-                .set(quiz1)
-                .addOnSuccessListener(aVoid -> Log.d(TAG, "Document Quizzes ajouté avec succès"))
-                .addOnFailureListener(e -> Log.w(TAG, "Erreur lors de l'ajout du document Quizzes", e));
+    // Méthode utilitaire pour créer un objet matière
+    private void ajouterMatiere(DocumentReference ecoleRef) {
+        Map<String, Object> matiere = new HashMap<>();
+        matiere.put("nom", "Nom de la matière");
 
-    }}
+        ecoleRef.collection("Matieres")
+                .add(matiere)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Matière ajoutée avec succès !");
+                        } else {
+                            Log.w(TAG, "Erreur lors de l'ajout de la matière", task.getException());
+                        }
+                    }
+                });
+    }
+
+    // Méthode utilitaire pour créer un objet salle
+    private void ajouterSalle(DocumentReference ecoleRef) {
+        Map<String, Object> salle = new HashMap<>();
+        salle.put("numero", 1);
+
+        ecoleRef.collection("Salles")
+                .add(salle)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Salle ajoutée avec succès !");
+                        } else {
+                            Log.w(TAG, "Erreur lors de l'ajout de la salle", task.getException());
+                        }
+                    }
+                });
+    }
+
+    // Méthode utilitaire pour créer un objet statistique
+    private void ajouterStatistique(DocumentReference ecoleRef) {
+        Map<String, Object> statistique = new HashMap<>();
+        statistique.put("moyenneGenerale", 16.5);
+        statistique.put("tauxReussite", 0.85);
+
+        ecoleRef.collection("Statistiques")
+                .add(statistique)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Statistique ajoutée avec succès !");
+                        } else {
+                            Log.w(TAG, "Erreur lors de l'ajout de la statistique", task.getException());
+                        }
+                    }
+                });
+    }
+}
