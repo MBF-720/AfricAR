@@ -9,8 +9,10 @@ import android.util.Log;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -30,12 +32,13 @@ public class MainActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
-        // Appeler la méthode pour créer une nouvelle école
-        creerNouvelleEcole();
+        // Ajouter une collection "Ecoles"
+        ajouterEcoles();
     }
 
-    private void creerNouvelleEcole() {
-        ajouterEcole("Nouvelle Ecole", "Actualités de la nouvelle école");
+    private void ajouterEcoles() {
+        ajouterEcole("Ecole 1", "Actualités de l'école 1");
+        ajouterEcole("Ecole 2", "Actualités de l'école 2");
     }
 
     private void ajouterEcole(String nom, String actualites) {
@@ -50,7 +53,13 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Ecole ajoutée avec succès !");
-                            ajouterPersonnes(task.getResult());
+                            DocumentReference ecoleRef = task.getResult();
+                            ajouterEleve(ecoleRef);
+                            ajouterAdmin(ecoleRef);
+                            ajouterProfesseur(ecoleRef);
+                            ajouterClasses(ecoleRef);  // Appel à ajouterClasses à la place de ajouterMatiere
+                            ajouterSalle(ecoleRef);
+                            ajouterStatistique(ecoleRef);
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout de l'école", task.getException());
                         }
@@ -58,33 +67,9 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private void ajouterPersonnes(DocumentReference ecoleRef) {
-        ajouterPersonne(ecoleRef, "Nom de la personne 1", "Prénom de la personne 1", "Email de la personne 1", "Mot de passe de la personne 1");
-    }
 
-    private void ajouterPersonne(DocumentReference ecoleRef, String nom, String prenom, String email, String motDePasse) {
-        Map<String, Object> personne = new HashMap<>();
-        personne.put("nom", nom);
-        personne.put("prenom", prenom);
-        personne.put("email", email);
-        personne.put("motDePasse", motDePasse);
 
-        ecoleRef.collection("Personnes")
-                .add(personne)
-                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "Personne ajoutée avec succès !");
-                            ajouterEleve(ecoleRef);
-                            ajouterAdmin(ecoleRef);
-                            ajouterProfesseur(ecoleRef);
-                        } else {
-                            Log.w(TAG, "Erreur lors de l'ajout de la personne", task.getException());
-                        }
-                    }
-                });
-    }
+
 
     private void ajouterEleve(DocumentReference ecoleRef) {
         Map<String, Object> eleve = new HashMap<>();
@@ -142,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Professeur ajouté avec succès !");
-                            ajouterClasse(ecoleRef);
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout du professeur", task.getException());
                         }
@@ -150,9 +134,16 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private void ajouterClasse(DocumentReference ecoleRef) {
+    private void ajouterClasses(DocumentReference ecoleRef) {
+        ajouterClasse(ecoleRef, "Classe 1");
+        ajouterClasse(ecoleRef, "Classe 2");
+    }
+
+    private void ajouterClasse(DocumentReference ecoleRef, String nomClasse) {
         Map<String, Object> classe = new HashMap<>();
-        classe.put("nom", "Nom de la classe");
+        classe.put("nom", nomClasse);
+        classe.put("listeEleves", new ArrayList<DocumentReference>());
+        classe.put("listeProfesseurs", new ArrayList<DocumentReference>());
 
         ecoleRef.collection("Classes")
                 .add(classe)
@@ -162,8 +153,7 @@ public class MainActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Classe ajoutée avec succès !");
                             DocumentReference classeRef = task.getResult();
-                            ajouterMatiere(classeRef);
-                            ajouterMatiere(classeRef); // Ajouter une deuxième matière pour la classe
+                            ajouterMatieres(classeRef);
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout de la classe", task.getException());
                         }
@@ -171,9 +161,16 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private void ajouterMatiere(DocumentReference classeRef) {
+
+
+    private void ajouterMatieres(DocumentReference classeRef) {
+        ajouterMatiere(classeRef, "Mathématiques");
+        ajouterMatiere(classeRef, "Français");
+    }
+
+    private void ajouterMatiere(DocumentReference classeRef, String nomMatiere) {
         Map<String, Object> matiere = new HashMap<>();
-        matiere.put("nom", "Nom de la matière");
+        matiere.put("nom", nomMatiere);
 
         classeRef.collection("Matieres")
                 .add(matiere)
@@ -183,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Matière ajoutée avec succès !");
                             DocumentReference matiereRef = task.getResult();
-                            ajouterCours(matiereRef);
+                            ajouterCoursMatiere(matiereRef);
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout de la matière", task.getException());
                         }
@@ -191,9 +188,13 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+    private void ajouterCoursMatiere(DocumentReference matiereRef) {
+        ajouterCours(matiereRef);
+    }
+
     private void ajouterCours(DocumentReference matiereRef) {
         Map<String, Object> cours = new HashMap<>();
-        cours.put("nom", "Nom du cours");
+        cours.put("nom", "Cours de la matière");
 
         matiereRef.collection("Cours")
                 .add(cours)
@@ -202,8 +203,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Cours ajouté avec succès !");
-                            ajouterTP(task.getResult());
-                            ajouterQuiz(task.getResult());
+                            DocumentReference coursRef = task.getResult();
+                            ajouterTP(coursRef);
+                            ajouterQuiz(coursRef);
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout du cours", task.getException());
                         }
@@ -233,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
     private void ajouterQuiz(DocumentReference coursRef) {
         Map<String, Object> quiz = new HashMap<>();
         quiz.put("description", "Description du quiz");
+        quiz.put("date", "Date du quiz");
 
         coursRef.collection("Quizzes")
                 .add(quiz)
@@ -241,7 +244,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<DocumentReference> task) {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "Quiz ajouté avec succès !");
-                            ajouterQuestion(task.getResult());
+                            DocumentReference quizRef = task.getResult();
+                            ajouterQuestionsQuiz(quizRef);
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout du quiz", task.getException());
                         }
@@ -249,14 +253,19 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private void ajouterQuestion(DocumentReference quizRef) {
-        Map<String, Object> question = new HashMap<>();
-        question.put("enonce", "Enoncé de la question ?");
-        question.put("reponses", Arrays.asList("Réponse 1", "Réponse 2", "Réponse 3", "Réponse 4"));
-        question.put("reponseCorrecte", "Réponse 1");
+    private void ajouterQuestionsQuiz(DocumentReference quizRef) {
+        ajouterQuestion(quizRef, "Question 1", Arrays.asList("Réponse 1", "Réponse 2", "Réponse 3", "Réponse 4"), 2);
+        ajouterQuestion(quizRef, "Question 2", Arrays.asList("Réponse 1", "Réponse 2", "Réponse 3", "Réponse 4"), 3);
+    }
+
+    private void ajouterQuestion(DocumentReference quizRef, String question, List<String> reponses, int reponseCorrecte) {
+        Map<String, Object> questionMap = new HashMap<>();
+        questionMap.put("question", question);
+        questionMap.put("reponses", reponses);
+        questionMap.put("reponseCorrecte", reponseCorrecte);
 
         quizRef.collection("Questions")
-                .add(question)
+                .add(questionMap)
                 .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentReference> task) {
@@ -264,6 +273,43 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "Question ajoutée avec succès !");
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout de la question", task.getException());
+                        }
+                    }
+                });
+    }
+
+    private void ajouterSalle(DocumentReference ecoleRef) {
+        Map<String, Object> salle = new HashMap<>();
+        salle.put("numero", 1);
+
+        ecoleRef.collection("Salles")
+                .add(salle)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Salle ajoutée avec succès !");
+                        } else {
+                            Log.w(TAG, "Erreur lors de l'ajout de la salle", task.getException());
+                        }
+                    }
+                });
+    }
+
+    private void ajouterStatistique(DocumentReference ecoleRef) {
+        Map<String, Object> statistique = new HashMap<>();
+        statistique.put("moyenneGenerale", 16.5);
+        statistique.put("tauxReussite", 0.85);
+
+        ecoleRef.collection("Statistiques")
+                .add(statistique)
+                .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "Statistique ajoutée avec succès !");
+                        } else {
+                            Log.w(TAG, "Erreur lors de l'ajout de la statistique", task.getException());
                         }
                     }
                 });
