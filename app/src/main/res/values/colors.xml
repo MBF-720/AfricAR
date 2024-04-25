@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+	<!-- enter_id colors -->
+
+	<color name="colorPrimary">#008577</color>
+	<color name="colorPrimaryDark">#00574B</color>
+	<color name="colorAccent">#D81B60</color>
+	<color name="purple_200">#FFBB86FC</color>
+	<color name="purple_500">#FF6200EE</color>
+	<color name="purple_700">#FF3700B3</color>
+	<color name="teal_200">#FF03DAC5</color>
+	<color name="teal_700">#FF018786</color>
+	<color name="black">#FF000000</color>
+	<color name="white">#FFFFFFFF</color>
+
+	<color name="_bg__enter_id_ek2_color">#F3F6F4</color>
+	<color name="enter_your_scholar_id_color">#151918</color>
+	<color name="_bg__frame_96_ek1_color">#000000</color>
+	<color name="label_color">#5A6D67</color>
+	<color name="_bg__component_2_ek1_color">#207E5A</color>
+	<color name="button_color">#D8F3E3</color>
+	<color name="don_t_have_an_account__sign_up_color">#708982</color>
+	<color name="_bg__checkbox_ek5_color">#2F9A6F</color>
+	<color name="rectangle_19_color">#4D4D4D</color>
+	<color name="_bg__frame_10_ek7_color">#EFFAF4</color>
+	<color name="_bg__frame_1_ek3_color">#B06AB3</color>
+	<color name="_bg__frame_1_ek5_color">#118AB2</color>
+	<color name="_bg__frame_1_ek7_color">#EF476F</color>
+	<color name="_bg__frame_1_ek9_color">#FFD166</color>
+	<color name="ellipse_30_color">#FBD5DE</color>
+	<color name="ellipse_33_color">#C7EDFA</color>
+	<color name="ellipse_34_color">#FFD1D1</color>
+	<color name="ellipse_31_color">#E6D0E7</color>
+	<color name="b_color">#263238</color>
+	<color name="ellipse_34_ek1_color">#DCFEF5</color>
+	<color name="ellipse_32_color">#FFF0CC</color>
+	<color name="_bg__frame_4_ek3_color">#06D6A0</color>
+	<color name="_bg__frame_6_ek9_color">#FF6B6B</color>
+	<color name="rectangle_26_color">#ffffff</color>
+	<color name="ellipse_9_ek1_color">#C4CFCC</color>
 </resources>
