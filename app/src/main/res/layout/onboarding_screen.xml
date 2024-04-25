@@ -47,13 +47,6 @@
 					android:layout_height="wrap_content"
 					>
 
-					<View   android:id="@+id/_bg__frame_1_ek1"
-						android:background="@drawable/_bg__frame_1_ek1_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="343dp"
-						android:layout_height="672dp" />
-
 
 					<RelativeLayout android:id="@+id/frame_5"
 						android:layout_marginTop="0dp"
@@ -62,13 +55,6 @@
 						android:layout_height="wrap_content"
 						>
 
-						<View   android:id="@+id/_bg__frame_5_ek1"
-							android:background="@drawable/_bg__frame_5_ek1_shape"
-							 android:layout_marginStart="0dp"
-							android:layout_marginTop="0dp"
-							android:layout_width="343dp"
-							android:layout_height="608dp" />
-
 
 						<RelativeLayout android:id="@+id/frame_2"
 							android:layout_marginTop="0dp"
@@ -76,13 +62,6 @@
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							>
-
-							<View   android:id="@+id/_bg__frame_2_ek1"
-								android:background="@drawable/_bg__frame_2_ek1_shape"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="250dp"
-								android:layout_height="294dp" />
 
 							<ImageView android:id="@+id/happy_student_bro_1"
 								android:src="@drawable/happy_student_bro_1"
@@ -115,13 +94,6 @@
 							android:layout_height="wrap_content"
 							>
 
-							<View   android:id="@+id/_bg__frame_3_ek1"
-								android:background="@drawable/_bg__frame_3_ek1_shape"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="343dp"
-								android:layout_height="290dp" />
-
 							<ImageView android:id="@+id/facebook_login_1"
 								android:src="@drawable/facebook_login_1"
 								android:contentDescription="facebook_login_1"
@@ -153,13 +125,6 @@
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								>
-
-								<View   android:id="@+id/_bg__frame_4_ek1"
-									android:background="@drawable/_bg__frame_4_ek1_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="341dp"
-									android:layout_height="24dp" />
 
 								<ImageView android:id="@+id/line_1"
 									android:src="@drawable/line_1"

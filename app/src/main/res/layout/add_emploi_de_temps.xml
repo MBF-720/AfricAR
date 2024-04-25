@@ -80,13 +80,14 @@
 					android:layout_height="wrap_content"
 					>
 
-					<View   android:id="@+id/_bg__frame_181_ek1"
-						android:background="@drawable/_bg__frame_181_ek1_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="363dp"
-						android:layout_height="319dp" />
 
+					<View
+						android:id="@+id/_bg__frame_181_ek1"
+						android:layout_width="363dp"
+						android:layout_height="319dp"
+						android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:background="@drawable/_bg__frame_181_ek1_shape" />
 
 					<RelativeLayout android:id="@+id/frame_180"
 						android:layout_marginTop="10dp"
@@ -213,13 +214,6 @@
 											android:layout_height="wrap_content"
 											>
 
-											<View   android:id="@+id/_bg__frame_7_ek59"
-												android:background="@drawable/_bg__frame_7_ek59_shape"
-												 android:layout_marginStart="0dp"
-												android:layout_marginTop="0dp"
-												android:layout_width="59dp"
-												android:layout_height="19dp" />
-
 											<TextView android:id="@+id/label_ek25"
 												android:textSize="16sp"
 												android:textColor="@color/label_color"
@@ -272,13 +266,6 @@
 												android:layout_height="wrap_content"
 												>
 
-												<View   android:id="@+id/_bg__frame_7_ek61"
-													android:background="@drawable/_bg__frame_7_ek61_shape"
-													 android:layout_marginStart="0dp"
-													android:layout_marginTop="0dp"
-													android:layout_width="46dp"
-													android:layout_height="19dp" />
-
 												<TextView android:id="@+id/label_ek26"
 													android:textSize="16sp"
 													android:textColor="@color/label_color"
@@ -315,13 +302,6 @@
 												android:layout_width="wrap_content"
 												android:layout_height="wrap_content"
 												>
-
-												<View   android:id="@+id/_bg__frame_7_ek63"
-													android:background="@drawable/_bg__frame_7_ek63_shape"
-													 android:layout_marginStart="0dp"
-													android:layout_marginTop="0dp"
-													android:layout_width="46dp"
-													android:layout_height="19dp" />
 
 												<TextView android:id="@+id/label_ek27"
 													android:textSize="16sp"
@@ -383,13 +363,6 @@
 									android:layout_height="wrap_content"
 									>
 
-									<View   android:id="@+id/_bg__frame_7_ek65"
-										android:background="@drawable/_bg__frame_7_ek65_shape"
-										 android:layout_marginStart="0dp"
-										android:layout_marginTop="0dp"
-										android:layout_width="59dp"
-										android:layout_height="19dp" />
-
 									<TextView android:id="@+id/label_ek28"
 										android:textSize="16sp"
 										android:textColor="@color/label_color"
@@ -442,13 +415,6 @@
 										android:layout_height="wrap_content"
 										>
 
-										<View   android:id="@+id/_bg__frame_7_ek67"
-											android:background="@drawable/_bg__frame_7_ek67_shape"
-											 android:layout_marginStart="0dp"
-											android:layout_marginTop="0dp"
-											android:layout_width="46dp"
-											android:layout_height="19dp" />
-
 										<TextView android:id="@+id/label_ek29"
 											android:textSize="16sp"
 											android:textColor="@color/label_color"
@@ -485,13 +451,6 @@
 										android:layout_width="wrap_content"
 										android:layout_height="wrap_content"
 										>
-
-										<View   android:id="@+id/_bg__frame_7_ek69"
-											android:background="@drawable/_bg__frame_7_ek69_shape"
-											 android:layout_marginStart="0dp"
-											android:layout_marginTop="0dp"
-											android:layout_width="46dp"
-											android:layout_height="19dp" />
 
 										<TextView android:id="@+id/label_ek30"
 											android:textSize="16sp"
@@ -699,13 +658,6 @@
 											android:layout_height="wrap_content"
 											>
 
-											<View   android:id="@+id/_bg__frame_7_ek71"
-												android:background="@drawable/_bg__frame_7_ek71_shape"
-												 android:layout_marginStart="0dp"
-												android:layout_marginTop="0dp"
-												android:layout_width="59dp"
-												android:layout_height="19dp" />
-
 											<TextView android:id="@+id/label_ek31"
 												android:textSize="16sp"
 												android:textColor="@color/label_color"
@@ -758,13 +710,6 @@
 												android:layout_height="wrap_content"
 												>
 
-												<View   android:id="@+id/_bg__frame_7_ek73"
-													android:background="@drawable/_bg__frame_7_ek73_shape"
-													 android:layout_marginStart="0dp"
-													android:layout_marginTop="0dp"
-													android:layout_width="46dp"
-													android:layout_height="19dp" />
-
 												<TextView android:id="@+id/label_ek32"
 													android:textSize="16sp"
 													android:textColor="@color/label_color"
@@ -801,13 +746,6 @@
 												android:layout_width="wrap_content"
 												android:layout_height="wrap_content"
 												>
-
-												<View   android:id="@+id/_bg__frame_7_ek75"
-													android:background="@drawable/_bg__frame_7_ek75_shape"
-													 android:layout_marginStart="0dp"
-													android:layout_marginTop="0dp"
-													android:layout_width="46dp"
-													android:layout_height="19dp" />
 
 												<TextView android:id="@+id/label_ek33"
 													android:textSize="16sp"

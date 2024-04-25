@@ -220,13 +220,6 @@
 							android:layout_height="wrap_content"
 							>
 
-							<View   android:id="@+id/_bg__frame_9_ek7"
-								android:background="@drawable/_bg__frame_9_ek7_shape"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="4dp"
-								android:layout_height="16dp" />
-
 							<View   android:id="@+id/ellipse_25"
 								android:background="@drawable/ellipse_25_shape"
 								 android:layout_marginStart="0dp"
@@ -333,13 +326,6 @@
 							android:layout_height="wrap_content"
 							>
 
-							<View   android:id="@+id/_bg__frame_9_ek9"
-								android:background="@drawable/_bg__frame_9_ek9_shape"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="4dp"
-								android:layout_height="16dp" />
-
 							<View   android:id="@+id/ellipse_25_ek1"
 								android:background="@drawable/ellipse_25_ek1_shape"
 								 android:layout_marginStart="0dp"
@@ -445,13 +431,6 @@
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							>
-
-							<View   android:id="@+id/_bg__frame_9_ek11"
-								android:background="@drawable/_bg__frame_9_ek11_shape"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="4dp"
-								android:layout_height="16dp" />
 
 							<View   android:id="@+id/ellipse_25_ek2"
 								android:background="@drawable/ellipse_25_ek2_shape"

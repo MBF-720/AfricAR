@@ -17,6 +17,7 @@
 
 	package pfe.africar.activitys;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -25,11 +26,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import pfe.africar.R;
 
 	public class onboarding_screen_activity extends Activity {
 
-	
+	FirebaseAuth mAuth;
+	FirebaseUser mUser;
 	private View _bg__onboarding_screen_ek2;
 	private View _bg__frame_1_ek1;
 	private View _bg__frame_5_ek1;
@@ -48,6 +53,7 @@ import pfe.africar.R;
 	private TextView button_ek1;
 	private TextView don_t_have_an_account__sign_up;
 
+	@SuppressLint("MissingInflatedId")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -56,16 +62,13 @@ import pfe.africar.R;
 
 		
 		_bg__onboarding_screen_ek2 = (View) findViewById(R.id._bg__onboarding_screen_ek2);
-		_bg__frame_1_ek1 = (View) findViewById(R.id._bg__frame_1_ek1);
-		_bg__frame_5_ek1 = (View) findViewById(R.id._bg__frame_5_ek1);
-		_bg__frame_2_ek1 = (View) findViewById(R.id._bg__frame_2_ek1);
+
 		happy_student_bro_1 = (ImageView) findViewById(R.id.happy_student_bro_1);
 		let_s_you_in = (TextView) findViewById(R.id.let_s_you_in);
-		_bg__frame_3_ek1 = (View) findViewById(R.id._bg__frame_3_ek1);
 		facebook_login_1 = (ImageView) findViewById(R.id.facebook_login_1);
 		google_login = (ImageView) findViewById(R.id.google_login);
 		apple_login = (ImageView) findViewById(R.id.apple_login);
-		_bg__frame_4_ek1 = (View) findViewById(R.id._bg__frame_4_ek1);
+
 		line_1 = (ImageView) findViewById(R.id.line_1);
 		or = (TextView) findViewById(R.id.or);
 		line_2 = (ImageView) findViewById(R.id.line_2);
