@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "759526640442",
+    "project_id": "africar-5baf3",
+    "storage_bucket": "africar-5baf3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:759526640442:android:c12e9b6a4a1a88b8939e03",
+        "android_client_info": {
+          "package_name": "pfe.africar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrh6x0sM4ZuQqdglWqDVGhAjtHnpjPuuY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

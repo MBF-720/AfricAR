@@ -1,0 +1,225 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent" android:layout_height="wrap_content" >
+	<!-- 
+	/*
+	 *	This content is generated from the API File Info.
+	 *	(Alt+Shift+Ctrl+I).
+	 *
+	 *	@desc 		
+	 *	@file 		enter_id
+	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
+	 *	@title 		Page 1
+	 *	@author 	
+	 *	@keywords 	
+	 *	@generator 	Export Kit v1.3.figma
+	 *
+	 */
+	-->
+	<ScrollView android:id="@+id/result_quiz" 
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent" >
+
+		<RelativeLayout android:id="@+id/content_container" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" >
+
+
+
+
+
+
+
+
+
+
+
+			<RelativeLayout android:id="@+id/page_result_quiz_ek1"
+				android:layout_marginTop="0dp"
+				android:layout_marginStart="0dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				>
+
+				<View   android:id="@+id/_bg__result_quiz_ek2"
+					android:background="@drawable/_bg__result_quiz_ek2_shape"
+					 android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:layout_width="385dp"
+					android:layout_height="812dp" />
+
+
+				<RelativeLayout android:id="@+id/frame_74"
+					android:layout_marginTop="205dp"
+					android:layout_marginStart="47dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<View   android:id="@+id/_bg__frame_74_ek1"
+						android:background="@drawable/_bg__frame_74_ek1_shape"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="290dp"
+						android:layout_height="401dp" />
+
+
+					<RelativeLayout android:id="@+id/group_86"
+						android:layout_marginTop="0dp"
+						android:layout_marginStart="25dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+						<View   android:id="@+id/_bg__group_86_ek1"
+							android:background="@drawable/_bg__group_86_ek1_shape"
+							 android:layout_marginStart="-25dp"
+							android:layout_marginTop="0dp"
+							android:layout_width="240dp"
+							android:layout_height="257dp" />
+
+						<View   android:id="@+id/ellipse_35_ek4"
+							android:background="@drawable/ellipse_35_ek4_shape"
+							 android:layout_marginStart="0dp"
+							android:layout_marginTop="17dp"
+							android:layout_width="240dp"
+							android:layout_height="240dp" />
+
+						<View   android:id="@+id/ellipse_36"
+							android:background="@drawable/ellipse_36_shape"
+							 android:layout_marginStart="94dp"
+							android:layout_marginTop="0dp"
+							android:layout_width="52dp"
+							android:layout_height="52dp" />
+
+						<TextView android:id="@+id/_100_"
+							android:textStyle="bold"
+							android:layout_gravity="center_horizontal|center"
+							android:gravity="center"
+							android:textSize="40sp"
+							android:textColor="@color/enter_your_scholar_id_color"
+							android:layout_marginLeft="60dp"
+							android:layout_marginTop="112dp"
+							android:layout_width="114dp"
+							android:layout_height="36dp"
+							android:text="@string/_100__string"
+							 />
+
+						<TextView android:id="@+id/_20_of20"
+							android:textStyle="bold"
+							android:layout_gravity="center_horizontal|center"
+							android:gravity="center"
+							android:textSize="16sp"
+							android:textColor="@color/label_color"
+							android:layout_marginLeft="87dp"
+							android:layout_marginTop="148dp"
+							android:layout_width="67dp"
+							android:layout_height="28.6dp"
+							android:text="@string/_20_of20_string"
+							 />
+
+
+						<RelativeLayout android:id="@+id/lets_icons_done_round"
+							android:layout_marginTop="1dp"
+							android:layout_marginStart="95dp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							>
+
+							<View   android:id="@+id/_bg__lets_icons_done_round_ek1"
+								android:background="@drawable/_bg__lets_icons_done_round_ek1_shape"
+								 android:layout_marginStart="0dp"
+								android:layout_marginTop="0dp"
+								android:layout_width="50dp"
+								android:layout_height="50dp" />
+
+							<ImageView android:id="@+id/vector_ek75"
+								android:src="@drawable/vector_ek75"
+								android:contentDescription="vector_ek75"
+								 android:layout_marginStart="6.42dp"
+								android:layout_marginTop="8.5dp"
+								android:layout_width="31.08dp"
+								android:layout_height="26.14dp" />
+
+						</RelativeLayout>
+
+					</RelativeLayout>
+
+
+					<RelativeLayout android:id="@+id/frame_73"
+						android:layout_marginTop="305dp"
+						android:layout_marginStart="0dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+						<View   android:id="@+id/_bg__frame_73_ek1"
+							android:background="@drawable/_bg__frame_73_ek1_shape"
+							 android:layout_marginStart="0dp"
+							android:layout_marginTop="0dp"
+							android:layout_width="290dp"
+							android:layout_height="96dp" />
+
+						<TextView android:id="@+id/you_are_awesome_"
+							android:textStyle="bold"
+							android:layout_gravity="center_horizontal|center"
+							android:gravity="center"
+							android:textSize="24sp"
+							android:textColor="@color/enter_your_scholar_id_color"
+							android:layout_marginLeft="38dp"
+							android:layout_marginTop="0dp"
+							android:layout_width="213.4dp"
+							android:layout_height="31.4dp"
+							android:text="@string/you_are_awesome__string"
+							 />
+
+						<TextView android:id="@+id/congratulations_for_getting_all_the_answers_correct_"
+							android:layout_gravity="center_horizontal|center"
+							android:gravity="center"
+							android:textSize="21sp"
+							android:textColor="@color/label_color"
+							android:layout_marginLeft="-4dp"
+							android:layout_marginTop="48dp"
+							android:layout_width="297.1dp"
+							android:layout_height="54.1dp"
+							android:text="@string/congratulations_for_getting_all_the_answers_correct__string"
+							 />
+
+					</RelativeLayout>
+
+				</RelativeLayout>
+
+				<ImageView android:id="@+id/x_1_ek1"
+					android:src="@drawable/x_1_ek1"
+					android:contentDescription="x_1_ek1"
+					 android:layout_marginStart="16dp"
+					android:layout_marginTop="68dp"
+					android:layout_width="36dp"
+					android:layout_height="36dp" />
+
+			</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</RelativeLayout>
+
+	</ScrollView>
+</HorizontalScrollView>

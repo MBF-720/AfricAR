@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- _bg__frame_59_ek3 from your XD file. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="rectangle" >
+	<corners android:radius="24dp" />
+	<stroke android:color="#2f9a6f" android:width="4dp" />
+	<solid android:color="@color/_bg__enter_id_ek2_color" />
+</shape>
+

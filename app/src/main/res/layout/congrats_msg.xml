@@ -1,0 +1,204 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent" android:layout_height="wrap_content" >
+	<!-- 
+	/*
+	 *	This content is generated from the API File Info.
+	 *	(Alt+Shift+Ctrl+I).
+	 *
+	 *	@desc 		
+	 *	@file 		enter_id
+	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
+	 *	@title 		Page 1
+	 *	@author 	
+	 *	@keywords 	
+	 *	@generator 	Export Kit v1.3.figma
+	 *
+	 */
+	-->
+	<ScrollView android:id="@+id/congrats_msg" 
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent" >
+
+		<RelativeLayout android:id="@+id/content_container" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" >
+
+
+
+
+
+			<RelativeLayout android:id="@+id/page_congrats_msg_ek1"
+				android:layout_marginTop="0dp"
+				android:layout_marginStart="0dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				>
+
+				<View   android:id="@+id/_bg__congrats_msg_ek2"
+					android:background="@drawable/_bg__congrats_msg_ek2_shape"
+					 android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:layout_width="385dp"
+					android:layout_height="812dp" />
+
+				<View   android:id="@+id/rectangle_19"
+					android:background="@drawable/rectangle_19_shape"
+					 android:alpha="0.5"
+					 android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:layout_width="375dp"
+					android:layout_height="812dp" />
+
+
+				<RelativeLayout android:id="@+id/frame_6_ek6"
+					android:layout_marginTop="241.5dp"
+					android:layout_marginStart="56.5dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<View   android:id="@+id/_bg__frame_6_ek7"
+						android:background="@drawable/_bg__frame_6_ek7_shape"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="273dp"
+						android:layout_height="328.3dp" />
+
+					<ImageView android:id="@+id/undraw_well_done_re_3hpo_2"
+						android:src="@drawable/undraw_well_done_re_3hpo_2"
+						android:contentDescription="undraw_well_done_re_3hpo_2"
+						 android:layout_marginStart="61dp"
+						android:layout_marginTop="24dp"
+						android:layout_width="151dp"
+						android:layout_height="149dp" />
+
+					<TextView android:id="@+id/congratulations_"
+						android:textSize="16sp"
+						android:textColor="@color/_bg__checkbox_ek5_color"
+						android:layout_marginLeft="77dp"
+						android:layout_marginTop="185dp"
+						android:layout_width="133.6dp"
+						android:layout_height="23.6dp"
+						android:text="@string/congratulations__string"
+						 />
+
+					<TextView android:id="@+id/your_account_is_ready_to_use_you_will_be_redirected_to_the_home_page_in_a_few_seconds_"
+						android:layout_gravity="center_horizontal|center"
+						android:gravity="center"
+						android:textSize="12sp"
+						android:textColor="@color/label_color"
+						android:layout_marginLeft="31dp"
+						android:layout_marginTop="216dp"
+						android:layout_width="213.2dp"
+						android:layout_height="48.2dp"
+						android:text="@string/your_account_is_ready_to_use_you_will_be_redirected_to_the_home_page_in_a_few_seconds__string"
+						 />
+
+
+					<RelativeLayout android:id="@+id/group_29"
+						android:layout_marginTop="273dp"
+						android:layout_marginStart="122dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+						<View   android:id="@+id/_bg__group_29_ek1"
+							android:background="@drawable/_bg__group_29_ek1_shape"
+							 android:layout_marginStart="-122dp"
+							android:layout_marginTop="-273dp"
+							android:layout_width="29dp"
+							android:layout_height="31.3dp" />
+
+						<View   android:id="@+id/ellipse_10"
+							android:background="@drawable/ellipse_10_shape"
+							 android:layout_marginStart="7dp"
+							android:layout_marginTop="1dp"
+							android:layout_width="6.53dp"
+							android:layout_height="6.53dp" />
+
+						<View   android:id="@+id/ellipse_11"
+							android:background="@drawable/ellipse_11_shape"
+							 android:layout_marginStart="18dp"
+							android:layout_marginTop="2dp"
+							android:layout_width="0.82dp"
+							android:layout_height="0.82dp" />
+
+						<View   android:id="@+id/ellipse_12"
+							android:background="@drawable/ellipse_12_shape"
+							 android:layout_marginStart="25dp"
+							android:layout_marginTop="8dp"
+							android:layout_width="1.63dp"
+							android:layout_height="1.63dp" />
+
+						<View   android:id="@+id/ellipse_13"
+							android:background="@drawable/ellipse_13_shape"
+							 android:layout_marginStart="26dp"
+							android:layout_marginTop="18dp"
+							android:layout_width="2.45dp"
+							android:layout_height="2.45dp" />
+
+						<View   android:id="@+id/ellipse_14"
+							android:background="@drawable/ellipse_14_shape"
+							 android:layout_marginStart="20dp"
+							android:layout_marginTop="25dp"
+							android:layout_width="3.27dp"
+							android:layout_height="3.27dp" />
+
+						<View   android:id="@+id/ellipse_15"
+							android:background="@drawable/ellipse_15_shape"
+							 android:layout_marginStart="10dp"
+							android:layout_marginTop="26dp"
+							android:layout_width="4.08dp"
+							android:layout_height="4.08dp" />
+
+						<View   android:id="@+id/ellipse_16"
+							android:background="@drawable/ellipse_16_shape"
+							 android:layout_marginStart="2dp"
+							android:layout_marginTop="20dp"
+							android:layout_width="4.9dp"
+							android:layout_height="4.9dp" />
+
+						<View   android:id="@+id/ellipse_17"
+							android:background="@drawable/ellipse_17_shape"
+							 android:layout_marginStart="1dp"
+							android:layout_marginTop="10dp"
+							android:layout_width="5.72dp"
+							android:layout_height="5.72dp" />
+
+					</RelativeLayout>
+
+				</RelativeLayout>
+
+			</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</RelativeLayout>
+
+	</ScrollView>
+</HorizontalScrollView>

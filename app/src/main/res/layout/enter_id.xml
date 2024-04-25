@@ -1,0 +1,184 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent" android:layout_height="wrap_content" >
+	<!-- 
+	/*
+	 *	This content is generated from the API File Info.
+	 *	(Alt+Shift+Ctrl+I).
+	 *
+	 *	@desc 		
+	 *	@file 		enter_id
+	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
+	 *	@title 		Page 1
+	 *	@author 	
+	 *	@keywords 	
+	 *	@generator 	Export Kit v1.3.figma
+	 *
+	 */
+	-->
+	<ScrollView android:id="@+id/enter_id" 
+		android:layout_width="wrap_content" 
+		android:layout_height="match_parent" >
+
+		<RelativeLayout android:id="@+id/content_container" 
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content" >
+
+
+
+			<RelativeLayout android:id="@+id/page_enter_id_ek1"
+				android:layout_marginTop="0dp"
+				android:layout_marginStart="0dp"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				>
+
+				<View   android:id="@+id/_bg__enter_id_ek2"
+					android:background="@drawable/_bg__enter_id_ek2_shape"
+					 android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:layout_width="385dp"
+					android:layout_height="812dp" />
+
+				<ImageView android:id="@+id/uil_arrow_up_1"
+					android:src="@drawable/uil_arrow_up_1"
+					android:contentDescription="uil_arrow_up_1"
+					 android:layout_marginStart="16dp"
+					android:layout_marginTop="80dp"
+					android:layout_width="36dp"
+					android:layout_height="36dp" />
+
+				<TextView android:id="@+id/enter_your_scholar_id"
+					android:textSize="36sp"
+					android:textColor="@color/enter_your_scholar_id_color"
+					android:layout_marginLeft="16dp"
+					android:layout_marginTop="148dp"
+					android:layout_width="206.6dp"
+					android:layout_height="98.6dp"
+					android:text="@string/enter_your_scholar_id_string"
+					 />
+
+
+				<RelativeLayout android:id="@+id/frame_96"
+					android:layout_marginTop="341dp"
+					android:layout_marginStart="21dp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					>
+
+					<View   android:id="@+id/_bg__frame_96_ek1"
+						android:background="@drawable/_bg__frame_96_ek1_shape"
+						 android:layout_marginStart="0dp"
+						android:layout_marginTop="0dp"
+						android:layout_width="343dp"
+						android:layout_height="129dp" />
+
+
+					<RelativeLayout android:id="@+id/medium"
+						android:layout_marginTop="0dp"
+						android:layout_marginStart="0dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+						<View   android:id="@+id/_bg__medium_ek1"
+							android:background="@drawable/_bg__medium_ek1_shape"
+							 android:layout_marginStart="-2dp"
+							android:layout_marginTop="-2dp"
+							android:layout_width="343dp"
+							android:layout_height="51dp" />
+
+
+						<RelativeLayout android:id="@+id/frame_7"
+							android:layout_marginTop="16dp"
+							android:layout_marginStart="8dp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							>
+
+							<View   android:id="@+id/_bg__frame_7_ek1"
+								android:background="@drawable/_bg__frame_7_ek1_shape"
+								 android:layout_marginStart="0dp"
+								android:layout_marginTop="0dp"
+								android:layout_width="78dp"
+								android:layout_height="19dp" />
+
+							<TextView android:id="@+id/label"
+								android:textSize="16sp"
+								android:textColor="@color/label_color"
+								android:layout_marginLeft="0dp"
+								android:layout_marginTop="0dp"
+								android:layout_width="92.6dp"
+								android:layout_height="23.6dp"
+								android:text="@string/label_string"
+								 />
+
+						</RelativeLayout>
+
+					</RelativeLayout>
+
+
+					<RelativeLayout android:id="@+id/component_2"
+						android:layout_marginTop="83dp"
+						android:layout_marginStart="0dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						>
+
+						<View   android:id="@+id/_bg__component_2_ek1"
+							android:background="@drawable/_bg__component_2_ek1_shape"
+							 android:layout_marginStart="0dp"
+							android:layout_marginTop="0dp"
+							android:layout_width="343dp"
+							android:layout_height="46dp" />
+
+						<TextView android:id="@+id/button"
+							android:textSize="18sp"
+							android:textColor="@color/button_color"
+							android:layout_marginLeft="132dp"
+							android:layout_marginTop="12dp"
+							android:layout_width="94.8dp"
+							android:layout_height="27.8dp"
+							android:text="@string/button_string"
+							 />
+
+					</RelativeLayout>
+
+				</RelativeLayout>
+
+			</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</RelativeLayout>
+
+	</ScrollView>
+</HorizontalScrollView>

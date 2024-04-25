@@ -1,15 +1,14 @@
 package pfe.africar.activitys;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -57,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                             ajouterEleve(ecoleRef);
                             ajouterAdmin(ecoleRef);
                             ajouterProfesseur(ecoleRef);
-                            ajouterClasses(ecoleRef);  // Appel à ajouterClasses à la place de ajouterMatiere
+                            ajouterClasses(ecoleRef);
                             ajouterSalle(ecoleRef);
                             ajouterStatistique(ecoleRef);
                         } else {
@@ -66,10 +65,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-
-
-
-
 
     private void ajouterEleve(DocumentReference ecoleRef) {
         Map<String, Object> eleve = new HashMap<>();
@@ -160,8 +155,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-
-
 
     private void ajouterMatieres(DocumentReference classeRef) {
         ajouterMatiere(classeRef, "Mathématiques");
