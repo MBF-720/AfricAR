@@ -10,10 +10,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AfricAR"
+        android:theme="@style/Base.Theme.AfricAR"
         tools:targetApi="31">
         <activity
-            android:name=".activitys.MainActivity"
+            android:name=".activitys.onboarding_screen_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

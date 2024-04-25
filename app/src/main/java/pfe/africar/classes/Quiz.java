@@ -1,4 +1,4 @@
 package pfe.africar.classes;
 
-public class ecole {
+public class Quiz {
 }

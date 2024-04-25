@@ -77,27 +77,16 @@ import pfe.africar.R;
 		
 		_bg__add_cours_ek2 = (View) findViewById(R.id._bg__add_cours_ek2);
 		add_new_course = (TextView) findViewById(R.id.add_new_course);
-		_bg__frame_113_ek1 = (View) findViewById(R.id._bg__frame_113_ek1);
-		_bg__frame_112_ek1 = (View) findViewById(R.id._bg__frame_112_ek1);
-		_bg__frame_110_ek1 = (View) findViewById(R.id._bg__frame_110_ek1);
+
 		course_details__ = (TextView) findViewById(R.id.course_details__);
-		_bg__frame_108_ek1 = (View) findViewById(R.id._bg__frame_108_ek1);
 		_bg__medium_ek3 = (View) findViewById(R.id._bg__medium_ek3);
-		_bg__frame_7_ek25 = (View) findViewById(R.id._bg__frame_7_ek25);
 		label_ek9 = (TextView) findViewById(R.id.label_ek9);
-		_bg__medium_1icon_ek7 = (View) findViewById(R.id._bg__medium_1icon_ek7);
-		_bg__material_symbols_upload_ek1 = (View) findViewById(R.id._bg__material_symbols_upload_ek1);
 		vector_ek597 = (ImageView) findViewById(R.id.vector_ek597);
-		_bg__frame_7_ek27 = (View) findViewById(R.id._bg__frame_7_ek27);
 		upload_file = (TextView) findViewById(R.id.upload_file);
-		_bg__frame_111_ek1 = (View) findViewById(R.id._bg__frame_111_ek1);
 		course_schedule__ = (TextView) findViewById(R.id.course_schedule__);
-		_bg__frame_109_ek1 = (View) findViewById(R.id._bg__frame_109_ek1);
 		_bg__medium_ek5 = (View) findViewById(R.id._bg__medium_ek5);
-		_bg__frame_7_ek29 = (View) findViewById(R.id._bg__frame_7_ek29);
 		label_ek10 = (TextView) findViewById(R.id.label_ek10);
 		_bg__medium_ek7 = (View) findViewById(R.id._bg__medium_ek7);
-		_bg__frame_7_ek31 = (View) findViewById(R.id._bg__frame_7_ek31);
 		label_ek11 = (TextView) findViewById(R.id.label_ek11);
 		_bg__component_1_ek19 = (View) findViewById(R.id._bg__component_1_ek19);
 		button_ek13 = (TextView) findViewById(R.id.button_ek13);
