@@ -70,13 +70,6 @@
 					android:layout_height="wrap_content"
 					>
 
-					<View   android:id="@+id/_bg__frame_106_ek1"
-						android:background="@drawable/_bg__frame_106_ek1_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="343dp"
-						android:layout_height="460dp" />
-
 
 					<RelativeLayout android:id="@+id/frame_103"
 						android:layout_marginTop="0dp"
@@ -100,13 +93,6 @@
 							android:layout_height="wrap_content"
 							>
 
-							<View   android:id="@+id/_bg__teacher_rafiki_ek1"
-								android:background="@drawable/_bg__teacher_rafiki_ek1_shape"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="120dp"
-								android:layout_height="120dp" />
-
 
 							<RelativeLayout android:id="@+id/freepik__background_complete__inject_2"
 								android:layout_marginTop="13.2dp"
@@ -114,13 +100,6 @@
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								>
-
-								<View   android:id="@+id/_bg__freepik__background_complete__inject_2_ek1"
-									android:background="@drawable/_bg__freepik__background_complete__inject_2_ek1_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="-13dp"
-									android:layout_width="120dp"
-									android:layout_height="83.15dp" />
 
 								<ImageView android:id="@+id/vector_ek108"
 									android:src="@drawable/vector_ek108"
@@ -1782,15 +1761,15 @@
 
 						</RelativeLayout>
 
-						<TextView android:id="@+id/courses_ek13"
-							android:textSize="32sp"
-							android:textColor="@color/enter_your_scholar_id_color"
-							android:layout_marginLeft="220dp"
-							android:layout_marginTop="48.5dp"
+						<TextView
+							android:id="@+id/courses_ek13"
 							android:layout_width="131.2dp"
 							android:layout_height="48.2dp"
+							android:layout_marginLeft="220dp"
+							android:layout_marginTop="48.5dp"
 							android:text="@string/courses_ek13_string"
-							 />
+							android:textColor="@color/enter_your_scholar_id_color"
+							android:textSize="32sp" />
 
 					</RelativeLayout>
 
@@ -1817,13 +1796,6 @@
 							android:layout_height="wrap_content"
 							>
 
-							<View   android:id="@+id/_bg__customer_survey_rafiki_ek1"
-								android:background="@drawable/_bg__customer_survey_rafiki_ek1_shape"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="120dp"
-								android:layout_height="120dp" />
-
 
 							<RelativeLayout android:id="@+id/freepik__background_complete__inject_15"
 								android:layout_marginTop="13.2dp"
@@ -1831,13 +1803,6 @@
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								>
-
-								<View   android:id="@+id/_bg__freepik__background_complete__inject_15_ek1"
-									android:background="@drawable/_bg__freepik__background_complete__inject_15_ek1_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="-13dp"
-									android:layout_width="120dp"
-									android:layout_height="83.15dp" />
 
 								<ImageView android:id="@+id/vector_ek281"
 									android:src="@drawable/vector_ek281"
@@ -2934,13 +2899,6 @@
 							android:layout_height="wrap_content"
 							>
 
-							<View   android:id="@+id/_bg__chemistry_lab_rafiki_ek1"
-								android:background="@drawable/_bg__chemistry_lab_rafiki_ek1_shape"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="120dp"
-								android:layout_height="120dp" />
-
 
 							<RelativeLayout android:id="@+id/freepik__background_complete__inject_2_ek2"
 								android:layout_marginTop="7.08dp"
@@ -2948,13 +2906,6 @@
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								>
-
-								<View   android:id="@+id/_bg__freepik__background_complete__inject_2_ek3"
-									android:background="@drawable/_bg__freepik__background_complete__inject_2_ek3_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="-7dp"
-									android:layout_width="120dp"
-									android:layout_height="92.54dp" />
 
 
 								<RelativeLayout android:id="@+id/group_ek46"
@@ -2964,13 +2915,6 @@
 									android:layout_height="wrap_content"
 									>
 
-									<View   android:id="@+id/_bg__group_ek47"
-										android:background="@drawable/_bg__group_ek47_shape"
-										 android:layout_marginStart="0dp"
-										android:layout_marginTop="-13dp"
-										android:layout_width="120dp"
-										android:layout_height="86.37dp" />
-
 
 									<RelativeLayout android:id="@+id/group_ek48"
 										android:layout_marginTop="0dp"
@@ -2979,13 +2923,6 @@
 										android:layout_height="wrap_content"
 										>
 
-										<View   android:id="@+id/_bg__group_ek49"
-											android:background="@drawable/_bg__group_ek49_shape"
-											 android:layout_marginStart="0dp"
-											android:layout_marginTop="-13dp"
-											android:layout_width="120dp"
-											android:layout_height="80.72dp" />
-
 
 										<RelativeLayout android:id="@+id/group_ek50"
 											android:layout_marginTop="0dp"
@@ -2993,13 +2930,6 @@
 											android:layout_width="wrap_content"
 											android:layout_height="wrap_content"
 											>
-
-											<View   android:id="@+id/_bg__group_ek51"
-												android:background="@drawable/_bg__group_ek51_shape"
-												 android:layout_marginStart="-12dp"
-												android:layout_marginTop="-13dp"
-												android:layout_width="96.21dp"
-												android:layout_height="66dp" />
 
 											<ImageView android:id="@+id/vector_ek398"
 												android:src="@drawable/vector_ek398"
