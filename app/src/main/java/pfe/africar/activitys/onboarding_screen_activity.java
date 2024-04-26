@@ -19,6 +19,7 @@
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 
@@ -29,6 +30,7 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import pfe.africar.GoogleSignInActivity;
 import pfe.africar.R;
 
 	public class onboarding_screen_activity extends Activity {
@@ -78,8 +80,15 @@ import pfe.africar.R;
 	
 		
 		//custom code goes here
-	
+	google_login.setOnClickListener(new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			Intent intent=new Intent(onboarding_screen_activity.this, GoogleSignInActivity.class);
+			startActivity(intent);
+		}
+	});
 	}
+
 }
 	
 	

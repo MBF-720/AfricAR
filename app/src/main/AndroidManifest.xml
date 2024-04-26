@@ -13,6 +13,9 @@
         android:theme="@style/Base.Theme.AfricAR"
         tools:targetApi="31">
         <activity
+            android:name=".GoogleSignInActivity"
+            android:exported="false" />
+        <activity
             android:name=".activitys.onboarding_screen_activity"
             android:exported="true">
             <intent-filter>
