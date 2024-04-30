@@ -19,6 +19,8 @@ import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
+
 
 import pfe.africar.activitys.onboarding_screen_activity;
 
@@ -31,7 +33,8 @@ public class GoogleSignInActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseUser mUser;
     ProgressDialog progressDialog;
-    private AuthResult GoogleAuthProvider;
+    private GoogleAuthProvider GoogleAuthProvider;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +76,7 @@ public class GoogleSignInActivity extends AppCompatActivity {
     }
 
     private void signInWithGoogle(String idToken) {
-        AuthCredential firebaseCredential = GoogleAuthProvider.getCredential();
+        AuthCredential firebaseCredential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(firebaseCredential)
                 .addOnCompleteListener(this, new OnCompleteListener <AuthResult>() {
                     @Override
