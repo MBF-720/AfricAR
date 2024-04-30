@@ -13,19 +13,19 @@
 	 *	@generator 	Export Kit v1.3.figma
 	 *
 	 */
-	
-
-package exportkit.figma;
-
-import android.app.Activity;
-import android.os.Bundle;
 
 
-import android.view.View;
-import android.widget.TextView;
-import android.widget.ImageView;
+	package pfe.africar.activitys;
 
-public class coure_list_activity extends Activity {
+	import android.app.Activity;
+	import android.os.Bundle;
+	import android.view.View;
+	import android.widget.ImageView;
+	import android.widget.TextView;
+
+	import pfe.africar.R;
+
+	public class coure_list_activity extends Activity {
 
 	
 	private View _bg__coure_list_ek2;

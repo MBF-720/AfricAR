@@ -630,10 +630,8 @@ import pfe.africar.R;
 		
 		_bg__academics_ek2 = (View) findViewById(R.id._bg__academics_ek2);
 		academics_ek3 = (TextView) findViewById(R.id.academics_ek3);
-		_bg__frame_106_ek1 = (View) findViewById(R.id._bg__frame_106_ek1);
 		_bg__frame_103_ek1 = (View) findViewById(R.id._bg__frame_103_ek1);
-		_bg__teacher_rafiki_ek1 = (View) findViewById(R.id._bg__teacher_rafiki_ek1);
-		_bg__freepik__background_complete__inject_2_ek1 = (View) findViewById(R.id._bg__freepik__background_complete__inject_2_ek1);
+
 		vector_ek108 = (ImageView) findViewById(R.id.vector_ek108);
 		vector_ek109 = (ImageView) findViewById(R.id.vector_ek109);
 		vector_ek110 = (ImageView) findViewById(R.id.vector_ek110);
@@ -826,8 +824,6 @@ import pfe.africar.R;
 		vector_ek280 = (ImageView) findViewById(R.id.vector_ek280);
 		courses_ek13 = (TextView) findViewById(R.id.courses_ek13);
 		_bg__frame_105_ek1 = (View) findViewById(R.id._bg__frame_105_ek1);
-		_bg__customer_survey_rafiki_ek1 = (View) findViewById(R.id._bg__customer_survey_rafiki_ek1);
-		_bg__freepik__background_complete__inject_15_ek1 = (View) findViewById(R.id._bg__freepik__background_complete__inject_15_ek1);
 		vector_ek281 = (ImageView) findViewById(R.id.vector_ek281);
 		vector_ek282 = (ImageView) findViewById(R.id.vector_ek282);
 		vector_ek283 = (ImageView) findViewById(R.id.vector_ek283);
@@ -954,11 +950,8 @@ import pfe.africar.R;
 		vector_ek397 = (ImageView) findViewById(R.id.vector_ek397);
 		quizzes_ek10 = (TextView) findViewById(R.id.quizzes_ek10);
 		_bg__frame_104_ek1 = (View) findViewById(R.id._bg__frame_104_ek1);
-		_bg__chemistry_lab_rafiki_ek1 = (View) findViewById(R.id._bg__chemistry_lab_rafiki_ek1);
-		_bg__freepik__background_complete__inject_2_ek3 = (View) findViewById(R.id._bg__freepik__background_complete__inject_2_ek3);
-		_bg__group_ek47 = (View) findViewById(R.id._bg__group_ek47);
-		_bg__group_ek49 = (View) findViewById(R.id._bg__group_ek49);
-		_bg__group_ek51 = (View) findViewById(R.id._bg__group_ek51);
+
+
 		vector_ek398 = (ImageView) findViewById(R.id.vector_ek398);
 		vector_ek399 = (ImageView) findViewById(R.id.vector_ek399);
 		vector_ek400 = (ImageView) findViewById(R.id.vector_ek400);

@@ -71,22 +71,16 @@ import pfe.africar.R;
 		
 		_bg__add_agent_ek2 = (View) findViewById(R.id._bg__add_agent_ek2);
 		add_new_agent = (TextView) findViewById(R.id.add_new_agent);
-		_bg__frame_142_ek5 = (View) findViewById(R.id._bg__frame_142_ek5);
-		_bg__frame_141_ek9 = (View) findViewById(R.id._bg__frame_141_ek9);
+
 		_bg__medium_ek73 = (View) findViewById(R.id._bg__medium_ek73);
-		_bg__frame_7_ek97 = (View) findViewById(R.id._bg__frame_7_ek97);
 		label_ek44 = (TextView) findViewById(R.id.label_ek44);
 		_bg__medium_ek75 = (View) findViewById(R.id._bg__medium_ek75);
-		_bg__frame_7_ek99 = (View) findViewById(R.id._bg__frame_7_ek99);
 		label_ek45 = (TextView) findViewById(R.id.label_ek45);
 		_bg__medium_ek77 = (View) findViewById(R.id._bg__medium_ek77);
-		_bg__frame_7_ek101 = (View) findViewById(R.id._bg__frame_7_ek101);
 		label_ek46 = (TextView) findViewById(R.id.label_ek46);
 		_bg__medium_ek79 = (View) findViewById(R.id._bg__medium_ek79);
-		_bg__frame_7_ek103 = (View) findViewById(R.id._bg__frame_7_ek103);
 		label_ek47 = (TextView) findViewById(R.id.label_ek47);
 		_bg__medium_ek81 = (View) findViewById(R.id._bg__medium_ek81);
-		_bg__frame_7_ek105 = (View) findViewById(R.id._bg__frame_7_ek105);
 		label_ek48 = (TextView) findViewById(R.id.label_ek48);
 		_bg__component_1_ek39 = (View) findViewById(R.id._bg__component_1_ek39);
 		button_ek25 = (TextView) findViewById(R.id.button_ek25);

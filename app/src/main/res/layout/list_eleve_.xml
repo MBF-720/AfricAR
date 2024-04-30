@@ -1319,7 +1319,7 @@
 					</RelativeLayout>
 
 					<ImageView android:id="@+id/line_14_ek7"
-						android:src="@drawable/line_14_ek7"
+						android:src="@drawable/line_14_ek5"
 						android:contentDescription="line_14_ek7"
 						 android:layout_marginStart="-1dp"
 						android:layout_marginTop="34dp"
@@ -1380,7 +1380,7 @@
 					</RelativeLayout>
 
 					<ImageView android:id="@+id/line_14_ek8"
-						android:src="@drawable/line_14_ek8"
+						android:src="@drawable/line_14_ek6"
 						android:contentDescription="line_14_ek8"
 						 android:layout_marginStart="-1dp"
 						android:layout_marginTop="34dp"
@@ -2449,7 +2449,7 @@
 					</RelativeLayout>
 
 					<ImageView android:id="@+id/line_14_ek16"
-						android:src="@drawable/line_14_ek16"
+						android:src="@drawable/line_14_ek6"
 						android:contentDescription="line_14_ek16"
 						 android:layout_marginStart="-1dp"
 						android:layout_marginTop="34dp"
@@ -2510,7 +2510,7 @@
 					</RelativeLayout>
 
 					<ImageView android:id="@+id/line_14_ek17"
-						android:src="@drawable/line_14_ek17"
+						android:src="@drawable/line_14_ek6"
 						android:contentDescription="line_14_ek17"
 						 android:layout_marginStart="-1dp"
 						android:layout_marginTop="34dp"
