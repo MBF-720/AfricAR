@@ -17,94 +17,117 @@
 
 	package pfe.africar.activitys;
 
-import android.app.Activity;
-import android.os.Bundle;
+	import static android.content.ContentValues.TAG;
 
+	import android.app.Activity;
+	import android.os.Bundle;
+	import android.util.Log;
+	import android.view.View;
+	import android.widget.EditText;
+	import android.widget.ImageView;
+	import android.widget.TextView;
+	import android.widget.Toast;
 
-import android.view.View;
-import android.widget.TextView;
-import android.widget.ImageView;
+	import androidx.annotation.NonNull;
 
-import pfe.africar.R;
+	import com.google.android.gms.tasks.OnFailureListener;
+	import com.google.android.gms.tasks.OnSuccessListener;
+	import com.google.firebase.firestore.DocumentReference;
+	import com.google.firebase.firestore.FirebaseFirestore;
+
+	import pfe.africar.R;
+	import pfe.africar.classes.Eleve;
 
 	public class add_student_activity extends Activity {
 
-	
-	private View _bg__add_student_ek2;
-	private TextView add_new_student_ek1;
-	private View _bg__frame_142_ek1;
-	private View _bg__frame_141_ek5;
-	private View _bg__medium_ek53;
-	private View _bg__frame_7_ek77;
-	private TextView label_ek34;
-	private View _bg__medium_ek55;
-	private View _bg__frame_7_ek79;
-	private TextView label_ek35;
-	private View _bg__medium_ek57;
-	private View _bg__frame_7_ek81;
-	private TextView label_ek36;
-	private View _bg__medium_ek59;
-	private View _bg__frame_7_ek83;
-	private TextView label_ek37;
-	private View _bg__medium_ek61;
-	private View _bg__frame_7_ek85;
-	private TextView label_ek38;
-	private View _bg__component_1_ek35;
-	private TextView button_ek23;
-	private ImageView x_1_ek17;
-	private ImageView rectangle_32_ek17;
-	private TextView updates_ek4;
-	private TextView personnel_ek4;
-	private TextView school_ek4;
-	private TextView stats_ek4;
-	private ImageView vector_ek724;
-	private ImageView vector_ek725;
-	private ImageView vector_ek726;
-	private ImageView vector_ek727;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
+		private EditText fullName;
+		private EditText scolarID;
+		private EditText email;
+		private EditText phone;
+		private EditText classroom;
+		private View button;
+		private TextView button_ek23;
+		private ImageView x_1_ek17;
+		private ImageView vector_ek724;
+		private ImageView vector_ek725;
+		private ImageView vector_ek726;
+		private ImageView vector_ek727;
 
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.add_student);
 
-		
-		_bg__add_student_ek2 = (View) findViewById(R.id._bg__add_student_ek2);
-		add_new_student_ek1 = (TextView) findViewById(R.id.add_new_student_ek1);
-		_bg__frame_142_ek1 = (View) findViewById(R.id._bg__frame_142_ek1);
-		_bg__frame_141_ek5 = (View) findViewById(R.id._bg__frame_141_ek5);
-		_bg__medium_ek53 = (View) findViewById(R.id._bg__medium_ek53);
-		_bg__frame_7_ek77 = (View) findViewById(R.id._bg__frame_7_ek77);
-		label_ek34 = (TextView) findViewById(R.id.label_ek34);
-		_bg__medium_ek55 = (View) findViewById(R.id._bg__medium_ek55);
-		_bg__frame_7_ek79 = (View) findViewById(R.id._bg__frame_7_ek79);
-		label_ek35 = (TextView) findViewById(R.id.label_ek35);
-		_bg__medium_ek57 = (View) findViewById(R.id._bg__medium_ek57);
-		_bg__frame_7_ek81 = (View) findViewById(R.id._bg__frame_7_ek81);
-		label_ek36 = (TextView) findViewById(R.id.label_ek36);
-		_bg__medium_ek59 = (View) findViewById(R.id._bg__medium_ek59);
-		_bg__frame_7_ek83 = (View) findViewById(R.id._bg__frame_7_ek83);
-		label_ek37 = (TextView) findViewById(R.id.label_ek37);
-		_bg__medium_ek61 = (View) findViewById(R.id._bg__medium_ek61);
-		_bg__frame_7_ek85 = (View) findViewById(R.id._bg__frame_7_ek85);
-		label_ek38 = (TextView) findViewById(R.id.label_ek38);
-		_bg__component_1_ek35 = (View) findViewById(R.id._bg__component_1_ek35);
-		button_ek23 = (TextView) findViewById(R.id.button_ek23);
-		x_1_ek17 = (ImageView) findViewById(R.id.x_1_ek17);
-		rectangle_32_ek17 = (ImageView) findViewById(R.id.rectangle_32_ek17);
-		updates_ek4 = (TextView) findViewById(R.id.updates_ek4);
-		personnel_ek4 = (TextView) findViewById(R.id.personnel_ek4);
-		school_ek4 = (TextView) findViewById(R.id.school_ek4);
-		stats_ek4 = (TextView) findViewById(R.id.stats_ek4);
-		vector_ek724 = (ImageView) findViewById(R.id.vector_ek724);
-		vector_ek725 = (ImageView) findViewById(R.id.vector_ek725);
-		vector_ek726 = (ImageView) findViewById(R.id.vector_ek726);
-		vector_ek727 = (ImageView) findViewById(R.id.vector_ek727);
-	
-		
-		//custom code goes here
-	
-	}
-}
-	
+		@Override
+		public void onCreate(Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			setContentView(R.layout.add_student);
+
+			// Récupérer les références des éléments de l'interface utilisateur
+			fullName = findViewById(R.id.label_ek34);
+			scolarID = findViewById(R.id.label_ek35);
+			email = findViewById(R.id.label_ek36);
+			phone = findViewById(R.id.label_ek37);
+			classroom = findViewById(R.id.label_ek38);
+			button = findViewById(R.id._bg__component_1_ek35);
+			button_ek23 = findViewById(R.id.button_ek23);
+			x_1_ek17 = findViewById(R.id.x_1_ek17);
+			vector_ek724 = findViewById(R.id.vector_ek724);
+			vector_ek725 = findViewById(R.id.vector_ek725);
+			vector_ek726 = findViewById(R.id.vector_ek726);
+			vector_ek727 = findViewById(R.id.vector_ek727);
+
+			// Ajouter un écouteur de clics au bouton
+			button.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					// Récupérer les valeurs saisies dans les champs EditText
+					String fullNameText = fullName.getText().toString();
+					String scolarIDText = scolarID.getText().toString();
+					String emailText = email.getText().toString();
+					String phoneText = phone.getText().toString();
+					String classroomText = classroom.getText().toString();
+
+					// Diviser le nom complet en nom et prénom
+					String[] parts = fullNameText.split("_");
+
+                     // Vérifier que le nom complet a été divisé en nom et prénom
+					if (parts.length >= 2) {
+						String nom = parts[0];
+						String prenom = parts[1];
+
+
+						// Créer une instance de Eleve avec les informations saisies
+						Eleve nouvelEleve = new Eleve(scolarIDText, nom, prenom, emailText, phoneText);
+
+						// Ajouter le nouvel élève à la base de données Firestore
+						FirebaseFirestore db = FirebaseFirestore.getInstance();
+						db.collection("Ecoles").document(String.valueOf(scolarID)).collection("Eleves")
+								.add(nouvelEleve)
+								.addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+									@Override
+									public void onSuccess(DocumentReference documentReference) {
+										Log.d(TAG, "DocumentSnapshot ajouté avec ID: " + documentReference.getId());
+										// Mettez ici le code pour gérer le succès de l'ajout de l'élève à la base de données
+									}
+								})
+								.addOnFailureListener(new OnFailureListener() {
+									@Override
+									public void onFailure(@NonNull Exception e) {
+										Log.w(TAG, "Erreur lors de l'ajout du document", e);
+										// Mettez ici le code pour gérer l'échec de l'ajout de l'élève à la base de données
+									}
+								});
+
+
+
+					} else {
+						// Gérer le cas où le nom complet ne peut pas être divisé en nom et prénom <(8, 14) <!-- TODO: else prenom verifier limplementation .
+						Toast.makeText(getApplicationContext(), "Veuillez ajouter un séparateur '_' entre le nom et le prénom", Toast.LENGTH_SHORT).show();
+
+
+
+					}
+				}
+			});
+		}}
+
+
 	
