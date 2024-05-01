@@ -17,94 +17,134 @@
 
 	package pfe.africar.activitys;
 
-import android.app.Activity;
-import android.os.Bundle;
+	import static android.content.ContentValues.TAG;
 
+	import android.app.Activity;
+	import android.os.Bundle;
+	import android.util.Log;
+	import android.view.View;
+	import android.widget.EditText;
+	import android.widget.ImageView;
+	import android.widget.Toast;
 
-import android.view.View;
-import android.widget.TextView;
-import android.widget.ImageView;
+	import androidx.annotation.NonNull;
 
-import pfe.africar.R;
+	import com.google.android.gms.tasks.OnFailureListener;
+	import com.google.android.gms.tasks.OnSuccessListener;
+	import com.google.firebase.firestore.DocumentReference;
+	import com.google.firebase.firestore.FirebaseFirestore;
+
+	import pfe.africar.R;
+	import pfe.africar.classes.Professeur;
 
 	public class add_prof_activity extends Activity {
 
-	
-	private View _bg__add_prof_ek2;
-	private TextView add_new_teacher;
-	private View _bg__frame_142_ek3;
-	private View _bg__frame_141_ek7;
-	private View _bg__medium_ek63;
-	private View _bg__frame_7_ek87;
-	private TextView label_ek39;
-	private View _bg__medium_ek65;
-	private View _bg__frame_7_ek89;
-	private TextView label_ek40;
-	private View _bg__medium_ek67;
-	private View _bg__frame_7_ek91;
-	private TextView label_ek41;
-	private View _bg__medium_ek69;
-	private View _bg__frame_7_ek93;
-	private TextView label_ek42;
-	private View _bg__medium_ek71;
-	private View _bg__frame_7_ek95;
-	private TextView label_ek43;
-	private View _bg__component_1_ek37;
-	private TextView button_ek24;
-	private ImageView x_1_ek18;
-	private ImageView rectangle_32_ek18;
-	private TextView updates_ek5;
-	private TextView stats_ek5;
-	private TextView personnel_ek5;
-	private TextView school_ek5;
-	private ImageView vector_ek728;
-	private ImageView vector_ek729;
-	private ImageView vector_ek730;
-	private ImageView vector_ek731;
 
-	@Override
+		private EditText fullName;
+		private EditText schoolID;
+		private EditText email;
+		private EditText phone;
+		private EditText field;
+		private View button;
+		private ImageView x_1_ek18;
+		private ImageView vector_ek728;
+		private ImageView vector_ek729;
+		private ImageView vector_ek730;
+		private ImageView vector_ek731;
+
+		@Override
 	public void onCreate(Bundle savedInstanceState) {
 
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.add_prof);
+			super.onCreate(savedInstanceState);
+			setContentView(R.layout.add_prof);
 
-		
-		_bg__add_prof_ek2 = (View) findViewById(R.id._bg__add_prof_ek2);
-		add_new_teacher = (TextView) findViewById(R.id.add_new_teacher);
-		_bg__frame_142_ek3 = (View) findViewById(R.id._bg__frame_142_ek3);
-		_bg__frame_141_ek7 = (View) findViewById(R.id._bg__frame_141_ek7);
-		_bg__medium_ek63 = (View) findViewById(R.id._bg__medium_ek63);
-		_bg__frame_7_ek87 = (View) findViewById(R.id._bg__frame_7_ek87);
-		label_ek39 = (TextView) findViewById(R.id.label_ek39);
-		_bg__medium_ek65 = (View) findViewById(R.id._bg__medium_ek65);
-		_bg__frame_7_ek89 = (View) findViewById(R.id._bg__frame_7_ek89);
-		label_ek40 = (TextView) findViewById(R.id.label_ek40);
-		_bg__medium_ek67 = (View) findViewById(R.id._bg__medium_ek67);
-		_bg__frame_7_ek91 = (View) findViewById(R.id._bg__frame_7_ek91);
-		label_ek41 = (TextView) findViewById(R.id.label_ek41);
-		_bg__medium_ek69 = (View) findViewById(R.id._bg__medium_ek69);
-		_bg__frame_7_ek93 = (View) findViewById(R.id._bg__frame_7_ek93);
-		label_ek42 = (TextView) findViewById(R.id.label_ek42);
-		_bg__medium_ek71 = (View) findViewById(R.id._bg__medium_ek71);
-		_bg__frame_7_ek95 = (View) findViewById(R.id._bg__frame_7_ek95);
-		label_ek43 = (TextView) findViewById(R.id.label_ek43);
-		_bg__component_1_ek37 = (View) findViewById(R.id._bg__component_1_ek37);
-		button_ek24 = (TextView) findViewById(R.id.button_ek24);
-		x_1_ek18 = (ImageView) findViewById(R.id.x_1_ek18);
-		rectangle_32_ek18 = (ImageView) findViewById(R.id.rectangle_32_ek18);
-		updates_ek5 = (TextView) findViewById(R.id.updates_ek5);
-		stats_ek5 = (TextView) findViewById(R.id.stats_ek5);
-		personnel_ek5 = (TextView) findViewById(R.id.personnel_ek5);
-		school_ek5 = (TextView) findViewById(R.id.school_ek5);
-		vector_ek728 = (ImageView) findViewById(R.id.vector_ek728);
-		vector_ek729 = (ImageView) findViewById(R.id.vector_ek729);
-		vector_ek730 = (ImageView) findViewById(R.id.vector_ek730);
-		vector_ek731 = (ImageView) findViewById(R.id.vector_ek731);
-	
-		
-		//custom code goes here
-	
-	}
-}
-	
-	
+
+			fullName = (EditText) findViewById(R.id.label_ek39);//
+
+			schoolID = (EditText) findViewById(R.id.label_ek40);//
+
+			email = (EditText) findViewById(R.id.label_ek41);//
+
+			phone = (EditText) findViewById(R.id.label_ek42);//
+
+			field = (EditText) findViewById(R.id.label_ek43);//
+			button = (View) findViewById(R.id._bg__component_1_ek37);//
+
+			x_1_ek18 = (ImageView) findViewById(R.id.x_1_ek18);//exit
+
+			//nav bar
+
+			vector_ek728 = (ImageView) findViewById(R.id.vector_ek728);
+			vector_ek729 = (ImageView) findViewById(R.id.vector_ek729);
+			vector_ek730 = (ImageView) findViewById(R.id.vector_ek730);
+			vector_ek731 = (ImageView) findViewById(R.id.vector_ek731);
+
+
+			button.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+
+					// Récupérer le nom complet saisi par l'utilisateur
+
+					String fullNameText = fullName.getText().toString();
+
+					String[] parts = fullNameText.split("_");
+
+					if (parts.length >= 2) {
+						String nom = parts[0];
+						String prenom = parts[1];
+
+						// Si le nom contient plus de deux parties, les considérer comme faisant partie du prénom
+						if (parts.length > 2) {
+							for (int i = 2; i < parts.length; i++) {
+								prenom += " " + parts[i];
+							}
+						}
+
+						// Récupérer les autres informations saisies par l'utilisateur
+						String schoolIDText = schoolID.getText().toString();
+						String emailText = email.getText().toString();
+						String phoneText = phone.getText().toString();
+						String fieldText = field.getText().toString();
+
+						// Vérifier si tous les champs sont remplis
+						if (schoolIDText.isEmpty() || emailText.isEmpty() || phoneText.isEmpty() || fieldText.isEmpty()) {
+							Toast.makeText(add_prof_activity.this, "Veuillez remplir tous les champs", Toast.LENGTH_SHORT).show();
+							return;
+						}
+
+						// Créer un nouvel objet Professeur avec les informations récupérées
+
+						Professeur newProfesseur = new Professeur(schoolIDText, nom, prenom, emailText, phoneText, fieldText);
+
+						// Ajouter le professeur à la base de données Firestore
+
+						db.collection("Ecoles").document(String.valueOf(schoolID)).collection("Professeurs")
+								.add(newProfesseur)
+								.addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+									@Override
+									public void onSuccess(DocumentReference documentReference) {
+
+										Log.d(TAG, "DocumentSnapshot ajouté avec ID: " + documentReference.getId());
+										Toast.makeText(add_prof_activity.this, "Professeur ajouté avec succès !", Toast.LENGTH_SHORT).show();
+									}
+								})
+								.addOnFailureListener(new OnFailureListener() {
+									@Override
+									public void onFailure(@NonNull Exception e) {
+										Log.w(TAG, "Erreur lors de l'ajout du document", e);
+										Toast.makeText(add_prof_activity.this, "Erreur lors de l'ajout du professeur !", Toast.LENGTH_SHORT).show();
+
+
+									}
+								});
+					} else {
+						Toast.makeText(add_prof_activity.this, "Veuillez saisir le nom et le prénom séparés par '_' (nom_prenom)", Toast.LENGTH_SHORT).show();
+					}
+                          // <!-- TODO: nav bar , test .
+				}
+			});
+		}}
+

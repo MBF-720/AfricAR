@@ -29,22 +29,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			<RelativeLayout android:id="@+id/page_add_student_ek1"
 				android:layout_marginTop="0dp"
 				android:layout_marginStart="0dp"
@@ -269,7 +253,8 @@
 									android:layout_marginLeft="0dp"
 									android:hint="@string/label_ek38_string"
 									android:textColor="@color/label_color"
-									android:textSize="16sp" />
+									android:textSize="16sp"
+									tools:ignore="TouchTargetSizeCheck" />
 
 							</RelativeLayout>
 

@@ -82,13 +82,6 @@
 					android:layout_height="wrap_content"
 					>
 
-					<View   android:id="@+id/_bg__frame_142_ek3"
-						android:background="@drawable/_bg__frame_142_ek3_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="343dp"
-						android:layout_height="485dp" />
-
 
 					<RelativeLayout android:id="@+id/frame_141_ek6"
 						android:layout_marginTop="0dp"
@@ -96,13 +89,6 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						>
-
-						<View   android:id="@+id/_bg__frame_141_ek7"
-							android:background="@drawable/_bg__frame_141_ek7_shape"
-							 android:layout_marginStart="0dp"
-							android:layout_marginTop="0dp"
-							android:layout_width="343dp"
-							android:layout_height="319dp" />
 
 
 						<RelativeLayout android:id="@+id/medium_ek62"
@@ -127,22 +113,15 @@
 								android:layout_height="wrap_content"
 								>
 
-								<View   android:id="@+id/_bg__frame_7_ek87"
-									android:background="@drawable/_bg__frame_7_ek87_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="76dp"
-									android:layout_height="19dp" />
-
-								<TextView android:id="@+id/label_ek39"
-									android:textSize="16sp"
-									android:textColor="@color/label_color"
-									android:layout_marginLeft="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="90.6dp"
+								<EditText
+									android:id="@+id/label_ek39"
+									android:layout_width="200dp"
 									android:layout_height="23.6dp"
-									android:text="@string/label_ek39_string"
-									 />
+									android:layout_marginLeft="0dp"
+									android:hint="Full Name  (nom _ prenom)"
+									android:textColor="@color/label_color"
+									android:textSize="16sp"
+									tools:ignore="TouchTargetSizeCheck"/>
 
 							</RelativeLayout>
 
@@ -171,21 +150,14 @@
 								android:layout_height="wrap_content"
 								>
 
-								<View   android:id="@+id/_bg__frame_7_ek89"
-									android:background="@drawable/_bg__frame_7_ek89_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="78dp"
-									android:layout_height="19dp" />
-
-								<TextView android:id="@+id/label_ek40"
+								<EditText android:id="@+id/label_ek40"
 									android:textSize="16sp"
 									android:textColor="@color/label_color"
 									android:layout_marginLeft="0dp"
 									android:layout_marginTop="0dp"
-									android:layout_width="92.6dp"
+									android:layout_width="200dp"
 									android:layout_height="23.6dp"
-									android:text="@string/label_ek40_string"
+									android:hint="@string/label_ek40_string"
 									 />
 
 							</RelativeLayout>
@@ -215,21 +187,14 @@
 								android:layout_height="wrap_content"
 								>
 
-								<View   android:id="@+id/_bg__frame_7_ek91"
-									android:background="@drawable/_bg__frame_7_ek91_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="49dp"
-									android:layout_height="19dp" />
-
-								<TextView android:id="@+id/label_ek41"
+								<EditText android:id="@+id/label_ek41"
 									android:textSize="16sp"
 									android:textColor="@color/label_color"
 									android:layout_marginLeft="0dp"
 									android:layout_marginTop="0dp"
-									android:layout_width="63.6dp"
+									android:layout_width="200dp"
 									android:layout_height="23.6dp"
-									android:text="@string/label_ek41_string"
+									android:hint="@string/label_ek41_string"
 									 />
 
 							</RelativeLayout>
@@ -259,21 +224,14 @@
 								android:layout_height="wrap_content"
 								>
 
-								<View   android:id="@+id/_bg__frame_7_ek93"
-									android:background="@drawable/_bg__frame_7_ek93_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="114dp"
-									android:layout_height="19dp" />
-
-								<TextView android:id="@+id/label_ek42"
+								<EditText android:id="@+id/label_ek42"
 									android:textSize="16sp"
 									android:textColor="@color/label_color"
 									android:layout_marginLeft="0dp"
 									android:layout_marginTop="0dp"
 									android:layout_width="128.6dp"
 									android:layout_height="23.6dp"
-									android:text="@string/label_ek42_string"
+									android:hint="@string/label_ek42_string"
 									 />
 
 							</RelativeLayout>
@@ -303,21 +261,14 @@
 								android:layout_height="wrap_content"
 								>
 
-								<View   android:id="@+id/_bg__frame_7_ek95"
-									android:background="@drawable/_bg__frame_7_ek95_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="37dp"
-									android:layout_height="19dp" />
-
-								<TextView android:id="@+id/label_ek43"
+								<EditText android:id="@+id/label_ek43"
 									android:textSize="16sp"
 									android:textColor="@color/label_color"
 									android:layout_marginLeft="0dp"
 									android:layout_marginTop="0dp"
-									android:layout_width="51.6dp"
+									android:layout_width="200dp"
 									android:layout_height="23.6dp"
-									android:text="@string/label_ek43_string"
+									android:hint="@string/label_ek43_string"
 									 />
 
 							</RelativeLayout>
