@@ -17,27 +17,23 @@
 
 	package pfe.africar.activitys;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+	import android.app.Activity;
+	import android.content.Intent;
+	import android.os.Bundle;
+	import android.view.View;
+	import android.widget.ImageView;
+	import android.widget.TextView;
 
+	import com.google.firebase.auth.FirebaseAuth;
+	import com.google.firebase.auth.FirebaseUser;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
-import pfe.africar.GoogleSignInActivity;
-import pfe.africar.R;
+	import pfe.africar.R;
 
 	public class onboarding_screen_activity extends Activity {
 
 	FirebaseAuth mAuth;
 	FirebaseUser mUser;
-	private View _bg__onboarding_screen_ek2;
+	private View loginButton;
 	private View _bg__frame_1_ek1;
 	private View _bg__frame_5_ek1;
 	private View _bg__frame_2_ek1;
@@ -55,7 +51,7 @@ import pfe.africar.R;
 	private TextView button_ek1;
 	private TextView don_t_have_an_account__sign_up;
 
-	@SuppressLint("MissingInflatedId")
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -63,30 +59,39 @@ import pfe.africar.R;
 		setContentView(R.layout.onboarding_screen);
 
 		
-		_bg__onboarding_screen_ek2 = (View) findViewById(R.id._bg__onboarding_screen_ek2);
+
 
 		happy_student_bro_1 = (ImageView) findViewById(R.id.happy_student_bro_1);
 		let_s_you_in = (TextView) findViewById(R.id.let_s_you_in);
-		facebook_login_1 = (ImageView) findViewById(R.id.facebook_login_1);
-		google_login = (ImageView) findViewById(R.id.google_login);
-		apple_login = (ImageView) findViewById(R.id.apple_login);
 
-		line_1 = (ImageView) findViewById(R.id.line_1);
-		or = (TextView) findViewById(R.id.or);
-		line_2 = (ImageView) findViewById(R.id.line_2);
-		_bg__component_1_ek1 = (View) findViewById(R.id._bg__component_1_ek1);
+
+		loginButton = (View) findViewById(R.id.google_sign_in_button);
 		button_ek1 = (TextView) findViewById(R.id.button_ek1);
 		don_t_have_an_account__sign_up = (TextView) findViewById(R.id.don_t_have_an_account__sign_up);
 	
 		
 		//custom code goes here
-	google_login.setOnClickListener(new View.OnClickListener() {
+		don_t_have_an_account__sign_up.setOnClickListener(new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			Intent intent=new Intent(onboarding_screen_activity.this, GoogleSignInActivity.class);
+			Intent intent=new Intent(onboarding_screen_activity.this, log_in_as__activity.class);
 			startActivity(intent);
 		}
+
+
+
 	});
+
+		loginButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent=new Intent(onboarding_screen_activity.this, fill_profile_activity.class);
+				startActivity(intent);
+			}
+
+
+
+		});
 	}
 
 }

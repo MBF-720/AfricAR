@@ -52,8 +52,7 @@ import pfe.africar.R;
 
 		
 		_bg__log_in_as__ek2 = (View) findViewById(R.id._bg__log_in_as__ek2);
-		_bg__frame_95_ek1 = (View) findViewById(R.id._bg__frame_95_ek1);
-		_bg__frame_94_ek1 = (View) findViewById(R.id._bg__frame_94_ek1);
+
 		_bg__component_12_ek9 = (View) findViewById(R.id._bg__component_12_ek9);
 		raising_hand_rafiki_1 = (ImageView) findViewById(R.id.raising_hand_rafiki_1);
 		student = (TextView) findViewById(R.id.student);

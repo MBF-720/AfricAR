@@ -63,13 +63,6 @@
 					android:layout_height="wrap_content"
 					>
 
-					<View   android:id="@+id/_bg__frame_95_ek1"
-						android:background="@drawable/_bg__frame_95_ek1_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="343dp"
-						android:layout_height="462dp" />
-
 
 					<RelativeLayout android:id="@+id/frame_94"
 						android:layout_marginTop="0dp"
@@ -77,13 +70,6 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						>
-
-						<View   android:id="@+id/_bg__frame_94_ek1"
-							android:background="@drawable/_bg__frame_94_ek1_shape"
-							 android:layout_marginStart="0dp"
-							android:layout_marginTop="0dp"
-							android:layout_width="343dp"
-							android:layout_height="296dp" />
 
 
 						<RelativeLayout android:id="@+id/component_12_ek8"

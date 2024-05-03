@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.AfricAR"
         tools:targetApi="31">
-        <activity
-            android:name=".GoogleSignInActivity"
-            android:exported="false" />
+
         <activity
             android:name=".activitys.onboarding_screen_activity"
             android:exported="true">
@@ -24,6 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activitys.log_in_as__activity"
+            android:exported="true" />
+        <activity
+            android:name=".activitys.fill_profile_activity"
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -12,7 +12,20 @@
           "package_name": "pfe.africar"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "759526640442-ojes4bs2nk7qn98g52feal15aqki8vtg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pfe.africar",
+            "certificate_hash": "7bb2be09136c90b35795e2af2de7078b758cd066"
+          }
+        },
+        {
+          "client_id": "759526640442-41pgg1j0rqt2hbdpaektuo4cdq2sk914.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCrh6x0sM4ZuQqdglWqDVGhAjtHnpjPuuY"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "759526640442-41pgg1j0rqt2hbdpaektuo4cdq2sk914.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
