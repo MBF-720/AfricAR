@@ -110,7 +110,7 @@
 								if (document.exists()) {
 
 									if(statu.equals("Eleve")){
-										//todo intent failed narach alech
+
 										try {
 											Intent intent = new Intent(enter_id_activity.this, enter_id_classe_activity.class);
 											intent.putExtra("statu", statu);

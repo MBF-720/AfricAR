@@ -49,13 +49,6 @@
 					android:layout_height="wrap_content"
 					>
 
-					<View   android:id="@+id/_bg__frame_16_ek5"
-						android:background="@drawable/_bg__frame_16_ek5_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="352dp"
-						android:layout_height="674dp" />
-
 
 					<RelativeLayout android:id="@+id/frame_15_ek4"
 						android:layout_marginTop="0dp"
@@ -63,13 +56,6 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						>
-
-						<View   android:id="@+id/_bg__frame_15_ek5"
-							android:background="@drawable/_bg__frame_15_ek5_shape"
-							 android:layout_marginStart="0dp"
-							android:layout_marginTop="0dp"
-							android:layout_width="352dp"
-							android:layout_height="610dp" />
 
 						<ImageView android:id="@+id/uil_arrow_up_1_ek3"
 							android:src="@drawable/uil_arrow_up_1_ek3"
@@ -86,13 +72,6 @@
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							>
-
-							<View   android:id="@+id/_bg__frame_14_ek5"
-								android:background="@drawable/_bg__frame_14_ek5_shape"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="352dp"
-								android:layout_height="542dp" />
 
 							<TextView android:id="@+id/create_your_account_ek1"
 								android:textSize="36sp"
@@ -112,13 +91,6 @@
 								android:layout_height="wrap_content"
 								>
 
-								<View   android:id="@+id/_bg__frame_13_ek5"
-									android:background="@drawable/_bg__frame_13_ek5_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="352dp"
-									android:layout_height="374dp" />
-
 
 								<RelativeLayout android:id="@+id/frame_12_ek4"
 									android:layout_marginTop="0dp"
@@ -126,13 +98,6 @@
 									android:layout_width="wrap_content"
 									android:layout_height="wrap_content"
 									>
-
-									<View   android:id="@+id/_bg__frame_12_ek5"
-										android:background="@drawable/_bg__frame_12_ek5_shape"
-										 android:layout_marginStart="0dp"
-										android:layout_marginTop="0dp"
-										android:layout_width="352dp"
-										android:layout_height="286dp" />
 
 
 									<RelativeLayout android:id="@+id/frame_11_ek4"
@@ -142,13 +107,6 @@
 										android:layout_height="wrap_content"
 										>
 
-										<View   android:id="@+id/_bg__frame_11_ek5"
-											android:background="@drawable/_bg__frame_11_ek5_shape"
-											 android:layout_marginStart="0dp"
-											android:layout_marginTop="0dp"
-											android:layout_width="352dp"
-											android:layout_height="230dp" />
-
 
 										<RelativeLayout android:id="@+id/frame_10_ek4"
 											android:layout_marginTop="0dp"
@@ -157,13 +115,6 @@
 											android:layout_height="wrap_content"
 											>
 
-											<View   android:id="@+id/_bg__frame_10_ek5"
-												android:background="@drawable/_bg__frame_10_ek5_shape"
-												 android:layout_marginStart="0dp"
-												android:layout_marginTop="0dp"
-												android:layout_width="352dp"
-												android:layout_height="160dp" />
-
 
 											<RelativeLayout android:id="@+id/frame_9_ek4"
 												android:layout_marginTop="0dp"
@@ -171,13 +122,6 @@
 												android:layout_width="wrap_content"
 												android:layout_height="wrap_content"
 												>
-
-												<View   android:id="@+id/_bg__frame_9_ek5"
-													android:background="@drawable/_bg__frame_9_ek5_shape"
-													 android:layout_marginStart="0dp"
-													android:layout_marginTop="0dp"
-													android:layout_width="352dp"
-													android:layout_height="112dp" />
 
 
 												<RelativeLayout android:id="@+id/medium_1icon_ek4"
@@ -201,13 +145,6 @@
 														android:layout_width="wrap_content"
 														android:layout_height="wrap_content"
 														>
-
-														<View   android:id="@+id/_bg__ic_baseline_email_ek5"
-															android:background="@drawable/_bg__ic_baseline_email_ek5_shape"
-															 android:layout_marginStart="0dp"
-															android:layout_marginTop="0dp"
-															android:layout_width="24dp"
-															android:layout_height="24dp" />
 
 														<ImageView android:id="@+id/vector_ek8"
 															android:src="@drawable/vector_ek8"
@@ -480,56 +417,13 @@
 									android:layout_marginStart="0dp"
 									android:layout_width="wrap_content"
 									android:layout_height="wrap_content"
-									>
-
-									<View   android:id="@+id/_bg__frame_6_ek5"
-										android:background="@drawable/_bg__frame_6_ek5_shape"
-										 android:layout_marginStart="0dp"
-										android:layout_marginTop="0dp"
-										android:layout_width="352dp"
-										android:layout_height="56dp" />
-
-									<ImageView android:id="@+id/fb_small_login_ek2"
-										android:src="@drawable/fb_small_login_ek2"
-										android:contentDescription="fb_small_login_ek2"
-										 android:layout_marginStart="47dp"
-										android:layout_marginTop="0dp"
-										android:layout_width="70dp"
-										android:layout_height="56dp" />
-
-									<ImageView android:id="@+id/gg_small_login_ek2"
-										android:src="@drawable/gg_small_login_ek2"
-										android:contentDescription="gg_small_login_ek2"
-										 android:layout_marginStart="141dp"
-										android:layout_marginTop="0dp"
-										android:layout_width="70dp"
-										android:layout_height="56dp" />
-
-									<ImageView android:id="@+id/ap_small_login_1_ek2"
-										android:src="@drawable/ap_small_login_1_ek2"
-										android:contentDescription="ap_small_login_1_ek2"
-										 android:layout_marginStart="235dp"
-										android:layout_marginTop="0dp"
-										android:layout_width="70dp"
-										android:layout_height="56dp" />
-
-								</RelativeLayout>
+									/>
 
 							</RelativeLayout>
 
 						</RelativeLayout>
 
 					</RelativeLayout>
-
-					<TextView android:id="@+id/don_t_have_an_account__sign_up_ek3"
-						android:textSize="16sp"
-						android:textColor="@color/don_t_have_an_account__sign_up_color"
-						android:layout_marginLeft="60dp"
-						android:layout_marginTop="650dp"
-						android:layout_width="246.6dp"
-						android:layout_height="28.6dp"
-						android:text="@string/don_t_have_an_account__sign_up_ek3_string"
-						 />
 
 				</RelativeLayout>
 

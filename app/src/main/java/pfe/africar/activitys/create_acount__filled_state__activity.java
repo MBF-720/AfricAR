@@ -78,18 +78,11 @@ import pfe.africar.R;
 
 		
 		_bg__create_acount__filled_state__ek2 = (View) findViewById(R.id._bg__create_acount__filled_state__ek2);
-		_bg__frame_16_ek5 = (View) findViewById(R.id._bg__frame_16_ek5);
-		_bg__frame_15_ek5 = (View) findViewById(R.id._bg__frame_15_ek5);
+
 		uil_arrow_up_1_ek3 = (ImageView) findViewById(R.id.uil_arrow_up_1_ek3);
-		_bg__frame_14_ek5 = (View) findViewById(R.id._bg__frame_14_ek5);
 		create_your_account_ek1 = (TextView) findViewById(R.id.create_your_account_ek1);
-		_bg__frame_13_ek5 = (View) findViewById(R.id._bg__frame_13_ek5);
-		_bg__frame_12_ek5 = (View) findViewById(R.id._bg__frame_12_ek5);
-		_bg__frame_11_ek5 = (View) findViewById(R.id._bg__frame_11_ek5);
-		_bg__frame_10_ek5 = (View) findViewById(R.id._bg__frame_10_ek5);
-		_bg__frame_9_ek5 = (View) findViewById(R.id._bg__frame_9_ek5);
+
 		_bg__medium_1icon_ek5 = (View) findViewById(R.id._bg__medium_1icon_ek5);
-		_bg__ic_baseline_email_ek5 = (View) findViewById(R.id._bg__ic_baseline_email_ek5);
 		vector_ek8 = (ImageView) findViewById(R.id.vector_ek8);
 		_bg__frame_7_ek15 = (View) findViewById(R.id._bg__frame_7_ek15);
 		label_ek5 = (TextView) findViewById(R.id.label_ek5);
@@ -110,11 +103,7 @@ import pfe.africar.R;
 		line_2_ek3 = (ImageView) findViewById(R.id.line_2_ek3);
 		or_continue_with_ek2 = (TextView) findViewById(R.id.or_continue_with_ek2);
 		line_1_ek3 = (ImageView) findViewById(R.id.line_1_ek3);
-		_bg__frame_6_ek5 = (View) findViewById(R.id._bg__frame_6_ek5);
-		fb_small_login_ek2 = (ImageView) findViewById(R.id.fb_small_login_ek2);
-		gg_small_login_ek2 = (ImageView) findViewById(R.id.gg_small_login_ek2);
-		ap_small_login_1_ek2 = (ImageView) findViewById(R.id.ap_small_login_1_ek2);
-		don_t_have_an_account__sign_up_ek3 = (TextView) findViewById(R.id.don_t_have_an_account__sign_up_ek3);
+
 	
 		
 		//custom code goes here

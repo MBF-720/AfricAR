@@ -84,7 +84,6 @@
 		public void onClick(View v) {
 			if(!statu.isEmpty()){
 
-//todo if stat= eleve => idclasse
 
 			Intent intent = new Intent(log_in_as__activity.this, enter_id_activity.class);
 			intent.putExtra("statu", statu);

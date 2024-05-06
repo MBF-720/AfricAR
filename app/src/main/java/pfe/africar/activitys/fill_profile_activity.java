@@ -376,7 +376,7 @@
 					}
 
 
-					//todo remake for student
+
 					if(statu.equals("Eleve")){
 
 						FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

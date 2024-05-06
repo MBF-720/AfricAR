@@ -51,8 +51,24 @@
 	private TextView button_ek1;
 	private TextView don_t_have_an_account__sign_up;
 
-
+		/*
 	@Override
+		public void onStart() {
+			super.onStart();
+			// Check if user is signed in (non-null) and update UI accordingly.
+			FirebaseUser currentUser = mAuth.getCurrentUser();
+			if(currentUser != null){
+				reload();
+			}
+		}
+
+		private void reload() {
+			//todo where to go and add stat to user
+
+		}*/
+
+
+		@Override
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -81,18 +97,32 @@
 
 
 	});
-
+//todo app is so slow here
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent=new Intent(onboarding_screen_activity.this, log_in_as__activity.class);
+				Intent intent=new Intent(onboarding_screen_activity.this, log_in_inactive_state__activity.class);
 				startActivity(intent);
 			}
-//todo login buttn to acceille
+
+
 
 
 		});
-	}
+			//todo login buttn to acceille
+
+
+
+
+
+
+
+
+
+
+
+
+		}
 
 }
 	
