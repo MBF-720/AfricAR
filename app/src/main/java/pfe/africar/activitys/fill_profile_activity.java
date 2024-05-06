@@ -51,6 +51,7 @@
 	import com.google.firebase.auth.UserInfo;
 	import com.google.firebase.auth.UserProfileChangeRequest;
 	import com.google.firebase.firestore.DocumentReference;
+	import com.google.firebase.firestore.FieldValue;
 	import com.google.firebase.firestore.FirebaseFirestore;
 
 	import java.text.SimpleDateFormat;
@@ -58,6 +59,7 @@
 	import java.util.Locale;
 
 	import pfe.africar.R;
+	import pfe.africar.classes.Eleve;
 	import pfe.africar.classes.Professeur;
 
 	public class fill_profile_activity extends Activity {
@@ -293,10 +295,11 @@
 
 
 
-			//recuperation de statu et id
+			//recuperation de statu et id ecole et id classe
 
 			String schoolId = getIntent().getStringExtra("school_id");
 			String statu = getIntent().getStringExtra("statu");
+			String classeId = getIntent().getStringExtra("classe_id");
 
 			FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -388,21 +391,41 @@
 							}
 						}
 
-						//creation d'objet prof
-						Professeur newProfesseur = new Professeur(schoolId, firstNameValue, lastNameValue, emailText, phoneValue);
-						newProfesseur.setUid(uid);
+						//creation d'objet Eleve
+						Eleve nouvelEleve = new Eleve(schoolId, firstNameValue, lastNameValue, emailText, phoneValue);
+						nouvelEleve.setUid(uid);
+						nouvelEleve.setIdClasse(classeId);
 
 
-						//ajout du prof dans firestore
+						//ajout du prof dans firestore dans document Eleve et son referance a la liste des eleve de son classe
 
-						db.collection("Ecoles").document(String.valueOf(schoolId)).collection("Professeurs")
-								.add(newProfesseur)
+						db.collection("Ecoles").document(String.valueOf(schoolId)).collection("Eleves")
+								.add(nouvelEleve)
 								.addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
 									@Override
 									public void onSuccess(DocumentReference documentReference) {
 
 										Log.d(TAG, "DocumentSnapshot ajouté avec ID: " + documentReference.getId());
-										Toast.makeText(fill_profile_activity.this, "Professeur ajouté avec succès !", Toast.LENGTH_SHORT).show();
+										Toast.makeText(fill_profile_activity.this, "Eleve ajouté avec succès !", Toast.LENGTH_SHORT).show();
+
+										// Add the student's ID to the listEleves field in the class document
+										db.collection("Ecoles").document(String.valueOf(schoolId)).collection("Classes").document(classeId)
+												.update("listeEleves", FieldValue.arrayUnion(documentReference.getId()))
+												.addOnSuccessListener(new OnSuccessListener<Void>() {
+													@Override
+													public void onSuccess(Void aVoid) {
+														Log.d(TAG, "Student ID added to class document");
+														Toast.makeText(fill_profile_activity.this, "Eleve ajouté avec succès !", Toast.LENGTH_SHORT).show();
+													}
+												})
+												.addOnFailureListener(new OnFailureListener() {
+													@Override
+													public void onFailure(@NonNull Exception e) {
+														Log.w(TAG, "Error adding student ID to class document", e);
+														Toast.makeText(fill_profile_activity.this, "Erreur lors de l'ajout du professeur !", Toast.LENGTH_SHORT).show();
+													}
+												});
+
 									}
 								})
 								.addOnFailureListener(new OnFailureListener() {
@@ -415,6 +438,13 @@
 									}
 								});
 						updateUser( firstNameValue);
+
+
+						//ajouter la referance de l'eleve dans champ listeEleves dans classes
+
+
+
+
 
 					}
 

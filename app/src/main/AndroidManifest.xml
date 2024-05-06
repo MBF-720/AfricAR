@@ -19,7 +19,7 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Base.Theme.AfricAR"
+        android:theme="@style/AppTheme"
         tools:targetApi="31">
 
         <activity
@@ -46,12 +46,9 @@
         <activity
             android:name=".activitys.enter_id_activity"
             android:exported="true" />
-        <activity android:name=".activitys.enter_id_classe_activity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+        <activity
+            android:name=".activitys.enter_id_classe_activity"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

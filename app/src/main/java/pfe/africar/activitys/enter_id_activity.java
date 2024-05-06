@@ -111,12 +111,15 @@
 
 									if(statu.equals("Eleve")){
 										//todo intent failed narach alech
-										Toast.makeText(enter_id_activity.this, "stat= eleve", Toast.LENGTH_SHORT).show();
-
-										Intent intent = new Intent(enter_id_activity.this, enter_id_classe_activity.class);
-										intent.putExtra("statu", statu);
-										intent.putExtra("school_id", labelText);
-										startActivity(intent);
+										try {
+											Intent intent = new Intent(enter_id_activity.this, enter_id_classe_activity.class);
+											intent.putExtra("statu", statu);
+											intent.putExtra("school_id", labelText);
+											startActivity(intent);
+										} catch (Exception e) {
+											Log.e(TAG, "Error starting enter_id_classe_activity", e);
+											Toast.makeText(enter_id_activity.this, "Error starting enter_id_classe_activity: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+										}
 
 									}else{
 
