@@ -58,6 +58,20 @@ dependencies {
 
     // Also add the dependency for the Google Play services library and specify its version
     implementation("com.google.android.gms:play-services-auth:21.1.1")
+
+    // Import the BoM for the Firebase platform
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+
+
+
+
+
+    implementation ("com.squareup.picasso:picasso:2.5.2")
+
+    implementation("com.vanniktech:android-image-cropper:4.5.0")
+
+
+
 }
 
 

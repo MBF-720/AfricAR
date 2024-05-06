@@ -74,7 +74,7 @@
 		don_t_have_an_account__sign_up.setOnClickListener(new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
-			Intent intent=new Intent(onboarding_screen_activity.this, log_in_as__activity.class);
+			Intent intent=new Intent(onboarding_screen_activity.this, create_acount__inactive_state__activity.class);
 			startActivity(intent);
 		}
 
@@ -85,10 +85,10 @@
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent=new Intent(onboarding_screen_activity.this, fill_profile_activity.class);
+				Intent intent=new Intent(onboarding_screen_activity.this, log_in_as__activity.class);
 				startActivity(intent);
 			}
-
+//todo login buttn to acceille
 
 
 		});

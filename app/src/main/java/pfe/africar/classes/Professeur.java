@@ -7,9 +7,9 @@ public class Professeur extends Personne {
     private List<String> idClasses;
 
     // constructor
-    public Professeur(String iDecole, String n, String p, String e, String t, String matiere) {
+    public Professeur(String iDecole, String n, String p, String e, String t) {
         super(iDecole, n, p, e, t);
-        this.matiere = matiere;
+
         this.idClasses = new ArrayList<>();
     }
 

@@ -1,0 +1,158 @@
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="wrap_content" >
+
+    <ScrollView android:id="@+id/enter_id_classescroll"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout android:id="@+id/content_containerclas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+
+
+            <RelativeLayout android:id="@+id/page_enter_id_ek1clas"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <View   android:id="@+id/_bg__enter_id_ek2clas"
+                    android:background="@drawable/_bg__enter_id_ek2_shape"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="385dp"
+                    android:layout_height="812dp" />
+
+                <ImageView android:id="@+id/classe_id_back"
+                    android:src="@drawable/uil_arrow_up_1"
+                    android:contentDescription="uil_arrow_up_1"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp" />
+
+                <TextView android:id="@+id/enter_your_classe_id"
+                    android:textSize="36sp"
+                    android:textColor="@color/enter_your_scholar_id_color"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="148dp"
+                    android:layout_width="250.6dp"
+                    android:layout_height="100dp"
+                    android:text="Enter your classroom ID"
+                    />
+
+
+                <RelativeLayout android:id="@+id/frame_96cls"
+                    android:layout_marginTop="341dp"
+                    android:layout_marginStart="21dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+
+                    <RelativeLayout android:id="@+id/mediumcls"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <View   android:id="@+id/_bg__medium_ek1cls"
+                            android:background="@drawable/_bg__medium_ek1_shape"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_width="343dp"
+                            android:layout_height="51dp" />
+
+
+                        <RelativeLayout android:id="@+id/frame_7cls"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            >
+
+                            <EditText android:id="@+id/classe_id"
+                                android:textSize="16sp"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="-10dp"
+                                android:layout_width="200dp"
+                                android:layout_height="48dp"
+                                android:hint="Classroom ID"
+                                android:textColorHint="@color/label_color"
+                                android:background="@null"
+                                />
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout android:id="@+id/component_2cls"
+                        android:layout_marginTop="83dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+
+                        <View   android:id="@+id/classe_id_btn"
+                            android:background="@drawable/_bg__component_2_ek1_shape"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_width="343dp"
+                            android:layout_height="46dp" />
+
+                        <TextView android:id="@+id/button"
+                            android:textSize="18sp"
+                            android:textColor="@color/button_color"
+                            android:layout_marginLeft="132dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_width="94.8dp"
+                            android:layout_height="27.8dp"
+                            android:text="@string/button_string"
+                            />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</HorizontalScrollView>

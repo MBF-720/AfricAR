@@ -81,8 +81,8 @@
 
 							<View   android:id="@+id/_bg__component_12_ek9"
 								android:background="@drawable/_bg__component_12_ek9_shape"
-								 android:layout_marginStart="-4dp"
-								android:layout_marginTop="-4dp"
+								 android:layout_marginStart="4dp"
+								android:layout_marginTop="4dp"
 								android:layout_width="343dp"
 								android:layout_height="136dp" />
 
@@ -94,7 +94,7 @@
 								android:layout_width="120dp"
 								android:layout_height="120dp" />
 
-							<TextView android:id="@+id/student"
+							<TextView android:id="@+id/studentText"
 								android:textSize="32sp"
 								android:textColor="@color/label_color"
 								android:layout_marginLeft="205dp"
@@ -102,6 +102,7 @@
 								android:layout_width="146.2dp"
 								android:layout_height="48.2dp"
 								android:text="@string/student_string"
+								android:clickable="true"
 								 />
 
 						</RelativeLayout>
@@ -116,8 +117,8 @@
 
 							<View   android:id="@+id/_bg__component_13_ek3"
 								android:background="@drawable/_bg__component_13_ek3_shape"
-								 android:layout_marginStart="-4dp"
-								android:layout_marginTop="-4dp"
+								 android:layout_marginStart="4dp"
+								android:layout_marginTop="4dp"
 								android:layout_width="343dp"
 								android:layout_height="136dp" />
 
@@ -137,6 +138,7 @@
 								android:layout_width="148.2dp"
 								android:layout_height="48.2dp"
 								android:text="@string/teacher_string"
+								android:clickable="true"
 								 />
 
 						</RelativeLayout>
@@ -158,7 +160,7 @@
 							android:layout_width="343dp"
 							android:layout_height="46dp" />
 
-						<TextView android:id="@+id/button_ek19"
+						<TextView android:id="@+id/button_ek19text"
 							android:textSize="18sp"
 							android:textColor="@color/button_color"
 							android:layout_marginLeft="132dp"
@@ -171,14 +173,6 @@
 					</RelativeLayout>
 
 				</RelativeLayout>
-
-				<ImageView android:id="@+id/uil_arrow_up_1_ek4"
-					android:src="@drawable/uil_arrow_up_1_ek4"
-					android:contentDescription="uil_arrow_up_1_ek4"
-					 android:layout_marginStart="16dp"
-					android:layout_marginTop="80dp"
-					android:layout_width="36dp"
-					android:layout_height="36dp" />
 
 				<TextView android:id="@+id/log_in_as"
 					android:textSize="36sp"

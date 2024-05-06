@@ -85,7 +85,7 @@
 						android:layout_height="wrap_content"
 						>
 
-						<ImageView android:id="@+id/uil_arrow_up_2_ek2"
+						<ImageView android:id="@+id/backbtn"
 							android:src="@drawable/uil_arrow_up_2_ek2"
 							android:contentDescription="uil_arrow_up_2_ek2"
 							 android:layout_marginStart="0dp"
@@ -121,12 +121,18 @@
 							android:layout_height="wrap_content"
 							>
 
-							<View   android:id="@+id/ellipse_9_ek1"
+							<ImageView   android:id="@+id/image_view"
 								android:background="@drawable/ellipse_9_ek1_shape"
 								 android:layout_marginStart="0dp"
 								android:layout_marginTop="0dp"
 								android:layout_width="100dp"
 								android:layout_height="100dp" />
+							<com.canhub.cropper.CropImageView
+								android:id="@+id/cropImageView"
+								android:layout_width="match_parent"
+								android:layout_height="0dp"
+								android:layout_weight="1"
+								/>
 
 
 							<RelativeLayout android:id="@+id/group_28"
@@ -206,8 +212,8 @@
 
 										<View   android:id="@+id/_bg__medium_ek93"
 											android:background="@drawable/_bg__medium_ek93_shape"
-											 android:layout_marginStart="-2dp"
-											android:layout_marginTop="-2dp"
+											 android:layout_marginStart="4dp"
+											android:layout_marginTop="4dp"
 											android:layout_width="343dp"
 											android:layout_height="51dp" />
 
@@ -223,11 +229,14 @@
 												android:id="@+id/label_ek54"
 												android:layout_width="150dp"
 												android:layout_height="48dp"
-												android:layout_marginLeft="0dp"
-												android:layout_marginTop="0dp"
+												android:layout_marginLeft="4dp"
+												android:layout_marginTop="10dp"
 												android:hint="@string/label_ek54_string"
-												android:textColor="@color/label_color"
+												android:textColor="@color/black"
 												android:textSize="16sp"
+												android:background="@null"
+												android:textColorHint="@color/label_color"
+
 												tools:ignore="TouchTargetSizeCheck" />
 
 										</RelativeLayout>
@@ -244,8 +253,8 @@
 
 										<View   android:id="@+id/_bg__medium_ek95"
 											android:background="@drawable/_bg__medium_ek95_shape"
-											 android:layout_marginStart="-2dp"
-											android:layout_marginTop="-2dp"
+											 android:layout_marginStart="4dp"
+											android:layout_marginTop="4dp"
 											android:layout_width="343dp"
 											android:layout_height="51dp" />
 
@@ -261,11 +270,13 @@
 												android:id="@+id/label_ek55"
 												android:layout_width="150dp"
 												android:layout_height="48dp"
-												android:layout_marginLeft="0dp"
-												android:layout_marginTop="0dp"
+												android:layout_marginLeft="4dp"
+												android:layout_marginTop="15dp"
 												android:hint="@string/label_ek55_string"
-												android:textColor="@color/label_color"
+												android:textColor="@color/black"
 												android:textSize="16sp"
+												android:textColorHint="@color/label_color"
+											    android:background="@null"
 												tools:ignore="TouchTargetSizeCheck" />
 
 										</RelativeLayout>
@@ -282,8 +293,8 @@
 
 										<View   android:id="@+id/_bg__medium_ek97"
 											android:background="@drawable/_bg__medium_ek97_shape"
-											 android:layout_marginStart="-2dp"
-											android:layout_marginTop="-2dp"
+											 android:layout_marginStart="2dp"
+											android:layout_marginTop="2dp"
 											android:layout_width="343dp"
 											android:layout_height="51dp" />
 
@@ -295,15 +306,17 @@
 											android:layout_height="wrap_content"
 											>
 
-											<EditText
+											<TextView
 												android:id="@+id/label_ek56"
 												android:layout_width="150dp"
 												android:layout_height="48dp"
 												android:layout_marginLeft="0dp"
-												android:layout_marginTop="0dp"
+												android:layout_marginTop="15dp"
 												android:hint="@string/label_ek56_string"
-												android:textColor="@color/label_color"
+												android:textColor="@color/black"
 												android:textSize="16sp"
+												android:textColorHint="@color/label_color"
+											    android:background="@null"
 												tools:ignore="TouchTargetSizeCheck" />
 
 										</RelativeLayout>
@@ -320,8 +333,8 @@
 
 										<View   android:id="@+id/_bg__medium_ek99"
 											android:background="@drawable/_bg__medium_ek99_shape"
-											 android:layout_marginStart="-2dp"
-											android:layout_marginTop="-2dp"
+											 android:layout_marginStart="2dp"
+											android:layout_marginTop="4dp"
 											android:layout_width="343dp"
 											android:layout_height="51dp" />
 
@@ -338,10 +351,12 @@
 												android:layout_width="128.6dp"
 												android:layout_height="48dp"
 												android:layout_marginLeft="0dp"
-												android:layout_marginTop="0dp"
+												android:layout_marginTop="15dp"
 												android:hint="@string/label_ek57_string"
-												android:textColor="@color/label_color"
+												android:textColor="@color/black"
 												android:textSize="16sp"
+												android:textColorHint="@color/label_color"
+												android:background="@null"
 												tools:ignore="TouchTargetSizeCheck" />
 
 										</RelativeLayout>
@@ -358,8 +373,8 @@
 
 										<View   android:id="@+id/_bg__medium_ek101"
 											android:background="@drawable/_bg__medium_ek101_shape"
-											 android:layout_marginStart="-2dp"
-											android:layout_marginTop="-2dp"
+											 android:layout_marginStart="2dp"
+											android:layout_marginTop="2dp"
 											android:layout_width="343dp"
 											android:layout_height="51dp" />
 
@@ -371,15 +386,17 @@
 											android:layout_height="wrap_content"
 											>
 
-											<EditText
+											<TextView
 												android:id="@+id/label_ek58"
 												android:layout_width="71.6dp"
 												android:layout_height="48dp"
 												android:layout_marginLeft="0dp"
-												android:layout_marginTop="0dp"
+												android:layout_marginTop="15dp"
 												android:hint="@string/label_ek58_string"
-												android:textColor="@color/label_color"
+												android:textColor="@color/black"
 												android:textSize="16sp"
+												android:textColorHint="@color/label_color"
+												android:background="@null"
 												tools:ignore="TouchTargetSizeCheck" />
 
 										</RelativeLayout>

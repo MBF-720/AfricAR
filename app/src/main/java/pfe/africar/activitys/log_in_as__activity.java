@@ -1,48 +1,39 @@
 
 	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		enter_id
-	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
+
 
 
 	package pfe.africar.activitys;
 
-import android.app.Activity;
-import android.os.Bundle;
+	import android.app.Activity;
+	import android.content.Intent;
+	import android.graphics.Color;
+	import android.os.Bundle;
+	import android.view.View;
+	import android.widget.TextView;
+	import android.widget.Toast;
 
-
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import pfe.africar.R;
+	import pfe.africar.R;
 
 	public class log_in_as__activity extends Activity {
 
 	
-	private View _bg__log_in_as__ek2;
-	private View _bg__frame_95_ek1;
-	private View _bg__frame_94_ek1;
-	private View _bg__component_12_ek9;
-	private ImageView raising_hand_rafiki_1;
-	private TextView student;
-	private View _bg__component_13_ek3;
-	private ImageView mathematics_rafiki_1;
-	private TextView teacher;
-	private View _bg__component_2_ek19;
-	private TextView button_ek19;
-	private ImageView uil_arrow_up_1_ek4;
-	private TextView log_in_as;
+
+	private View student;
+
+
+	private View teacher;
+
+
+
+	private View button_ek19;
+
+	private String statu;
+	private TextView teachertext;
+		private TextView studentText;
+
+
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -51,21 +42,70 @@ import pfe.africar.R;
 		setContentView(R.layout.log_in_as_);
 
 		
-		_bg__log_in_as__ek2 = (View) findViewById(R.id._bg__log_in_as__ek2);
 
-		_bg__component_12_ek9 = (View) findViewById(R.id._bg__component_12_ek9);
-		raising_hand_rafiki_1 = (ImageView) findViewById(R.id.raising_hand_rafiki_1);
-		student = (TextView) findViewById(R.id.student);
-		_bg__component_13_ek3 = (View) findViewById(R.id._bg__component_13_ek3);
-		mathematics_rafiki_1 = (ImageView) findViewById(R.id.mathematics_rafiki_1);
-		teacher = (TextView) findViewById(R.id.teacher);
-		_bg__component_2_ek19 = (View) findViewById(R.id._bg__component_2_ek19);
-		button_ek19 = (TextView) findViewById(R.id.button_ek19);
-		uil_arrow_up_1_ek4 = (ImageView) findViewById(R.id.uil_arrow_up_1_ek4);
-		log_in_as = (TextView) findViewById(R.id.log_in_as);
-	
+		student = (View) findViewById(R.id._bg__component_12_ek9);
+		teacher = (View) findViewById(R.id._bg__component_13_ek3);
+
+		teachertext = (TextView) findViewById(R.id.teacher);
+		studentText = (TextView) findViewById(R.id.studentText);
+
+		button_ek19 = (View) findViewById(R.id._bg__component_2_ek19);
+
+
+
+		statu="";
+		student.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				 statu = "Eleve";
+				studentText.setTextColor(Color.parseColor("#207E5A"));
+				teachertext.setTextColor(Color.parseColor("#5A6D67"));
+
+
+
+			}
+		});
+
+		teacher.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				 statu = "Professeur";
+				teachertext.setTextColor(Color.parseColor("#207E5A"));
+				studentText.setTextColor(Color.parseColor("#5A6D67"));
+
+
+
+
+			}
+		});
+
+	button_ek19.setOnClickListener(new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			if(!statu.isEmpty()){
+
+//todo if stat= eleve => idclasse
+
+			Intent intent = new Intent(log_in_as__activity.this, enter_id_activity.class);
+			intent.putExtra("statu", statu);
+			startActivity(intent);}
+
+			else {
+				Toast.makeText(log_in_as__activity.this,"choose your statu",Toast.LENGTH_LONG).show();
+			}
+
+
+
+
+		}
+	});
+
+
+
+
+
 		
-		//custom code goes here
+
 	
 	}
 }

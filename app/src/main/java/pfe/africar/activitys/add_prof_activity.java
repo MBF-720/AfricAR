@@ -117,7 +117,8 @@
 
 						// Créer un nouvel objet Professeur avec les informations récupérées
 
-						Professeur newProfesseur = new Professeur(schoolIDText, nom, prenom, emailText, phoneText, fieldText);
+						Professeur newProfesseur = new Professeur(schoolIDText, nom, prenom, emailText, phoneText);
+						newProfesseur.setMatiere(fieldText);
 
 						// Ajouter le professeur à la base de données Firestore
 

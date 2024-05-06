@@ -5,6 +5,7 @@ import java.util.List;
 
     public class Eleve extends Personne {
         private List<Note> notes;
+        private String idClasse;
 
         // constructor
         public Eleve(String iDecole, String n, String p, String e, String t) {
@@ -29,5 +30,16 @@ import java.util.List;
         // method to add a note
         public void addNote(Note note) {
             this.notes.add(note);
+        }
+
+
+
+
+        public String getIdClasse() {
+            return idClasse;
+        }
+
+        public void setIdClasse(String idClasse) {
+            this.idClasse = idClasse;
         }
     }

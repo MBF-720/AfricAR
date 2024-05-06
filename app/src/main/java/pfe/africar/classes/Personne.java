@@ -7,7 +7,9 @@ public class Personne {
     private String nom;
     private String prenom;
     private String email;
-    private String telephone;
+    private String phone;
+
+    private String uid;
 
     // constructor
     // constructor
@@ -20,7 +22,7 @@ public class Personne {
         } else {
             throw new IllegalArgumentException("Invalid email format");
         }
-        this.telephone = t;
+        this.phone = t;
     }
 
     // email validation method
@@ -49,7 +51,7 @@ public class Personne {
     }
 
     public String getTelephone() {
-        return this.telephone;
+        return this.phone;
     }
 
     // setters
@@ -70,6 +72,14 @@ public class Personne {
     }
 
     public void setTelephone(String t) {
-        this.telephone = t;
+        this.phone = t;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }
