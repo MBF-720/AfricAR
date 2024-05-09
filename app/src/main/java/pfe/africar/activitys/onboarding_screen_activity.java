@@ -26,6 +26,7 @@
 
 	import com.google.firebase.auth.FirebaseAuth;
 	import com.google.firebase.auth.FirebaseUser;
+	import com.google.firebase.firestore.FirebaseFirestore;
 
 	import pfe.africar.R;
 
@@ -50,22 +51,70 @@
 	private View _bg__component_1_ek1;
 	private TextView button_ek1;
 	private TextView don_t_have_an_account__sign_up;
+		FirebaseFirestore db;
 
-		/*
+/*
 	@Override
 		public void onStart() {
 			super.onStart();
 			// Check if user is signed in (non-null) and update UI accordingly.
 			FirebaseUser currentUser = mAuth.getCurrentUser();
 			if(currentUser != null){
-				reload();
+				updateUI(currentUser);
 			}
 		}
+		private void updateUI(FirebaseUser user) {
+			if (user != null) {
+				String userId = user.getUid();
 
-		private void reload() {
-			//todo where to go and add stat to user
+				DocumentReference userDocRef = db.collection("Users").document(userId);
 
-		}*/
+				userDocRef.get()
+						.addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+							@Override
+							public void onSuccess(DocumentSnapshot documentSnapshot) {
+								if (documentSnapshot.exists()) {
+									String statue = documentSnapshot.getString("statue");
+									if (statue != null) {
+										switch (statue) {
+											case "Eleve":
+
+												startActivity(new Intent(onboarding_screen_activity.this, acceille_activity.class));
+												break;
+											case "Professeur":
+												startActivity(new Intent(onboarding_screen_activity.this, add_cours_activity.class));
+												break;
+											default:
+												Log.d(TAG, "Unknown statue: " + statue);
+												break;
+										}
+									} else {
+										Log.d(TAG, "Statue not found in user metadata.");
+									}
+								} else {
+									Log.d(TAG, "User metadata not found.");
+									// Handle missing user metadata
+								}
+							}
+						})
+						.addOnFailureListener(new OnFailureListener() {
+							@Override
+							public void onFailure(@NonNull Exception e) {
+								Log.e(TAG, "Error getting user metadata: ", e);
+								// Handle error and provide feedback to the user
+							}
+						});
+			} else {
+				Log.d(TAG, "Current user is null.");
+				// Handle unauthenticated user
+			}
+		}*/    // todo n3awed n7ot el on start f le5er
+
+
+
+
+
+
 
 
 		@Override
@@ -84,9 +133,16 @@
 		loginButton = (View) findViewById(R.id.google_sign_in_button);
 		button_ek1 = (TextView) findViewById(R.id.button_ek1);
 		don_t_have_an_account__sign_up = (TextView) findViewById(R.id.don_t_have_an_account__sign_up);
-	
-		
-		//custom code goes here
+
+			mAuth = FirebaseAuth.getInstance();
+
+			// Initialize Firebase Firestore
+			db = FirebaseFirestore.getInstance();
+
+
+
+
+
 		don_t_have_an_account__sign_up.setOnClickListener(new View.OnClickListener() {
 		@Override
 		public void onClick(View v) {
@@ -109,7 +165,8 @@
 
 
 		});
-			//todo login buttn to acceille
+
+
 
 
 

@@ -53,10 +53,13 @@
 	import com.google.firebase.firestore.DocumentReference;
 	import com.google.firebase.firestore.FieldValue;
 	import com.google.firebase.firestore.FirebaseFirestore;
+	import com.google.firebase.firestore.SetOptions;
 
 	import java.text.SimpleDateFormat;
 	import java.util.Calendar;
+	import java.util.HashMap;
 	import java.util.Locale;
+	import java.util.Map;
 
 	import pfe.africar.R;
 	import pfe.africar.classes.Eleve;
@@ -67,7 +70,7 @@
 	
 
 
-	private ImageView imageView;
+	    private ImageView imageView;
 
 		private static final int PICK_IMAGE_REQUEST = 1;
 		private CropImageView cropImageView;
@@ -81,6 +84,7 @@
 		String emailText,uid;
 
 		Uri selectedImageUri;
+		private FirebaseFirestore db;
 
 		private Calendar selectedDate = Calendar.getInstance();
 
@@ -172,7 +176,31 @@
 					});
 		}
 
+		private void updateUserMetadata(String idEcole, String statue) {
+			FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+			if (user != null) {
+				DocumentReference userDocRef = db.collection("Users").document(user.getUid());
+				Map<String, Object> userMetadata = new HashMap<>();
+				userMetadata.put("idEcole", idEcole);
+				userMetadata.put("statue", statue);
 
+				userDocRef.set(userMetadata, SetOptions.merge())
+						.addOnSuccessListener(new OnSuccessListener<Void>() {
+							@Override
+							public void onSuccess(Void aVoid) {
+								Log.d(TAG, "User metadata updated successfully.");
+								// Handle success and provide feedback to the user
+							}
+						})
+						.addOnFailureListener(new OnFailureListener() {
+							@Override
+							public void onFailure(@NonNull Exception e) {
+								Log.e(TAG, "Error updating user metadata: ", e);
+								// Handle error and provide feedback to the user
+							}
+						});
+			}
+		}
 
 
 
@@ -301,7 +329,7 @@
 			String statu = getIntent().getStringExtra("statu");
 			String classeId = getIntent().getStringExtra("classe_id");
 
-			FirebaseFirestore db = FirebaseFirestore.getInstance();
+			 db = FirebaseFirestore.getInstance();
 
 
 			continuebtn.setOnClickListener(new View.OnClickListener() {
@@ -372,6 +400,7 @@
 									}
 								});
 						updateUser( firstNameValue);
+						updateUserMetadata(schoolId,statu);
 
 					}
 
@@ -438,9 +467,9 @@
 									}
 								});
 						updateUser( firstNameValue);
+						updateUserMetadata(schoolId,statu);
 
 
-						//ajouter la referance de l'eleve dans champ listeEleves dans classes
 
 
 

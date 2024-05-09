@@ -1,76 +1,136 @@
 
 	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		enter_id
-	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
 
 
 	package pfe.africar.activitys;
 
-import android.app.Activity;
-import android.os.Bundle;
+	import static android.content.ContentValues.TAG;
+
+	import android.annotation.SuppressLint;
+	import android.app.Activity;
+	import android.content.Context;
+	import android.content.Intent;
+	import android.os.Bundle;
+	import android.text.InputType;
+	import android.util.Log;
+	import android.view.KeyEvent;
+	import android.view.View;
+	import android.view.inputmethod.EditorInfo;
+	import android.view.inputmethod.InputMethodManager;
+	import android.widget.EditText;
+	import android.widget.ImageView;
+	import android.widget.TextView;
+	import android.widget.Toast;
+
+	import androidx.annotation.NonNull;
+
+	import com.google.android.gms.tasks.OnCompleteListener;
+	import com.google.android.gms.tasks.OnFailureListener;
+	import com.google.android.gms.tasks.OnSuccessListener;
+	import com.google.android.gms.tasks.Task;
+	import com.google.firebase.auth.AuthResult;
+	import com.google.firebase.auth.FirebaseAuth;
+	import com.google.firebase.auth.FirebaseUser;
+	import com.google.firebase.firestore.DocumentReference;
+	import com.google.firebase.firestore.DocumentSnapshot;
+	import com.google.firebase.firestore.FirebaseFirestore;
+
+	import pfe.africar.R;
 
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import pfe.africar.R;
 
 	public class log_in_inactive_state__activity extends Activity {
 
-	
-	private View _bg__log_in_inactive_state__ek2;
-	private View _bg__frame_16_ek3;
-	private View _bg__frame_15_ek3;
-	private ImageView uil_arrow_up_1_ek2;
-	private View _bg__frame_14_ek3;
-	private TextView login_to_your_account;
-	private View _bg__frame_13_ek3;
-	private View _bg__frame_12_ek3;
-	private View _bg__frame_11_ek3;
-	private View _bg__frame_10_ek3;
-	private View _bg__frame_9_ek3;
-	private View _bg__medium_1icon_ek3;
-	private View _bg__ic_baseline_email_ek3;
-	private ImageView vector_ek4;
-	private View _bg__frame_7_ek9;
-	private TextView label_ek3;
-	private View _bg__medium_2icons_ek3;
-	private View _bg__frame_7_ek11;
-	private View _bg__mdi_password_ek3;
-	private ImageView vector_ek5;
-	private TextView label_ek4;
-	private View _bg__bxs_hide_ek3;
-	private ImageView vector_ek6;
-	private View _bg__frame_17_ek1;
-	private View _bg__frame_8_ek3;
-	private View _bg__checkbox_ek3;
-	private ImageView vector_ek7;
-	private TextView remember_me_ek1;
-	private TextView forgot_password_;
-	private View _bg__component_2_ek5;
-	private TextView button_ek3;
-	private View _bg__frame_7_ek13;
-	private ImageView line_2_ek2;
-	private TextView or_continue_with_ek1;
-	private ImageView line_1_ek2;
-	private View _bg__frame_6_ek3;
-	private ImageView fb_small_login_ek1;
-	private ImageView gg_small_login_ek1;
-	private ImageView ap_small_login_1_ek1;
-	private TextView don_t_have_an_account__sign_up_ek2;
 
+		private ImageView backbtn;
+
+		private EditText email;
+		private EditText password;
+		private ImageView vector_ek6;
+		private TextView forgot_password;
+		private View button;
+
+
+		private FirebaseAuth mAuth;
+		FirebaseFirestore db;
+
+		private void login(String email, String password){
+
+
+			mAuth.signInWithEmailAndPassword(email, password)
+					.addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+						@Override
+						public void onComplete(@NonNull Task<AuthResult> task) {
+							if (task.isSuccessful()) {
+								// Sign in success, update UI with the signed-in user's information
+								Log.d(TAG, "signInWithEmail:success");
+								FirebaseUser user = mAuth.getCurrentUser();
+								Toast.makeText(log_in_inactive_state__activity.this, "Welcome",Toast.LENGTH_SHORT).show();
+
+										updateUI(user);
+							} else {
+								// If sign in fails, display a message to the user.
+								Log.w(TAG, "signInWithEmail:failure", task.getException());
+
+								updateUI(null);
+							}
+						}
+					});
+		}
+
+
+
+
+		private void updateUI(FirebaseUser user) {
+			if (user != null) {
+				String userId = user.getUid();
+
+				DocumentReference userDocRef = db.collection("Users").document(userId);
+
+				userDocRef.get()
+						.addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+							@Override
+							public void onSuccess(DocumentSnapshot documentSnapshot) {
+								if (documentSnapshot.exists()) {
+									String statue = documentSnapshot.getString("statue");
+									if (statue != null) {
+										switch (statue) {
+											case "Eleve":
+												Toast.makeText(log_in_inactive_state__activity.this, "Welcome student!", Toast.LENGTH_SHORT).show();
+
+												startActivity(new Intent(log_in_inactive_state__activity.this, acceille_activity.class));
+												break;
+											case "Professeur":
+												startActivity(new Intent(log_in_inactive_state__activity.this, add_cours_activity.class));
+												break;
+											default:
+												Log.d(TAG, "Unknown statue: " + statue);
+												break;
+										}
+									} else {
+										Log.d(TAG, "Statue not found in user metadata.");
+									}
+								} else {
+									Log.d(TAG, "User metadata not found.");
+									// Handle missing user metadata
+								}
+							}
+						})
+						.addOnFailureListener(new OnFailureListener() {
+							@Override
+							public void onFailure(@NonNull Exception e) {
+								Log.e(TAG, "Error getting user metadata: ", e);
+								// Handle error and provide feedback to the user
+							}
+						});
+			} else {
+				Log.d(TAG, "Current user is null.");
+				// Handle unauthenticated user
+			}
+		}
+
+
+	@SuppressLint("MissingInflatedId")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
@@ -78,28 +138,96 @@ import pfe.africar.R;
 		setContentView(R.layout.log_in_inactive_state_);
 
 		
-		_bg__log_in_inactive_state__ek2 = (View) findViewById(R.id._bg__log_in_inactive_state__ek2);
 
-		uil_arrow_up_1_ek2 = (ImageView) findViewById(R.id.uil_arrow_up_1_ek2);
-		login_to_your_account = (TextView) findViewById(R.id.login_to_your_account);
+		backbtn = (ImageView) findViewById(R.id.uil_arrow_up_1_ek2);
 
-		_bg__medium_1icon_ek3 = (View) findViewById(R.id._bg__medium_1icon_ek3);
-		vector_ek4 = (ImageView) findViewById(R.id.vector_ek4);
-		label_ek3 = (TextView) findViewById(R.id.label_ek3);
-		_bg__medium_2icons_ek3 = (View) findViewById(R.id._bg__medium_2icons_ek3);
+		email = (EditText) findViewById(R.id.label_ek3);//
 
-		vector_ek5 = (ImageView) findViewById(R.id.vector_ek5);
-		label_ek4 = (TextView) findViewById(R.id.label_ek4);
-		vector_ek6 = (ImageView) findViewById(R.id.vector_ek6);
 
-		forgot_password_ = (TextView) findViewById(R.id.forgot_password_);
-		_bg__component_2_ek5 = (View) findViewById(R.id._bg__component_2_ek5);
-		button_ek3 = (TextView) findViewById(R.id.button_ek3);
+		password = (EditText) findViewById(R.id.label_ek4);//
+		vector_ek6 = (ImageView) findViewById(R.id.vector_ek6);//
+
+		forgot_password = (TextView) findViewById(R.id.forgot_password_);//
+		button = (View) findViewById(R.id._bg__component_2_ek5);//
+
+		mAuth = FirebaseAuth.getInstance();
+
+		// Initialize Firebase Firestore
+		 db = FirebaseFirestore.getInstance();
+//pwd visibility
+		vector_ek6.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// Récupérer le type d'entrée actuel du champ de mot de passe
+				int inputType = password.getInputType();
+
+				// Vérifier si le mot de passe est actuellement visible
+				boolean isPasswordVisible = (inputType == InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+
+				// Basculer la visibilité du mot de passe
+				if (isPasswordVisible) {
+					// Si le mot de passe est actuellement visible, le rendre invisible
+					password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+					// Mettre à jour l'icône pour indiquer un mot de passe masqué
+
+				} else {
+					// Si le mot de passe est actuellement masqué, le rendre visible
+					password.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+					// Mettre à jour l'icône pour indiquer un mot de passe visible
+				}
+
+				// Déplacer le curseur à la fin du texte
+				password.setSelection(password.getText().length());
+			}
+		});
+//pswd enter=> clavier disparu
+		password.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+			@Override
+			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+				if (actionId == EditorInfo.IME_ACTION_DONE || (event.getAction() == KeyEvent.ACTION_DOWN && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+					// Hide the keyboard
+					InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+					imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+					return true;
+				}
+				return false;
+			}
+		});
+
+
+		backbtn.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+			}
+		});
+
+		button.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String emailtext = email.getText().toString().trim();
+				String passwordtext = password.getText().toString().trim();
+
+				if (!emailtext.isEmpty() && !passwordtext.isEmpty()) {
+					login(emailtext, passwordtext);
+				} else {
+					Toast.makeText(log_in_inactive_state__activity.this, "Please enter your email and password", Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
+
+		forgot_password.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(log_in_inactive_state__activity.this, forget_password.class));
+
+
+			}
+		});
+
 
 	
-		
-		//custom code goes here
-	
+
 	}
 }
 	
