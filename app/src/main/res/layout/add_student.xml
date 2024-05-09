@@ -98,12 +98,14 @@
 								<EditText
 									android:id="@+id/label_ek34"
 									android:layout_width="200dp"
-							     	android:layout_height="23.6dp"
+							     	android:layout_height="48dp"
 							    	android:layout_marginLeft="0dp"
 								    android:hint="Full Name (nom _ prenom)"
-							    	android:textColor="@color/label_color"
-								    android:textSize="16sp"
-								    tools:ignore="TouchTargetSizeCheck" />
+
+									android:textColor="@color/black"
+									android:textSize="16sp"
+									android:textColorHint="@color/label_color"
+									android:background="@null" />
 
 
 							</RelativeLayout>
@@ -136,12 +138,14 @@
 								<EditText
 									android:id="@+id/label_ek35"
 									android:layout_width="92.6dp"
-									android:layout_height="23.6dp"
+									android:layout_height="48dp"
 									android:layout_marginLeft="0dp"
 									android:hint="School ID"
-									android:textColor="@color/label_color"
+
+									android:textColor="@color/black"
 									android:textSize="16sp"
-									tools:ignore="TouchTargetSizeCheck" />
+									android:textColorHint="@color/label_color"
+									android:background="@null"/>
 
 							</RelativeLayout>
 
@@ -173,13 +177,15 @@
 								<EditText
 									android:id="@+id/label_ek36"
 									android:layout_width="63.6dp"
-									android:layout_height="23.6dp"
+									android:layout_height="48dp"
 									android:layout_marginLeft="0dp"
 									android:layout_marginTop="0dp"
 									android:hint="@string/label_ek36_string"
-									android:textColor="@color/label_color"
+
+									android:textColor="@color/black"
 									android:textSize="16sp"
-									tools:ignore="TouchTargetSizeCheck" />
+									android:textColorHint="@color/label_color"
+									android:background="@null" />
 
 							</RelativeLayout>
 
@@ -211,13 +217,16 @@
 								<EditText
 									android:id="@+id/label_ek37"
 									android:layout_width="128.6dp"
-									android:layout_height="23.6dp"
+									android:layout_height="48dp"
 									android:layout_marginLeft="0dp"
 									android:layout_marginTop="0dp"
 									android:hint="@string/label_ek37_string"
-									android:textColor="@color/label_color"
+
+									android:textColor="@color/black"
 									android:textSize="16sp"
-									tools:ignore="TouchTargetSizeCheck" />
+									android:textColorHint="@color/label_color"
+									android:background="@null"
+									 />
 
 							</RelativeLayout>
 
@@ -249,12 +258,14 @@
 								<EditText
 									android:id="@+id/label_ek38"
 									android:layout_width="100.6dp"
-									android:layout_height="23.6dp"
+									android:layout_height="48dp"
 									android:layout_marginLeft="0dp"
 									android:hint="@string/label_ek38_string"
-									android:textColor="@color/label_color"
+
+									android:textColor="@color/black"
 									android:textSize="16sp"
-									tools:ignore="TouchTargetSizeCheck" />
+									android:textColorHint="@color/label_color"
+									android:background="@null" />
 
 							</RelativeLayout>
 

@@ -31,6 +31,8 @@
 
 	import com.google.android.gms.tasks.OnFailureListener;
 	import com.google.android.gms.tasks.OnSuccessListener;
+	import com.google.firebase.auth.FirebaseAuth;
+	import com.google.firebase.auth.FirebaseUser;
 	import com.google.firebase.firestore.DocumentReference;
 	import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -51,6 +53,95 @@
 		private ImageView vector_ek729;
 		private ImageView vector_ek730;
 		private ImageView vector_ek731;
+		private FirebaseAuth mAuth;
+		private FirebaseUser user;
+		private FirebaseFirestore db;
+
+
+		/*private void createAccount(String email, String password) {
+
+
+			// Créer un nouvel utilisateur avec l'e-mail et le mot de passe fournis
+			mAuth.createUserWithEmailAndPassword(email, password)
+					.addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+						@Override
+						public void onComplete(@NonNull Task<AuthResult> task) {
+							if (task.isSuccessful()) {
+								// Sign in success, update UI with the signed-in user's information
+								Log.d(TAG, "createUserWithEmail:success");
+								user = mAuth.getCurrentUser();
+								// Envoyer l'e-mail de vérification
+								user.sendEmailVerification()
+										.addOnCompleteListener(new OnCompleteListener<Void>() {
+											@Override
+											public void onComplete(@NonNull Task<Void> task) {
+												if (task.isSuccessful()) {
+													Log.d(TAG, "Email sent.");
+													Toast.makeText(add_prof_activity.this, "Verification email sent.",
+															Toast.LENGTH_SHORT).show();
+
+
+												}
+											}
+										});
+
+
+
+
+							} else {
+								checkIfUserExists(email);
+								// If sign in fails, display a message to the user.
+								Log.w(TAG, "createUserWithEmail:failure", task.getException());
+								Toast.makeText(add_prof_activity.this, "Authentication failed.",
+										Toast.LENGTH_SHORT).show();
+
+
+							}
+						}
+					});;
+		}
+
+		private void checkIfUserExists(String email) {
+			FirebaseAuth.getInstance().fetchSignInMethodsForEmail(email)
+					.addOnCompleteListener(new OnCompleteListener<SignInMethodQueryResult>() {
+						@Override
+						public void onComplete(@NonNull Task<SignInMethodQueryResult> task) {
+							if (task.isSuccessful()) {
+								Toast.makeText(add_prof_activity.this, "Cet utilisateur existe déjà.", Toast.LENGTH_SHORT).show();
+
+							}
+						}
+					});
+
+		}
+
+		private void updateUserMetadata(String idEcole, String statue) {
+			FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+			if (user != null) {
+				DocumentReference userDocRef = db.collection("Users").document(user.getUid());
+				Map<String, Object> userMetadata = new HashMap<>();
+				userMetadata.put("idEcole", idEcole);
+				userMetadata.put("statue", statue);
+
+				userDocRef.set(userMetadata, SetOptions.merge())
+						.addOnSuccessListener(new OnSuccessListener<Void>() {
+							@Override
+							public void onSuccess(Void aVoid) {
+								Log.d(TAG, "User metadata updated successfully.");
+								// Handle success and provide feedback to the user
+							}
+						})
+						.addOnFailureListener(new OnFailureListener() {
+							@Override
+							public void onFailure(@NonNull Exception e) {
+								Log.e(TAG, "Error updating user metadata: ", e);
+								// Handle error and provide feedback to the user
+							}
+						});
+			}
+		}*/ // creation des users impossible
+
+
 
 		@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -64,6 +155,8 @@
 			schoolID = (EditText) findViewById(R.id.label_ek40);//
 
 			email = (EditText) findViewById(R.id.label_ek41);//
+			//EditText password = (EditText) findViewById(R.id.password);
+
 
 			phone = (EditText) findViewById(R.id.label_ek42);//
 
@@ -79,11 +172,18 @@
 			vector_ek730 = (ImageView) findViewById(R.id.vector_ek730);
 			vector_ek731 = (ImageView) findViewById(R.id.vector_ek731);
 
+			x_1_ek18.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					onBackPressed();
+				}
+			});
+
 
 			button.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					FirebaseFirestore db = FirebaseFirestore.getInstance();
+					 db = FirebaseFirestore.getInstance();
 
 
 					// Récupérer le nom complet saisi par l'utilisateur
@@ -108,6 +208,8 @@
 						String emailText = email.getText().toString();
 						String phoneText = phone.getText().toString();
 						String fieldText = field.getText().toString();
+						//String passwordText =password.getText().toString();
+
 
 						// Vérifier si tous les champs sont remplis
 						if (schoolIDText.isEmpty() || emailText.isEmpty() || phoneText.isEmpty() || fieldText.isEmpty()) {
@@ -119,6 +221,10 @@
 
 						Professeur newProfesseur = new Professeur(schoolIDText, nom, prenom, emailText, phoneText);
 						newProfesseur.setMatiere(fieldText);
+
+						//createAccount(emailText,passwordText);
+
+
 
 						// Ajouter le professeur à la base de données Firestore
 
@@ -147,5 +253,12 @@
                           // <!-- TODO: nav bar , test .
 				}
 			});
+
+
+
+
+
+
+
 		}}
 

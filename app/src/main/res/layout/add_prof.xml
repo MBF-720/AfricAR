@@ -100,8 +100,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek63"
 								android:background="@drawable/_bg__medium_ek63_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 
@@ -115,13 +115,16 @@
 
 								<EditText
 									android:id="@+id/label_ek39"
-									android:layout_width="200dp"
-									android:layout_height="23.6dp"
+									android:layout_width="250dp"
+									android:layout_height="48dp"
 									android:layout_marginLeft="0dp"
 									android:hint="Full Name  (nom _ prenom)"
-									android:textColor="@color/label_color"
+									android:textColor="@color/black"
 									android:textSize="16sp"
-									tools:ignore="TouchTargetSizeCheck"/>
+									android:textColorHint="@color/label_color"
+									android:background="@null"
+									/>
+
 
 							</RelativeLayout>
 
@@ -137,8 +140,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek65"
 								android:background="@drawable/_bg__medium_ek65_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 
@@ -151,13 +154,16 @@
 								>
 
 								<EditText android:id="@+id/label_ek40"
-									android:textSize="16sp"
-									android:textColor="@color/label_color"
+
 									android:layout_marginLeft="0dp"
 									android:layout_marginTop="0dp"
 									android:layout_width="200dp"
-									android:layout_height="23.6dp"
+									android:layout_height="48dp"
 									android:hint="@string/label_ek40_string"
+									android:textColor="@color/black"
+									android:textSize="16sp"
+									android:textColorHint="@color/label_color"
+									android:background="@null"
 									 />
 
 							</RelativeLayout>
@@ -174,8 +180,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek67"
 								android:background="@drawable/_bg__medium_ek67_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 
@@ -188,13 +194,16 @@
 								>
 
 								<EditText android:id="@+id/label_ek41"
-									android:textSize="16sp"
-									android:textColor="@color/label_color"
+
 									android:layout_marginLeft="0dp"
 									android:layout_marginTop="0dp"
 									android:layout_width="200dp"
-									android:layout_height="23.6dp"
+									android:layout_height="48dp"
 									android:hint="@string/label_ek41_string"
+									android:textColor="@color/black"
+									android:textSize="16sp"
+									android:textColorHint="@color/label_color"
+									android:background="@null"
 									 />
 
 							</RelativeLayout>
@@ -211,8 +220,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek69"
 								android:background="@drawable/_bg__medium_ek69_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 
@@ -225,13 +234,16 @@
 								>
 
 								<EditText android:id="@+id/label_ek42"
-									android:textSize="16sp"
-									android:textColor="@color/label_color"
+
 									android:layout_marginLeft="0dp"
 									android:layout_marginTop="0dp"
 									android:layout_width="128.6dp"
-									android:layout_height="23.6dp"
+									android:layout_height="48dp"
 									android:hint="@string/label_ek42_string"
+									android:textColor="@color/black"
+									android:textSize="16sp"
+									android:textColorHint="@color/label_color"
+									android:background="@null"
 									 />
 
 							</RelativeLayout>
@@ -248,8 +260,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek71"
 								android:background="@drawable/_bg__medium_ek71_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 
@@ -262,18 +274,60 @@
 								>
 
 								<EditText android:id="@+id/label_ek43"
-									android:textSize="16sp"
-									android:textColor="@color/label_color"
+
 									android:layout_marginLeft="0dp"
 									android:layout_marginTop="0dp"
 									android:layout_width="200dp"
-									android:layout_height="23.6dp"
+									android:layout_height="48dp"
 									android:hint="@string/label_ek43_string"
+									android:textColor="@color/black"
+									android:textSize="16sp"
+									android:textColorHint="@color/label_color"
+									android:background="@null"
 									 />
 
 							</RelativeLayout>
 
 						</RelativeLayout>
+
+						<!--<RelativeLayout android:id="@+id/medium"
+							android:layout_marginTop="350dp"
+							android:layout_marginStart="0dp"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							>
+
+							<View   android:id="@+id/_bg__medium"
+								android:background="@drawable/_bg__medium_ek71_shape"
+								android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
+								android:layout_width="343dp"
+								android:layout_height="51dp" />
+
+
+							<RelativeLayout android:id="@+id/frame_7"
+								android:layout_marginTop="16dp"
+								android:layout_marginStart="8dp"
+								android:layout_width="wrap_content"
+								android:layout_height="wrap_content"
+								>
+
+								<EditText android:id="@+id/password"
+
+									android:layout_marginLeft="0dp"
+									android:layout_marginTop="0dp"
+									android:layout_width="200dp"
+									android:layout_height="48dp"
+									android:hint="Password"
+									android:textColor="@color/black"
+									android:textSize="16sp"
+									android:textColorHint="@color/label_color"
+									android:background="@null"
+									/>
+
+							</RelativeLayout>
+
+						</RelativeLayout>-->
 
 					</RelativeLayout>
 

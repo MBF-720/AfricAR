@@ -482,7 +482,7 @@
 			});
 
 
-
+//todo crop image?
 
 
 
