@@ -23,7 +23,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".activitys.onboarding_screen_activity"
+            android:name=".activitys.classroom_lists_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,6 +63,9 @@
             android:exported="true" />
 
 
+        <activity
+            android:name=".activitys.list_eleve__activity"
+            android:exported="true" />
     </application>
 
 </manifest>

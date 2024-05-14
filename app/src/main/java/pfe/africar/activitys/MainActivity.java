@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout de l'école", task.getException());
                         }
+
                     }
                 });
     }
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout de l'élève", task.getException());
                         }
+
                     }
                 });
     }
@@ -104,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout de l'admin", task.getException());
                         }
+
                     }
                 });
     }
@@ -125,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout du professeur", task.getException());
                         }
+
                     }
                 });
     }
@@ -152,6 +156,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout de la classe", task.getException());
                         }
+
                     }
                 });
     }
@@ -202,6 +207,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout du cours", task.getException());
                         }
+
                     }
                 });
     }
@@ -242,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout du quiz", task.getException());
                         }
+
                     }
                 });
     }
@@ -267,6 +274,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout de la question", task.getException());
                         }
+
                     }
                 });
     }
@@ -285,6 +293,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout de la salle", task.getException());
                         }
+
                     }
                 });
     }
@@ -304,6 +313,7 @@ public class MainActivity extends AppCompatActivity {
                         } else {
                             Log.w(TAG, "Erreur lors de l'ajout de la statistique", task.getException());
                         }
+
                     }
                 });
     }

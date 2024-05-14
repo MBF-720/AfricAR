@@ -116,7 +116,8 @@
 								Toast.makeText(create_acount__inactive_state__activity.this, "Cet utilisateur existe déjà.", Toast.LENGTH_SHORT).show();
 
 							}
-						}
+
+                        }
 					});
 
 		}
@@ -148,7 +149,8 @@
 													// Afficher un bouton pour permettre à l'utilisateur de vérifier son e-mail
 													verifyEmailButton.setVisibility(View.VISIBLE);
 												}
-											}
+
+                                            }
 										});
 
 
@@ -163,7 +165,8 @@
 								updateUI(null);
 
 							}
-						}
+
+                        }
 					});;
 		}
 private void veriferEmail(){
@@ -184,7 +187,8 @@ private void veriferEmail(){
 				// Une erreur s'est produite lors de la recharge de l'utilisateur
 				Log.e(TAG, "Erreur lors du rechargement de l'utilisateur: ", task.getException());
 			}
-		}
+
+        }
 	});
 }
 		@Override

@@ -71,9 +71,12 @@
 							} else {
 								// If sign in fails, display a message to the user.
 								Log.w(TAG, "signInWithEmail:failure", task.getException());
+								Toast.makeText(log_in_inactive_state__activity.this, "thabet",Toast.LENGTH_SHORT).show();
+
 
 								updateUI(null);
 							}
+
 						}
 					});
 		}

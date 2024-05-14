@@ -81,6 +81,7 @@
 									Toast.makeText(forget_password.this, "Email sent", Toast.LENGTH_SHORT).show();
 
 								}
+
 							}
 						});
 

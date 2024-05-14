@@ -172,7 +172,8 @@
 								Log.d(TAG, "User profile updated.");
 
 							}
-						}
+
+                        }
 					});
 		}
 

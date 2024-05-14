@@ -95,6 +95,7 @@ View button;
                             } else {
                                 Log.d(TAG, "get failed with ", task.getException());
                             }
+
                         }
                     });
 

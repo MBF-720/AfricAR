@@ -6,37 +6,37 @@ import java.util.List;
 public class Classe {
 
 
-
     private String classeID;
     private String ecoleID;
     private String niveau;
-    private List<Eleve> eleves;
-    private List<Professeur> professeurs;
+    private List<Eleve> listeEleve;
+    private List<Professeur> listeProfesseurs;
     private List<String> matieres;
     private List<Quiz> quiz;
 
-    public Classe(String niveau,String ecoleID) {
+
+    public Classe(String niveau, String ecoleID) {
         this.niveau = niveau;
-        this.eleves = new ArrayList<>();
-        this.professeurs = new ArrayList<>();
+        this.listeEleve = new ArrayList<>();
+        this.listeProfesseurs = new ArrayList<>();
         this.matieres = new ArrayList<>();
         this.quiz = new ArrayList<>();
     }
 
     public void addEleve(Eleve eleve) {
-        this.eleves.add(eleve);
+        this.listeEleve.add(eleve);
     }
 
     public void removeEleve(String eleve) {
-        this.eleves.remove(eleve);
+        this.listeEleve.remove(eleve);
     }
 
     public void addProfesseur(Professeur professeur) {
-        this.professeurs.add(professeur);
+        this.listeProfesseurs.add(professeur);
     }
 
     public void removeProfesseur(Professeur professeur) {
-        this.professeurs.remove(professeur);
+        this.listeProfesseurs.remove(professeur);
     }
 
     public void addMatiere(String matiere) {
@@ -60,11 +60,11 @@ public class Classe {
     }
 
     public List<Eleve> getEleves() {
-        return eleves;
+        return listeEleve;
     }
 
     public List<Professeur> getProfesseurs() {
-        return professeurs;
+        return listeProfesseurs;
     }
 
     public List<String> getMatieres() {
@@ -74,6 +74,7 @@ public class Classe {
     public List<Quiz> getQuiz() {
         return quiz;
     }
+
     public String getClasseID() {
         return classeID;
     }
@@ -89,4 +90,33 @@ public class Classe {
     public void setEcoleID(String ecoleID) {
         this.ecoleID = ecoleID;
     }
+
+
+
+   /* public void getListeEleves(String ecoleId, String classeId, ResultCallback<Map<String, String>> callback) {
+        Map<String, String> elevesMap = new HashMap<>();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("Ecoles").document(ecoleId).collection("Classes")
+                .document(classeId)
+                .collection("Eleves")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (DocumentSnapshot document : task.getResult()) {
+                            String nom = document.getString("nom");
+                            String prenom = document.getString("prenom");
+                            String id = document.getId();
+                            String name = String.format("%s %s", nom, prenom);
+                            elevesMap.put(name, id);
+                        }
+                        callback.onResult(elevesMap);
+                    } else {
+                        // Gérer les erreurs
+                        callback.onError(task.getException());
+                    }
+                });
+    }*/
+
+
 }
