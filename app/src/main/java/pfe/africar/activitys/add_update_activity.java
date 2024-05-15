@@ -127,7 +127,7 @@ import pfe.africar.R;
 		private void updateDateInView() {
 			// Mettre à jour le champ de texte "birthDate" avec la date sélectionnée
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-			birthDate.setText(sdf.format(selectedDate.getTime()));
+			label_ek52.setText(sdf.format(selectedDate.getTime()));
 		}
 
 	@Override
@@ -243,7 +243,7 @@ import pfe.africar.R;
 			data.put("date", date);
 			data.put("time", time);
 			String schoolId = "actualité_de_l'école";  //
-			db.collection("ecoles").document("ecole").collection("actualités")
+			db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I").collection("Actualités")
 					.add(data)
 					.addOnSuccessListener(documentReference -> {
 						Toast.makeText(add_update_activity.this, "Announcement added successfully!", Toast.LENGTH_SHORT).show();
@@ -252,7 +252,8 @@ import pfe.africar.R;
 					.addOnFailureListener(e -> Toast.makeText(add_update_activity.this, "Error adding announcement.", Toast.LENGTH_SHORT).show());
 		}
 		}
-
+//todo tzid el acceil
+// todo upload file to db and set text by filename
 
 	
 	

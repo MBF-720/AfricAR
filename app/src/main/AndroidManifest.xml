@@ -23,7 +23,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".activitys.classroom_lists_activity"
+            android:name=".activitys.admin_update_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,6 +68,9 @@
             android:exported="true" />
         <activity
             android:name=".activitys.add_student_activity"
+            android:exported="true" />
+        <activity
+            android:name=".activitys.add_update_activity"
             android:exported="true" />
 
     </application>
