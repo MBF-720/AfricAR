@@ -90,41 +90,26 @@ import pfe.africar.R;
 		
 		_bg__add_update_ek2 = (View) findViewById(R.id._bg__add_update_ek2);
 		add_new_announcement = (TextView) findViewById(R.id.add_new_announcement);
-		_bg__frame_138_ek1 = (View) findViewById(R.id._bg__frame_138_ek1);
-		_bg__frame_137_ek1 = (View) findViewById(R.id._bg__frame_137_ek1);
-		_bg__frame_136_ek1 = (View) findViewById(R.id._bg__frame_136_ek1);
+
 		_bg__medium_ek83 = (View) findViewById(R.id._bg__medium_ek83);
-		_bg__frame_7_ek107 = (View) findViewById(R.id._bg__frame_7_ek107);
+
 		label_ek49 = (TextView) findViewById(R.id.label_ek49);
-		_bg__frame_135_ek1 = (View) findViewById(R.id._bg__frame_135_ek1);
-		category = (TextView) findViewById(R.id.category);
-		_bg__frame_134_ek1 = (View) findViewById(R.id._bg__frame_134_ek1);
-		_bg__frame_1_ek19 = (View) findViewById(R.id._bg__frame_1_ek19);
-		assignments_ek2 = (TextView) findViewById(R.id.assignments_ek2);
-		_bg__frame_2_ek3 = (View) findViewById(R.id._bg__frame_2_ek3);
-		events_ek2 = (TextView) findViewById(R.id.events_ek2);
-		_bg__frame_3_ek3 = (View) findViewById(R.id._bg__frame_3_ek3);
-		activities_ek2 = (TextView) findViewById(R.id.activities_ek2);
-		_bg__frame_4_ek3 = (View) findViewById(R.id._bg__frame_4_ek3);
-		reminders = (TextView) findViewById(R.id.reminders);
-		_bg__frame_5_ek3 = (View) findViewById(R.id._bg__frame_5_ek3);
-		opportunities_ek2 = (TextView) findViewById(R.id.opportunities_ek2);
-		_bg__frame_6_ek9 = (View) findViewById(R.id._bg__frame_6_ek9);
-		notices = (TextView) findViewById(R.id.notices);
+
+
 		_bg__medium_ek85 = (View) findViewById(R.id._bg__medium_ek85);
-		_bg__frame_7_ek109 = (View) findViewById(R.id._bg__frame_7_ek109);
+
 		label_ek50 = (TextView) findViewById(R.id.label_ek50);
 		_bg__medium_ek87 = (View) findViewById(R.id._bg__medium_ek87);
-		_bg__frame_7_ek111 = (View) findViewById(R.id._bg__frame_7_ek111);
+
 		label_ek51 = (TextView) findViewById(R.id.label_ek51);
-		_bg__frame_111_ek3 = (View) findViewById(R.id._bg__frame_111_ek3);
+
 		schedule__ = (TextView) findViewById(R.id.schedule__);
-		_bg__frame_109_ek3 = (View) findViewById(R.id._bg__frame_109_ek3);
+
 		_bg__medium_ek89 = (View) findViewById(R.id._bg__medium_ek89);
-		_bg__frame_7_ek113 = (View) findViewById(R.id._bg__frame_7_ek113);
+
 		label_ek52 = (TextView) findViewById(R.id.label_ek52);
 		_bg__medium_ek91 = (View) findViewById(R.id._bg__medium_ek91);
-		_bg__frame_7_ek115 = (View) findViewById(R.id._bg__frame_7_ek115);
+
 		label_ek53 = (TextView) findViewById(R.id.label_ek53);
 		_bg__component_1_ek41 = (View) findViewById(R.id._bg__component_1_ek41);
 		button_ek26 = (TextView) findViewById(R.id.button_ek26);
