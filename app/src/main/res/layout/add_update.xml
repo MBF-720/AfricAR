@@ -115,8 +115,8 @@
 									android:id="@+id/_bg__medium_ek83"
 									android:layout_width="343dp"
 									android:layout_height="51dp"
-									android:layout_marginStart="-2dp"
-									android:layout_marginTop="-2dp"
+									android:layout_marginStart="2dp"
+									android:layout_marginTop="2dp"
 									android:background="@drawable/_bg__medium_ek83_shape" />
 
 								<RelativeLayout android:id="@+id/frame_7_ek106"
@@ -126,14 +126,16 @@
 									android:layout_height="wrap_content"
 									>
 
-									<TextView
+									<EditText
 										android:id="@+id/label_ek49"
-										android:layout_width="84.6dp"
-										android:layout_height="23.6dp"
+										android:layout_width="300dp"
+										android:layout_height="48dp"
 										android:layout_marginLeft="0dp"
 										android:layout_marginTop="0dp"
-										android:text="@string/label_ek49_string"
-										android:textColor="@color/label_color"
+										android:hint="@string/label_ek49_string"
+										android:textColor="@color/black"
+										android:textColorHint="@color/label_color"
+										android:background="@null"
 										android:textSize="16sp" />
 
 								</RelativeLayout>
@@ -150,8 +152,8 @@
 
 								<View   android:id="@+id/_bg__medium_ek85"
 									android:background="@drawable/_bg__medium_ek85_shape"
-									 android:layout_marginStart="-2dp"
-									android:layout_marginTop="-2dp"
+									 android:layout_marginStart="2dp"
+									android:layout_marginTop="2dp"
 									android:layout_width="343dp"
 									android:layout_height="104dp" />
 
@@ -165,12 +167,14 @@
 
 									<TextView
 										android:id="@+id/label_ek50"
-										android:layout_width="102.6dp"
-										android:layout_height="23.6dp"
+										android:layout_width="320dp"
+										android:layout_height="75dp"
 										android:layout_marginLeft="0dp"
 										android:layout_marginTop="0dp"
-										android:text="@string/label_ek50_string"
-										android:textColor="@color/label_color"
+										android:hint="@string/label_ek50_string"
+										android:textColor="@color/black"
+										android:textColorHint="@color/label_color"
+										android:background="@null"
 										android:textSize="16sp" />
 
 								</RelativeLayout>
@@ -187,8 +191,8 @@
 
 								<View   android:id="@+id/_bg__medium_ek87"
 									android:background="@drawable/_bg__medium_ek87_shape"
-									 android:layout_marginStart="-2dp"
-									android:layout_marginTop="-2dp"
+									 android:layout_marginStart="2dp"
+									android:layout_marginTop="2dp"
 									android:layout_width="343dp"
 									android:layout_height="51dp" />
 
@@ -252,8 +256,8 @@
 
 									<View   android:id="@+id/_bg__medium_ek89"
 										android:background="@drawable/_bg__medium_ek89_shape"
-										 android:layout_marginStart="-2dp"
-										android:layout_marginTop="-2dp"
+										 android:layout_marginStart="2dp"
+										android:layout_marginTop="2dp"
 										android:layout_width="343dp"
 										android:layout_height="51dp" />
 
@@ -289,8 +293,8 @@
 
 									<View   android:id="@+id/_bg__medium_ek91"
 										android:background="@drawable/_bg__medium_ek91_shape"
-										 android:layout_marginStart="-2dp"
-										android:layout_marginTop="-2dp"
+										 android:layout_marginStart="2dp"
+										android:layout_marginTop="2dp"
 										android:layout_width="343dp"
 										android:layout_height="51dp" />
 

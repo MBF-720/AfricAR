@@ -18,12 +18,18 @@
 	package pfe.africar.activitys;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 
 
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.ImageView;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 import pfe.africar.R;
 
@@ -80,6 +86,40 @@ import pfe.africar.R;
 	private ImageView vector_ek756;
 	private ImageView vector_ek757;
 	private ImageView vector_ek758;
+
+		private Calendar selectedDate = Calendar.getInstance();
+		TextView birthDate;
+
+
+
+		private void showDatePicker() {
+			// Créer un DatePickerDialog avec la date actuelle
+			DatePickerDialog datePickerDialog = new DatePickerDialog(
+					this,
+					new DatePickerDialog.OnDateSetListener() {
+						@Override
+						public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+							// Mettre à jour la date sélectionnée lorsque l'utilisateur choisit une nouvelle date
+							selectedDate.set(year, monthOfYear, dayOfMonth);
+							// Mettre à jour le champ de texte avec la date sélectionnée
+							updateDateInView();
+						}
+					},
+					// Définir l'année, le mois et le jour actuels comme date par défaut dans le sélecteur de date
+					selectedDate.get(Calendar.YEAR),
+					selectedDate.get(Calendar.MONTH),
+					selectedDate.get(Calendar.DAY_OF_MONTH)
+			);
+
+			// Afficher le sélecteur de date
+			datePickerDialog.show();
+		}
+
+		private void updateDateInView() {
+			// Mettre à jour le champ de texte "birthDate" avec la date sélectionnée
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+			birthDate.setText(sdf.format(selectedDate.getTime()));
+		}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
