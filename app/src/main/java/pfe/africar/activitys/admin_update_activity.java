@@ -17,7 +17,9 @@
 
 	package pfe.africar.activitys;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 
@@ -95,22 +97,26 @@ import pfe.africar.R;
 	private ImageView vector_ek765;
 	private ImageView vector_ek766;
 
+	@SuppressLint("MissingInflatedId")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.admin_update);
-
-		
-
-
 		_bg__frame_132_ek7 = (View) findViewById(R.id._bg__frame_132_ek7);
 		add_new_announcement_ek1 = (TextView) findViewById(R.id.add_new_announcement_ek1);
-
+		add_new_announcement_ek1.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(admin_update_activity.this, add_update_activity.class);
+				startActivity(intent);
+			}
+		});
 		rectangle_32_ek25 = (ImageView) findViewById(R.id.rectangle_32_ek25);
 
 		welcome_to = (TextView) findViewById(R.id.welcome_to);
 		fallujah = (TextView) findViewById(R.id.fallujah);
+
 		vector_ek762 = (ImageView) findViewById(R.id.vector_ek762);
 		updates_ek12 = (TextView) findViewById(R.id.updates_ek12);
 		personnel_ek14 = (TextView) findViewById(R.id.personnel_ek14);
@@ -120,7 +126,7 @@ import pfe.africar.R;
 		vector_ek764 = (ImageView) findViewById(R.id.vector_ek764);
 		vector_ek765 = (ImageView) findViewById(R.id.vector_ek765);
 		vector_ek766 = (ImageView) findViewById(R.id.vector_ek766);
-	
+
 		
 		//custom code goes here
 	
