@@ -18,7 +18,9 @@
 	package pfe.africar.activitys;
 
 	import android.app.Activity;
+	import android.content.Intent;
 	import android.os.Bundle;
+	import android.view.View;
 	import android.widget.ArrayAdapter;
 	import android.widget.ListView;
 	import android.widget.TextView;
@@ -43,7 +45,7 @@
 
 
 
-		public void getListeEleves(String ecoleId, String classeId,Map<String, String> elevesMap) {
+		/*public void getListeEleves(String ecoleId, String classeId,Map<String, String> elevesMap) {
 
 			FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -65,10 +67,14 @@
 
 							Toast.makeText(getApplicationContext(), "can't finde list ", Toast.LENGTH_SHORT).show();
 						}
-					});}
+					});}*/
 
 
-	@Override
+
+
+
+
+		@Override
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
@@ -81,29 +87,66 @@
 		updateTimetable = (TextView) findViewById(R.id.update_timetable);
 		listeView =(ListView) findViewById(R.id.ListView);
 
-		Map<String, String> mapEleves = new HashMap<>();//todo alech to9ad empty
+		Map<String, String> elevesMap = new HashMap<>();//todo alech to9ad empty
 
 
 
 		String classeId = getIntent().getStringExtra("classId");
-
-		getListeEleves("Vgv1obkaHUASn7Z8rI7I",  classeId,mapEleves);
-
-
-		if(mapEleves.isEmpty()){
-			Toast.makeText(getApplicationContext(), "map empty ", Toast.LENGTH_SHORT).show();
-
-		}
+		Toast.makeText(getApplicationContext(), "CLS ID :"+classeId, Toast.LENGTH_SHORT).show();
 
 
-		// Créez une liste de noms d'élèves à partir de la map
-		ArrayList<String> elevesList = new ArrayList<>(mapEleves.keySet());
 
-		// Créez un adaptateur pour lier la liste des noms d'élèves à la vue de la liste
-		ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, elevesList);
 
-		// Définissez l'adaptateur de votre ListView
-		listeView.setAdapter(adapter);
+
+				FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+				db.collection("Ecoles").document(ecoleId)
+						.collection("Eleves").whereEqualTo("idClasse", classeId)
+						.get()
+						.addOnCompleteListener(task -> {
+							if (task.isSuccessful()) {
+								Toast.makeText(getApplicationContext(), "find id DB", Toast.LENGTH_SHORT).show();
+
+								for (DocumentSnapshot document : task.getResult()) {
+									String nom = document.getString("nom");
+									String prenom = document.getString("prenom");
+									String id = document.getId();
+									String name = String.format("%s %s", nom, prenom);
+									elevesMap.put(name, id);
+								}
+
+								// Créez une liste de noms d'élèves à partir de la map
+								ArrayList<String> elevesList = new ArrayList<>(elevesMap.keySet());
+
+								// Créez un adaptateur pour lier la liste des noms d'élèves à la vue de la liste
+								ArrayAdapter<String> adapter = new ArrayAdapter<>(list_eleve__activity.this, android.R.layout.simple_list_item_1, elevesList);
+
+								// Définissez l'adaptateur de votre ListView
+								listeView.setAdapter(adapter);
+
+							} else {
+								Toast.makeText(getApplicationContext(), "can't find list ", Toast.LENGTH_SHORT).show();
+							}
+						});
+
+
+			// OnClickListener pour le TextView addStudent
+			addStudent.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(list_eleve__activity.this, add_student_activity.class);
+					startActivity(intent);
+				}
+			});
+
+
+
+//todo onclik element yhezek lil cordonne te3ou
+			//todo on klik 3al add student thzek el add student
+
+			//
+
+
 
 	}
 }

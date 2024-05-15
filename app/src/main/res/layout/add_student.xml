@@ -82,8 +82,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek53"
 								android:background="@drawable/_bg__medium_ek53_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 
@@ -122,8 +122,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek55"
 								android:background="@drawable/_bg__medium_ek55_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 
@@ -161,8 +161,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek57"
 								android:background="@drawable/_bg__medium_ek57_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 
@@ -201,8 +201,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek59"
 								android:background="@drawable/_bg__medium_ek59_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 
@@ -242,8 +242,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek61"
 								android:background="@drawable/_bg__medium_ek61_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 

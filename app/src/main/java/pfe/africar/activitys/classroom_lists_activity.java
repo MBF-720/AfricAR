@@ -26,6 +26,7 @@
 	import android.widget.ArrayAdapter;
 	import android.widget.ImageView;
 	import android.widget.ListView;
+	import android.widget.Toast;
 
 	import com.google.android.gms.tasks.OnCompleteListener;
 	import com.google.android.gms.tasks.Task;
@@ -52,6 +53,8 @@
 	private ImageView vector_ek650;
 	private ImageView vector_ek651;
 	private  ListView listeView;
+
+
 
 	private String ecoleId="Vgv1obkaHUASn7Z8rI7I";
 
@@ -80,8 +83,8 @@
 			});
 		}
 
-		private String getClassId(String className) {
-			String classId = null;
+		private void getClassId(String className) {
+
 			db.collection("Ecoles").document(ecoleId).collection("Classes")
 					.whereEqualTo("nom", className)
 					.get()
@@ -91,16 +94,22 @@
 							if (task.isSuccessful()) {
 								for (DocumentSnapshot document : task.getResult()) {
 									String classId = document.getId();
+									Toast.makeText(getApplicationContext(), "ID: " + classId, Toast.LENGTH_SHORT).show();
+
+									Intent intent = new Intent(classroom_lists_activity.this, list_eleve__activity.class);
+									intent.putExtra("classId", classId);
+									startActivity(intent);
 									break;
 								}
 							} else {
+								Toast.makeText(getApplicationContext(), "cant get cls id ", Toast.LENGTH_SHORT).show();
+
 								Log.d("ClassroomListsActivity", "Error getting class ID: ", task.getException());
 							}
 						}
 					});
-			return classId;
-		}
 
+		}
 
 
 	@Override
@@ -160,10 +169,8 @@
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				String className = nomClassesList.get(position);
-				String classId = getClassId(className); //  this method to get the class ID from the class name
-				Intent intent = new Intent(classroom_lists_activity.this, list_eleve__activity.class);
-				intent.putExtra("classId", classId);
-				startActivity(intent);
+				getClassId(className); //  this method to get the class ID from the class name
+
 			}
 		});
 
