@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -21,7 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
-
+        <activity
+            android:name=".activitys.Details"
+            android:exported="false" />
         <activity
             android:name=".activitys.admin_update_activity"
             android:exported="true">
@@ -48,10 +52,7 @@
             android:exported="true" />
         <activity
             android:name=".activitys.enter_id_classe_activity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".activitys.log_in_inactive_state__activity"
             android:exported="true" />
@@ -61,8 +62,6 @@
         <activity
             android:name=".activitys.forget_password"
             android:exported="true" />
-
-
         <activity
             android:name=".activitys.list_eleve__activity"
             android:exported="true" />
@@ -72,8 +71,6 @@
         <activity
             android:name=".activitys.add_update_activity"
             android:exported="true" />
-
     </application>
 
 </manifest>
-

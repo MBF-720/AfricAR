@@ -231,7 +231,7 @@ import pfe.africar.R;
 			String description =label_ek50.getText().toString();
 			String date =label_ek52.getText().toString();
 			String time = label_ek53.getText().toString();
-
+			String file= label_ek51.getText().toString();
 			if (title.isEmpty() || description.isEmpty() || date.isEmpty() || time.isEmpty()) {
 				Toast.makeText(this, "Please fill all fields correctly.", Toast.LENGTH_LONG).show();
 				return;
@@ -239,7 +239,7 @@ import pfe.africar.R;
 
 			Map<String, Object> data = new HashMap<>();
 			data.put("title", title);
-			data.put("description", description);
+			data.put("description", description);	data.put("file",file);
 			data.put("date", date);
 			data.put("time", time);
 			String schoolId = "actualité_de_l'école";  //
@@ -248,12 +248,13 @@ import pfe.africar.R;
 					.addOnSuccessListener(documentReference -> {
 						Toast.makeText(add_update_activity.this, "Announcement added successfully!", Toast.LENGTH_SHORT).show();
 						// Optionally clear the form here or navigate away
+						startActivity(new Intent(add_update_activity.this, acceille_activity.class));
 					})
 					.addOnFailureListener(e -> Toast.makeText(add_update_activity.this, "Error adding announcement.", Toast.LENGTH_SHORT).show());
 		}
 		}
 //todo tzid el acceil
-// todo upload file to db and set text by filename
+// set text by filename
 
 	
 	
