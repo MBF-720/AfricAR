@@ -1,15 +1,15 @@
 
-	 
+
 	/*
 	 *	This content is generated from the API File Info.
 	 *	(Alt+Shift+Ctrl+I).
 	 *
-	 *	@desc 		
+	 *	@desc
 	 *	@file 		enter_id
 	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
 	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
+	 *	@author
+	 *	@keywords
 	 *	@generator 	Export Kit v1.3.figma
 	 *
 	 */
@@ -17,21 +17,53 @@
 
 	package pfe.africar.activitys;
 
+	import android.app.Activity;
+	import android.content.Intent;
+	import android.os.Bundle;
+	import android.view.View;
+	import android.widget.AdapterView;
+	import android.widget.ArrayAdapter;
+	import android.widget.ListView;
+	import android.widget.Toast;
+
+	import com.google.firebase.firestore.FirebaseFirestore;
+	import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+	import java.util.ArrayList;
+	import java.util.List;
+
+	import pfe.africar.R;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 
 import pfe.africar.R;
 
 	public class admin_update_activity extends Activity {
 
-	
+			private FirebaseFirestore db;
+			private ListView listViewActualites;
+			private List<String> titlesList;
+			private ArrayAdapter<String> adapter;
+
 	private View _bg__admin_update_ek2;
 	private View _bg__frame_133_ek1;
 	private View _bg__frame_10_ek11;
@@ -97,12 +129,31 @@ import pfe.africar.R;
 	private ImageView vector_ek765;
 	private ImageView vector_ek766;
 
+
+		public class Actualite {
+			private String title;
+			private String description;
+
+			public Actualite() {}  // Firestore nécessite un constructeur vide
+
+			public Actualite(String title, String description) {
+				this.title = title;
+				this.description = description;
+			}
+
+			public String getTitle() { return title; }
+			public String getDescription() { return description; }
+		}
+
 	@SuppressLint("MissingInflatedId")
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.admin_update);
+		db = FirebaseFirestore.getInstance();
+
+
 		_bg__frame_132_ek7 = (View) findViewById(R.id._bg__frame_132_ek7);
 		add_new_announcement_ek1 = (TextView) findViewById(R.id.add_new_announcement_ek1);
 		add_new_announcement_ek1.setOnClickListener(new View.OnClickListener() {
@@ -127,10 +178,46 @@ import pfe.africar.R;
 		vector_ek765 = (ImageView) findViewById(R.id.vector_ek765);
 		vector_ek766 = (ImageView) findViewById(R.id.vector_ek766);
 
-		
-		//custom code goes here
-	
+
+		// Initialiser ListView et adapter
+		listViewActualites = findViewById(R.id.listViewActualites);
+		titlesList = new ArrayList<>();
+		adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, titlesList);
+		listViewActualites.setAdapter(adapter);
+
+		// Charger les actualités depuis Firestore
+		loadActualites();
+
+		// Gérer le clic sur un élément de la ListView
+		listViewActualites.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				String selectedTitle = adapter.getItem(position);
+				Toast.makeText(admin_update_activity.this, "Selected: " + selectedTitle, Toast.LENGTH_SHORT).show();
+
+				// Intent pour ouvrir une nouvelle activité qui montre les détails de l'actualité
+				Intent intent = new Intent(admin_update_activity.this, DetailActivity.class);
+				intent.putExtra("title", selectedTitle);
+				startActivity(intent);
+			}
+		});	//custom code goes here
+
 	}
-}
+		private void loadActualites() {
+			db.collection("actualites").get().addOnCompleteListener(task -> {
+				if (task.isSuccessful()) {
+					titlesList.clear();
+					for (QueryDocumentSnapshot document : task.getResult()) {
+						String title = document.getString("title"); // Assurez-vous que le champ s'appelle "title" dans Firestore
+						titlesList.add(title);
+					}
+					adapter.notifyDataSetChanged();
+				} else {
+					Toast.makeText(this, "Failed to load news", Toast.LENGTH_SHORT).show();
+				}
+			});
+		}
+		}
+
 	
 	
