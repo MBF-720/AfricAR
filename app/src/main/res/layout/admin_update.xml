@@ -1,26 +1,26 @@
 <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent" android:layout_height="wrap_content" >
-	<!-- 
+	<!--
 	/*
 	 *	This content is generated from the API File Info.
 	 *	(Alt+Shift+Ctrl+I).
 	 *
-	 *	@desc 		
+	 *	@desc
 	 *	@file 		enter_id
 	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
 	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
+	 *	@author
+	 *	@keywords
 	 *	@generator 	Export Kit v1.3.figma
 	 *
 	 */
 	-->
-	<ScrollView android:id="@+id/admin_update" 
-		android:layout_width="wrap_content" 
+	<ScrollView android:id="@+id/admin_update"
+		android:layout_width="wrap_content"
 		android:layout_height="match_parent" >
 
-		<RelativeLayout android:id="@+id/content_container" 
-			android:layout_width="wrap_content" 
+		<RelativeLayout android:id="@+id/content_container"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content" >
 
 
@@ -52,10 +52,11 @@
 
 
 			<RelativeLayout android:id="@+id/page_admin_update_ek1"
-				android:layout_marginTop="0dp"
+				android:layout_marginTop="-20dp"
 				android:layout_marginStart="0dp"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+
 				>
 
 
@@ -90,6 +91,35 @@
 						android:layout_height="23.6dp"
 						android:text="@string/add_new_announcement_ek1_string"
 						 />
+					<ScrollView
+						android:layout_width="wrap_content"
+						android:layout_height="match_parent" >
+
+						<RelativeLayout
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							tools:ignore="ExtraText">
+
+							<!-- Autres éléments existants... -->
+
+							<!-- ListView pour afficher les actualités -->
+							<ListView
+								android:id="@+id/listViewActualites"
+								android:layout_below="@id/_bg__search_bar_ek1"
+								android:layout_width="385dp"
+								android:layout_height="570dp"
+								android:layout_marginStart="-15dp"
+								android:layout_marginTop="40dp"
+								android:scrollbars="vertical"
+								tools:ignore="NotSibling" /> <!-- Assurez-vous que cet ID référence l'élément au-dessus de la ListView -->
+
+							android:divider="@android:color/darker_gray"
+							android:dividerHeight="1dp" />
+
+							<!-- Continuation de vos autres éléments... -->
+
+						</RelativeLayout>
+					</ScrollView>
 
 
 				</RelativeLayout>

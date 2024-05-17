@@ -62,8 +62,8 @@ dependencies {
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
 
-
-
+    implementation ("com.google.firebase:firebase-firestore:24.2.0")
+    implementation ("com.firebaseui:firebase-ui-firestore:8.0.0")
 
 
     implementation ("com.squareup.picasso:picasso:2.5.2")

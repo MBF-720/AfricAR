@@ -248,7 +248,8 @@ import pfe.africar.R;
 					.addOnSuccessListener(documentReference -> {
 						Toast.makeText(add_update_activity.this, "Announcement added successfully!", Toast.LENGTH_SHORT).show();
 						// Optionally clear the form here or navigate away
-						startActivity(new Intent(add_update_activity.this, acceille_activity.class));
+						Intent intent = new Intent(add_update_activity.this, admin_update_activity.class);
+						startActivity(intent);
 					})
 					.addOnFailureListener(e -> Toast.makeText(add_update_activity.this, "Error adding announcement.", Toast.LENGTH_SHORT).show());
 		}
