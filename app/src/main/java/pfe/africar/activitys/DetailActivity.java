@@ -35,7 +35,7 @@ public class DetailActivity extends Activity {
                 DocumentSnapshot document = task.getResult();
                 if (document.exists()) {
                     description = document.getString("description");
-                    Toast.makeText(this, "Description: " + description, Toast.LENGTH_LONG).show();
+
                     descriptionTextView.setText(description);
                 } else {
                     Toast.makeText(this, "Document does not exist", Toast.LENGTH_SHORT).show();

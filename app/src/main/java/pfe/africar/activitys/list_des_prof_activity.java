@@ -1,94 +1,113 @@
-
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		enter_id
-	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-
-
-	package pfe.africar.activitys;
+package pfe.africar.activitys;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-
-
 import android.view.View;
-import android.widget.TextView;
-import android.widget.ImageView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import pfe.africar.R;
 
-	public class list_des_prof_activity extends Activity {
+public class list_des_prof_activity extends Activity {
 
-	
-	private View _bg__list_des_prof_ek2;
-	private TextView teachers;
-	private View _bg__frame_140_ek3;
-	private ImageView frame_31_ek1;
-	private ImageView frame_32_ek1;
-	private ImageView frame_33_ek1;
-	private ImageView frame_34_ek1;
-	private ImageView frame_35_ek1;
-	private ImageView frame_36_ek1;
-	private View _bg__frame_132_ek3;
-	private TextView add_new_teacher_ek1;
-	private View _bg__frame_128_ek9;
-	private ImageView vector_ek741;
-	private ImageView x_1_ek21;
-	private ImageView rectangle_32_ek21;
-	private TextView updates_ek8;
-	private TextView personnel_ek8;
-	private TextView school_ek8;
-	private TextView stats_ek8;
-	private ImageView vector_ek742;
-	private ImageView vector_ek743;
-	private ImageView vector_ek744;
-	private ImageView vector_ek745;
+	private View addTeacher;
+	private ListView listeProf;
+	private ArrayList<String> profListnom;
+	private Map<String, String> profMap;
+	private ArrayAdapter<String> adapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.list_des_prof);
 
-		
-		_bg__list_des_prof_ek2 = (View) findViewById(R.id._bg__list_des_prof_ek2);
-		teachers = (TextView) findViewById(R.id.teachers);
-		_bg__frame_140_ek3 = (View) findViewById(R.id._bg__frame_140_ek3);
-		frame_31_ek1 = (ImageView) findViewById(R.id.frame_31_ek1);
-		frame_32_ek1 = (ImageView) findViewById(R.id.frame_32_ek1);
-		frame_33_ek1 = (ImageView) findViewById(R.id.frame_33_ek1);
-		frame_34_ek1 = (ImageView) findViewById(R.id.frame_34_ek1);
-		frame_35_ek1 = (ImageView) findViewById(R.id.frame_35_ek1);
-		frame_36_ek1 = (ImageView) findViewById(R.id.frame_36_ek1);
-		_bg__frame_132_ek3 = (View) findViewById(R.id._bg__frame_132_ek3);
-		add_new_teacher_ek1 = (TextView) findViewById(R.id.add_new_teacher_ek1);
-		_bg__frame_128_ek9 = (View) findViewById(R.id._bg__frame_128_ek9);
-		vector_ek741 = (ImageView) findViewById(R.id.vector_ek741);
-		x_1_ek21 = (ImageView) findViewById(R.id.x_1_ek21);
-		rectangle_32_ek21 = (ImageView) findViewById(R.id.rectangle_32_ek21);
-		updates_ek8 = (TextView) findViewById(R.id.updates_ek8);
-		personnel_ek8 = (TextView) findViewById(R.id.personnel_ek8);
-		school_ek8 = (TextView) findViewById(R.id.school_ek8);
-		stats_ek8 = (TextView) findViewById(R.id.stats_ek8);
-		vector_ek742 = (ImageView) findViewById(R.id.vector_ek742);
-		vector_ek743 = (ImageView) findViewById(R.id.vector_ek743);
-		vector_ek744 = (ImageView) findViewById(R.id.vector_ek744);
-		vector_ek745 = (ImageView) findViewById(R.id.vector_ek745);
-	
-		
-		//custom code goes here
-	
+		listeProf = findViewById(R.id.listeProf);
+		addTeacher = findViewById(R.id._bg__frame_132_ek3);
+
+		profMap = new HashMap<>();
+		profListnom = new ArrayList<>();
+
+		String classeId = getIntent().getStringExtra("classeId");
+
+		FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+		db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I")
+				.collection("Professeurs")
+				.get()
+				.addOnCompleteListener(task -> {
+					if (task.isSuccessful()) {
+						for (DocumentSnapshot document : task.getResult()) {
+							String nom = document.getString("nom");
+							String prenom = document.getString("prenom");
+							String id = document.getId();
+							String name = String.format("%s %s", nom, prenom);
+							profMap.put(name, id);
+						}
+
+						profListnom.addAll(profMap.keySet());
+						adapter = new ArrayAdapter<>(list_des_prof_activity.this, android.R.layout.simple_list_item_1, profListnom);
+						listeProf.setAdapter(adapter);
+
+						listeProf.setOnItemClickListener((parent, view, position, id) -> {
+							String profName = profListnom.get(position);
+							String profId = profMap.get(profName);
+							Intent intent = new Intent(list_des_prof_activity.this, Prof_details.class);
+							intent.putExtra("profId", profId);
+							startActivity(intent);
+						});
+
+						listeProf.setOnItemLongClickListener((parent, view, position, id) -> {
+							String profName = profListnom.get(position);
+							showDeleteConfirmationDialog(profName, position);
+							return true;
+						});
+
+					} else {
+						Toast.makeText(getApplicationContext(), "can't find list", Toast.LENGTH_SHORT).show();
+					}
+				});
+
+		addTeacher.setOnClickListener(v -> {
+			Intent intent = new Intent(list_des_prof_activity.this, add_prof_activity.class);
+			startActivity(intent);
+		});
+	}
+
+	private void showDeleteConfirmationDialog(String profName, int position) {
+		new AlertDialog.Builder(this)
+				.setTitle("Delete Confirmation")
+				.setMessage("Are you sure you want to delete " + profName + "?")
+				.setPositiveButton(android.R.string.yes, (dialog, which) -> deleteProfessor(profName, position))
+				.setNegativeButton(android.R.string.no, null)
+				.show();
+	}
+
+	private void deleteProfessor(String profName, int position) {
+		String profId = profMap.get(profName);
+		FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+		db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I")
+				.collection("Professeurs").document(profId)
+				.delete()
+				.addOnSuccessListener(aVoid -> {
+					Toast.makeText(getApplicationContext(), "Professor deleted", Toast.LENGTH_SHORT).show();
+					profListnom.remove(position);
+					profMap.remove(profName);
+					adapter.notifyDataSetChanged();
+				})
+				.addOnFailureListener(e -> {
+					Toast.makeText(getApplicationContext(), "Failed to delete professor", Toast.LENGTH_SHORT).show();
+				});
 	}
 }
-	
-	

@@ -298,7 +298,7 @@
                                             android:layout_height="48dp"
                                             android:layout_marginLeft="0dp"
                                             android:layout_marginTop="15dp"
-                                            android:text="@string/label_ek56_string"
+                                            android:text="field"
                                             android:textColor="@color/black"
                                             android:textSize="16sp"
                                             android:textColorHint="@color/label_color"
@@ -350,46 +350,8 @@
                                 </RelativeLayout>
 
 
-                                <RelativeLayout android:id="@+id/medium_ek100"
-                                    android:layout_marginTop="268dp"
-                                    android:layout_marginStart="0dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    >
-
-                                    <View   android:id="@+id/_bg__medium_ek101"
-                                        android:background="@drawable/_bg__medium_ek101_shape"
-                                        android:layout_marginStart="2dp"
-                                        android:layout_marginTop="2dp"
-                                        android:layout_width="343dp"
-                                        android:layout_height="51dp" />
-
-
-                                    <RelativeLayout android:id="@+id/frame_7_ek124"
-                                        android:layout_marginTop="0dp"
-                                        android:layout_marginStart="8dp"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        >
-
-                                        <TextView
-                                            android:id="@+id/label_ek58"
-                                            android:layout_width="71.6dp"
-                                            android:layout_height="48dp"
-                                            android:layout_marginLeft="0dp"
-                                            android:layout_marginTop="15dp"
-                                            android:text="@string/label_ek58_string"
-                                            android:textColor="@color/black"
-                                            android:textSize="16sp"
-                                            android:textColorHint="@color/label_color"
-                                            android:background="@null"
-                                            tools:ignore="TouchTargetSizeCheck" />
-
-                                    </RelativeLayout>
-
-                                </RelativeLayout>
                                 <RelativeLayout android:id="@+id/medium_ek"
-                                    android:layout_marginTop="330dp"
+                                    android:layout_marginTop="280dp"
                                     android:layout_marginStart="0dp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"

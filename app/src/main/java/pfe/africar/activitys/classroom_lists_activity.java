@@ -30,6 +30,7 @@
 	import android.widget.EditText;
 	import android.widget.ImageView;
 	import android.widget.ListView;
+	import android.widget.TextView;
 	import android.widget.Toast;
 
 	import com.google.android.gms.tasks.OnCompleteListener;
@@ -60,6 +61,7 @@
 	private ImageView vector_ek650;
 	private ImageView vector_ek651;
 	private  ListView listeView;
+	private TextView listeProf;
 
 
 
@@ -104,6 +106,8 @@
 
 									Intent intent = new Intent(classroom_lists_activity.this, list_eleve__activity.class);
 									intent.putExtra("classId", classId);
+									intent.putExtra("className", className);
+
 									startActivity(intent);
 									break;
 								}
@@ -196,6 +200,8 @@
 		vector_ek650 = (ImageView) findViewById(R.id.vector_ek650);
 		vector_ek651 = (ImageView) findViewById(R.id.vector_ek651);
 
+			listeProf = (TextView) findViewById(R.id.listeProf);
+
 		listeView =(ListView) findViewById(R.id.ListView);
 
 		 db = FirebaseFirestore.getInstance();
@@ -249,6 +255,14 @@
 				@Override
 				public void onClick(View v) {
 					showAddClassDialog();
+				}
+			});
+
+			listeProf.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(classroom_lists_activity.this, list_des_prof_activity.class);
+					startActivity(intent);
 				}
 			});
 

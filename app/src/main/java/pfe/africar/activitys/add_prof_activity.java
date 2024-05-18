@@ -228,7 +228,7 @@
 
 						// Ajouter le professeur à la base de données Firestore
 
-						db.collection("Ecoles").document(String.valueOf(schoolID)).collection("Professeurs")
+						db.collection("Ecoles").document(schoolIDText).collection("Professeurs")
 								.add(newProfesseur)
 								.addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
 									@Override
@@ -236,6 +236,7 @@
 
 										Log.d(TAG, "DocumentSnapshot ajouté avec ID: " + documentReference.getId());
 										Toast.makeText(add_prof_activity.this, "Professeur ajouté avec succès !", Toast.LENGTH_SHORT).show();
+									finish();
 									}
 								})
 								.addOnFailureListener(new OnFailureListener() {

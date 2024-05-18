@@ -33,7 +33,7 @@
 				android:layout_marginTop="71dp"
 				android:layout_width="141dp"
 				android:layout_height="27.8dp"
-				android:text="@string/classroom_lists_ek4_string" />
+				android:text="Students list" />
 
 			<RelativeLayout
 				android:id="@+id/frame_141_ek2"
@@ -70,14 +70,14 @@
 				android:layout_height="wrap_content">
 
 				<TextView
-					android:id="@+id/update_timetable"
-					android:textSize="12sp"
+					android:id="@+id/listeProf"
+					android:textSize="15sp"
 					android:textColor="@color/don_t_have_an_account__sign_up_color"
 					android:layout_marginLeft="17dp"
 					android:layout_marginTop="9.5dp"
 					android:layout_width="115.2dp"
-					android:layout_height="18.2dp"
-					android:text="@string/update_timetable_string" />
+					android:layout_height="40.2dp"
+					android:text="Liste des prof" />
 
 			</RelativeLayout>
 

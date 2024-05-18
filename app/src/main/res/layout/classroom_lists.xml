@@ -57,15 +57,26 @@
 						android:layout_width="343dp"
 						android:layout_height="47dp" />
 
-					<TextView android:id="@+id/create_new_category"
+					<TextView android:id="@+id/listeProf"
 						android:textSize="16sp"
-						android:textColor="@color/button_color"
+						android:textColor="@color/don_t_have_an_account__sign_up_color"
 						android:layout_marginLeft="120dp"
-						android:layout_marginTop="120dp"
+						android:layout_marginTop="160dp"
+
 						android:layout_width="150dp"
 						android:layout_height="23.6dp"
-						android:text="Create New Classe"
+						android:text="      Liste des prof"
 						 />
+
+				<TextView android:id="@+id/create_new_category"
+					android:textSize="16sp"
+					android:textColor="@color/button_color"
+					android:layout_marginLeft="120dp"
+					android:layout_marginTop="120dp"
+					android:layout_width="150dp"
+					android:layout_height="23.6dp"
+					android:text="Create New Classe"
+					/>
 
 
 

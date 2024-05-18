@@ -219,7 +219,6 @@
 				intent.putExtra("selectedId", selectedId);
 				intent.putExtra("selectedTitle", selectedTitle);
 
-				Toast.makeText(admin_update_activity.this, "Selected ID: " + selectedId, Toast.LENGTH_SHORT).show();
 
 				startActivity(intent);
 			}
