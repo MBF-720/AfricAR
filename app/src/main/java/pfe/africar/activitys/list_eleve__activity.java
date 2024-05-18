@@ -18,6 +18,7 @@
 	package pfe.africar.activitys;
 
 	import android.app.Activity;
+	import android.app.AlertDialog;
 	import android.content.Intent;
 	import android.os.Bundle;
 	import android.view.View;
@@ -87,12 +88,19 @@
 		updateTimetable = (TextView) findViewById(R.id.update_timetable);
 		listeView =(ListView) findViewById(R.id.ListView);
 
-		Map<String, String> elevesMap = new HashMap<>();//todo alech to9ad empty
+		Map<String, String> elevesMap = new HashMap<>();
 
 
 
 		String classeId = getIntent().getStringExtra("classId");
-		Toast.makeText(getApplicationContext(), "CLS ID :"+classeId, Toast.LENGTH_SHORT).show();
+
+
+			// Show the class ID in a popup dialog
+			new AlertDialog.Builder(list_eleve__activity.this)
+					.setTitle("Class ID")
+					.setMessage("ID: " + classeId)
+					.setPositiveButton(android.R.string.ok, null)
+					.show();
 
 
 
@@ -105,7 +113,6 @@
 						.get()
 						.addOnCompleteListener(task -> {
 							if (task.isSuccessful()) {
-								Toast.makeText(getApplicationContext(), "find id DB", Toast.LENGTH_SHORT).show();
 
 								for (DocumentSnapshot document : task.getResult()) {
 									String nom = document.getString("nom");
@@ -124,6 +131,14 @@
 								// Définissez l'adaptateur de votre ListView
 								listeView.setAdapter(adapter);
 
+								listeView.setOnItemClickListener((parent, view, position, id) -> {
+									String studentName = elevesList.get(position);
+									String studentId = elevesMap.get(studentName);
+									Intent intent = new Intent(list_eleve__activity.this, Eleve_Details.class);
+									intent.putExtra("studentId", studentId);
+									startActivity(intent);
+								});
+
 							} else {
 								Toast.makeText(getApplicationContext(), "can't find list ", Toast.LENGTH_SHORT).show();
 							}
@@ -141,8 +156,6 @@
 
 
 
-//todo onclik element yhezek lil cordonne te3ou
-			//todo on klik 3al add student thzek el add student
 
 			//todo new ui for liste prof
 

@@ -11,6 +11,14 @@ public class Personne {
 
     private String uid;
 
+
+    private String genre;
+
+    private String birth;
+
+    private String photoUrl ;
+
+
     // constructor
     // constructor
     public Personne(String iDecole, String n, String p, String e, String t) {
@@ -81,5 +89,32 @@ public class Personne {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 }

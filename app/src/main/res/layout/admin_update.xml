@@ -93,12 +93,15 @@
 						 />
 					<ScrollView
 						android:layout_width="wrap_content"
-						android:layout_height="match_parent" >
+						android:layout_height="match_parent"
+						android:layout_marginTop="50dp">
 
 						<RelativeLayout
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
-							tools:ignore="ExtraText">
+
+							tools:ignore="ExtraText"
+							>
 
 							<!-- Autres éléments existants... -->
 
@@ -109,7 +112,7 @@
 								android:layout_width="385dp"
 								android:layout_height="570dp"
 								android:layout_marginStart="-15dp"
-								android:layout_marginTop="40dp"
+
 								android:scrollbars="vertical"
 								tools:ignore="NotSibling" /> <!-- Assurez-vous que cet ID référence l'élément au-dessus de la ListView -->
 

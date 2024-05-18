@@ -18,24 +18,31 @@
 	package pfe.africar.activitys;
 
 	import android.app.Activity;
+	import android.app.AlertDialog;
+	import android.content.DialogInterface;
 	import android.content.Intent;
 	import android.os.Bundle;
 	import android.util.Log;
+	import android.view.LayoutInflater;
 	import android.view.View;
 	import android.widget.AdapterView;
 	import android.widget.ArrayAdapter;
+	import android.widget.EditText;
 	import android.widget.ImageView;
 	import android.widget.ListView;
 	import android.widget.Toast;
 
 	import com.google.android.gms.tasks.OnCompleteListener;
 	import com.google.android.gms.tasks.Task;
+	import com.google.firebase.firestore.DocumentReference;
 	import com.google.firebase.firestore.DocumentSnapshot;
 	import com.google.firebase.firestore.FirebaseFirestore;
 	import com.google.firebase.firestore.QuerySnapshot;
 
 	import java.util.ArrayList;
+	import java.util.HashMap;
 	import java.util.List;
+	import java.util.Map;
 
 	import pfe.africar.R;
 
@@ -43,7 +50,7 @@
 
 	
 
-	private View _bg__frame_141_ek1;
+	private View creatClas;
 
 	private ImageView x_1_ek14;
 	private ImageView rectangle_32_ek14;
@@ -65,7 +72,7 @@
 
 		public Task<List<String>> getNomClasses(String ecoleId) {
 			List<String> nomClassesList = new ArrayList<>();
-			FirebaseFirestore db = FirebaseFirestore.getInstance();
+			 db = FirebaseFirestore.getInstance();
 			Task<QuerySnapshot> queryTask = db.collection("Ecoles").document(ecoleId).collection("Classes")
 					.get();
 
@@ -94,7 +101,6 @@
 							if (task.isSuccessful()) {
 								for (DocumentSnapshot document : task.getResult()) {
 									String classId = document.getId();
-									Toast.makeText(getApplicationContext(), "ID: " + classId, Toast.LENGTH_SHORT).show();
 
 									Intent intent = new Intent(classroom_lists_activity.this, list_eleve__activity.class);
 									intent.putExtra("classId", classId);
@@ -111,15 +117,76 @@
 
 		}
 
+		private void addNewClass(String className) {
+			Map<String, Object> classData = new HashMap<>();
+			classData.put("nom", className);
 
-	@Override
+
+			db.collection("Ecoles").document(ecoleId).collection("Classes")
+					.add(classData)
+					.addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+						@Override
+						public void onComplete(Task<DocumentReference> addTask) {
+							if (addTask.isSuccessful()) {
+								Toast.makeText(getApplicationContext(), "Class added successfully", Toast.LENGTH_SHORT).show();
+								// Update the list
+								getNomClasses(ecoleId).addOnCompleteListener(new OnCompleteListener<List<String>>() {
+									@Override
+									public void onComplete(Task<List<String>> getTask) {
+										if (getTask.isSuccessful()) {
+											nomClassesList = getTask.getResult();
+											ArrayAdapter<String> adapter = new ArrayAdapter<>(classroom_lists_activity.this, android.R.layout.simple_list_item_1, nomClassesList);
+											listeView.setAdapter(adapter);
+										} else {
+											Toast.makeText(getApplicationContext(), "Failed to update class list", Toast.LENGTH_SHORT).show();
+										}
+									}
+								});
+							} else {
+								Toast.makeText(getApplicationContext(), "Failed to add class", Toast.LENGTH_SHORT).show();
+							}
+						}
+					});
+		}
+
+		private void showAddClassDialog() {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			LayoutInflater inflater = getLayoutInflater();
+			View dialogView = inflater.inflate(R.layout.dialog_add_class, null);
+			builder.setView(dialogView);
+
+			final EditText editTextClassName = dialogView.findViewById(R.id.editTextClassName);
+
+			builder.setTitle("Add New Class")
+					.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							String className = editTextClassName.getText().toString();
+							if (!className.isEmpty()) {
+								addNewClass(className);
+							} else {
+								Toast.makeText(getApplicationContext(), "Class name cannot be empty", Toast.LENGTH_SHORT).show();
+							}
+						}
+					})
+					.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							dialog.cancel();
+						}
+					});
+
+			AlertDialog alertDialog = builder.create();
+			alertDialog.show();
+		}
+
+
+		@Override
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.classroom_lists);
 
 		
-		_bg__frame_141_ek1 = (View) findViewById(R.id._bg__frame_141_ek1);
+		creatClas = (View) findViewById(R.id._bg__frame_141_ek1);
 
 		x_1_ek14 = (ImageView) findViewById(R.id.x_1_ek14);
 		rectangle_32_ek14 = (ImageView) findViewById(R.id.rectangle_32_ek14);
@@ -173,6 +240,23 @@
 
 			}
 		});
+
+
+
+
+
+			creatClas.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					showAddClassDialog();
+				}
+			});
+
+
+
+
+
+
 
 
 

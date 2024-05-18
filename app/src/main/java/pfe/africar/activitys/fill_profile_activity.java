@@ -86,7 +86,12 @@
 		Uri selectedImageUri;
 		private FirebaseFirestore db;
 
+
 		private Calendar selectedDate = Calendar.getInstance();
+
+
+
+
 
 		private void openGallery() {
 			Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -377,6 +382,9 @@
 						//creation d'objet prof
 						Professeur newProfesseur = new Professeur(schoolId, firstNameValue, lastNameValue, emailText, phoneValue);
 						newProfesseur.setUid(uid);
+						newProfesseur.setBirth( birthDateValue);
+						newProfesseur.setGenre( genderValue);
+
 
 
 						//ajout du prof dans firestore
@@ -425,6 +433,10 @@
 						Eleve nouvelEleve = new Eleve(schoolId, firstNameValue, lastNameValue, emailText, phoneValue);
 						nouvelEleve.setUid(uid);
 						nouvelEleve.setIdClasse(classeId);
+						nouvelEleve.setBirth( birthDateValue);
+						nouvelEleve.setGenre( genderValue);
+						nouvelEleve.setPhotoUrl(String.valueOf(selectedImageUri));
+
 
 
 						//ajout du prof dans firestore dans document Eleve et son referance a la liste des eleve de son classe
@@ -485,6 +497,7 @@
 
 //todo crop image?
 
+			//todo permission image
 
 
 

@@ -254,6 +254,7 @@ import pfe.africar.R;
 					.addOnFailureListener(e -> Toast.makeText(add_update_activity.this, "Error adding announcement.", Toast.LENGTH_SHORT).show());
 		}
 		}
+
 //todo tzid el acceil
 // set text by filename
 

@@ -11,6 +11,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -24,13 +26,13 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
-            android:name=".activitys.MainActivity2"
+            android:name=".activitys.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".activitys.Details"
+            android:name=".activitys.Eleve_Details"
             android:exported="false" />
         <activity
-            android:name=".activitys.classroom_lists_activity"
+            android:name=".activitys.admin_update_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

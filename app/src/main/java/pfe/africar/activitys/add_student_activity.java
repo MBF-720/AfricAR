@@ -30,9 +30,12 @@
 
 	import androidx.annotation.NonNull;
 
+	import com.google.android.gms.tasks.OnCompleteListener;
 	import com.google.android.gms.tasks.OnFailureListener;
 	import com.google.android.gms.tasks.OnSuccessListener;
+	import com.google.android.gms.tasks.Task;
 	import com.google.firebase.firestore.DocumentReference;
+	import com.google.firebase.firestore.DocumentSnapshot;
 	import com.google.firebase.firestore.FirebaseFirestore;
 
 	import pfe.africar.R;
@@ -88,42 +91,56 @@
 					// Diviser le nom complet en nom et prénom
 					String[] parts = fullNameText.split("_");
 
-                     // Vérifier que le nom complet a été divisé en nom et prénom
+					// Vérifier que le nom complet a été divisé en nom et prénom
 					if (parts.length >= 2) {
 						String nom = parts[0];
 						String prenom = parts[1];
 
-
-						// Créer une instance de Eleve avec les informations saisies
-						Eleve nouvelEleve = new Eleve(scolarIDText, nom, prenom, emailText, phoneText);
-
-						// Ajouter le nouvel élève à la base de données Firestore
 						FirebaseFirestore db = FirebaseFirestore.getInstance();
-						db.collection("Ecoles").document(String.valueOf(scolarID)).collection("Eleves")
-								.add(nouvelEleve)
-								.addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-									@Override
-									public void onSuccess(DocumentReference documentReference) {
-										Log.d(TAG, "DocumentSnapshot ajouté avec ID: " + documentReference.getId());
-										// Mettez ici le code pour gérer le succès de l'ajout de l'élève à la base de données
+						// Vérifier si scolarIDText existe dans la collection Ecoles
+						db.collection("Ecoles").document(scolarIDText).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+							@Override
+							public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+								if (task.isSuccessful()) {
+									DocumentSnapshot document = task.getResult();
+									if (document.exists()) {
+										// Créer une instance de Eleve avec les informations saisies
+										Eleve nouvelEleve = new Eleve(scolarIDText, nom, prenom, emailText, phoneText);
+										nouvelEleve.setIdClasse(classroomText);
+
+										// Ajouter le nouvel élève à la base de données Firestore
+										db.collection("Ecoles").document(scolarIDText).collection("Eleves")
+												.add(nouvelEleve)
+												.addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+													@Override
+													public void onSuccess(DocumentReference documentReference) {
+														Log.d(TAG, "DocumentSnapshot ajouté avec ID: " + documentReference.getId());
+														Toast.makeText(getApplicationContext(), "student added", Toast.LENGTH_SHORT).show();
+														finish();
+
+														// Mettez ici le code pour gérer le succès de l'ajout de l'élève à la base de données
+													}
+												})
+												.addOnFailureListener(new OnFailureListener() {
+													@Override
+													public void onFailure(@NonNull Exception e) {
+														Log.w(TAG, "Erreur lors de l'ajout du document", e);
+														// Mettez ici le code pour gérer l'échec de l'ajout de l'élève à la base de données
+													}
+												});
+									} else {
+										// Le document n'existe pas
+										Toast.makeText(getApplicationContext(), "ID de l'école non trouvé", Toast.LENGTH_SHORT).show();
 									}
-								})
-								.addOnFailureListener(new OnFailureListener() {
-									@Override
-									public void onFailure(@NonNull Exception e) {
-										Log.w(TAG, "Erreur lors de l'ajout du document", e);
-										// Mettez ici le code pour gérer l'échec de l'ajout de l'élève à la base de données
-									}
-								});
-
-
-
+								} else {
+									Log.d(TAG, "Erreur lors de la récupération du document: ", task.getException());
+									Toast.makeText(getApplicationContext(), "Erreur lors de la vérification de l'ID de l'école", Toast.LENGTH_SHORT).show();
+								}
+							}
+						});
 					} else {
-						// Gérer le cas où le nom complet ne peut pas être divisé en nom et prénom <(8, 14) <!-- TODO: else prenom verifier limplementation .
+						// Gérer le cas où le nom complet ne peut pas être divisé en nom et prénom
 						Toast.makeText(getApplicationContext(), "Veuillez ajouter un séparateur '_' entre le nom et le prénom", Toast.LENGTH_SHORT).show();
-
-
-
 					}
 				}
 			});
