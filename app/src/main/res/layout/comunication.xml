@@ -74,13 +74,6 @@
 					android:layout_height="wrap_content"
 					>
 
-					<View   android:id="@+id/_bg__frame_93_ek1"
-						android:background="@drawable/_bg__frame_93_ek1_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="343dp"
-						android:layout_height="485dp" />
-
 
 					<RelativeLayout android:id="@+id/frame_92"
 						android:layout_marginTop="0dp"
@@ -88,13 +81,6 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						>
-
-						<View   android:id="@+id/_bg__frame_92_ek1"
-							android:background="@drawable/_bg__frame_92_ek1_shape"
-							 android:layout_marginStart="0dp"
-							android:layout_marginTop="0dp"
-							android:layout_width="343dp"
-							android:layout_height="391dp" />
 
 
 						<RelativeLayout android:id="@+id/medium_ek18"
@@ -106,8 +92,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek19"
 								android:background="@drawable/_bg__medium_ek19_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 
@@ -118,13 +104,6 @@
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								>
-
-								<View   android:id="@+id/_bg__frame_7_ek43"
-									android:background="@drawable/_bg__frame_7_ek43_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="76dp"
-									android:layout_height="19dp" />
 
 								<TextView android:id="@+id/label_ek17"
 									android:textSize="16sp"
@@ -150,8 +129,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek21"
 								android:background="@drawable/_bg__medium_ek21_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 
@@ -162,13 +141,6 @@
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								>
-
-								<View   android:id="@+id/_bg__frame_7_ek45"
-									android:background="@drawable/_bg__frame_7_ek45_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="114dp"
-									android:layout_height="19dp" />
 
 								<TextView android:id="@+id/label_ek18"
 									android:textSize="16sp"
@@ -194,8 +166,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek23"
 								android:background="@drawable/_bg__medium_ek23_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="51dp" />
 
@@ -206,13 +178,6 @@
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								>
-
-								<View   android:id="@+id/_bg__frame_7_ek47"
-									android:background="@drawable/_bg__frame_7_ek47_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="149dp"
-									android:layout_height="19dp" />
 
 								<TextView android:id="@+id/label_ek19"
 									android:textSize="16sp"
@@ -238,8 +203,8 @@
 
 							<View   android:id="@+id/_bg__medium_ek25"
 								android:background="@drawable/_bg__medium_ek25_shape"
-								 android:layout_marginStart="-2dp"
-								android:layout_marginTop="-2dp"
+								 android:layout_marginStart="2dp"
+								android:layout_marginTop="2dp"
 								android:layout_width="343dp"
 								android:layout_height="190dp" />
 
@@ -250,13 +215,6 @@
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								>
-
-								<View   android:id="@+id/_bg__frame_7_ek49"
-									android:background="@drawable/_bg__frame_7_ek49_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="102dp"
-									android:layout_height="19dp" />
 
 								<TextView android:id="@+id/label_ek20"
 									android:textSize="16sp"

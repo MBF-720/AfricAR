@@ -1,0 +1,133 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.ReclamationDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/reclamationText"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/enter_your_scholar_id_color"
+            android:layout_marginTop="71dp"
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:text="Reclamations" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textColor="@color/_bg__checkbox_ek5_color"
+            android:text="Titre" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:text="Date" />
+
+        <TextView
+            android:id="@+id/tv_nom"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:text="  Nom"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tv_prenom"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:text="  Prénom"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tv_classe"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:text="  Classe"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:minWidth="350dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:text="Description"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/et_etat"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="35dp"
+            android:layout_gravity="center"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:hint="  Etat" />
+
+        <EditText
+            android:id="@+id/et_reponse"
+            android:layout_width="350dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="17dp"
+            android:layout_gravity="center"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:hint="  Reponse"
+            android:gravity="top|start"
+            android:scrollbars="vertical"
+            android:inputType="textMultiLine"
+            android:overScrollMode="always"
+            android:padding="10dp"
+            />
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Update"
+            android:textColor="@color/white"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/_bg__frame_132_ek3_shape" />
+
+        <RelativeLayout
+            android:layout_width="400dp"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+</ScrollView>

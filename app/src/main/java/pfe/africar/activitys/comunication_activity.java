@@ -70,19 +70,14 @@ import pfe.africar.R;
 		
 		_bg__comunication_ek2 = (View) findViewById(R.id._bg__comunication_ek2);
 		communications = (TextView) findViewById(R.id.communications);
-		_bg__frame_93_ek1 = (View) findViewById(R.id._bg__frame_93_ek1);
-		_bg__frame_92_ek1 = (View) findViewById(R.id._bg__frame_92_ek1);
+
 		_bg__medium_ek19 = (View) findViewById(R.id._bg__medium_ek19);
-		_bg__frame_7_ek43 = (View) findViewById(R.id._bg__frame_7_ek43);
 		label_ek17 = (TextView) findViewById(R.id.label_ek17);
 		_bg__medium_ek21 = (View) findViewById(R.id._bg__medium_ek21);
-		_bg__frame_7_ek45 = (View) findViewById(R.id._bg__frame_7_ek45);
 		label_ek18 = (TextView) findViewById(R.id.label_ek18);
 		_bg__medium_ek23 = (View) findViewById(R.id._bg__medium_ek23);
-		_bg__frame_7_ek47 = (View) findViewById(R.id._bg__frame_7_ek47);
 		label_ek19 = (TextView) findViewById(R.id.label_ek19);
 		_bg__medium_ek25 = (View) findViewById(R.id._bg__medium_ek25);
-		_bg__frame_7_ek49 = (View) findViewById(R.id._bg__frame_7_ek49);
 		label_ek20 = (TextView) findViewById(R.id.label_ek20);
 		_bg__component_1_ek23 = (View) findViewById(R.id._bg__component_1_ek23);
 		button_ek15 = (TextView) findViewById(R.id.button_ek15);

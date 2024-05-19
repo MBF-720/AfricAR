@@ -44,61 +44,17 @@
 			private List<String> titlesList;
 			private ArrayAdapter<String> adapter;
 
-	private View _bg__admin_update_ek2;
-	private View _bg__frame_133_ek1;
-	private View _bg__frame_10_ek11;
-	private View _bg__frame_8_ek25;
-	private View _bg__frame_1_ek21;
-	private TextView assignments_ek3;
-	private TextView history_essay_due_friday__april_5th__make_sure_to_include_citations__ek8;
-	private TextView _10_40_am_ek8;
-	private View _bg__frame_9_ek23;
-	private View ellipse_25_ek8;
-	private View ellipse_26_ek8;
-	private View ellipse_27_ek8;
-	private View _bg__frame_129_ek1;
-	private View _bg__frame_8_ek27;
-	private View _bg__frame_1_ek23;
-	private TextView reminders_ek1;
-	private TextView history_essay_due_friday__april_5th__make_sure_to_include_citations__ek9;
-	private TextView _10_40_am_ek9;
-	private View _bg__frame_9_ek25;
-	private View ellipse_25_ek9;
-	private View ellipse_26_ek9;
-	private View ellipse_27_ek9;
-	private View _bg__frame_130_ek1;
-	private View _bg__frame_8_ek29;
-	private View _bg__frame_1_ek25;
-	private TextView notices_ek1;
-	private TextView history_essay_due_friday__april_5th__make_sure_to_include_citations__ek10;
-	private TextView _10_40_am_ek10;
-	private View _bg__frame_9_ek27;
-	private View ellipse_25_ek10;
-	private View ellipse_26_ek10;
-	private View ellipse_27_ek10;
-	private View _bg__frame_131_ek1;
-	private View _bg__frame_8_ek31;
-	private View _bg__frame_1_ek27;
-	private TextView events_ek3;
-	private TextView history_essay_due_friday__april_5th__make_sure_to_include_citations__ek11;
-	private TextView _10_40_am_ek11;
-	private View _bg__frame_9_ek29;
-	private View ellipse_25_ek11;
-	private View ellipse_26_ek11;
-	private View ellipse_27_ek11;
+
 	private View _bg__frame_132_ek7;
 	private TextView add_new_announcement_ek1;
-	private View _bg__frame_128_ek13;
-	private ImageView vector_ek759;
+
 	private ImageView rectangle_32_ek25;
-	private View _bg__mingcute_notification_fill_ek11;
-	private View _bg__group_ek181;
-	private ImageView vector_ek760;
-	private ImageView vector_ek761;
-	private View ellipse_24_ek5;
+
+	private ImageView vector_ek31;
+
 	private TextView welcome_to;
 	private TextView fallujah;
-	private View _bg__component_2_ek23;
+
 	private ImageView vector_ek762;
 	private TextView updates_ek12;
 	private TextView personnel_ek14;
@@ -191,6 +147,8 @@
 		vector_ek764 = (ImageView) findViewById(R.id.vector_ek764);
 		vector_ek765 = (ImageView) findViewById(R.id.vector_ek765);
 		vector_ek766 = (ImageView) findViewById(R.id.vector_ek766);
+		vector_ek31 = findViewById(R.id.vector_ek31);
+
 
 
 		// Initialiser ListView et adapter
@@ -222,7 +180,14 @@
 
 				startActivity(intent);
 			}
-		});	//custom code goes here
+		});
+
+
+
+		vector_ek31.setOnClickListener(v -> {
+			Intent intent = new Intent(admin_update_activity.this, Reclamations.class); // Replace NewActivity with the activity you want to start
+			startActivity(intent);
+		});
 
 	}
 
