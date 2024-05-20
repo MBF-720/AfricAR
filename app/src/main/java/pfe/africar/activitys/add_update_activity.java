@@ -255,8 +255,8 @@ import pfe.africar.R;
 		}
 		}
 
-//todo tzid el acceil
-// set text by filename
+//
+//
 
 	
 	
