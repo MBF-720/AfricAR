@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activitys.AbsenceList">
+
+
+
+
+    <TextView android:id="@+id/teachers"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:layout_marginLeft="129dp"
+
+
+        android:textSize="25sp"
+        android:textColor="@color/enter_your_scholar_id_color"
+        android:layout_marginTop="71dp"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:text="Abcence"
+        />
+
+
+
+
+
+
+
+    <ListView
+        android:id="@+id/absenceListView"
+        android:layout_width="match_parent"
+        android:layout_height="570dp"
+        android:layout_marginTop="70dp"/>
+
+
+</LinearLayout>

@@ -2,8 +2,10 @@ package pfe.africar.activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -16,9 +18,13 @@ import java.util.ArrayList;
 
 import pfe.africar.R;
 
+
+
 public class Reclamations extends AppCompatActivity {
 
     private ListView reclamationsListView;
+
+    private TextView absece;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> reclamationsTitles;
     private ArrayList<String> reclamationIds;
@@ -28,6 +34,9 @@ public class Reclamations extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reclamations);
+
+        absece=(TextView) findViewById(R.id.absence);
+
 
         reclamationsListView = findViewById(R.id.reclamations_list);
         reclamationsTitles = new ArrayList<>();
@@ -63,6 +72,33 @@ public class Reclamations extends AppCompatActivity {
             showDeleteConfirmationDialog(position);
             return true;
         });
+
+
+        absece.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Reclamations.this, ReclamationDetailsActivity.class);//todo hethy
+                startActivity(intent);            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     private void showDeleteConfirmationDialog(int position) {

@@ -25,10 +25,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
-       <!-- <activity
-            android:name=".activitys.admin_update_activity"
-            android:exported="false" />-->
+        <activity
+            android:name=".activitys.AbsenceDetailActivity"
+            android:exported="false" />
+        <!-- <activity
+            android:name=".activitys.AbsenceList"
+            android:exported="false" />
 
+         <activity
+            android:name=".activitys.admin_update_activity"
+            android:exported="false" />
+        -->
         <activity
             android:name=".activitys.ajouter_profToClasse"
             android:exported="false" />
@@ -45,7 +52,7 @@
             android:name=".activitys.Eleve_Details"
             android:exported="false" />
         <activity
-            android:name=".activitys.admin_update_activity"
+            android:name=".activitys.AbsenceList"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -98,12 +105,9 @@
         <activity
             android:name=".activitys.ReclamationDetailsActivity"
             android:exported="true" />
-
         <activity
             android:name=".activitys.Reclamations"
             android:exported="true" />
-
-
     </application>
 
 </manifest>

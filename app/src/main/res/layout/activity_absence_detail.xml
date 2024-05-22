@@ -1,0 +1,107 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.AbsenceDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
+
+        <TextView android:id="@+id/teachers"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:layout_marginLeft="114dp"
+
+
+            android:textSize="25sp"
+            android:textColor="@color/enter_your_scholar_id_color"
+            android:layout_marginTop="50dp"
+            android:layout_width="130dp"
+            android:layout_height="48dp"
+            android:text="Abcence"
+            />
+
+
+
+        <TextView
+            android:id="@+id/detailNom"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:text="Nom"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/detailPrenom"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:text="Prenom"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/detailClass"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:text="Class"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/detailDate"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:text="Date"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/detailMatiere"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:text="Matiere"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/detailProf"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:text="Nom du prof"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:gravity="center" />
+
+        <Button
+            android:id="@+id/btn_supprimer_absence"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Supprimer absence"
+            android:background="@drawable/_bg__frame_132_ek3_shape"
+            android:textColor="@android:color/white"
+            android:gravity="center" />
+    </LinearLayout>
+</ScrollView>

@@ -13,14 +13,30 @@
 
     <TextView android:id="@+id/teachers"
         android:textStyle="bold"
-        android:layout_gravity="center_horizontal|center"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:layout_marginLeft="129dp"
+
+
         android:textSize="20sp"
         android:textColor="@color/enter_your_scholar_id_color"
-        android:layout_marginLeft="144dp"
         android:layout_marginTop="71dp"
         android:layout_width="130dp"
         android:layout_height="30dp"
         android:text="Reclamations"
+        />
+
+    <TextView android:id="@+id/absence"
+        android:layout_gravity="center_horizontal|center"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="144dp"
+        android:layout_marginTop="115dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="Absence"
+        android:background="@drawable/_bg__frame_132_ek3_shape"
         />
 
 
