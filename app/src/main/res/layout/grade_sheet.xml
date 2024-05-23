@@ -108,21 +108,14 @@
 					<ListView
 						android:id="@+id/gradesListView"
 						android:layout_width="match_parent"
-						android:layout_height="455dp"
+						android:layout_height="500dp"
 						android:divider="@android:color/darker_gray"
 						android:dividerHeight="1dp"
 						android:layout_marginStart="-15dp"
 						android:layout_marginTop="200dp"
 						android:scrollbars="vertical"/>
 
-					<Button
-						android:id="@+id/addGradeButton"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:background="@drawable/_bg__frame_132_ek3_shape"
 
-						android:text="Add Grade"
-						android:textColor="@color/white"/>
 
 				</LinearLayout>
 
