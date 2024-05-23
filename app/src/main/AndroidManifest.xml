@@ -26,9 +26,16 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.EditGradeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.AddGradeActivity"
+            android:exported="false" />
+        <activity
             android:name=".activitys.AbsenceDetailActivity"
             android:exported="false" />
-        <!-- <activity
+        <!--
+ <activity
             android:name=".activitys.AbsenceList"
             android:exported="false" />
 

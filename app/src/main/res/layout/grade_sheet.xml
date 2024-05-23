@@ -109,107 +109,109 @@
 						android:id="@+id/gradesListView"
 						android:layout_width="match_parent"
 						android:layout_height="455dp"
-						android:layout_weight="550dp"
 						android:divider="@android:color/darker_gray"
 						android:dividerHeight="1dp"
 						android:layout_marginStart="-15dp"
-						android:layout_marginTop="250dp"
+						android:layout_marginTop="200dp"
 						android:scrollbars="vertical"/>
 
 					<Button
 						android:id="@+id/addGradeButton"
 						android:layout_width="match_parent"
 						android:layout_height="wrap_content"
-						android:text="Add Grade"/>
+						android:background="@drawable/_bg__frame_132_ek3_shape"
+
+						android:text="Add Grade"
+						android:textColor="@color/white"/>
 
 				</LinearLayout>
 
 
 
-				<ImageView android:id="@+id/rectangle_32_ek13"
-					android:src="@drawable/rectangle_32_ek13"
-					android:contentDescription="rectangle_32_ek13"
-					 android:layout_marginStart="0dp"
-					android:layout_marginTop="737dp"
-					android:layout_width="385dp"
-					android:layout_height="75dp" />
 
-				<TextView android:id="@+id/updates"
-					android:textSize="16sp"
-					android:textColor="@color/don_t_have_an_account__sign_up_color"
-					android:layout_marginLeft="16dp"
-					android:layout_marginTop="764dp"
-					android:layout_width="78.6dp"
-					android:layout_height="28.6dp"
-					android:text="@string/updates_string"
-					 />
-
-				<TextView android:id="@+id/stats"
-					android:textSize="16sp"
-					android:textColor="@color/don_t_have_an_account__sign_up_color"
-					android:layout_marginLeft="329dp"
-					android:layout_marginTop="766.5dp"
-					android:layout_width="54.6dp"
-					android:layout_height="23.6dp"
-					android:text="@string/stats_string"
-					 />
-
-				<TextView android:id="@+id/personnel"
-					android:textSize="16sp"
-					android:textColor="@color/don_t_have_an_account__sign_up_color"
-					android:layout_marginLeft="120.33dp"
-					android:layout_marginTop="764dp"
-					android:layout_width="89.6dp"
-					android:layout_height="28.6dp"
-					android:text="@string/personnel_string"
-					 />
-
-				<TextView android:id="@+id/school"
-					android:textSize="16sp"
-					android:textColor="@color/_bg__checkbox_ek5_color"
-					android:layout_marginLeft="235.67dp"
-					android:layout_marginTop="766.5dp"
-					android:layout_width="67.6dp"
-					android:layout_height="23.6dp"
-					android:text="@string/school_string"
-					 />
-
-				<ImageView android:id="@+id/vector_ek643"
-					android:src="@drawable/vector_ek643"
-					android:contentDescription="vector_ek643"
-					 android:layout_marginStart="147.83dp"
-					android:layout_marginTop="747dp"
-					android:layout_width="19.8dp"
-					android:layout_height="11dp" />
-
-				<ImageView android:id="@+id/vector_ek644"
-					android:src="@drawable/vector_ek644"
-					android:contentDescription="vector_ek644"
-					 android:layout_marginStart="339dp"
-					android:layout_marginTop="749.5dp"
-					android:layout_width="20dp"
-					android:layout_height="11dp" />
-
-				<ImageView android:id="@+id/vector_ek645"
-					android:src="@drawable/vector_ek645"
-					android:contentDescription="vector_ek645"
-					 android:layout_marginStart="252.26dp"
-					android:layout_marginTop="745.78dp"
-					android:layout_width="20.91dp"
-					android:layout_height="17.45dp" />
-
-				<ImageView android:id="@+id/vector_ek646"
-					android:src="@drawable/vector_ek646"
-					android:contentDescription="vector_ek646"
-					 android:layout_marginStart="38dp"
-					android:layout_marginTop="743dp"
-					android:layout_width="20dp"
-					android:layout_height="18dp" />
 
 			</RelativeLayout>
 
 
+			<ImageView android:id="@+id/rectangle_32_ek13"
+				android:src="@drawable/rectangle_32_ek13"
+				android:contentDescription="rectangle_32_ek13"
+				android:layout_marginStart="0dp"
+				android:layout_marginTop="737dp"
+				android:layout_width="385dp"
+				android:layout_height="75dp" />
 
+			<TextView android:id="@+id/updates"
+				android:textSize="16sp"
+				android:textColor="@color/don_t_have_an_account__sign_up_color"
+				android:layout_marginLeft="16dp"
+				android:layout_marginTop="764dp"
+				android:layout_width="78.6dp"
+				android:layout_height="28.6dp"
+				android:text="@string/updates_string"
+				/>
+
+			<TextView android:id="@+id/stats"
+				android:textSize="16sp"
+				android:textColor="@color/don_t_have_an_account__sign_up_color"
+				android:layout_marginLeft="329dp"
+				android:layout_marginTop="766.5dp"
+				android:layout_width="54.6dp"
+				android:layout_height="23.6dp"
+				android:text="@string/stats_string"
+				/>
+
+			<TextView android:id="@+id/personnel"
+				android:textSize="16sp"
+				android:textColor="@color/don_t_have_an_account__sign_up_color"
+				android:layout_marginLeft="120.33dp"
+				android:layout_marginTop="764dp"
+				android:layout_width="89.6dp"
+				android:layout_height="28.6dp"
+				android:text="@string/personnel_string"
+				/>
+
+			<TextView android:id="@+id/school"
+				android:textSize="16sp"
+				android:textColor="@color/_bg__checkbox_ek5_color"
+				android:layout_marginLeft="235.67dp"
+				android:layout_marginTop="766.5dp"
+				android:layout_width="67.6dp"
+				android:layout_height="23.6dp"
+				android:text="@string/school_string"
+				/>
+
+			<ImageView android:id="@+id/vector_ek643"
+				android:src="@drawable/vector_ek643"
+				android:contentDescription="vector_ek643"
+				android:layout_marginStart="147.83dp"
+				android:layout_marginTop="747dp"
+				android:layout_width="19.8dp"
+				android:layout_height="11dp" />
+
+			<ImageView android:id="@+id/vector_ek644"
+				android:src="@drawable/vector_ek644"
+				android:contentDescription="vector_ek644"
+				android:layout_marginStart="339dp"
+				android:layout_marginTop="749.5dp"
+				android:layout_width="20dp"
+				android:layout_height="11dp" />
+
+			<ImageView android:id="@+id/vector_ek645"
+				android:src="@drawable/vector_ek645"
+				android:contentDescription="vector_ek645"
+				android:layout_marginStart="252.26dp"
+				android:layout_marginTop="745.78dp"
+				android:layout_width="20.91dp"
+				android:layout_height="17.45dp" />
+
+			<ImageView android:id="@+id/vector_ek646"
+				android:src="@drawable/vector_ek646"
+				android:contentDescription="vector_ek646"
+				android:layout_marginStart="38dp"
+				android:layout_marginTop="743dp"
+				android:layout_width="20dp"
+				android:layout_height="18dp" />
 
 
 
