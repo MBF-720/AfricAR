@@ -1,9 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activitys.ModifyNote">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/eleveNameTextView"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:text="Nom de l'élève" />
+
+    <TextView
+        android:id="@+id/matiereTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Matière" />
+
+    <EditText
+        android:id="@+id/controleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Note de contrôle" />
+
+    <EditText
+        android:id="@+id/controleCoefEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Coefficient de contrôle" />
+
+    <EditText
+        android:id="@+id/synthezeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Note de synthèse" />
+
+    <EditText
+        android:id="@+id/synthezeCoefEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Coefficient de synthèse" />
+
+    <EditText
+        android:id="@+id/tpEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Note de TP" />
+
+    <EditText
+        android:id="@+id/tpCoefEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Coefficient de TP" />
+
+    <EditText
+        android:id="@+id/oraleEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Note orale" />
+
+    <EditText
+        android:id="@+id/oraleCoefEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Coefficient orale" />
+    <EditText
+        android:id="@+id/moyenneEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="moyenne" />
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enregistrer" />
+</LinearLayout>

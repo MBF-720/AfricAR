@@ -20,6 +20,9 @@ public class Note {
         this.coeff = coef;
     }
 
+    public Note(double controle, double controleCoef, double synthese, double synthezeCoef, double tp, double tpCoef, double orale, double oraleCoef, double moyenne) {
+    }
+
     // getters
     public String getMatiere() {
         return this.matiere;
@@ -38,9 +41,6 @@ public class Note {
     }
     public double getOrale() { return orale; }
     public double getMoyenne() { return moyenne; }
-    public double getCoeff() {
-        return this.coeff;
-    }
 
     // method to calculate the weighted grade
     public double getValeur() {
@@ -55,4 +55,7 @@ public class Note {
     public void setCoeff(double coeff) { this.coeff = coeff; }
 
 
+    public double getCoef() {
+        return this.coeff;
+    }
 }
