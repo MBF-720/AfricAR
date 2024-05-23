@@ -1,9 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<HorizontalScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activitys.EditGradeActivity">
+    android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:id="@+id/content_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/page_list_eleve__ek1"
+                android:layout_marginTop="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/classroom_lists_ek4"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/enter_your_scholar_id_color"
+                    android:layout_marginLeft="122dp"
+                    android:layout_marginTop="71dp"
+                    android:layout_width="141dp"
+                    android:layout_height="27.8dp"
+                    android:text="Students list" />
+
+                <RelativeLayout
+                    android:id="@+id/frame_155"
+                    android:layout_marginTop="132dp"
+                    android:layout_marginStart="201dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/ListView"
+            android:layout_width="385dp"
+            android:layout_height="570dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="20dp"
+            android:scrollbars="vertical" />
+
+    </LinearLayout>
+
+
+
+
+</HorizontalScrollView>

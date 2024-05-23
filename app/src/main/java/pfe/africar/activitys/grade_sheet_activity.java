@@ -1,27 +1,9 @@
 
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		enter_id
-	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-
-
-	package pfe.africar.activitys;
+package pfe.africar.activitys;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
-
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -43,10 +25,9 @@ import java.util.List;
 
 import pfe.africar.R;
 
-	public class grade_sheet_activity extends Activity {
+public class grade_sheet_activity extends Activity {
 	private View _bg__grade_sheet_ek2;
 	private TextView grade_sheet_ek3;
-
 	private ImageView ellipse_36_ek1;
 	private TextView flen_el_fouleni_ek4;
 	private ImageView rectangle_32_ek13;
@@ -58,33 +39,31 @@ import pfe.africar.R;
 	private ImageView vector_ek644;
 	private ImageView vector_ek645;
 	private ImageView vector_ek646;
-		private ListView gradesListView;
-		private Button addGradeButton;
-		private List<String> gradesList;
-		private ArrayAdapter<String> adapter;
-		private FirebaseFirestore db;
+	private ListView gradesListView;
+	private Button addGradeButton;
+	private List<String> gradesList;
+	private ArrayAdapter<String> adapter;
+	private FirebaseFirestore db;
+	private String selectedEleveId = "eleve123"; // A remplacer par l'ID réel de l'élève sélectionné
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.grade_sheet);
 
-		_bg__grade_sheet_ek2 = (View) findViewById(R.id._bg__grade_sheet_ek2);
-		grade_sheet_ek3 = (TextView) findViewById(R.id.grade_sheet_ek3);
-
-		ellipse_36_ek1 = (ImageView) findViewById(R.id.ellipse_36_ek1);
-		flen_el_fouleni_ek4 = (TextView) findViewById(R.id.flen_el_fouleni_ek4);
-
-		rectangle_32_ek13 = (ImageView) findViewById(R.id.rectangle_32_ek13);
-		updates = (TextView) findViewById(R.id.updates);
-		stats = (TextView) findViewById(R.id.stats);
-		personnel = (TextView) findViewById(R.id.personnel);
-		school = (TextView) findViewById(R.id.school);
-		vector_ek643 = (ImageView) findViewById(R.id.vector_ek643);
-		vector_ek644 = (ImageView) findViewById(R.id.vector_ek644);
-		vector_ek645 = (ImageView) findViewById(R.id.vector_ek645);
-		vector_ek646 = (ImageView) findViewById(R.id.vector_ek646);
+		_bg__grade_sheet_ek2 = findViewById(R.id._bg__grade_sheet_ek2);
+		grade_sheet_ek3 = findViewById(R.id.grade_sheet_ek3);
+		ellipse_36_ek1 = findViewById(R.id.ellipse_36_ek1);
+		flen_el_fouleni_ek4 = findViewById(R.id.flen_el_fouleni_ek4);
+		rectangle_32_ek13 = findViewById(R.id.rectangle_32_ek13);
+		updates = findViewById(R.id.updates);
+		stats = findViewById(R.id.stats);
+		personnel = findViewById(R.id.personnel);
+		school = findViewById(R.id.school);
+		vector_ek643 = findViewById(R.id.vector_ek643);
+		vector_ek644 = findViewById(R.id.vector_ek644);
+		vector_ek645 = findViewById(R.id.vector_ek645);
+		vector_ek646 = findViewById(R.id.vector_ek646);
 		gradesListView = findViewById(R.id.gradesListView);
 		addGradeButton = findViewById(R.id.addGradeButton);
 
@@ -94,46 +73,49 @@ import pfe.africar.R;
 		gradesListView.setAdapter(adapter);
 
 		loadGrades();
+
 		addGradeButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// Intent to start AddGradeActivity
-				Intent intent = new Intent(grade_sheet_activity.this, AddGradeActivity.class);
+				Intent intent = new Intent(grade_sheet_activity.this, ModifyNoteActivity.class);
+				intent.putExtra("eleveId", selectedEleveId);
 				startActivity(intent);
 			}
 		});
-		//custom code goes here
+
 		gradesListView.setOnItemClickListener((parent, view, position, id) -> {
-			// Handle click event to modify or delete grade
-			String selectedGrade = gradesList.get(position);
-			Intent intent = new Intent(grade_sheet_activity.this, EditGradeActivity.class);
-			intent.putExtra("gradeId", selectedGrade);
+			// Handle click event to modify grade
+			String selectedMatiere = gradesList.get(position);
+			Intent intent = new Intent(grade_sheet_activity.this, ModifyNoteActivity.class);
+			intent.putExtra("eleveId", selectedEleveId);
+			intent.putExtra("matiereId", selectedMatiere);
 			startActivity(intent);
 		});
 	}
 
-
-		private void loadGrades() {
-			db.collection("grades").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-				@Override
-				public void onComplete(@NonNull Task<QuerySnapshot> task) {
-					if (task.isSuccessful()) {
-						gradesList.clear();
-						for (DocumentSnapshot document : task.getResult()) {
-							String grade = document.getString("grade");
-							gradesList.add(grade);
+	private void loadGrades() {
+		db.collection("eleves").document(selectedEleveId).collection("notes")
+				.get()
+				.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+					@Override
+					public void onComplete(@NonNull Task<QuerySnapshot> task) {
+						if (task.isSuccessful()) {
+							gradesList.clear();
+							for (DocumentSnapshot document : task.getResult()) {
+								String matiereId = document.getId();
+								gradesList.add(matiereId);
+							}
+							adapter.notifyDataSetChanged();
+						} else {
+							Toast.makeText(grade_sheet_activity.this, "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
 						}
-						adapter.notifyDataSetChanged();
-					} else {
-						Toast.makeText(grade_sheet_activity.this, "Failed to load grades", Toast.LENGTH_SHORT).show();
 					}
-				}
-			});
-		}
-
-
-
+				});
 	}
+}
+
+
 
 	
 	

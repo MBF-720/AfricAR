@@ -82,16 +82,16 @@
 						android:src="@drawable/ellipse_36_ek1"
 						android:contentDescription="ellipse_36_ek1"
 						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
+						android:layout_marginTop="-30dp"
 						android:layout_width="68dp"
-						android:layout_height="68dp" />
+						android:layout_height="90dp" />
 
 					<TextView android:id="@+id/flen_el_fouleni_ek4"
 						android:textStyle="bold"
 						android:textSize="16sp"
 						android:textColor="@color/enter_your_scholar_id_color"
 						android:layout_marginLeft="86dp"
-						android:layout_marginTop="24.5dp"
+						android:layout_marginTop="10dp"
 						android:layout_width="122.6dp"
 						android:layout_height="23.6dp"
 						android:text="@string/flen_el_fouleni_ek4_string"
@@ -112,10 +112,14 @@
 						android:divider="@android:color/darker_gray"
 						android:dividerHeight="1dp"
 						android:layout_marginStart="-15dp"
-						android:layout_marginTop="200dp"
+						android:layout_marginTop="170dp"
 						android:scrollbars="vertical"/>
 
-
+					<Button
+						android:id="@+id/addGradeButton"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="Add Grade"/>
 
 				</LinearLayout>
 
