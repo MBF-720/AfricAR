@@ -24,8 +24,8 @@ class ModifyNoteActivity extends AppCompatActivity {
     private TextView matiereTextView;
     private EditText controleEditText;
     private EditText controleCoefEditText;
-    private EditText synthezeEditText;
-    private EditText synthezeCoefEditText;
+    private EditText syntheseEditText;
+    private EditText syntheseCoefEditText;
     private EditText tpEditText;
     private EditText tpCoefEditText;
     private EditText oraleEditText;
@@ -45,8 +45,8 @@ class ModifyNoteActivity extends AppCompatActivity {
         matiereTextView = findViewById(R.id.matiereTextView);
         controleEditText = findViewById(R.id.controleEditText);
         controleCoefEditText = findViewById(R.id.controleCoefEditText);
-        synthezeEditText = findViewById(R.id.synthezeEditText);
-        synthezeCoefEditText = findViewById(R.id.synthezeCoefEditText);
+        syntheseEditText = findViewById(R.id.synthezeEditText);
+        syntheseCoefEditText = findViewById(R.id.synthezeCoefEditText);
         tpEditText = findViewById(R.id.tpEditText);
         tpCoefEditText = findViewById(R.id.tpCoefEditText);
         oraleEditText = findViewById(R.id.oraleEditText);
@@ -79,13 +79,13 @@ class ModifyNoteActivity extends AppCompatActivity {
                             if (document.exists()) {
                                 Note note = document.toObject(Note.class);
                                 controleEditText.setText(String.valueOf(note.getControle()));
-                                controleCoefEditText.setText(String.valueOf(note.getCoef()));
-                                synthezeEditText.setText(String.valueOf(note.getSynthese()));
-                                synthezeCoefEditText.setText(String.valueOf(note.getCoef()));
+                                controleCoefEditText.setText(String.valueOf(note.getContolecoeff()));
+                                syntheseEditText.setText(String.valueOf(note.getSynthese()));
+                                syntheseCoefEditText.setText(String.valueOf(note.getSyntheseCoef()));
                                 tpEditText.setText(String.valueOf(note.getTp()));
-                                tpCoefEditText.setText(String.valueOf(note.getCoef()));
+                                tpCoefEditText.setText(String.valueOf(note.getTpCoef()));
                                 oraleEditText.setText(String.valueOf(note.getOrale()));
-                                oraleCoefEditText.setText(String.valueOf(note.getCoef()));
+                                oraleCoefEditText.setText(String.valueOf(note.getOraleCoef()));
                             } else {
                                 Toast.makeText(ModifyNoteActivity.this, "No such document", Toast.LENGTH_SHORT).show();
                             }
@@ -99,8 +99,8 @@ class ModifyNoteActivity extends AppCompatActivity {
     private void saveNoteDetails() {
         double controle = Double.parseDouble(controleEditText.getText().toString());
         double controleCoef = Double.parseDouble(controleCoefEditText.getText().toString());
-        double synthese = Double.parseDouble(synthezeEditText.getText().toString());
-        double synthezeCoef = Double.parseDouble(synthezeCoefEditText.getText().toString());
+        double synthese = Double.parseDouble(syntheseEditText.getText().toString());
+        double synthezeCoef = Double.parseDouble(syntheseCoefEditText.getText().toString());
         double tp = Double.parseDouble(tpEditText.getText().toString());
         double tpCoef = Double.parseDouble(tpCoefEditText.getText().toString());
         double orale = Double.parseDouble(oraleEditText.getText().toString());

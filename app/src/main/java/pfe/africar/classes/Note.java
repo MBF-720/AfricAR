@@ -7,20 +7,25 @@ public class Note {
     private double tp;
     private double orale;
     private double moyenne;
-    private double coeff;
-
+    private double contolecoeff;
+   private double syntheseCoef;
+   private double tpCoef;
+    private double oraleCoef;
     // constructor
-    public Note(String m, double c, double s, double t,double orale, double moyenne, double coef) {
+    public Note(String m, double c, double s, double t,double orale, double moyenne, double contolecoef,double syntheseCoef,double tpCoef,double oraleCoef) {
         this.matiere = m;
         this.controle = c;
         this.synthese = s;
         this.tp = t;
         this.orale = orale;
         this.moyenne = moyenne;
-        this.coeff = coef;
+        this.contolecoeff = contolecoef;
+        this.syntheseCoef = syntheseCoef;
+        this.tpCoef = tpCoef;
+        this.oraleCoef = oraleCoef;
     }
 
-    public Note(double controle, double controleCoef, double synthese, double synthezeCoef, double tp, double tpCoef, double orale, double oraleCoef, double moyenne) {
+    public Note(double controle, double controleCoef, double synthese, double syntheseCoef, double tp, double tpCoef, double orale, double oraleCoef, double moyenne) {
     }
 
     // getters
@@ -43,8 +48,10 @@ public class Note {
     public double getMoyenne() { return moyenne; }
 
     // method to calculate the weighted grade
+
+   double s=(this.contolecoeff+this.syntheseCoef+this.tpCoef+this.oraleCoef);
     public double getValeur() {
-        return (this.controle * this.coeff + this.synthese * this.coeff + this.tp * this.coeff);
+        return ((this.controle * this.contolecoeff + this.synthese * this.syntheseCoef + this.tp * this.tpCoef+ this.orale* this.oraleCoef)/s);
     }
     public void setControle(double controle) { this.controle = controle; }
     public void setSynthese(double synthese) { this.synthese = synthese; }
@@ -52,10 +59,20 @@ public class Note {
     public void setTp(double tp) { this.tp = tp; }
     public void setOrale(double orale) { this.orale = orale; }
     public void setMoyenne(double moyenne) { this.moyenne = moyenne; }
-    public void setCoeff(double coeff) { this.coeff = coeff; }
-
-
-    public double getCoef() {
-        return this.coeff;
+    public void setContolecoeff(double contolecoeff) { this.contolecoeff = contolecoeff; }
+    public void setSyntheseCoef(double syntheseCoef) { this.syntheseCoef = syntheseCoef; }
+    public void setTpCoef(double tpCoef) { this.tpCoef = tpCoef; }
+    public void setOraleCoef(double oraleCoef) { this.oraleCoef = oraleCoef; }
+    public double getContolecoeff() {
+        return this.contolecoeff;
+    }
+    public double getSyntheseCoef() {
+        return this.syntheseCoef;
+    }
+    public double getTpCoef() {
+        return this.tpCoef;
+    }
+    public double getOraleCoef() {
+        return this.oraleCoef;
     }
 }

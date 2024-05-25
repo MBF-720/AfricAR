@@ -44,7 +44,7 @@ public class grade_sheet_activity extends Activity {
 	private List<String> gradesList;
 	private ArrayAdapter<String> adapter;
 	private FirebaseFirestore db;
-	private String selectedEleveId = "eleve123"; // A remplacer par l'ID réel de l'élève sélectionné
+	private String selectedEleveId = "UNfQ0AtYQugZ8eXrENVe"; // A remplacer par l'ID réel de l'élève sélectionné
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
