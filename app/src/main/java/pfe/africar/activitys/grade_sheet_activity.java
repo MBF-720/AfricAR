@@ -1,4 +1,3 @@
-
 package pfe.africar.activitys;
 
 import android.app.Activity;
@@ -44,7 +43,7 @@ public class grade_sheet_activity extends Activity {
 	private List<String> gradesList;
 	private ArrayAdapter<String> adapter;
 	private FirebaseFirestore db;
-	private String selectedEleveId = "UNfQ0AtYQugZ8eXrENVe"; // A remplacer par l'ID réel de l'élève sélectionné
+	private String selectedEleveId = "UNfQ0AtYQugZ8eXrENVe"; // Replace with the actual ID of the selected student
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -77,7 +76,6 @@ public class grade_sheet_activity extends Activity {
 		addGradeButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				// Intent to start AddGradeActivity
 				Intent intent = new Intent(grade_sheet_activity.this, ModifyNoteActivity.class);
 				intent.putExtra("eleveId", selectedEleveId);
 				startActivity(intent);
@@ -85,7 +83,6 @@ public class grade_sheet_activity extends Activity {
 		});
 
 		gradesListView.setOnItemClickListener((parent, view, position, id) -> {
-			// Handle click event to modify grade
 			String selectedMatiere = gradesList.get(position);
 			Intent intent = new Intent(grade_sheet_activity.this, ModifyNoteActivity.class);
 			intent.putExtra("eleveId", selectedEleveId);
@@ -95,7 +92,7 @@ public class grade_sheet_activity extends Activity {
 	}
 
 	private void loadGrades() {
-		db.collection("eleves").document(selectedEleveId).collection("notes")
+		db.collection("Eleves").document(selectedEleveId).collection("notes")
 				.get()
 				.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 					@Override
@@ -114,7 +111,6 @@ public class grade_sheet_activity extends Activity {
 				});
 	}
 }
-
 
 
 	

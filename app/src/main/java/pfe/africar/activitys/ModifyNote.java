@@ -58,7 +58,16 @@ class ModifyNoteActivity extends AppCompatActivity {
         eleveId = getIntent().getStringExtra("eleveId");
         matiereId = getIntent().getStringExtra("matiereId");
 
-        loadNoteDetails();
+        // Log the retrieved values to ensure they are not null
+        Log.d("ModifyNoteActivity", "eleveId: " + eleveId);
+        Log.d("ModifyNoteActivity", "matiereId: " + matiereId);
+
+        if (eleveId != null && matiereId != null) {
+            loadNoteDetails();
+        } else {
+            Toast.makeText(this, "Invalid student or subject ID", Toast.LENGTH_SHORT).show();
+            finish(); // Close the activity if IDs are invalid
+        }
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +78,7 @@ class ModifyNoteActivity extends AppCompatActivity {
     }
 
     private void loadNoteDetails() {
-        db.collection("eleves").document(eleveId).collection("notes").document(matiereId)
+        db.collection("Eleves").document(eleveId).collection("notes").document(matiereId)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
@@ -78,19 +87,21 @@ class ModifyNoteActivity extends AppCompatActivity {
                             DocumentSnapshot document = task.getResult();
                             if (document.exists()) {
                                 Note note = document.toObject(Note.class);
-                                controleEditText.setText(String.valueOf(note.getControle()));
-                                controleCoefEditText.setText(String.valueOf(note.getContolecoeff()));
-                                syntheseEditText.setText(String.valueOf(note.getSynthese()));
-                                syntheseCoefEditText.setText(String.valueOf(note.getSyntheseCoef()));
-                                tpEditText.setText(String.valueOf(note.getTp()));
-                                tpCoefEditText.setText(String.valueOf(note.getTpCoef()));
-                                oraleEditText.setText(String.valueOf(note.getOrale()));
-                                oraleCoefEditText.setText(String.valueOf(note.getOraleCoef()));
+                                if (note != null) {
+                                    controleEditText.setText(String.valueOf(note.getControle()));
+                                    controleCoefEditText.setText(String.valueOf(note.getContolecoeff()));
+                                    syntheseEditText.setText(String.valueOf(note.getSynthese()));
+                                    syntheseCoefEditText.setText(String.valueOf(note.getSyntheseCoef()));
+                                    tpEditText.setText(String.valueOf(note.getTp()));
+                                    tpCoefEditText.setText(String.valueOf(note.getTpCoef()));
+                                    oraleEditText.setText(String.valueOf(note.getOrale()));
+                                    oraleCoefEditText.setText(String.valueOf(note.getOraleCoef()));
+                                }
                             } else {
-                                Toast.makeText(ModifyNoteActivity.this, "No such document", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ModifyNoteActivity.this, "Document does not exist", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Toast.makeText(ModifyNoteActivity.this, "get failed with " + task.getException(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ModifyNoteActivity.this, "Error getting document: " + task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -100,27 +111,27 @@ class ModifyNoteActivity extends AppCompatActivity {
         double controle = Double.parseDouble(controleEditText.getText().toString());
         double controleCoef = Double.parseDouble(controleCoefEditText.getText().toString());
         double synthese = Double.parseDouble(syntheseEditText.getText().toString());
-        double synthezeCoef = Double.parseDouble(syntheseCoefEditText.getText().toString());
+        double syntheseCoef = Double.parseDouble(syntheseCoefEditText.getText().toString());
         double tp = Double.parseDouble(tpEditText.getText().toString());
         double tpCoef = Double.parseDouble(tpCoefEditText.getText().toString());
         double orale = Double.parseDouble(oraleEditText.getText().toString());
         double oraleCoef = Double.parseDouble(oraleCoefEditText.getText().toString());
-        double moyenne = (controle * controleCoef + synthese * synthezeCoef + tp * tpCoef + orale * oraleCoef) / (controleCoef + synthezeCoef + tpCoef + oraleCoef);
 
-        Note note = new Note(controle, controleCoef, synthese, synthezeCoef, tp, tpCoef, orale, oraleCoef, moyenne);
+        Note note = new Note(controle, controleCoef, synthese, syntheseCoef, tp, tpCoef, orale, oraleCoef);
 
-        db.collection("eleves").document(eleveId).collection("notes").document(matiereId)
+        db.collection("Eleves").document(eleveId).collection("notes").document(matiereId)
                 .set(note)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(ModifyNoteActivity.this, "Notes saved successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ModifyNoteActivity.this, "Note updated successfully", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
-                            Toast.makeText(ModifyNoteActivity.this, "Error saving notes: " + task.getException(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ModifyNoteActivity.this, "Error updating note: " + task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
 }
+

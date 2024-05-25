@@ -25,7 +25,7 @@ public class Note {
         this.oraleCoef = oraleCoef;
     }
 
-    public Note(double controle, double controleCoef, double synthese, double syntheseCoef, double tp, double tpCoef, double orale, double oraleCoef, double moyenne) {
+    public Note(double controle, double controleCoef, double synthese, double syntheseCoef, double tp, double tpCoef, double orale, double oraleCoef) {
     }
 
     // getters
