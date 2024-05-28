@@ -26,24 +26,37 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.AjouterMatiere"
+            android:exported="false" />
+        <activity
             android:name=".activitys.ModifyNote"
             android:exported="false" />
         <activity
             android:name=".activitys.EditGradeActivity"
             android:exported="false" />
         <activity
-            android:name=".activitys.AddGradeActivity"
-            android:exported="false" />
-        <activity
             android:name=".activitys.AbsenceDetailActivity"
             android:exported="false" />
         <!--
+         <activity
+            android:name=".activitys.AddGradeActivity"
+            android:exported="false" />
+
+             <activity
+            android:name=".activitys.grade_sheet_activity"
+            android:exported="false" />
+
+
  <activity
             android:name=".activitys.AbsenceList"
             android:exported="false" />
 
          <activity
             android:name=".activitys.admin_update_activity"
+            android:exported="false" />
+
+               <activity
+            android:name=".activitys.StatistiqueActivity"
             android:exported="false" />
         -->
         <activity
@@ -62,7 +75,7 @@
             android:name=".activitys.Eleve_Details"
             android:exported="false" />
         <activity
-            android:name=".activitys.AbsenceList"
+            android:name=".activitys.grade_sheet_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

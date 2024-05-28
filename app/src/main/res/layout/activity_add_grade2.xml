@@ -22,18 +22,22 @@
             android:textSize="18sp"
             android:gravity="center" />
 
-        <TextView
+        <EditText
             android:id="@+id/matiereTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Matière"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:hint="Matière"
             android:textColor="@color/black"
-
+            android:layout_marginTop="20dp"
 
             android:layout_marginBottom="8dp"
             android:textStyle="bold"
             android:textSize="18sp"
-            android:gravity="center" />
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:gravity="center"
+            />
+
+
 
         <GridLayout
             android:layout_width="match_parent"
@@ -41,7 +45,7 @@
 
             android:columnCount="2"
             android:rowCount="10"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="20dp">
 
             <!-- Note de contrôle -->
             <TextView

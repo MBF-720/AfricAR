@@ -13,18 +13,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import pfe.africar.R;
 import pfe.africar.classes.Note;
 
-class ModifyNoteActivity extends AppCompatActivity {
+public class ModifyNote extends AppCompatActivity {
     private TextView eleveNameTextView;
     private TextView matiereTextView;
     private EditText controleEditText;
     private EditText controleCoefEditText;
-    private EditText syntheseEditText;
+    private EditText syntheseEditText,moyenneEditText;
     private EditText syntheseCoefEditText;
     private EditText tpEditText;
     private EditText tpCoefEditText;
@@ -33,7 +34,9 @@ class ModifyNoteActivity extends AppCompatActivity {
     private Button saveButton;
 
     private FirebaseFirestore db;
+
     private String eleveId;
+    private String ecoleId;
     private String matiereId;
 
     @Override
@@ -42,6 +45,7 @@ class ModifyNoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_modify_note);
 
         eleveNameTextView = findViewById(R.id.eleveNameTextView);
+        moyenneEditText= findViewById(R.id.moyenneEditText);
         matiereTextView = findViewById(R.id.matiereTextView);
         controleEditText = findViewById(R.id.controleEditText);
         controleCoefEditText = findViewById(R.id.controleCoefEditText);
@@ -57,6 +61,9 @@ class ModifyNoteActivity extends AppCompatActivity {
 
         eleveId = getIntent().getStringExtra("eleveId");
         matiereId = getIntent().getStringExtra("matiereId");
+        ecoleId = getIntent().getStringExtra("ecoleId");
+
+
 
         // Log the retrieved values to ensure they are not null
         Log.d("ModifyNoteActivity", "eleveId: " + eleveId);
@@ -68,7 +75,8 @@ class ModifyNoteActivity extends AppCompatActivity {
             Toast.makeText(this, "Invalid student or subject ID", Toast.LENGTH_SHORT).show();
             finish(); // Close the activity if IDs are invalid
         }
-
+        getStudentName(ecoleId,  eleveId);
+        matiereTextView.setText(matiereId);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +86,7 @@ class ModifyNoteActivity extends AppCompatActivity {
     }
 
     private void loadNoteDetails() {
-        db.collection("Eleves").document(eleveId).collection("notes").document(matiereId)
+        db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I").collection("Eleves").document(eleveId).collection("notes").document(matiereId)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
@@ -96,12 +104,16 @@ class ModifyNoteActivity extends AppCompatActivity {
                                     tpCoefEditText.setText(String.valueOf(note.getTpCoef()));
                                     oraleEditText.setText(String.valueOf(note.getOrale()));
                                     oraleCoefEditText.setText(String.valueOf(note.getOraleCoef()));
+
+                                    moyenneEditText.setText(String.valueOf(note.calculerMoyenne()));
+
+
                                 }
                             } else {
-                                Toast.makeText(ModifyNoteActivity.this, "Document does not exist", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ModifyNote.this, "Document does not exist", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Toast.makeText(ModifyNoteActivity.this, "Error getting document: " + task.getException(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ModifyNote.this, "Error getting document: " + task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -118,20 +130,46 @@ class ModifyNoteActivity extends AppCompatActivity {
         double oraleCoef = Double.parseDouble(oraleCoefEditText.getText().toString());
 
         Note note = new Note(controle, controleCoef, synthese, syntheseCoef, tp, tpCoef, orale, oraleCoef);
-
-        db.collection("Eleves").document(eleveId).collection("notes").document(matiereId)
+note.setMoyenne(note.calculerMoyenne());
+        db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I").collection("Eleves").document(eleveId).collection("notes").document(matiereId)
                 .set(note)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(ModifyNoteActivity.this, "Note updated successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ModifyNote.this, "Note updated successfully", Toast.LENGTH_SHORT).show();
                             finish();
                         } else {
-                            Toast.makeText(ModifyNoteActivity.this, "Error updating note: " + task.getException(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ModifyNote.this, "Error updating note: " + task.getException(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
+    private void getStudentName(String ecoleId, String eleveId) {
+        DocumentReference docRef = db.collection("Ecoles").document(ecoleId).collection("Eleves").document(eleveId);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        String nom = document.getString("nom");
+                        String prenom = document.getString("prenom");
+                        if (nom != null && prenom != null) {
+                            eleveNameTextView.setText(nom + " " + prenom);
+                        } else {
+                            Toast.makeText(ModifyNote.this, "Nom or prenom field is empty.", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(ModifyNote.this, "No such document.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(ModifyNote.this, "Failed to get document: " + task.getException(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+
 }
 

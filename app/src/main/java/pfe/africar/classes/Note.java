@@ -2,6 +2,10 @@ package pfe.africar.classes;
 
 public class Note {
     private String matiere;
+
+
+
+    private Double matiereCoeff;
     private double controle;
     private double synthese;
     private double tp;
@@ -12,7 +16,7 @@ public class Note {
    private double tpCoef;
     private double oraleCoef;
     // constructor
-    public Note(String m, double c, double s, double t,double orale, double moyenne, double contolecoef,double syntheseCoef,double tpCoef,double oraleCoef) {
+    public Note(String m, double c, double s, double t,double orale, double contolecoef,double syntheseCoef,double tpCoef,double oraleCoef) {
         this.matiere = m;
         this.controle = c;
         this.synthese = s;
@@ -26,6 +30,19 @@ public class Note {
     }
 
     public Note(double controle, double controleCoef, double synthese, double syntheseCoef, double tp, double tpCoef, double orale, double oraleCoef) {
+        this.controle = controle;
+        this.synthese = synthese;
+        this.tp = tp;
+        this.orale = orale;
+        this.moyenne = calculerMoyenne();
+        this.contolecoeff = controleCoef;
+        this.syntheseCoef = syntheseCoef;
+        this.tpCoef = tpCoef;
+        this.oraleCoef = oraleCoef;
+    }
+
+    public Note() {
+        // Constructeur vide
     }
 
     // getters
@@ -75,4 +92,37 @@ public class Note {
     public double getOraleCoef() {
         return this.oraleCoef;
     }
+
+    public Double getMatiereCoeff() {
+        return matiereCoeff;
+    }
+
+    public void setMatiereCoeff(Double matiereCoeff) {
+        this.matiereCoeff = matiereCoeff;
+    }
+
+    public double calculerMoyenne() {
+        double total = 0.0;
+        double poidsTotal = 0.0;
+
+        total += this.controle * this.contolecoeff;
+        poidsTotal += this.contolecoeff;
+
+        total += this.synthese * this.syntheseCoef;
+        poidsTotal += this.syntheseCoef;
+
+        total += this.tp * this.tpCoef;
+        poidsTotal += this.tpCoef;
+
+        total += this.orale * this.oraleCoef;
+        poidsTotal += this.oraleCoef;
+
+        if (poidsTotal == 0.0) {
+            return 0.0;
+        } else {
+
+            return total / poidsTotal;
+        }
+    }
+
 }

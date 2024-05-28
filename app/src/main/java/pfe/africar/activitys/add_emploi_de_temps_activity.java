@@ -1,10 +1,13 @@
 
 package pfe.africar.activitys;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -31,8 +34,8 @@ public class add_emploi_de_temps_activity extends Activity {
 	private FirebaseFirestore db;
 	private StorageReference storageRef;
 	private Uri fileUri;
-	private String classId = "exampleClassId"; // Remplacez par l'ID de la classe appropriée
-	private String EcoleId = "exampleecoleId";
+	private String classId = "CPY5KGWxBex1B5rHnFEb";
+	private String EcoleId = "Vgv1obkaHUASn7Z8rI7I";
 	private TextView label_ek25;
 	private TextView button_ek21;
 
@@ -51,14 +54,24 @@ public class add_emploi_de_temps_activity extends Activity {
 			@Override
 			public void onClick(View v) {
 				uploadFile();
+
+
+
 			}
 		});
+
+
+
 
 		button_ek21.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if (fileUri != null) {
 					saveTimetableToFirestore(fileUri);
+					  		String fileName = getFileName(fileUri);
+					     label_ek25.setText(fileName);            
+
+
 				} else {
 					Toast.makeText(add_emploi_de_temps_activity.this, "Please select a file first.", Toast.LENGTH_SHORT).show();
 				}
@@ -126,6 +139,32 @@ public class add_emploi_de_temps_activity extends Activity {
 					}
 				});
 	}
+
+
+	@SuppressLint("Range")
+	private String getFileName(Uri uri) {
+		String result = null;
+		if (uri.getScheme().equals("content")) {
+			Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+			try {
+				if (cursor != null && cursor.moveToFirst()) {
+					result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+				}
+			} finally {
+				cursor.close();
+			}
+		}
+		if (result == null) {
+			result = uri.getLastPathSegment();
+		}
+		return result;
+	}
+
+
+
+
+
+
 }
 
 	
