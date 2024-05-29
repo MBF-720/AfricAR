@@ -20,7 +20,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import pfe.africar.R;
 import pfe.africar.classes.GradeAdapter;
@@ -34,6 +36,10 @@ public class grade_sheet_activity extends Activity {
 	private List<GradeInfo> gradesList;
 	private GradeAdapter adapter;
 	private FirebaseFirestore db;
+private double overallAverage;
+	private TextView moyenne;
+
+
 
 	private String selectedEleveId = "UNfQ0AtYQugZ8eXrENVe";
 	private String ecoleId="Vgv1obkaHUASn7Z8rI7I";
@@ -46,6 +52,8 @@ public class grade_sheet_activity extends Activity {
 		gradesListView = findViewById(R.id.gradesListView);
 		addGradeButton = findViewById(R.id.addGradeButton);
 		studentName = findViewById(R.id.studentName);
+		moyenne = findViewById(R.id.moyenne);
+
 		db = FirebaseFirestore.getInstance();
 		gradesList = new ArrayList<>();
 		adapter = new GradeAdapter(this, gradesList);
@@ -74,6 +82,11 @@ public class grade_sheet_activity extends Activity {
 			intent.putExtra("matiereId", selectedGradeInfo.getSubjectName());
 			startActivity(intent);
 		});
+
+		calculateOverallAverage();
+
+
+
 	}
 
 	private void loadGrades() {
@@ -121,6 +134,71 @@ public class grade_sheet_activity extends Activity {
 			}
 		});
 	}
+
+	private void calculateOverallAverage() {
+		db.collection("Ecoles").document(ecoleId).collection("Eleves").document(selectedEleveId).collection("notes")
+				.get()
+				.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+					@Override
+					public void onComplete(@NonNull Task<QuerySnapshot> task) {
+						if (task.isSuccessful()) {
+							double totalWeightedSum = 0.0;
+							double totalCoefficientSum = 0.0;
+
+							for (DocumentSnapshot document : task.getResult()) {
+								Double moyenne = document.getDouble("moyenne");
+								Double matiereCoeff = document.getDouble("matiereCoeff");
+
+								if (moyenne != null && matiereCoeff != null) {
+									totalWeightedSum += moyenne * matiereCoeff;
+									totalCoefficientSum += matiereCoeff;
+								}
+							}
+
+							  overallAverage = 0.0;
+							if (totalCoefficientSum != 0) {
+								overallAverage = totalWeightedSum / totalCoefficientSum;
+								String overallAverageStr = String.format("%.2f", overallAverage);
+								moyenne.setText(overallAverageStr);
+
+								// Update the student's overall average in the database
+								updateStudentMoyenne(overallAverage, selectedEleveId);
+							}
+
+							// You can now use overallAverage as needed, for example:
+							Toast.makeText(grade_sheet_activity.this, "Overall Average: " + overallAverage, Toast.LENGTH_SHORT).show();
+						} else {
+							Toast.makeText(grade_sheet_activity.this, "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
+						}
+					}
+				});
+	}
+
+	private void updateStudentMoyenne(double newMoyenne, String eleveId) {
+		DocumentReference studentDocRef = db.collection("Ecoles").document(ecoleId).collection("Eleves").document(eleveId);
+
+		// Create a map to hold the new value for the 'moyenne' field
+		Map<String, Object> updates = new HashMap<>();
+		updates.put("moyenne", newMoyenne);
+
+		// Update the document
+		studentDocRef.update(updates)
+				.addOnCompleteListener(new OnCompleteListener<Void>() {
+					@Override
+					public void onComplete(@NonNull Task<Void> task) {
+						if (task.isSuccessful()) {
+							// Update successful
+							Toast.makeText(grade_sheet_activity.this, "Moyenne updated successfully", Toast.LENGTH_SHORT).show();
+						} else {
+							// Update failed
+							Toast.makeText(grade_sheet_activity.this, "Failed to update moyenne: " + task.getException(), Toast.LENGTH_SHORT).show();
+						}
+					}
+				});
+	}
+
+
+
 
 	@Override
 	protected void onResume() {

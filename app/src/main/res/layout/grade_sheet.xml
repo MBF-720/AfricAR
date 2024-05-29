@@ -83,6 +83,21 @@
 					android:text="Student Name"
 					/>
 
+				<TextView
+					android:id="@+id/moyenne"
+					android:layout_width="100dp"
+					android:layout_height="48dp"
+					android:layout_marginBottom="15dp"
+					android:layout_marginTop="150dp"
+					android:layout_marginLeft="145dp"
+					android:textStyle="bold"
+					android:textColor="@color/black"
+					android:layout_columnWeight="1"
+					android:minHeight="48dp"
+					android:background="@drawable/_bg__medium_ek19_shape"
+					android:gravity="center"
+					android:hint="Moyenne"/>
+
 
 
 				<!-- activity_manage_grades.xml -->
@@ -99,7 +114,7 @@
 						android:divider="@android:color/darker_gray"
 						android:dividerHeight="1dp"
 						android:layout_marginStart="-15dp"
-						android:layout_marginTop="170dp"
+						android:layout_marginTop="184dp"
 						android:scrollbars="vertical"/>
 
 					<Button

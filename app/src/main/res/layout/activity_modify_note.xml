@@ -34,6 +34,32 @@
             android:textStyle="bold"
             android:textSize="18sp"
             android:gravity="center" />
+        <TextView
+            android:id="@+id/coef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coefficient matière"
+            android:textColor="@color/black"
+            android:layout_marginLeft="-100dp"
+
+            android:layout_marginTop="30dp"
+
+            android:textStyle="bold"
+            android:textSize="14sp"
+             />
+        <EditText
+            android:id="@+id/coefEdit"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="-30dp"
+
+            android:layout_columnWeight="1"
+            android:minHeight="48dp"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:gravity="center"
+            android:hint="Coef"/>
 
         <GridLayout
             android:layout_width="match_parent"
@@ -41,7 +67,7 @@
 
             android:columnCount="2"
             android:rowCount="10"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="30dp">
 
             <!-- Note de contrôle -->
             <TextView

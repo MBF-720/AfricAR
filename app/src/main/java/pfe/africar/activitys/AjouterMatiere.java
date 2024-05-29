@@ -25,7 +25,7 @@ public class AjouterMatiere extends AppCompatActivity {
     private EditText controleEditText, controleCoefEditText;
     private EditText synthezeEditText, synthezeCoefEditText;
     private EditText tpEditText, tpCoefEditText;
-    private EditText oraleEditText, oraleCoefEditText;
+    private EditText oraleEditText, oraleCoefEditText,coefEditText;
     private EditText moyenneEditText;
     private TextView eleveNameTextView;
     private Button saveButton;
@@ -41,7 +41,7 @@ public class AjouterMatiere extends AppCompatActivity {
         setContentView(R.layout.activity_add_grade2);
 
         db = FirebaseFirestore.getInstance();
-
+        coefEditText=findViewById(R.id.coefEdit);
         matiereTextView = findViewById(R.id.matiereTextView);
         controleEditText = findViewById(R.id.controleEditText);
         controleCoefEditText = findViewById(R.id.controleCoefEditText);
@@ -87,6 +87,7 @@ public class AjouterMatiere extends AppCompatActivity {
 
             Note note = new Note(matiere, controle, syntheze, tp, orale, controleCoef, synthezeCoef, tpCoef, oraleCoef);
             note.setMoyenne(note.calculerMoyenne());
+            note.setMatiereCoeff(Double.parseDouble(coefEditText.getText().toString().trim()));
 
             DocumentReference docRef = db.collection("Ecoles").document(ecoleId)
                     .collection("Eleves").document(eleveId)
