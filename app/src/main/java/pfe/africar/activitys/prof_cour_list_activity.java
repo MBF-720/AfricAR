@@ -18,13 +18,23 @@
 	package pfe.africar.activitys;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+import java.util.List;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import pfe.africar.R;
 
 	public class prof_cour_list_activity extends Activity {
@@ -32,50 +42,10 @@ import pfe.africar.R;
 	
 	private View _bg__prof_cour_list_ek2;
 	private TextView courses_ek8;
-	private View _bg__frame_107_ek1;
-	private View _bg__frame_81_ek3;
-	private View _bg__frame_77_ek3;
-	private View _bg__frame_76_ek9;
-	private View _bg__frame_75_ek9;
-	private TextView physics_fundamentals_ek4;
-	private TextView _10_04_2024_ek4;
-	private View _bg__flowbite_edit_solid_ek1;
-	private View _bg__group_ek19;
-	private ImageView vector_ek84;
-	private ImageView vector_ek85;
-	private View _bg__frame_78_ek3;
-	private View _bg__frame_76_ek11;
-	private View _bg__frame_75_ek11;
-	private TextView physics_fundamentals_ek5;
-	private TextView _10_04_2024_ek5;
-	private View _bg__flowbite_edit_solid_ek3;
-	private View _bg__group_ek21;
-	private ImageView vector_ek86;
-	private ImageView vector_ek87;
-	private View _bg__frame_79_ek3;
-	private View _bg__frame_76_ek13;
-	private View _bg__frame_75_ek13;
-	private TextView physics_fundamentals_ek6;
-	private TextView _10_04_2024_ek6;
-	private View _bg__flowbite_edit_solid_ek5;
-	private View _bg__group_ek23;
-	private ImageView vector_ek88;
-	private ImageView vector_ek89;
-	private View _bg__frame_80_ek3;
-	private View _bg__frame_76_ek15;
-	private View _bg__frame_75_ek15;
-	private TextView physics_fundamentals_ek7;
-	private TextView _10_04_2024_ek7;
-	private View _bg__flowbite_edit_solid_ek7;
-	private View _bg__group_ek25;
-	private ImageView vector_ek90;
-	private ImageView vector_ek91;
 	private View _bg__component_1_ek15;
 	private TextView button_ek11;
 	private View _bg__component_11_ek5;
 	private TextView courses_ek9;
-	private View _bg__component_12_ek5;
-	private TextView courses_ek10;
 	private ImageView x_1_ek3;
 	private View _bg__healthicons_i_exam_multiple_choice_ek11;
 	private ImageView rectangle_32_ek4;
@@ -88,60 +58,52 @@ import pfe.africar.R;
 	private ImageView vector_ek93;
 	private ImageView vector_ek94;
 	private ImageView vector_ek95;
-
+		private ListView listView;
+		private List<String> courseList;
+		private ArrayAdapter<String> adapter;
+		private DatabaseReference databaseReference;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.prof_cour_list);
 
-		
+		listView = findViewById(R.id.course_list_view);
+		courseList = new ArrayList<>();
+		adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
+		listView.setAdapter(adapter);
+
+		databaseReference = FirebaseDatabase.getInstance().getReference("Cours");
+		databaseReference.addValueEventListener(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				courseList.clear();
+				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+					String courseName = snapshot.child("wMEKttamiaJKtSBda6R0").getValue(String.class);
+					courseList.add(courseName);
+				}
+				adapter.notifyDataSetChanged();
+			}
+
+			@Override
+			public void onCancelled(DatabaseError databaseError) {
+				// Handle possible errors.
+			}
+		});
 		_bg__prof_cour_list_ek2 = (View) findViewById(R.id._bg__prof_cour_list_ek2);
 		courses_ek8 = (TextView) findViewById(R.id.courses_ek8);
-		_bg__frame_107_ek1 = (View) findViewById(R.id._bg__frame_107_ek1);
-		_bg__frame_81_ek3 = (View) findViewById(R.id._bg__frame_81_ek3);
-		_bg__frame_77_ek3 = (View) findViewById(R.id._bg__frame_77_ek3);
-		_bg__frame_76_ek9 = (View) findViewById(R.id._bg__frame_76_ek9);
-		_bg__frame_75_ek9 = (View) findViewById(R.id._bg__frame_75_ek9);
-		physics_fundamentals_ek4 = (TextView) findViewById(R.id.physics_fundamentals_ek4);
-		_10_04_2024_ek4 = (TextView) findViewById(R.id._10_04_2024_ek4);
-		_bg__flowbite_edit_solid_ek1 = (View) findViewById(R.id._bg__flowbite_edit_solid_ek1);
-		_bg__group_ek19 = (View) findViewById(R.id._bg__group_ek19);
-		vector_ek84 = (ImageView) findViewById(R.id.vector_ek84);
-		vector_ek85 = (ImageView) findViewById(R.id.vector_ek85);
-		_bg__frame_78_ek3 = (View) findViewById(R.id._bg__frame_78_ek3);
-		_bg__frame_76_ek11 = (View) findViewById(R.id._bg__frame_76_ek11);
-		_bg__frame_75_ek11 = (View) findViewById(R.id._bg__frame_75_ek11);
-		physics_fundamentals_ek5 = (TextView) findViewById(R.id.physics_fundamentals_ek5);
-		_10_04_2024_ek5 = (TextView) findViewById(R.id._10_04_2024_ek5);
-		_bg__flowbite_edit_solid_ek3 = (View) findViewById(R.id._bg__flowbite_edit_solid_ek3);
-		_bg__group_ek21 = (View) findViewById(R.id._bg__group_ek21);
-		vector_ek86 = (ImageView) findViewById(R.id.vector_ek86);
-		vector_ek87 = (ImageView) findViewById(R.id.vector_ek87);
-		_bg__frame_79_ek3 = (View) findViewById(R.id._bg__frame_79_ek3);
-		_bg__frame_76_ek13 = (View) findViewById(R.id._bg__frame_76_ek13);
-		_bg__frame_75_ek13 = (View) findViewById(R.id._bg__frame_75_ek13);
-		physics_fundamentals_ek6 = (TextView) findViewById(R.id.physics_fundamentals_ek6);
-		_10_04_2024_ek6 = (TextView) findViewById(R.id._10_04_2024_ek6);
-		_bg__flowbite_edit_solid_ek5 = (View) findViewById(R.id._bg__flowbite_edit_solid_ek5);
-		_bg__group_ek23 = (View) findViewById(R.id._bg__group_ek23);
-		vector_ek88 = (ImageView) findViewById(R.id.vector_ek88);
-		vector_ek89 = (ImageView) findViewById(R.id.vector_ek89);
-		_bg__frame_80_ek3 = (View) findViewById(R.id._bg__frame_80_ek3);
-		_bg__frame_76_ek15 = (View) findViewById(R.id._bg__frame_76_ek15);
-		_bg__frame_75_ek15 = (View) findViewById(R.id._bg__frame_75_ek15);
-		physics_fundamentals_ek7 = (TextView) findViewById(R.id.physics_fundamentals_ek7);
-		_10_04_2024_ek7 = (TextView) findViewById(R.id._10_04_2024_ek7);
-		_bg__flowbite_edit_solid_ek7 = (View) findViewById(R.id._bg__flowbite_edit_solid_ek7);
-		_bg__group_ek25 = (View) findViewById(R.id._bg__group_ek25);
-		vector_ek90 = (ImageView) findViewById(R.id.vector_ek90);
-		vector_ek91 = (ImageView) findViewById(R.id.vector_ek91);
+
 		_bg__component_1_ek15 = (View) findViewById(R.id._bg__component_1_ek15);
 		button_ek11 = (TextView) findViewById(R.id.button_ek11);
+		button_ek11.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(prof_cour_list_activity.this, add_cours_activity.class);
+				startActivity(intent);
+			}
+		});
 		_bg__component_11_ek5 = (View) findViewById(R.id._bg__component_11_ek5);
 		courses_ek9 = (TextView) findViewById(R.id.courses_ek9);
-		_bg__component_12_ek5 = (View) findViewById(R.id._bg__component_12_ek5);
-		courses_ek10 = (TextView) findViewById(R.id.courses_ek10);
 		x_1_ek3 = (ImageView) findViewById(R.id.x_1_ek3);
 		_bg__healthicons_i_exam_multiple_choice_ek11 = (View) findViewById(R.id._bg__healthicons_i_exam_multiple_choice_ek11);
 		rectangle_32_ek4 = (ImageView) findViewById(R.id.rectangle_32_ek4);
