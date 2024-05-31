@@ -1,41 +1,25 @@
 
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		enter_id
-	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
+package pfe.africar.activitys;
 
+	import android.app.Activity;
+	import android.content.Intent;
+	import android.os.Bundle;
+	import android.view.View;
+	import android.widget.ArrayAdapter;
+	import android.widget.ImageView;
+	import android.widget.ListView;
+	import android.widget.TextView;
 
-	package pfe.africar.activitys;
+	import com.google.firebase.database.DataSnapshot;
+	import com.google.firebase.database.DatabaseError;
+	import com.google.firebase.database.DatabaseReference;
+	import com.google.firebase.database.FirebaseDatabase;
+	import com.google.firebase.database.ValueEventListener;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+	import java.util.ArrayList;
+	import java.util.List;
 
-
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.ImageView;
-
-import java.util.ArrayList;
-import java.util.List;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-import pfe.africar.R;
+	import pfe.africar.R;
 
 	public class prof_cour_list_activity extends Activity {
 
@@ -79,7 +63,7 @@ import pfe.africar.R;
 			public void onDataChange(DataSnapshot dataSnapshot) {
 				courseList.clear();
 				for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-					String courseName = snapshot.child("wMEKttamiaJKtSBda6R0").getValue(String.class);
+					String courseName = snapshot.child("wMEKttamiaJKtSBda6R0").getValue(String.class);//todo chnya hetha
 					courseList.add(courseName);
 				}
 				adapter.notifyDataSetChanged();
@@ -87,7 +71,7 @@ import pfe.africar.R;
 
 			@Override
 			public void onCancelled(DatabaseError databaseError) {
-				// Handle possible errors.
+
 			}
 		});
 		_bg__prof_cour_list_ek2 = (View) findViewById(R.id._bg__prof_cour_list_ek2);

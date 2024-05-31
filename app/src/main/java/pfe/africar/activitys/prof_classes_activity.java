@@ -1,96 +1,141 @@
+package pfe.africar.activitys;
 
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		enter_id
-	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-
-
-	package pfe.africar.activitys;
-
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-
-
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.ImageView;
+import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import pfe.africar.R;
 
-	public class prof_classes_activity extends Activity {
+public class prof_classes_activity  extends AppCompatActivity {
 
-	
-	private View _bg__prof_classes_ek2;
-	private View _bg__frame_125_ek1;
-	private TextView classroom_1_ek4;
-	private TextView _28_student_ek14;
-	private View _bg__frame_127_ek1;
-	private TextView classroom_1_ek5;
-	private TextView _28_student_ek15;
-	private View _bg__frame_126_ek1;
-	private TextView classroom_1_ek6;
-	private TextView _28_student_ek16;
-	private View _bg__ph_plus_circle_ek1;
-	private ImageView vector_ek771;
-	private ImageView uil_arrow_up_1_ek7;
-	private ImageView rectangle_32_ek27;
-	private TextView classrooms;
-	private TextView academics_ek8;
-	private TextView classroom_ek4;
-	private TextView profile_ek17;
-	private TextView discover_ek16;
-	private View _bg__group_52_ek33;
-	private ImageView vector_ek772;
-	private ImageView vector_ek773;
-	private ImageView vector_ek774;
-	private ImageView vector_ek775;
+	private FirebaseAuth mAuth;
+	private FirebaseFirestore db;
+	private ListView lvClasses;
+	private TextView tvNoClasses;
+	private ArrayAdapter<String> adapter;
+	private List<String> classNames;
+	private List<String> classIds;
+
+	private String ecoleId;
+	private String profId;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
-
+	protected void onCreate(@Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.prof_classes);
 
-		
-		_bg__prof_classes_ek2 = (View) findViewById(R.id._bg__prof_classes_ek2);
-		_bg__frame_125_ek1 = (View) findViewById(R.id._bg__frame_125_ek1);
-		classroom_1_ek4 = (TextView) findViewById(R.id.classroom_1_ek4);
-		_28_student_ek14 = (TextView) findViewById(R.id._28_student_ek14);
-		_bg__frame_127_ek1 = (View) findViewById(R.id._bg__frame_127_ek1);
-		classroom_1_ek5 = (TextView) findViewById(R.id.classroom_1_ek5);
-		_28_student_ek15 = (TextView) findViewById(R.id._28_student_ek15);
-		_bg__frame_126_ek1 = (View) findViewById(R.id._bg__frame_126_ek1);
-		classroom_1_ek6 = (TextView) findViewById(R.id.classroom_1_ek6);
-		_28_student_ek16 = (TextView) findViewById(R.id._28_student_ek16);
-		_bg__ph_plus_circle_ek1 = (View) findViewById(R.id._bg__ph_plus_circle_ek1);
-		vector_ek771 = (ImageView) findViewById(R.id.vector_ek771);
-		uil_arrow_up_1_ek7 = (ImageView) findViewById(R.id.uil_arrow_up_1_ek7);
-		rectangle_32_ek27 = (ImageView) findViewById(R.id.rectangle_32_ek27);
-		classrooms = (TextView) findViewById(R.id.classrooms);
-		academics_ek8 = (TextView) findViewById(R.id.academics_ek8);
-		classroom_ek4 = (TextView) findViewById(R.id.classroom_ek4);
-		profile_ek17 = (TextView) findViewById(R.id.profile_ek17);
-		discover_ek16 = (TextView) findViewById(R.id.discover_ek16);
-		_bg__group_52_ek33 = (View) findViewById(R.id._bg__group_52_ek33);
-		vector_ek772 = (ImageView) findViewById(R.id.vector_ek772);
-		vector_ek773 = (ImageView) findViewById(R.id.vector_ek773);
-		vector_ek774 = (ImageView) findViewById(R.id.vector_ek774);
-		vector_ek775 = (ImageView) findViewById(R.id.vector_ek775);
-	
-		
-		//custom code goes here
-	
+		mAuth = FirebaseAuth.getInstance();
+		db = FirebaseFirestore.getInstance();
+
+		lvClasses = findViewById(R.id.lvClasses);
+		tvNoClasses = findViewById(R.id.tvNoClasses);
+
+		classNames = new ArrayList<>();
+		classIds = new ArrayList<>();
+		adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, classNames);
+		lvClasses.setAdapter(adapter);
+
+		fetchProfessorClasses();
+
+		lvClasses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				String classId = classIds.get(position);
+				Intent intent = new Intent(prof_classes_activity .this, prof_cour_list_activity.class);
+				intent.putExtra("ecoleId", ecoleId);
+				intent.putExtra("classeId", classId);
+				intent.putExtra("profId", profId);
+				startActivity(intent);
+			}
+		});
+	}
+
+	private void fetchProfessorClasses() {
+		FirebaseUser currentUser = mAuth.getCurrentUser();
+		if (currentUser == null) {
+			Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
+			return;
+		}
+
+		String uid = currentUser.getUid();
+		db.collection("Users").document(uid).get()
+				.addOnSuccessListener(documentSnapshot -> {
+					if (documentSnapshot.exists()) {
+						ecoleId = documentSnapshot.getString("idEcole");
+						fetchProfessorClassesFromEcole(uid, ecoleId);
+					} else {
+						Toast.makeText(this, "User document not found", Toast.LENGTH_SHORT).show();
+					}
+				})
+				.addOnFailureListener(e -> {
+					Toast.makeText(this, "Failed to fetch user document", Toast.LENGTH_SHORT).show();
+					Log.e("ProfClassesActivity", "Error fetching user document", e);
+				});
+	}
+
+	private void fetchProfessorClassesFromEcole(String uid, String ecoleId) {
+		db.collection("Ecoles").document(ecoleId).collection("Professeurs")
+				.whereEqualTo("uid", uid).get()
+				.addOnSuccessListener(queryDocumentSnapshots -> {
+					if (!queryDocumentSnapshots.isEmpty()) {
+						for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+							profId = documentSnapshot.getId();
+							List<String> ids = (List<String>) documentSnapshot.get("idClasses");
+							if (ids != null && !ids.isEmpty()) {
+								fetchClassNames(ids);
+							} else {
+								tvNoClasses.setVisibility(View.VISIBLE);
+							}
+						}
+					} else {
+						Toast.makeText(this, "Professor document not found", Toast.LENGTH_SHORT).show();
+					}
+				})
+				.addOnFailureListener(e -> {
+					Toast.makeText(this, "Failed to fetch professor document", Toast.LENGTH_SHORT).show();
+					Log.e("ProfClassesActivity", "Error fetching professor document", e);
+				});
+	}
+
+	private void fetchClassNames(List<String> ids) {
+		classIds.clear();
+		classNames.clear();
+		for (String classId : ids) {
+			db.collection("Classes").document(classId).get()
+					.addOnSuccessListener(documentSnapshot -> {
+						if (documentSnapshot.exists()) {
+							String className = documentSnapshot.getString("nom");
+							if (className != null) {
+								classNames.add(className);
+								classIds.add(classId);
+								adapter.notifyDataSetChanged();
+							}
+						}
+					})
+					.addOnFailureListener(e -> {
+						Toast.makeText(this, "Failed to fetch class document", Toast.LENGTH_SHORT).show();
+						Log.e("ProfClassesActivity", "Error fetching class document", e);
+					});
+		}
+		if (classNames.isEmpty()) {
+			tvNoClasses.setVisibility(View.VISIBLE);
+		}
 	}
 }
-	
-	

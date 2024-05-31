@@ -1,225 +1,54 @@
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent" android:layout_height="wrap_content" >
-	<!-- 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		enter_id
-	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-	-->
-	<ScrollView android:id="@+id/prof_classes" 
-		android:layout_width="wrap_content" 
-		android:layout_height="match_parent" >
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
 
-		<RelativeLayout android:id="@+id/content_container" 
-			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content" >
+	<ScrollView
+		android:id="@+id/prof_classes"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent">
 
+		<RelativeLayout
+			android:id="@+id/content_container"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			<RelativeLayout android:id="@+id/page_prof_classes_ek1"
+			<RelativeLayout
+				android:id="@+id/page_prof_classes_ek1"
 				android:layout_marginTop="0dp"
 				android:layout_marginStart="0dp"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				>
+				android:layout_height="wrap_content">
 
-				<View   android:id="@+id/_bg__prof_classes_ek2"
-					android:background="@drawable/_bg__prof_classes_ek2_shape"
-					 android:layout_marginStart="0dp"
-					android:layout_marginTop="0dp"
+				<View
+					android:id="@+id/_bg__prof_classes_ek2"
 					android:layout_width="385dp"
-					android:layout_height="812dp" />
+					android:layout_height="812dp"
+					android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp"
+					android:background="@drawable/_bg__prof_classes_ek2_shape" />
 
-
-				<RelativeLayout android:id="@+id/frame_125"
-					android:layout_marginTop="156dp"
-					android:layout_marginStart="18dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
-
-					<View   android:id="@+id/_bg__frame_125_ek1"
-						android:background="@drawable/_bg__frame_125_ek1_shape"
-						 android:layout_marginStart="-3dp"
-						android:layout_marginTop="-3dp"
-						android:layout_width="164dp"
-						android:layout_height="106dp" />
-
-					<TextView android:id="@+id/classroom_1_ek4"
-						android:textSize="16sp"
-						android:textColor="@color/enter_your_scholar_id_color"
-						android:layout_marginLeft="35dp"
-						android:layout_marginTop="24dp"
-						android:layout_width="108.6dp"
-						android:layout_height="23.6dp"
-						android:text="@string/classroom_1_ek4_string"
-						 />
-
-					<TextView android:id="@+id/_28_student_ek14"
-						android:textSize="12sp"
-						android:textColor="@color/label_color"
-						android:layout_marginLeft="50dp"
-						android:layout_marginTop="67dp"
-						android:layout_width="76.2dp"
-						android:layout_height="18.2dp"
-						android:text="@string/_28_student_ek14_string"
-						 />
-
-				</RelativeLayout>
-
-
-				<RelativeLayout android:id="@+id/frame_127"
-					android:layout_marginTop="277dp"
-					android:layout_marginStart="18dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
-
-					<View   android:id="@+id/_bg__frame_127_ek1"
-						android:background="@drawable/_bg__frame_127_ek1_shape"
-						 android:layout_marginStart="-3dp"
-						android:layout_marginTop="-3dp"
-						android:layout_width="164dp"
-						android:layout_height="106dp" />
-
-					<TextView android:id="@+id/classroom_1_ek5"
-						android:textSize="16sp"
-						android:textColor="@color/enter_your_scholar_id_color"
-						android:layout_marginLeft="35dp"
-						android:layout_marginTop="24dp"
-						android:layout_width="108.6dp"
-						android:layout_height="23.6dp"
-						android:text="@string/classroom_1_ek5_string"
-						 />
-
-					<TextView android:id="@+id/_28_student_ek15"
-						android:textSize="12sp"
-						android:textColor="@color/label_color"
-						android:layout_marginLeft="50dp"
-						android:layout_marginTop="67dp"
-						android:layout_width="76.2dp"
-						android:layout_height="18.2dp"
-						android:text="@string/_28_student_ek15_string"
-						 />
-
-				</RelativeLayout>
-
-
-				<RelativeLayout android:id="@+id/frame_126"
-					android:layout_marginTop="156dp"
-					android:layout_marginStart="203dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
-
-					<View   android:id="@+id/_bg__frame_126_ek1"
-						android:background="@drawable/_bg__frame_126_ek1_shape"
-						 android:layout_marginStart="-3dp"
-						android:layout_marginTop="-3dp"
-						android:layout_width="164dp"
-						android:layout_height="106dp" />
-
-					<TextView android:id="@+id/classroom_1_ek6"
-						android:textSize="16sp"
-						android:textColor="@color/enter_your_scholar_id_color"
-						android:layout_marginLeft="35dp"
-						android:layout_marginTop="24dp"
-						android:layout_width="108.6dp"
-						android:layout_height="23.6dp"
-						android:text="@string/classroom_1_ek6_string"
-						 />
-
-					<TextView android:id="@+id/_28_student_ek16"
-						android:textSize="12sp"
-						android:textColor="@color/label_color"
-						android:layout_marginLeft="50dp"
-						android:layout_marginTop="67dp"
-						android:layout_width="76.2dp"
-						android:layout_height="18.2dp"
-						android:text="@string/_28_student_ek16_string"
-						 />
-
-				</RelativeLayout>
-
-
-				<RelativeLayout android:id="@+id/ph_plus_circle"
-					android:layout_marginTop="277dp"
-					android:layout_marginStart="200dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
-
-					<View   android:id="@+id/_bg__ph_plus_circle_ek1"
-						android:background="@drawable/_bg__ph_plus_circle_ek1_shape"
-						 android:layout_marginStart="-3dp"
-						android:layout_marginTop="-3dp"
-						android:layout_width="164dp"
-						android:layout_height="106dp" />
-
-					<ImageView android:id="@+id/vector_ek771"
-						android:src="@drawable/vector_ek771"
-						android:contentDescription="vector_ek771"
-						 android:layout_marginStart="49.5dp"
-						android:layout_marginTop="20.5dp"
-						android:layout_width="65dp"
-						android:layout_height="65dp" />
-
-				</RelativeLayout>
-
-				<ImageView android:id="@+id/uil_arrow_up_1_ek7"
+				<ImageView
+					android:id="@+id/uil_arrow_up_1_ek7"
 					android:src="@drawable/uil_arrow_up_1_ek7"
 					android:contentDescription="uil_arrow_up_1_ek7"
-					 android:layout_marginStart="16dp"
+					android:layout_marginStart="16dp"
 					android:layout_marginTop="80dp"
 					android:layout_width="36dp"
 					android:layout_height="36dp" />
 
-				<ImageView android:id="@+id/rectangle_32_ek27"
+				<ImageView
+					android:id="@+id/rectangle_32_ek27"
 					android:src="@drawable/rectangle_32_ek27"
 					android:contentDescription="rectangle_32_ek27"
-					 android:layout_marginStart="0dp"
+					android:layout_marginStart="0dp"
 					android:layout_marginTop="737dp"
 					android:layout_width="385dp"
 					android:layout_height="75dp" />
 
-				<TextView android:id="@+id/classrooms"
+				<TextView
+					android:id="@+id/classrooms"
 					android:textStyle="bold"
 					android:layout_gravity="center_horizontal|center"
 					android:gravity="center"
@@ -229,10 +58,10 @@
 					android:layout_marginTop="83.5dp"
 					android:layout_width="145.4dp"
 					android:layout_height="36.4dp"
-					android:text="@string/classrooms_string"
-					 />
+					android:text="@string/classrooms_string" />
 
-				<TextView android:id="@+id/academics_ek8"
+				<TextView
+					android:id="@+id/academics_ek8"
 					android:layout_gravity="center_horizontal|center"
 					android:gravity="center"
 					android:textSize="16sp"
@@ -241,20 +70,20 @@
 					android:layout_marginTop="769dp"
 					android:layout_width="92dp"
 					android:layout_height="23.6dp"
-					android:text="@string/academics_ek8_string"
-					 />
+					android:text="@string/academics_ek8_string" />
 
-				<TextView android:id="@+id/classroom_ek4"
+				<TextView
+					android:id="@+id/classroom_ek4"
 					android:textSize="16sp"
 					android:textColor="@color/_bg__checkbox_ek5_color"
 					android:layout_marginLeft="106.33dp"
 					android:layout_marginTop="769dp"
 					android:layout_width="96.6dp"
 					android:layout_height="23.6dp"
-					android:text="@string/classroom_ek4_string"
-					 />
+					android:text="@string/classroom_ek4_string" />
 
-				<TextView android:id="@+id/profile_ek17"
+				<TextView
+					android:id="@+id/profile_ek17"
 					android:layout_gravity="center_horizontal|center"
 					android:gravity="center"
 					android:textSize="16sp"
@@ -263,10 +92,10 @@
 					android:layout_marginTop="769dp"
 					android:layout_width="56dp"
 					android:layout_height="23.6dp"
-					android:text="@string/profile_ek17_string"
-					 />
+					android:text="@string/profile_ek17_string" />
 
-				<TextView android:id="@+id/discover_ek16"
+				<TextView
+					android:id="@+id/discover_ek16"
 					android:layout_gravity="center_horizontal|center"
 					android:gravity="center"
 					android:textSize="16sp"
@@ -275,64 +104,79 @@
 					android:layout_marginTop="769dp"
 					android:layout_width="74dp"
 					android:layout_height="23.6dp"
-					android:text="@string/discover_ek16_string"
-					 />
+					android:text="@string/discover_ek16_string" />
 
-
-				<RelativeLayout android:id="@+id/group_52_ek32"
+				<RelativeLayout
+					android:id="@+id/group_52_ek32"
 					android:layout_marginTop="748dp"
 					android:layout_marginStart="335.5dp"
 					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
+					android:layout_height="wrap_content">
 
-					<View   android:id="@+id/_bg__group_52_ek33"
+					<View
+						android:id="@+id/_bg__group_52_ek33"
 						android:background="@drawable/_bg__group_52_ek33_shape"
-						 android:layout_marginStart="-336dp"
+						android:layout_marginStart="-336dp"
 						android:layout_marginTop="-748dp"
 						android:layout_width="18dp"
 						android:layout_height="18dp" />
 
-					<ImageView android:id="@+id/vector_ek772"
+					<ImageView
+						android:id="@+id/vector_ek772"
 						android:src="@drawable/vector_ek772"
 						android:contentDescription="vector_ek772"
-						 android:layout_marginStart="0dp"
+						android:layout_marginStart="0dp"
 						android:layout_marginTop="0dp"
 						android:layout_width="18dp"
 						android:layout_height="18dp" />
-
 				</RelativeLayout>
 
-				<ImageView android:id="@+id/vector_ek773"
+				<ImageView
+					android:id="@+id/vector_ek773"
 					android:src="@drawable/vector_ek773"
 					android:contentDescription="vector_ek773"
-					 android:layout_marginStart="39.5dp"
+					android:layout_marginStart="39.5dp"
 					android:layout_marginTop="747dp"
 					android:layout_width="20dp"
 					android:layout_height="20dp" />
 
-				<ImageView android:id="@+id/vector_ek774"
+				<ImageView
+					android:id="@+id/vector_ek774"
 					android:src="@drawable/vector_ek774"
 					android:contentDescription="vector_ek774"
-					 android:layout_marginStart="245.17dp"
+					android:layout_marginStart="245.17dp"
 					android:layout_marginTop="747dp"
 					android:layout_width="18dp"
 					android:layout_height="20dp" />
 
-				<ImageView android:id="@+id/vector_ek775"
+				<ImageView
+					android:id="@+id/vector_ek775"
 					android:src="@drawable/vector_ek775"
 					android:contentDescription="vector_ek775"
-					 android:layout_marginStart="135.33dp"
+					android:layout_marginStart="135.33dp"
 					android:layout_marginTop="746.64dp"
 					android:layout_width="24dp"
 					android:layout_height="20.73dp" />
 
+				<TextView
+					android:id="@+id/tvNoClasses"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="No classes available"
+					android:visibility="gone"
+					android:gravity="center"
+					android:textSize="18sp"
+					android:layout_marginTop="150dp"
+					android:layout_centerHorizontal="true" />
+
+				<ListView
+					android:id="@+id/lvClasses"
+					android:layout_width="match_parent"
+					android:layout_height="500dp"
+					android:layout_below="@id/tvNoClasses"
+					android:layout_marginTop="200dp"
+					android:padding="16dp" />
 			</RelativeLayout>
-
-
-
-
 		</RelativeLayout>
-
 	</ScrollView>
 </HorizontalScrollView>
