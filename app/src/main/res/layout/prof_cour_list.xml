@@ -15,7 +15,7 @@
 	 *
 	 */
 	-->
-	<ScrollView android:id="@+id/prof_cour_list"
+	<RelativeLayout android:id="@+id/prof_cour_list"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent" >
 
@@ -86,49 +86,44 @@
 				<ListView
 					android:id="@+id/course_list_view"
 					android:layout_width="match_parent"
-					android:layout_height="200dp"
+					android:layout_height="400dp"
 					android:layout_marginTop="190dp"
 					android:layout_marginBottom="10dp"
 					tools:ignore="DuplicateIds" />
 
-					<RelativeLayout android:id="@+id/component_1_ek14"
-						android:layout_marginTop="440dp"
-						android:layout_marginStart="0dp"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						>
+
 
 						<View   android:id="@+id/_bg__component_1_ek15"
 							android:background="@drawable/_bg__component_1_ek15_shape"
-							 android:layout_marginStart="0dp"
-							android:layout_marginTop="250dp"
+							 android:layout_marginStart="25dp"
+							android:layout_marginTop="600dp"
 							android:layout_width="343dp"
 							android:layout_height="46dp" />
 
 						<TextView android:id="@+id/button_ek11"
 							android:textSize="18sp"
 							android:textColor="@color/button_color"
-							android:layout_marginLeft="100dp"
-							android:layout_marginTop="260dp"
+							android:layout_marginLeft="130dp"
+							android:layout_marginTop="610dp"
 							android:layout_width="158.8dp"
 							android:layout_height="27.8dp"
 							android:text="@string/button_ek11_string"
 							 />
 
-					</RelativeLayout>
+
 
 				</RelativeLayout>
 
 
 				<RelativeLayout android:id="@+id/component_11_ek4"
 					android:layout_marginTop="140dp"
-					android:layout_marginStart="15dp"
+					android:layout_marginStart="100dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					>
 
 					<View   android:id="@+id/_bg__component_11_ek5"
-						android:background="@drawable/_bg__component_11_ek5_shape"
+						android:background="@drawable/_bg__component_1_ek15_shape"
 						 android:layout_marginStart="0dp"
 						android:layout_marginTop="0dp"
 						android:layout_width="167dp"
@@ -141,7 +136,7 @@
 						android:textSize="14sp"
 						android:textColor="@color/button_color"
 						android:layout_marginLeft="22dp"
-						android:layout_marginTop="8dp"
+						android:layout_marginTop="5dp"
 						android:layout_width="125.4dp"
 						android:layout_height="21.4dp"
 						android:text="@string/courses_ek9_string"
@@ -303,5 +298,5 @@
 
 		</RelativeLayout>
 
-	</ScrollView>
+
 </HorizontalScrollView>

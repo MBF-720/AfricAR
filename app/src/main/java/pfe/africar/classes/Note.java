@@ -5,7 +5,7 @@ public class Note {
 
 
 
-    private Double matiereCoeff;
+    private double matiereCoeff;
     private double controle;
     private double synthese;
     private double tp;

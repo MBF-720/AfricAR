@@ -30,7 +30,7 @@ public class ModifyNote extends AppCompatActivity {
     private EditText tpEditText;
     private EditText tpCoefEditText;
     private EditText oraleEditText;
-    private EditText oraleCoefEditText;
+    private EditText oraleCoefEditText,coef;
     private Button saveButton;
 
     private FirebaseFirestore db;
@@ -56,6 +56,7 @@ public class ModifyNote extends AppCompatActivity {
         oraleEditText = findViewById(R.id.oraleEditText);
         oraleCoefEditText = findViewById(R.id.oraleCoefEditText);
         saveButton = findViewById(R.id.saveButton);
+        coef=findViewById(R.id.coefEdit);
 
         db = FirebaseFirestore.getInstance();
 
@@ -106,7 +107,7 @@ public class ModifyNote extends AppCompatActivity {
                                     oraleCoefEditText.setText(String.valueOf(note.getOraleCoef()));
 
                                     moyenneEditText.setText(String.valueOf(note.calculerMoyenne()));
-
+                                    coef.setText(String.valueOf(note.getMatiereCoeff()));
 
                                 }
                             } else {
@@ -131,6 +132,7 @@ public class ModifyNote extends AppCompatActivity {
 
         Note note = new Note(controle, controleCoef, synthese, syntheseCoef, tp, tpCoef, orale, oraleCoef);
 note.setMoyenne(note.calculerMoyenne());
+note.setMatiereCoeff(Double.parseDouble(coef.getText().toString()));
         db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I").collection("Eleves").document(eleveId).collection("notes").document(matiereId)
                 .set(note)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
