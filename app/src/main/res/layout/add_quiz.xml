@@ -72,13 +72,6 @@
 					android:layout_height="wrap_content"
 					>
 
-					<View   android:id="@+id/_bg__frame_120_ek1"
-						android:background="@drawable/_bg__frame_120_ek1_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="343dp"
-						android:layout_height="557dp" />
-
 
 					<RelativeLayout android:id="@+id/frame_119"
 						android:layout_marginTop="0dp"
@@ -86,13 +79,6 @@
 						android:layout_width="wrap_content"
 						android:layout_height="wrap_content"
 						>
-
-						<View   android:id="@+id/_bg__frame_119_ek1"
-							android:background="@drawable/_bg__frame_119_ek1_shape"
-							 android:layout_marginStart="0dp"
-							android:layout_marginTop="0dp"
-							android:layout_width="343dp"
-							android:layout_height="419dp" />
 
 
 						<RelativeLayout android:id="@+id/frame_117"
@@ -102,13 +88,6 @@
 							android:layout_height="wrap_content"
 							>
 
-							<View   android:id="@+id/_bg__frame_117_ek1"
-								android:background="@drawable/_bg__frame_117_ek1_shape"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="343dp"
-								android:layout_height="376dp" />
-
 
 							<RelativeLayout android:id="@+id/frame_114"
 								android:layout_marginTop="0dp"
@@ -116,13 +95,6 @@
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								>
-
-								<View   android:id="@+id/_bg__frame_114_ek1"
-									android:background="@drawable/_bg__frame_114_ek1_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="343dp"
-									android:layout_height="78dp" />
 
 								<TextView android:id="@+id/question"
 									android:textSize="16sp"
@@ -144,8 +116,8 @@
 
 									<View   android:id="@+id/_bg__medium_ek9"
 										android:background="@drawable/_bg__medium_ek9_shape"
-										 android:layout_marginStart="-2dp"
-										android:layout_marginTop="-2dp"
+										 android:layout_marginStart="2dp"
+										android:layout_marginTop="2dp"
 										android:layout_width="343dp"
 										android:layout_height="51dp" />
 
@@ -157,21 +129,16 @@
 										android:layout_height="wrap_content"
 										>
 
-										<View   android:id="@+id/_bg__frame_7_ek33"
-											android:background="@drawable/_bg__frame_7_ek33_shape"
-											 android:layout_marginStart="0dp"
-											android:layout_marginTop="0dp"
-											android:layout_width="70dp"
-											android:layout_height="19dp" />
-
-										<TextView android:id="@+id/label_ek12"
+										<EditText android:id="@+id/label_ek12"
 											android:textSize="16sp"
-											android:textColor="@color/label_color"
 											android:layout_marginLeft="0dp"
 											android:layout_marginTop="0dp"
 											android:layout_width="84.6dp"
 											android:layout_height="23.6dp"
-											android:text="@string/label_ek12_string"
+											android:hint="@string/label_ek49_string"
+											android:textColor="@color/black"
+											android:textColorHint="@color/label_color"
+											android:background="@null"
 											 />
 
 									</RelativeLayout>
@@ -187,13 +154,6 @@
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								>
-
-								<View   android:id="@+id/_bg__frame_115_ek1"
-									android:background="@drawable/_bg__frame_115_ek1_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="343dp"
-									android:layout_height="78dp" />
 
 								<TextView android:id="@+id/correct_answer"
 									android:textSize="16sp"
@@ -215,8 +175,8 @@
 
 									<View   android:id="@+id/_bg__medium_ek11"
 										android:background="@drawable/_bg__medium_ek11_shape"
-										 android:layout_marginStart="-2dp"
-										android:layout_marginTop="-2dp"
+										 android:layout_marginStart="2dp"
+										android:layout_marginTop="2dp"
 										android:layout_width="343dp"
 										android:layout_height="51dp" />
 
@@ -228,21 +188,16 @@
 										android:layout_height="wrap_content"
 										>
 
-										<View   android:id="@+id/_bg__frame_7_ek35"
-											android:background="@drawable/_bg__frame_7_ek35_shape"
-											 android:layout_marginStart="0dp"
-											android:layout_marginTop="0dp"
-											android:layout_width="70dp"
-											android:layout_height="19dp" />
-
-										<TextView android:id="@+id/label_ek13"
+										<EditText android:id="@+id/label_ek13"
 											android:textSize="16sp"
-											android:textColor="@color/label_color"
 											android:layout_marginLeft="0dp"
 											android:layout_marginTop="0dp"
 											android:layout_width="84.6dp"
 											android:layout_height="23.6dp"
-											android:text="@string/label_ek13_string"
+											android:hint="@string/label_ek49_string"
+											android:textColor="@color/black"
+											android:textColorHint="@color/label_color"
+											android:background="@null"
 											 />
 
 									</RelativeLayout>
@@ -258,13 +213,6 @@
 								android:layout_width="wrap_content"
 								android:layout_height="wrap_content"
 								>
-
-								<View   android:id="@+id/_bg__frame_116_ek1"
-									android:background="@drawable/_bg__frame_116_ek1_shape"
-									 android:layout_marginStart="0dp"
-									android:layout_marginTop="0dp"
-									android:layout_width="343dp"
-									android:layout_height="196dp" />
 
 								<TextView android:id="@+id/false_answers"
 									android:textSize="16sp"
@@ -286,8 +234,8 @@
 
 									<View   android:id="@+id/_bg__medium_ek13"
 										android:background="@drawable/_bg__medium_ek13_shape"
-										 android:layout_marginStart="-2dp"
-										android:layout_marginTop="-2dp"
+										 android:layout_marginStart="2dp"
+										android:layout_marginTop="2dp"
 										android:layout_width="343dp"
 										android:layout_height="51dp" />
 
@@ -299,21 +247,16 @@
 										android:layout_height="wrap_content"
 										>
 
-										<View   android:id="@+id/_bg__frame_7_ek37"
-											android:background="@drawable/_bg__frame_7_ek37_shape"
-											 android:layout_marginStart="0dp"
-											android:layout_marginTop="0dp"
-											android:layout_width="70dp"
-											android:layout_height="19dp" />
-
-										<TextView android:id="@+id/label_ek14"
+										<EditText android:id="@+id/label_ek14"
 											android:textSize="16sp"
-											android:textColor="@color/label_color"
 											android:layout_marginLeft="0dp"
 											android:layout_marginTop="0dp"
 											android:layout_width="84.6dp"
 											android:layout_height="23.6dp"
-											android:text="@string/label_ek14_string"
+											android:hint="@string/label_ek49_string"
+											android:textColor="@color/black"
+											android:textColorHint="@color/label_color"
+											android:background="@null"
 											 />
 
 									</RelativeLayout>
@@ -330,8 +273,8 @@
 
 									<View   android:id="@+id/_bg__medium_ek15"
 										android:background="@drawable/_bg__medium_ek15_shape"
-										 android:layout_marginStart="-2dp"
-										android:layout_marginTop="-2dp"
+										 android:layout_marginStart="2dp"
+										android:layout_marginTop="2dp"
 										android:layout_width="343dp"
 										android:layout_height="51dp" />
 
@@ -343,21 +286,16 @@
 										android:layout_height="wrap_content"
 										>
 
-										<View   android:id="@+id/_bg__frame_7_ek39"
-											android:background="@drawable/_bg__frame_7_ek39_shape"
-											 android:layout_marginStart="0dp"
-											android:layout_marginTop="0dp"
-											android:layout_width="70dp"
-											android:layout_height="19dp" />
-
-										<TextView android:id="@+id/label_ek15"
+										<EditText android:id="@+id/label_ek15"
 											android:textSize="16sp"
-											android:textColor="@color/label_color"
 											android:layout_marginLeft="0dp"
 											android:layout_marginTop="0dp"
 											android:layout_width="84.6dp"
 											android:layout_height="23.6dp"
-											android:text="@string/label_ek15_string"
+											android:hint="@string/label_ek49_string"
+											android:textColor="@color/black"
+											android:textColorHint="@color/label_color"
+											android:background="@null"
 											 />
 
 									</RelativeLayout>
@@ -374,8 +312,8 @@
 
 									<View   android:id="@+id/_bg__medium_ek17"
 										android:background="@drawable/_bg__medium_ek17_shape"
-										 android:layout_marginStart="-2dp"
-										android:layout_marginTop="-2dp"
+										 android:layout_marginStart="2dp"
+										android:layout_marginTop="2dp"
 										android:layout_width="343dp"
 										android:layout_height="51dp" />
 
@@ -387,21 +325,16 @@
 										android:layout_height="wrap_content"
 										>
 
-										<View   android:id="@+id/_bg__frame_7_ek41"
-											android:background="@drawable/_bg__frame_7_ek41_shape"
-											 android:layout_marginStart="0dp"
-											android:layout_marginTop="0dp"
-											android:layout_width="70dp"
-											android:layout_height="19dp" />
-
-										<TextView android:id="@+id/label_ek16"
+										<EditText android:id="@+id/label_ek16"
 											android:textSize="16sp"
-											android:textColor="@color/label_color"
 											android:layout_marginLeft="0dp"
 											android:layout_marginTop="0dp"
 											android:layout_width="84.6dp"
 											android:layout_height="23.6dp"
-											android:text="@string/label_ek16_string"
+											android:hint="@string/label_ek49_string"
+											android:textColor="@color/black"
+											android:textColorHint="@color/label_color"
+											android:background="@null"
 											 />
 
 									</RelativeLayout>
@@ -419,13 +352,6 @@
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							>
-
-							<View   android:id="@+id/_bg__frame_118_ek1"
-								android:background="@drawable/_bg__frame_118_ek1_shape"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="343dp"
-								android:layout_height="19dp" />
 
 							<ImageView android:id="@+id/line_11"
 								android:src="@drawable/line_11"
