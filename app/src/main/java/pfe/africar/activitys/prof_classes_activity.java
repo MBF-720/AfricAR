@@ -62,6 +62,7 @@ public class prof_classes_activity  extends AppCompatActivity {
 				intent.putExtra("ecoleId", ecoleId);
 				intent.putExtra("classeId", classId);
 				intent.putExtra("profId", profId);
+
 				startActivity(intent);
 			}
 		});

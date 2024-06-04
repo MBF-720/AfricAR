@@ -55,7 +55,12 @@ public class add_cours_activity extends Activity {
 		ecoleId = getIntent().getStringExtra("ecoleId");
 		classeId = getIntent().getStringExtra("classeId");
 		matiereId = getIntent().getStringExtra("matiereId");
-		courId = getIntent().getStringExtra("courId");
+
+		if (ecoleId == null || classeId == null || matiereId == null) {
+			Toast.makeText(this, "Missing parameters", Toast.LENGTH_SHORT).show();
+			finish();
+			return;
+		}
 
 		// Initialize UI elements
 		_bg__add_cours_ek2 = findViewById(R.id._bg__add_cours_ek2);
@@ -65,6 +70,12 @@ public class add_cours_activity extends Activity {
 		label_ek10 = findViewById(R.id.label_ek10);
 		label_ek11 = findViewById(R.id.label_ek11);
 		button_ek13 = findViewById(R.id.button_ek13);
+
+		// Set single line for EditText programmatically
+		label_ek9.setSingleLine(true);
+		label_ek10.setSingleLine(true);
+		label_ek11.setSingleLine(true);
+
 
 		// Set listeners
 		upload_file.setOnClickListener(this::uploadFile);
@@ -141,6 +152,14 @@ public class add_cours_activity extends Activity {
 		data.put("date", date);
 		data.put("time", time);
 
+		// Generate a new courId if not provided
+		if (courId == null) {
+			courId = db.collection("Ecoles").document(ecoleId)
+					.collection("Classes").document(classeId)
+					.collection("Matieres").document(matiereId)
+					.collection("Cours").document().getId();
+		}
+
 		db.collection("Ecoles").document(ecoleId)
 				.collection("Classes").document(classeId)
 				.collection("Matieres").document(matiereId)
@@ -149,8 +168,13 @@ public class add_cours_activity extends Activity {
 				.addOnSuccessListener(documentReference -> {
 					Toast.makeText(add_cours_activity.this, "Course added successfully!", Toast.LENGTH_SHORT).show();
 					Intent intent = new Intent(add_cours_activity.this, prof_cour_list_activity.class);
+					intent.putExtra("ecoleId", ecoleId);
+					intent.putExtra("classeId", classeId);
+					intent.putExtra("matiereId", matiereId);
 					startActivity(intent);
+					finish(); // Optional: Finish current activity
 				})
 				.addOnFailureListener(e -> Toast.makeText(add_cours_activity.this, "Error adding course.", Toast.LENGTH_SHORT).show());
 	}
 }
+//todo test with a current user

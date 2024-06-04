@@ -26,6 +26,9 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.prof_comunication"
+            android:exported="false" />
+        <activity
             android:name=".activitys.AjouterMatiere"
             android:exported="false" />
         <activity
@@ -79,7 +82,7 @@
             android:name=".activitys.Eleve_Details"
             android:exported="false" />
         <activity
-            android:name=".activitys.prof_cour_list_activity"
+            android:name=".activitys.prof_classes_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -108,7 +111,6 @@
         <activity
             android:name=".activitys.log_in_inactive_state__activity"
             android:exported="true" />
-
         <activity
             android:name=".activitys.forget_password"
             android:exported="true" />
