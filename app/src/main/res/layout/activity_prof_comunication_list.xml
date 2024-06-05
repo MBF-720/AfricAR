@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activitys.prof_comunication_list">
+
+
+    <TextView
+        android:id="@+id/communications"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal|center"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="@color/enter_your_scholar_id_color"
+        android:layout_width="204.4dp"
+        android:layout_height="36.4dp"
+        android:text="@string/communications_string"
+        android:layout_marginLeft="90dp"
+        android:layout_marginTop="72dp" />
+
+    <ListView
+        android:id="@+id/list_view_reclamations"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        android:layout_marginTop="180dp"
+        android:padding="16dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp" />
+    <Button
+        android:id="@+id/addReclamation"
+        android:layout_width="200dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="125dp"
+        android:text="send reclamation "
+        android:textColor="@color/white"
+        android:layout_marginLeft="90dp"
+        android:background="@drawable/_bg__component_1_ek35_shape"
+        />
+
+</RelativeLayout>

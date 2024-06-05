@@ -26,6 +26,12 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.prof_comunication_list"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.Prof_comunication_reponse"
+            android:exported="false" />
+        <activity
             android:name=".activitys.prof_comunication"
             android:exported="false" />
         <activity

@@ -193,6 +193,7 @@
                     android:layout_below="@id/et_titre"
                     android:layout_marginTop="16dp" />
 
+
                 <Button
                     android:id="@+id/btn_save"
                     android:layout_width="343dp"
@@ -201,7 +202,7 @@
                     android:background="@drawable/_bg__component_1_ek15_shape"
                     android:textColor="@android:color/white"
                     android:layout_below="@id/et_description"
-                    android:layout_marginTop="16dp" />
+                    android:layout_marginTop="50dp" />
             </RelativeLayout>
         </RelativeLayout>
 
