@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ListView
+        android:id="@+id/listViewStudents"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="100dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp" />
+
+    <TextView
+        android:id="@+id/classroom_lists_ek3"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal|center"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="@color/enter_your_scholar_id_color"
+        android:layout_marginLeft="122dp"
+        android:layout_marginTop="71dp"
+        android:layout_width="141dp"
+        android:layout_height="27.8dp"
+        android:text="@string/classroom_lists_ek3_string" />
+
+</RelativeLayout>

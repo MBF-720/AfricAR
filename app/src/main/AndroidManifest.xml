@@ -26,6 +26,15 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.Prof_addNote"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.prof_note_listeDeClasse"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.prof_class_list"
+            android:exported="false" />
+        <activity
             android:name=".activitys.prof_comunication_list"
             android:exported="false" />
         <activity
