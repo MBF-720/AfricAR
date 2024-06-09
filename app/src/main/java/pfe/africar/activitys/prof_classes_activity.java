@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -22,8 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pfe.africar.R;
+import pfe.africar.helpers.ProfNavBar;
 
-public class prof_classes_activity  extends AppCompatActivity {
+public class prof_classes_activity extends AppCompatActivity {
 
 	private FirebaseAuth mAuth;
 	private FirebaseFirestore db;
@@ -33,7 +35,7 @@ public class prof_classes_activity  extends AppCompatActivity {
 	private List<String> classNames;
 	private List<String> classIds;
 
-	private String ecoleId;
+	private static final String ECOLE_ID = "Vgv1obkaHUASn7Z8rI7I";  // Directly use the Ecole ID
 	private String profId;
 
 	@Override
@@ -47,6 +49,10 @@ public class prof_classes_activity  extends AppCompatActivity {
 		lvClasses = findViewById(R.id.lvClasses);
 		tvNoClasses = findViewById(R.id.tvNoClasses);
 
+		// the nav bar code
+		BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+		ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
+
 		classNames = new ArrayList<>();
 		classIds = new ArrayList<>();
 		adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, classNames);
@@ -58,8 +64,8 @@ public class prof_classes_activity  extends AppCompatActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				String classId = classIds.get(position);
-				Intent intent = new Intent(prof_classes_activity .this, prof_cour_list_activity.class);
-				intent.putExtra("ecoleId", ecoleId);
+				Intent intent = new Intent(prof_classes_activity.this, prof_cour_list_activity.class);
+				intent.putExtra("ecoleId", ECOLE_ID);
 				intent.putExtra("classeId", classId);
 				intent.putExtra("profId", profId);
 
@@ -76,23 +82,11 @@ public class prof_classes_activity  extends AppCompatActivity {
 		}
 
 		String uid = currentUser.getUid();
-		db.collection("Users").document(uid).get()
-				.addOnSuccessListener(documentSnapshot -> {
-					if (documentSnapshot.exists()) {
-						ecoleId = documentSnapshot.getString("idEcole");
-						fetchProfessorClassesFromEcole(uid, ecoleId);
-					} else {
-						Toast.makeText(this, "User document not found", Toast.LENGTH_SHORT).show();
-					}
-				})
-				.addOnFailureListener(e -> {
-					Toast.makeText(this, "Failed to fetch user document", Toast.LENGTH_SHORT).show();
-					Log.e("ProfClassesActivity", "Error fetching user document", e);
-				});
+		fetchProfessorClassesFromEcole(uid);
 	}
 
-	private void fetchProfessorClassesFromEcole(String uid, String ecoleId) {
-		db.collection("Ecoles").document(ecoleId).collection("Professeurs")
+	private void fetchProfessorClassesFromEcole(String uid) {
+		db.collection("Ecoles").document(ECOLE_ID).collection("Professeurs")
 				.whereEqualTo("uid", uid).get()
 				.addOnSuccessListener(queryDocumentSnapshots -> {
 					if (!queryDocumentSnapshots.isEmpty()) {

@@ -7,10 +7,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import pfe.africar.R;
+import pfe.africar.helpers.ProfNavBar;
 
 public class Prof_comunication_reponse extends AppCompatActivity {
 
@@ -28,6 +30,9 @@ public class Prof_comunication_reponse extends AppCompatActivity {
         etTitre = findViewById(R.id.et_titre);
         etDescription = findViewById(R.id.et_description);
         tvReponse = findViewById(R.id.Reponse);
+//the nav bar code
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
 
         db = FirebaseFirestore.getInstance();
 

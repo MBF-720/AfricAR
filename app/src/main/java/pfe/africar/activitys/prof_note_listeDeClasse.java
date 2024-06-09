@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pfe.africar.R;
+import pfe.africar.helpers.ProfNavBar;
 
 public class prof_note_listeDeClasse extends AppCompatActivity {
 
@@ -39,6 +41,9 @@ public class prof_note_listeDeClasse extends AppCompatActivity {
         studentIds = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, studentNames);
         listViewStudents.setAdapter(adapter);
+//the nav bar code
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
 
         db = FirebaseFirestore.getInstance();
 

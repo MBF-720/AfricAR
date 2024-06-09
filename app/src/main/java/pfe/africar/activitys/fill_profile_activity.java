@@ -397,6 +397,8 @@
 
 										Log.d(TAG, "DocumentSnapshot ajouté avec ID: " + documentReference.getId());
 										Toast.makeText(fill_profile_activity.this, "Professeur ajouté avec succès !", Toast.LENGTH_SHORT).show();
+										Intent intent = new Intent(fill_profile_activity.this, prof_actualites.class);
+										startActivity(intent);
 									}
 								})
 								.addOnFailureListener(new OnFailureListener() {

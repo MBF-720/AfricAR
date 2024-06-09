@@ -7,8 +7,9 @@
     <ScrollView
         android:id="@+id/classroom_lists"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation">
+        android:layout_height="0dp"
+        android:layout_above="@id/bottom_navigation"
+        android:layout_alignParentTop="true">
 
         <RelativeLayout
             android:id="@+id/content_container"
@@ -53,7 +54,6 @@
                 android:layout_marginTop="64dp"
                 android:layout_width="36dp"
                 android:layout_height="36dp" />
-
         </RelativeLayout>
     </ScrollView>
 

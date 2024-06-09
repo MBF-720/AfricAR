@@ -72,6 +72,10 @@ dependencies {
 
     implementation("com.vanniktech:android-image-cropper:4.5.0")
 
+    implementation ("com.google.android.material:material:1.3.0")
+
+    implementation ("com.google.firebase:firebase-appcheck-safetynet:16.0.0")
+    implementation ("com.google.firebase:firebase-appcheck:16.0.0")
 
 
 

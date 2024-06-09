@@ -17,28 +17,25 @@
 
 	package pfe.africar.activitys;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.ArrayAdapter;
+	import android.app.Activity;
+	import android.content.Intent;
+	import android.os.Bundle;
+	import android.view.View;
+	import android.widget.ArrayAdapter;
+	import android.widget.ImageView;
+	import android.widget.ListView;
+	import android.widget.TextView;
+	import android.widget.Toast;
 
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
+	import com.google.android.material.bottomnavigation.BottomNavigationView;
+	import com.google.firebase.firestore.CollectionReference;
+	import com.google.firebase.firestore.FirebaseFirestore;
+	import com.google.firebase.firestore.QueryDocumentSnapshot;
 
-import java.util.ArrayList;
+	import java.util.ArrayList;
 
-import android.view.View;
-import android.widget.TextView;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-import pfe.africar.R;
+	import pfe.africar.R;
+	import pfe.africar.helpers.ProfNavBar;
 
 	public class prof_quiz_list_activity extends Activity {
 
@@ -110,27 +107,19 @@ import pfe.africar.R;
 		setContentView(R.layout.prof_quiz_list);
 
 
-		_bg__prof_quiz_list_ek2 = (View) findViewById(R.id._bg__prof_quiz_list_ek2);
 		quizzes_ek8 = (TextView) findViewById(R.id.quizzes_ek8);
 		_bg__component_1_ek17 = (View) findViewById(R.id._bg__component_1_ek17);
 		button_ek12 = (TextView) findViewById(R.id.button_ek12);
-		x_1_ek4 = (ImageView) findViewById(R.id.x_1_ek4);
-		_bg__healthicons_i_exam_multiple_choice_ek13 = (View) findViewById(R.id._bg__healthicons_i_exam_multiple_choice_ek13);
-		rectangle_32_ek5 = (ImageView) findViewById(R.id.rectangle_32_ek5);
-		quizzes_ek9 = (TextView) findViewById(R.id.quizzes_ek9);
-		courses_ek12 = (TextView) findViewById(R.id.courses_ek12);
-		discover_ek6 = (TextView) findViewById(R.id.discover_ek6);
-		profile_ek7 = (TextView) findViewById(R.id.profile_ek7);
-		vector_ek104 = (ImageView) findViewById(R.id.vector_ek104);
-		vector_ek105 = (ImageView) findViewById(R.id.vector_ek105);
-		vector_ek106 = (ImageView) findViewById(R.id.vector_ek106);
-		vector_ek107 = (ImageView) findViewById(R.id.vector_ek107);
+
 
 		db = FirebaseFirestore.getInstance();
 		quizListView = findViewById(R.id.quiz_list_view);
 		quizList = new ArrayList<>();
 		quizAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, quizList);
 		quizListView.setAdapter(quizAdapter);
+//the nav bar code
+		BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+		ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
 
 		// Chargement des quizzes depuis Firestore
 		loadQuizzes();

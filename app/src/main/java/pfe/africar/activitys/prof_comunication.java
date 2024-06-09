@@ -12,12 +12,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import pfe.africar.R;
+import pfe.africar.helpers.ProfNavBar;
 
 public class prof_comunication extends AppCompatActivity {
 
@@ -35,6 +37,10 @@ public class prof_comunication extends AppCompatActivity {
         etTitre = findViewById(R.id.et_titre);
         etDescription = findViewById(R.id.et_description);
         btnSave = findViewById(R.id.btn_save);
+//the nav bar code
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
+
 
         db = FirebaseFirestore.getInstance();
 

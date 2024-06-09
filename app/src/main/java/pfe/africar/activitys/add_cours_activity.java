@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -42,6 +44,7 @@ public class add_cours_activity extends Activity {
 	private String classeId;
 	private String matiereId;
 	private String courId;
+	private String userId;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -62,8 +65,17 @@ public class add_cours_activity extends Activity {
 			return;
 		}
 
+		// Get current user ID
+		FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+		if (currentUser != null) {
+			userId = currentUser.getUid();
+		} else {
+			Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show();
+			finish();
+			return;
+		}
+
 		// Initialize UI elements
-		_bg__add_cours_ek2 = findViewById(R.id._bg__add_cours_ek2);
 		add_new_course = findViewById(R.id.add_new_course);
 		label_ek9 = findViewById(R.id.label_ek9);
 		upload_file = findViewById(R.id.upload_file);
@@ -75,7 +87,6 @@ public class add_cours_activity extends Activity {
 		label_ek9.setSingleLine(true);
 		label_ek10.setSingleLine(true);
 		label_ek11.setSingleLine(true);
-
 
 		// Set listeners
 		upload_file.setOnClickListener(this::uploadFile);
@@ -151,6 +162,7 @@ public class add_cours_activity extends Activity {
 		data.put("file", fileUrl);
 		data.put("date", date);
 		data.put("time", time);
+		data.put("userId", userId);
 
 		// Generate a new courId if not provided
 		if (courId == null) {
@@ -177,4 +189,3 @@ public class add_cours_activity extends Activity {
 				.addOnFailureListener(e -> Toast.makeText(add_cours_activity.this, "Error adding course.", Toast.LENGTH_SHORT).show());
 	}
 }
-//todo test with a current user

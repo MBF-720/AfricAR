@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -25,6 +24,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
+
+        <activity
+            android:name=".activitys.Prof_details"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.prof_profile"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.prof_actualites"
+            android:exported="false" />
         <activity
             android:name=".activitys.Prof_addNote"
             android:exported="false" />
@@ -55,40 +64,29 @@
         <activity
             android:name=".activitys.AbsenceDetailActivity"
             android:exported="false" />
-        <!--
-         <activity
+        <activity
             android:name=".activitys.AddGradeActivity"
             android:exported="false" />
-
-             <activity
+        <activity
             android:name=".activitys.grade_sheet_activity"
             android:exported="false" />
-
-
- <activity
+        <activity
             android:name=".activitys.AbsenceList"
             android:exported="false" />
-
-         <activity
+        <activity
             android:name=".activitys.admin_update_activity"
             android:exported="false" />
-
-               <activity
+        <activity
             android:name=".activitys.StatistiqueActivity"
             android:exported="false" />
-
-             <activity
+        <activity
             android:name=".activitys.add_cours_activity"
-            android:exported="true" />
-        -->
+            android:exported="false" />
         <activity
             android:name=".activitys.ajouter_profToClasse"
             android:exported="false" />
         <activity
             android:name=".activitys.ProfClasse"
-            android:exported="false" />
-        <activity
-            android:name=".activitys.Prof_details"
             android:exported="false" />
         <activity
             android:name=".activitys.DetailActivity"
@@ -97,62 +95,65 @@
             android:name=".activitys.Eleve_Details"
             android:exported="false" />
         <activity
+            android:name=".activitys.classroom_lists_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.log_in_as__activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.fill_profile_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.create_acount__inactive_state__activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.acceille_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.enter_id_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.enter_id_classe_activity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.log_in_inactive_state__activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.forget_password"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.list_eleve__activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.add_student_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.add_update_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.list_des_prof_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.add_prof_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.ReclamationDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.Reclamations"
+            android:exported="false" />
+        <activity
             android:name=".activitys.prof_classes_activity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.onboarding_screen_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activitys.log_in_as__activity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.fill_profile_activity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.create_acount__inactive_state__activity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.acceille_activity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.enter_id_activity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.enter_id_classe_activity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activitys.log_in_inactive_state__activity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.forget_password"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.list_eleve__activity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.add_student_activity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.add_update_activity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.list_des_prof_activity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.add_prof_activity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.add_cours_activity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.ReclamationDetailsActivity"
-            android:exported="true" />
-        <activity
-            android:name=".activitys.Reclamations"
-            android:exported="true" />
-    </application>
 
+    </application>
 </manifest>

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.CollectionReference;
@@ -34,7 +33,6 @@ public class add_quiz_activity extends Activity {
 		setContentView(R.layout.add_quiz);
 
 		// Initialize views
-		_bg__add_quiz_ek2 = findViewById(R.id._bg__add_quiz_ek2);
 		add_new_quiz = findViewById(R.id.add_new_quiz);
 		question = findViewById(R.id.question);
 		label_ek12 = findViewById(R.id.label_ek12);

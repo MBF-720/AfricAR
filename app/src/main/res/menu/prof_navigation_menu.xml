@@ -1,0 +1,19 @@
+<!-- res/menu/bottom_navigation_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_discover"
+        android:icon="@drawable/vector_ek93"
+        android:title="Discover" />
+    <item
+        android:id="@+id/navigation_courses"
+        android:icon="@drawable/vector_ek26"
+        android:title="Courses" />
+    <item
+        android:id="@+id/navigation_quizzes"
+        android:icon="@drawable/vector_ek94"
+        android:title="Quizzes" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/vector_ek92"
+        android:title="Profile" />
+</menu>

@@ -128,13 +128,6 @@
                             android:layout_height="wrap_content"
                             >
 
-                            <View   android:id="@+id/_bg__group_28_ek1"
-                                android:background="@drawable/_bg__group_28_ek1_shape"
-                                android:layout_marginStart="-76dp"
-                                android:layout_marginTop="-76dp"
-                                android:layout_width="24dp"
-                                android:layout_height="24dp" />
-
                             <View   android:id="@+id/rectangle_16"
                                 android:background="@drawable/rectangle_16_shape"
                                 android:layout_marginStart="0dp"

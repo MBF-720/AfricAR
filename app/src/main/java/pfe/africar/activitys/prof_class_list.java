@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pfe.africar.R;
+import pfe.africar.helpers.ProfNavBar;
 
 public class prof_class_list extends AppCompatActivity {
 
@@ -38,6 +40,12 @@ public class prof_class_list extends AppCompatActivity {
         classIds = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, classNames);
         listViewClasses.setAdapter(adapter);
+
+
+        //the nav bar code
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
+
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();

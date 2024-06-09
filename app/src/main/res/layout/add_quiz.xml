@@ -1,20 +1,6 @@
 <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent" android:layout_height="wrap_content" >
-	<!-- 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		enter_id
-	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-	-->
+
 	<ScrollView android:id="@+id/add_quiz" 
 		android:layout_width="wrap_content" 
 		android:layout_height="match_parent" >
@@ -43,13 +29,6 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				>
-
-				<View   android:id="@+id/_bg__add_quiz_ek2"
-					android:background="@drawable/_bg__add_quiz_ek2_shape"
-					 android:layout_marginStart="0dp"
-					android:layout_marginTop="0dp"
-					android:layout_width="385dp"
-					android:layout_height="812dp" />
 
 				<TextView android:id="@+id/add_new_quiz"
 					android:textStyle="bold"
@@ -420,60 +399,6 @@
 					android:layout_width="36dp"
 					android:layout_height="36dp" />
 
-				<ImageView android:id="@+id/rectangle_32_ek8"
-					android:src="@drawable/rectangle_32_ek8"
-					android:contentDescription="rectangle_32_ek8"
-					 android:layout_marginStart="0dp"
-					android:layout_marginTop="737dp"
-					android:layout_width="385dp"
-					android:layout_height="75dp" />
-
-				<TextView android:id="@+id/academics_ek6"
-					android:layout_gravity="center_horizontal|center"
-					android:gravity="center"
-					android:textSize="16sp"
-					android:textColor="@color/_bg__checkbox_ek5_color"
-					android:layout_marginLeft="208.67dp"
-					android:layout_marginTop="769dp"
-					android:layout_width="92dp"
-					android:layout_height="23.6dp"
-					android:text="@string/academics_ek6_string"
-					 />
-
-				<TextView android:id="@+id/classroom_ek2"
-					android:textSize="16sp"
-					android:textColor="@color/don_t_have_an_account__sign_up_color"
-					android:layout_marginLeft="106.33dp"
-					android:layout_marginTop="769dp"
-					android:layout_width="96.6dp"
-					android:layout_height="23.6dp"
-					android:text="@string/classroom_ek2_string"
-					 />
-
-				<TextView android:id="@+id/discover_ek9"
-					android:layout_gravity="center_horizontal|center"
-					android:gravity="center"
-					android:textSize="16sp"
-					android:textColor="@color/don_t_have_an_account__sign_up_color"
-					android:layout_marginLeft="13dp"
-					android:layout_marginTop="769dp"
-					android:layout_width="74dp"
-					android:layout_height="23.6dp"
-					android:text="@string/discover_ek9_string"
-					 />
-
-				<TextView android:id="@+id/profile_ek10"
-					android:layout_gravity="center_horizontal|center"
-					android:gravity="center"
-					android:textSize="16sp"
-					android:textColor="@color/don_t_have_an_account__sign_up_color"
-					android:layout_marginLeft="317dp"
-					android:layout_marginTop="769dp"
-					android:layout_width="56dp"
-					android:layout_height="23.6dp"
-					android:text="@string/profile_ek10_string"
-					 />
-
 
 				<RelativeLayout android:id="@+id/group_52_ek18"
 					android:layout_marginTop="748dp"
@@ -489,39 +414,7 @@
 						android:layout_width="18dp"
 						android:layout_height="18dp" />
 
-					<ImageView android:id="@+id/vector_ek602"
-						android:src="@drawable/vector_ek602"
-						android:contentDescription="vector_ek602"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="18dp"
-						android:layout_height="18dp" />
-
 				</RelativeLayout>
-
-				<ImageView android:id="@+id/vector_ek603"
-					android:src="@drawable/vector_ek603"
-					android:contentDescription="vector_ek603"
-					 android:layout_marginStart="135.33dp"
-					android:layout_marginTop="746.64dp"
-					android:layout_width="24dp"
-					android:layout_height="20.73dp" />
-
-				<ImageView android:id="@+id/vector_ek604"
-					android:src="@drawable/vector_ek604"
-					android:contentDescription="vector_ek604"
-					 android:layout_marginStart="245.17dp"
-					android:layout_marginTop="747dp"
-					android:layout_width="18dp"
-					android:layout_height="20dp" />
-
-				<ImageView android:id="@+id/vector_ek605"
-					android:src="@drawable/vector_ek605"
-					android:contentDescription="vector_ek605"
-					 android:layout_marginStart="39.5dp"
-					android:layout_marginTop="747dp"
-					android:layout_width="20dp"
-					android:layout_height="20dp" />
 
 			</RelativeLayout>
 

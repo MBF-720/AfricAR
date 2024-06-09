@@ -1,88 +1,54 @@
 <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent" android:layout_height="wrap_content" >
-	<!--
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc
-	 *	@file 		enter_id
-	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
-	 *	@title 		Page 1
-	 *	@author
-	 *	@keywords
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-	-->
+	android:layout_width="match_parent" android:layout_height="wrap_content"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	>
+
 	<RelativeLayout android:id="@+id/prof_cour_list"
 		android:layout_width="wrap_content"
 		android:layout_height="match_parent" >
 
 		<RelativeLayout android:id="@+id/content_container"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content" >
+			android:layout_height="700dp" >
 
 
-
-
-
-
-
-
-
-
-
-
-
-			<RelativeLayout android:id="@+id/page_prof_cour_list_ek1"
-				android:layout_marginTop="0dp"
-				android:layout_marginStart="0dp"
+			<RelativeLayout
+				android:id="@+id/page_prof_cour_list_ek1"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				>
+				android:layout_marginStart="0dp"
+				android:layout_marginTop="0dp">
 
 				<ListView
 					android:id="@+id/course_list_view"
 					android:layout_width="match_parent"
 					android:layout_height="200dp"
 					android:layout_above="@id/_bg__component_1_ek15"
-					android:layout_below="@id/_bg__component_11_ek5"
 					android:layout_marginTop="200dp"
 					android:layout_marginBottom="10dp"
 					tools:ignore="NotSibling" />
 
-				<View
-					android:id="@+id/_bg__prof_cour_list_ek2"
-					android:layout_width="385dp"
-					android:layout_height="812dp"
-					android:layout_alignParentStart="true"
-					android:layout_marginStart="0dp"
-					android:layout_marginTop="0dp"
-					android:background="@drawable/_bg__prof_cour_list_ek2_shape" />
-
-				<TextView android:id="@+id/courses_ek8"
-					android:textStyle="bold"
-					android:layout_gravity="center_horizontal|center"
-					android:gravity="center"
-					android:textSize="24sp"
-					android:textColor="@color/enter_your_scholar_id_color"
-					android:layout_marginLeft="139dp"
-					android:layout_marginTop="68dp"
+				<TextView
+					android:id="@+id/courses_ek8"
 					android:layout_width="105.4dp"
 					android:layout_height="36.4dp"
+					android:layout_gravity="center_horizontal|center"
+					android:layout_marginLeft="139dp"
+					android:layout_marginTop="68dp"
+					android:gravity="center"
 					android:text="@string/courses_ek8_string"
-					 />
+					android:textColor="@color/enter_your_scholar_id_color"
+					android:textSize="24sp"
+					android:textStyle="bold" />
 
 
+				<RelativeLayout
+					android:id="@+id/frame_81_ek2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="0dp"
+					android:layout_marginTop="0dp" />
 
-
-					<RelativeLayout android:id="@+id/frame_81_ek2"
-						android:layout_marginTop="0dp"
-						android:layout_marginStart="0dp"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						/>
 				<ListView
 					android:id="@+id/course_list_view"
 					android:layout_width="match_parent"
@@ -92,57 +58,33 @@
 					tools:ignore="DuplicateIds" />
 
 
+				<View
+					android:id="@+id/_bg__component_1_ek15"
+					android:layout_width="343dp"
+					android:layout_height="46dp"
+					android:layout_marginStart="25dp"
+					android:layout_marginTop="600dp"
+					android:background="@drawable/_bg__component_1_ek15_shape" />
 
-						<View   android:id="@+id/_bg__component_1_ek15"
-							android:background="@drawable/_bg__component_1_ek15_shape"
-							 android:layout_marginStart="25dp"
-							android:layout_marginTop="600dp"
-							android:layout_width="343dp"
-							android:layout_height="46dp" />
-
-						<TextView android:id="@+id/button_ek11"
-							android:textSize="18sp"
-							android:textColor="@color/button_color"
-							android:layout_marginLeft="130dp"
-							android:layout_marginTop="610dp"
-							android:layout_width="158.8dp"
-							android:layout_height="27.8dp"
-							android:text="@string/button_ek11_string"
-							 />
-
-
-
-				</RelativeLayout>
+				<TextView
+					android:id="@+id/button_ek11"
+					android:layout_width="158.8dp"
+					android:layout_height="27.8dp"
+					android:layout_marginLeft="130dp"
+					android:layout_marginTop="610dp"
+					android:text="@string/button_ek11_string"
+					android:textColor="@color/button_color"
+					android:textSize="18sp" />
 
 
-				<RelativeLayout android:id="@+id/component_11_ek4"
+			</RelativeLayout>
+
+			<RelativeLayout android:id="@+id/component_11_ek4"
 					android:layout_marginTop="140dp"
 					android:layout_marginStart="100dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					>
-
-					<View   android:id="@+id/_bg__component_11_ek5"
-						android:background="@drawable/_bg__component_1_ek15_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="167dp"
-						android:layout_height="33dp" />
-
-					<TextView android:id="@+id/courses_ek9"
-						android:textStyle="bold"
-						android:layout_gravity="center_horizontal|center"
-						android:gravity="center"
-						android:textSize="14sp"
-						android:textColor="@color/button_color"
-						android:layout_marginLeft="22dp"
-						android:layout_marginTop="5dp"
-						android:layout_width="125.4dp"
-						android:layout_height="21.4dp"
-						android:text="@string/courses_ek9_string"
-						 />
-
-				</RelativeLayout>
+					/>
 
 
 				<ImageView android:id="@+id/x_1_ek3"
@@ -159,73 +101,10 @@
 					android:layout_marginStart="241.33dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					>
-
-					<View   android:id="@+id/_bg__healthicons_i_exam_multiple_choice_ek11"
-						android:background="@drawable/_bg__healthicons_i_exam_multiple_choice_ek11_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="24dp"
-						android:layout_height="24dp" />
-
-				</RelativeLayout>
-
-				<ImageView android:id="@+id/rectangle_32_ek4"
-					android:src="@drawable/rectangle_32_ek4"
-					android:contentDescription="rectangle_32_ek4"
-					 android:layout_marginStart="0dp"
-					android:layout_marginTop="737dp"
-					android:layout_width="385dp"
-					android:layout_height="75dp" />
-
-				<TextView android:id="@+id/quizzes_ek7"
-					android:textSize="16sp"
-					android:textColor="@color/don_t_have_an_account__sign_up_color"
-					android:layout_marginLeft="222.33dp"
-					android:layout_marginTop="769dp"
-					android:layout_width="76.6dp"
-					android:layout_height="23.6dp"
-					android:text="@string/quizzes_ek7_string"
-					 />
-
-				<TextView android:id="@+id/courses_ek11"
-					android:layout_gravity="center_horizontal|center"
-					android:gravity="center"
-					android:textSize="16sp"
-					android:textColor="@color/_bg__checkbox_ek5_color"
-					android:layout_marginLeft="117.67dp"
-					android:layout_marginTop="769dp"
-					android:layout_width="71dp"
-					android:layout_height="23.6dp"
-					android:text="@string/courses_ek11_string"
-					 />
-
-				<TextView android:id="@+id/profile_ek6"
-					android:layout_gravity="center_horizontal|center"
-					android:gravity="center"
-					android:textSize="16sp"
-					android:textColor="@color/don_t_have_an_account__sign_up_color"
-					android:layout_marginLeft="319dp"
-					android:layout_marginTop="769dp"
-					android:layout_width="54dp"
-					android:layout_height="23.6dp"
-					android:text="@string/profile_ek6_string"
-					 />
-
-				<TextView android:id="@+id/discover_ek5"
-					android:layout_gravity="center_horizontal|center"
-					android:gravity="center"
-					android:textSize="16sp"
-					android:textColor="@color/don_t_have_an_account__sign_up_color"
-					android:layout_marginLeft="13dp"
-					android:layout_marginTop="769dp"
-					android:layout_width="74dp"
-					android:layout_height="23.6dp"
-					android:text="@string/discover_ek5_string"
-					 />
+					/>
 
 
-				<RelativeLayout android:id="@+id/group_52_ek10"
+			<RelativeLayout android:id="@+id/group_52_ek10"
 					android:layout_marginTop="748dp"
 					android:layout_marginStart="336.5dp"
 					android:layout_width="wrap_content"
@@ -239,42 +118,9 @@
 						android:layout_width="18dp"
 						android:layout_height="18dp" />
 
-					<ImageView android:id="@+id/vector_ek92"
-						android:src="@drawable/vector_ek92"
-						android:contentDescription="vector_ek92"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="18dp"
-						android:layout_height="18dp" />
-
-				</RelativeLayout>
-
-				<ImageView android:id="@+id/vector_ek93"
-					android:src="@drawable/vector_ek93"
-					android:contentDescription="vector_ek93"
-					 android:layout_marginStart="39.5dp"
-					android:layout_marginTop="747dp"
-					android:layout_width="20dp"
-					android:layout_height="20dp" />
-
-				<ImageView android:id="@+id/vector_ek94"
-					android:src="@drawable/vector_ek94"
-					android:contentDescription="vector_ek94"
-					 android:layout_marginStart="244.33dp"
-					android:layout_marginTop="748dp"
-					android:layout_width="18dp"
-					android:layout_height="18dp" />
-
-				<ImageView android:id="@+id/vector_ek95"
-					android:src="@drawable/vector_ek95"
-					android:contentDescription="vector_ek95"
-					 android:layout_marginStart="143.67dp"
-					android:layout_marginTop="747dp"
-					android:layout_width="18dp"
-					android:layout_height="20dp" />
-
 			</RelativeLayout>
 
+		</RelativeLayout>
 
 
 
@@ -291,6 +137,13 @@
 
 
 
+		<com.google.android.material.bottomnavigation.BottomNavigationView
+			android:id="@+id/bottom_navigation"
+			android:layout_width="400dp"
+			android:layout_height="wrap_content"
+			android:layout_alignParentBottom="true"
+			android:background="@color/white"
+			app:menu="@menu/prof_navigation_menu" />
 
 
 

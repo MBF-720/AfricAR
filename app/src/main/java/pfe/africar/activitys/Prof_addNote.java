@@ -50,6 +50,9 @@ public class Prof_addNote extends AppCompatActivity {
         moyenneEditText = findViewById(R.id.moyenneEditText);
         saveButton = findViewById(R.id.saveButton);
 
+
+
+
         db = FirebaseFirestore.getInstance();
 
         studentId = getIntent().getStringExtra("STUDENT_ID");

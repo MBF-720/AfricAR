@@ -1,210 +1,117 @@
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottom_navigation">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <View
-                android:id="@+id/_bg__comunication_ek2"
-                android:background="@drawable/_bg__comunication_ek2_shape"
-                android:layout_width="385dp"
-                android:layout_height="812dp" />
-
-            <View
-                android:id="@+id/_bg__prof_cour_list_ek"
-                android:layout_width="385dp"
-                android:layout_height="812dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/_bg__prof_cour_list_ek2_shape" />
-
-
-
-            <View
-                android:id="@+id/_bg__healthicons_i_exam_multiple_choice_ek"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/_bg__healthicons_i_exam_multiple_choice_ek11_shape" />
-
-            <ImageView
-                android:id="@+id/rectangle_32_ek"
-                android:layout_width="385dp"
-                android:layout_height="75dp"
-                android:layout_marginStart="0dp"
-                android:layout_marginTop="737dp"
-                android:contentDescription="rectangle_32_ek4"
-                android:src="@drawable/rectangle_32_ek4" />
-
-            <TextView
-                android:id="@+id/quizzes_ek"
-                android:layout_width="76.6dp"
-                android:layout_height="23.6dp"
-                android:layout_marginLeft="222.33dp"
-                android:layout_marginTop="769dp"
-                android:text="@string/quizzes_ek7_string"
-                android:textColor="@color/don_t_have_an_account__sign_up_color"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/courses_ek"
-                android:layout_width="71dp"
-                android:layout_height="23.6dp"
-                android:layout_gravity="center_horizontal|center"
-                android:layout_marginLeft="117.67dp"
-                android:layout_marginTop="769dp"
-                android:gravity="center"
-                android:text="@string/courses_ek11_string"
-                android:textColor="@color/_bg__checkbox_ek5_color"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/profile_ek"
-                android:layout_width="54dp"
-                android:layout_height="23.6dp"
-                android:layout_gravity="center_horizontal|center"
-                android:layout_marginLeft="319dp"
-                android:layout_marginTop="769dp"
-                android:gravity="center"
-                android:text="@string/profile_ek6_string"
-                android:textColor="@color/don_t_have_an_account__sign_up_color"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/discover_ek"
-                android:layout_width="74dp"
-                android:layout_height="23.6dp"
-                android:layout_gravity="center_horizontal|center"
-                android:layout_marginLeft="13dp"
-                android:layout_marginTop="769dp"
-                android:gravity="center"
-                android:text="@string/discover_ek5_string"
-                android:textColor="@color/don_t_have_an_account__sign_up_color"
-                android:textSize="16sp" />
-
-            <ImageView
-                android:id="@+id/vector_ek"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="335dp"
-                android:layout_marginTop="750dp"
-                android:contentDescription="vector_ek92"
-                android:src="@drawable/vector_ek92" />
-
-            <ImageView
-                android:id="@+id/vector_ek3"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="39.5dp"
-                android:layout_marginTop="747dp"
-                android:contentDescription="vector_ek93"
-                android:src="@drawable/vector_ek93" />
-
-            <ImageView
-                android:id="@+id/vector_ek7"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:layout_marginStart="244.33dp"
-                android:layout_marginTop="748dp"
-                android:contentDescription="vector_ek94"
-                android:src="@drawable/vector_ek94" />
-
-            <ImageView
-                android:id="@+id/vector_ek9"
-                android:layout_width="18dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="143.67dp"
-                android:layout_marginTop="747dp"
-                android:contentDescription="vector_ek95"
-                android:src="@drawable/vector_ek95" />
-
-            <TextView
-                android:id="@+id/communications"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal|center"
-                android:gravity="center"
-                android:textSize="24sp"
-                android:textColor="@color/enter_your_scholar_id_color"
-                android:layout_width="204.4dp"
-                android:layout_height="36.4dp"
-                android:text="@string/communications_string"
-                android:layout_marginLeft="90dp"
-                android:layout_marginTop="72dp" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="184dp"
-                android:layout_marginStart="16dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/et_nom"
-                    android:textSize="16sp"
-                    android:textColor="@color/label_color"
-                    android:layout_width="350dp"
-                    android:layout_height="48dp"
-                    android:hint="   Nom"
-                    android:background="@drawable/_bg__medium_ek19_shape"/>
+                <View
+                    android:id="@+id/_bg__healthicons_i_exam_multiple_choice_ek"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/_bg__healthicons_i_exam_multiple_choice_ek11_shape" />
 
-                <EditText
-                    android:id="@+id/et_prenom"
-                    android:textSize="16sp"
-                    android:textColor="@color/label_color"
-                    android:layout_width="350dp"
-                    android:layout_height="48dp"
-                    android:hint="  Prenom"
-                    android:background="@drawable/_bg__medium_ek19_shape"
-                    android:layout_below="@id/et_nom"
-                    android:layout_marginTop="16dp" />
+                <TextView
+                    android:id="@+id/communications"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_horizontal|center"
+                    android:gravity="center"
+                    android:textSize="24sp"
+                    android:textColor="@color/enter_your_scholar_id_color"
+                    android:layout_width="204.4dp"
+                    android:layout_height="36.4dp"
+                    android:text="@string/communications_string"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="100dp" />
 
-                <EditText
-                    android:id="@+id/et_titre"
-                    android:textSize="16sp"
-                    android:textColor="@color/label_color"
-                    android:layout_width="350dp"
-                    android:layout_height="48dp"
-                    android:hint="  Titre"
-                    android:background="@drawable/_bg__medium_ek19_shape"
-                    android:layout_below="@id/et_prenom"
-                    android:layout_marginTop="16dp" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/communications"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginStart="16dp">
 
-                <EditText
-                    android:id="@+id/et_description"
-                    android:textSize="16sp"
-                    android:textColor="@color/label_color"
-                    android:layout_width="350dp"
-                    android:layout_height="150dp"
-                    android:hint="Description"
-                    android:background="@drawable/_bg__medium_ek19_shape"
-                    android:gravity="top|start"
-                    android:scrollbars="vertical"
-                    android:inputType="textMultiLine"
-                    android:overScrollMode="always"
-                    android:padding="10dp"
-                    android:layout_below="@id/et_titre"
-                    android:layout_marginTop="16dp" />
+                    <EditText
+                        android:id="@+id/et_nom"
+                        android:textSize="16sp"
+                        android:textColor="@color/label_color"
+                        android:layout_width="350dp"
+                        android:layout_height="48dp"
+                        android:hint="   Nom"
+                        android:background="@drawable/_bg__medium_ek19_shape"/>
 
+                    <EditText
+                        android:id="@+id/et_prenom"
+                        android:textSize="16sp"
+                        android:textColor="@color/label_color"
+                        android:layout_width="350dp"
+                        android:layout_height="48dp"
+                        android:hint="  Prenom"
+                        android:background="@drawable/_bg__medium_ek19_shape"
+                        android:layout_below="@id/et_nom"
+                        android:layout_marginTop="16dp" />
 
-                <Button
-                    android:id="@+id/btn_save"
-                    android:layout_width="343dp"
-                    android:layout_height="48dp"
-                    android:text="Save"
-                    android:background="@drawable/_bg__component_1_ek15_shape"
-                    android:textColor="@android:color/white"
-                    android:layout_below="@id/et_description"
-                    android:layout_marginTop="50dp" />
+                    <EditText
+                        android:id="@+id/et_titre"
+                        android:textSize="16sp"
+                        android:textColor="@color/label_color"
+                        android:layout_width="350dp"
+                        android:layout_height="48dp"
+                        android:hint="  Titre"
+                        android:background="@drawable/_bg__medium_ek19_shape"
+                        android:layout_below="@id/et_prenom"
+                        android:layout_marginTop="16dp" />
+
+                    <EditText
+                        android:id="@+id/et_description"
+                        android:textSize="16sp"
+                        android:textColor="@color/label_color"
+                        android:layout_width="350dp"
+                        android:layout_height="150dp"
+                        android:hint="Description"
+                        android:background="@drawable/_bg__medium_ek19_shape"
+                        android:gravity="top|start"
+                        android:scrollbars="vertical"
+                        android:inputType="textMultiLine"
+                        android:overScrollMode="always"
+                        android:padding="10dp"
+                        android:layout_below="@id/et_titre"
+                        android:layout_marginTop="16dp" />
+
+                    <Button
+                        android:id="@+id/btn_save"
+                        android:layout_width="343dp"
+                        android:layout_height="48dp"
+                        android:text="Save"
+                        android:background="@drawable/_bg__component_1_ek15_shape"
+                        android:textColor="@android:color/white"
+                        android:layout_below="@id/et_description"
+                        android:layout_marginTop="50dp" />
+                </RelativeLayout>
             </RelativeLayout>
-        </RelativeLayout>
+        </ScrollView>
+    </HorizontalScrollView>
 
-    </ScrollView>
-</HorizontalScrollView>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        app:menu="@menu/prof_navigation_menu" />
+
+</RelativeLayout>

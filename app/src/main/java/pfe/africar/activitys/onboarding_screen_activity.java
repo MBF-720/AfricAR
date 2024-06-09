@@ -17,19 +17,27 @@
 
 	package pfe.africar.activitys;
 
+	import static android.content.ContentValues.TAG;
+
 	import android.app.Activity;
 	import android.content.Intent;
 	import android.os.Bundle;
+	import android.util.Log;
 	import android.view.View;
 	import android.widget.ImageView;
 	import android.widget.TextView;
 
+	import androidx.annotation.NonNull;
+
+	import com.google.android.gms.tasks.OnFailureListener;
+	import com.google.android.gms.tasks.OnSuccessListener;
 	import com.google.firebase.auth.FirebaseAuth;
 	import com.google.firebase.auth.FirebaseUser;
+	import com.google.firebase.firestore.DocumentReference;
+	import com.google.firebase.firestore.DocumentSnapshot;
 	import com.google.firebase.firestore.FirebaseFirestore;
 
 	import pfe.africar.R;
-
 	public class onboarding_screen_activity extends Activity {
 
 	FirebaseAuth mAuth;
@@ -53,7 +61,9 @@
 	private TextView don_t_have_an_account__sign_up;
 		FirebaseFirestore db;
 
-/*
+
+
+
 	@Override
 		public void onStart() {
 			super.onStart();
@@ -108,7 +118,7 @@
 				Log.d(TAG, "Current user is null.");
 				// Handle unauthenticated user
 			}
-		}*/    // todo n3awed n7ot el on start f le5er
+		}
 
 
 
@@ -138,6 +148,10 @@
 
 			// Initialize Firebase Firestore
 			db = FirebaseFirestore.getInstance();
+
+
+
+
 
 
 

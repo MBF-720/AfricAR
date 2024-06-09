@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pfe.africar.R;
+import pfe.africar.helpers.ProfNavBar;
 
 public class prof_cour_list_activity extends Activity {
 
@@ -37,6 +39,11 @@ public class prof_cour_list_activity extends Activity {
 		courseList = new ArrayList<>();
 		adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, courseList);
 		listView.setAdapter(adapter);
+
+		//the nav bar code
+		BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+		ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
+
 
 		// Retrieve the Intent extras
 		Intent intent = getIntent();
@@ -130,7 +137,6 @@ public class prof_cour_list_activity extends Activity {
 
 	private void initUIComponents() {
 		// Initialize other UI components
-		View _bg__prof_cour_list_ek2 = findViewById(R.id._bg__prof_cour_list_ek2);
 		TextView courses_ek8 = findViewById(R.id.courses_ek8);
 		View _bg__component_1_ek15 = findViewById(R.id._bg__component_1_ek15);
 		TextView button_ek11 = findViewById(R.id.button_ek11);
@@ -141,19 +147,10 @@ public class prof_cour_list_activity extends Activity {
 				startActivity(intent);
 			}
 		});
-		View _bg__component_11_ek5 = findViewById(R.id._bg__component_11_ek5);
-		TextView courses_ek9 = findViewById(R.id.courses_ek9);
+
 		ImageView x_1_ek3 = findViewById(R.id.x_1_ek3);
-		View _bg__healthicons_i_exam_multiple_choice_ek11 = findViewById(R.id._bg__healthicons_i_exam_multiple_choice_ek11);
-		ImageView rectangle_32_ek4 = findViewById(R.id.rectangle_32_ek4);
-		TextView quizzes_ek7 = findViewById(R.id.quizzes_ek7);
-		TextView courses_ek11 = findViewById(R.id.courses_ek11);
-		TextView profile_ek6 = findViewById(R.id.profile_ek6);
-		TextView discover_ek5 = findViewById(R.id.discover_ek5);
+
 		View _bg__group_52_ek11 = findViewById(R.id._bg__group_52_ek11);
-		ImageView vector_ek92 = findViewById(R.id.vector_ek92);
-		ImageView vector_ek93 = findViewById(R.id.vector_ek93);
-		ImageView vector_ek94 = findViewById(R.id.vector_ek94);
-		ImageView vector_ek95 = findViewById(R.id.vector_ek95);
+
 	}
 }
