@@ -41,7 +41,8 @@ public class prof_note_listeDeClasse extends AppCompatActivity {
         studentIds = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, studentNames);
         listViewStudents.setAdapter(adapter);
-//the nav bar code
+
+        //the nav bar code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
 

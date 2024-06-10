@@ -56,7 +56,7 @@ public class Prof_addNote extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
 
         studentId = getIntent().getStringExtra("STUDENT_ID");
-        profUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        profUid = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
         if (studentId != null) {
             getStudentName(studentId);

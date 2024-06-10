@@ -74,7 +74,7 @@ public class prof_class_list extends AppCompatActivity {
                 if (document.exists()) {
                     String ecoleId = document.getString("idEcole");
                     if (ecoleId != null) {
-                        fetchProfessorClasses(ecoleId, uid);
+                        fetchProfessorClasses(ecoleId, currentUser.getEmail());
                     } else {
                         Toast.makeText(this, "Ecole ID not found", Toast.LENGTH_SHORT).show();
                     }

@@ -2,6 +2,7 @@ package pfe.africar.activitys;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -27,6 +28,7 @@ public class prof_actualites extends AppCompatActivity {
     private List<String> titles = new ArrayList<>();
     private List<String> details = new ArrayList<>();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private static final String TAG = "prof_actualites";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,24 +51,30 @@ public class prof_actualites extends AppCompatActivity {
                 String selectedDetail = details.get(position);
 
                 Intent intent = new Intent(prof_actualites.this, DetailActivity.class);
-                intent.putExtra("title", selectedTitle);
-                intent.putExtra("detail", selectedDetail);
+                intent.putExtra("selectedTitle", selectedTitle);
+                intent.putExtra("selectedId", selectedDetail);
                 startActivity(intent);
             }
         });
     }
 
     private void loadActualites() {
-        db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I").collection("Actualites")
+        db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I").collection("Actualités")
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (QueryDocumentSnapshot document : task.getResult()) {
                             titles.add(document.getString("title"));
-                            details.add(document.getString("detail"));
+                            details.add(document.getId());
+                            Log.d(TAG, "Document fetched: " + document.getId());
                         }
                         adapter.notifyDataSetChanged();
+                        if (titles.isEmpty()) {
+                            Log.d(TAG, "No documents found.");
+                            Toast.makeText(this, "No actualites found", Toast.LENGTH_SHORT).show();
+                        }
                     } else {
+                        Log.e(TAG, "Error getting documents: ", task.getException());
                         Toast.makeText(this, "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
                     }
                 });

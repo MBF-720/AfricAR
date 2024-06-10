@@ -90,24 +90,7 @@
 						android:layout_height="wrap_content"
 						android:layout_below="@id/lvClasses"
 						android:layout_marginTop="16dp"
-						android:layout_marginBottom="16dp">
-
-						<View
-							android:id="@+id/_bg__component_1_ek17"
-							android:layout_width="300dp"
-							android:layout_height="46dp"
-							android:layout_marginLeft="50dp"
-							android:background="@drawable/_bg__component_1_ek17_shape" />
-
-						<TextView
-							android:id="@+id/button_ek12"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_centerInParent="true"
-							android:textSize="18sp"
-							android:textColor="@color/button_color"
-							android:text="Add new class" />
-					</RelativeLayout>
+						android:layout_marginBottom="16dp"/>
 				</RelativeLayout>
 			</RelativeLayout>
 		</ScrollView>

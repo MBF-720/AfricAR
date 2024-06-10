@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -58,20 +57,17 @@ public class prof_classes_activity extends AppCompatActivity {
 		adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, classNames);
 		lvClasses.setAdapter(adapter);
 
-		fetchProfessorClasses();
+		lvClasses.setOnItemClickListener((parent, view, position, id) -> {
+			String classId = classIds.get(position);
+			Intent intent = new Intent(prof_classes_activity.this, prof_cour_list_activity.class);
+			intent.putExtra("ecoleId", ECOLE_ID);
+			intent.putExtra("classeId", classId);
+			intent.putExtra("profId", profId);
 
-		lvClasses.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				String classId = classIds.get(position);
-				Intent intent = new Intent(prof_classes_activity.this, prof_cour_list_activity.class);
-				intent.putExtra("ecoleId", ECOLE_ID);
-				intent.putExtra("classeId", classId);
-				intent.putExtra("profId", profId);
-
-				startActivity(intent);
-			}
+			startActivity(intent);
 		});
+
+		fetchProfessorClasses();
 	}
 
 	private void fetchProfessorClasses() {
@@ -81,7 +77,8 @@ public class prof_classes_activity extends AppCompatActivity {
 			return;
 		}
 
-		String uid = currentUser.getUid();
+		String uid = currentUser.getEmail();
+		Log.d("ProfClassesActivity", "Fetching classes for user with UID: " + uid);
 		fetchProfessorClassesFromEcole(uid);
 	}
 
@@ -93,10 +90,14 @@ public class prof_classes_activity extends AppCompatActivity {
 						for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
 							profId = documentSnapshot.getId();
 							List<String> ids = (List<String>) documentSnapshot.get("idClasses");
+							Log.d("ProfClassesActivity", "Found professor document with ID: " + profId);
+
 							if (ids != null && !ids.isEmpty()) {
+								Log.d("ProfClassesActivity", "Found classes: " + ids);
 								fetchClassNames(ids);
 							} else {
 								tvNoClasses.setVisibility(View.VISIBLE);
+								Toast.makeText(this, "No classes found for professor", Toast.LENGTH_SHORT).show();
 							}
 						}
 					} else {
@@ -112,16 +113,24 @@ public class prof_classes_activity extends AppCompatActivity {
 	private void fetchClassNames(List<String> ids) {
 		classIds.clear();
 		classNames.clear();
+		Log.d("ProfClassesActivity", "Fetching class names for IDs: " + ids);
 		for (String classId : ids) {
-			db.collection("Classes").document(classId).get()
+			db.collection("Ecoles").document(ECOLE_ID).collection("Classes").document(classId).get()
 					.addOnSuccessListener(documentSnapshot -> {
 						if (documentSnapshot.exists()) {
 							String className = documentSnapshot.getString("nom");
+							Log.d("ProfClassesActivity", "Found class with name: " + className);
+							tvNoClasses.setVisibility(View.INVISIBLE);
 							if (className != null) {
 								classNames.add(className);
 								classIds.add(classId);
-								adapter.notifyDataSetChanged();
+								Log.d("ProfClassesActivity", "Added class name: " + className);
+								runOnUiThread(() -> adapter.notifyDataSetChanged());
+							} else {
+								Log.d("ProfClassesActivity", "Class name is null for ID: " + classId);
 							}
+						} else {
+							Log.d("ProfClassesActivity", "Class document does not exist for ID: " + classId);
 						}
 					})
 					.addOnFailureListener(e -> {
@@ -130,7 +139,7 @@ public class prof_classes_activity extends AppCompatActivity {
 					});
 		}
 		if (classNames.isEmpty()) {
-			tvNoClasses.setVisibility(View.VISIBLE);
+			runOnUiThread(() -> tvNoClasses.setVisibility(View.VISIBLE));
 		}
 	}
 }

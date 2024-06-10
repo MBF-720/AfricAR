@@ -61,6 +61,9 @@ public class add_cours_activity extends Activity {
 
 		if (ecoleId == null || classeId == null || matiereId == null) {
 			Toast.makeText(this, "Missing parameters", Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "ecole+"+ecoleId, Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "classe"+classeId, Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, "matiere"+matiereId, Toast.LENGTH_SHORT).show();
 			finish();
 			return;
 		}
@@ -68,7 +71,7 @@ public class add_cours_activity extends Activity {
 		// Get current user ID
 		FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 		if (currentUser != null) {
-			userId = currentUser.getUid();
+			userId = currentUser.getEmail();
 		} else {
 			Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show();
 			finish();
@@ -179,11 +182,7 @@ public class add_cours_activity extends Activity {
 				.set(data)
 				.addOnSuccessListener(documentReference -> {
 					Toast.makeText(add_cours_activity.this, "Course added successfully!", Toast.LENGTH_SHORT).show();
-					Intent intent = new Intent(add_cours_activity.this, prof_cour_list_activity.class);
-					intent.putExtra("ecoleId", ecoleId);
-					intent.putExtra("classeId", classeId);
-					intent.putExtra("matiereId", matiereId);
-					startActivity(intent);
+
 					finish(); // Optional: Finish current activity
 				})
 				.addOnFailureListener(e -> Toast.makeText(add_cours_activity.this, "Error adding course.", Toast.LENGTH_SHORT).show());

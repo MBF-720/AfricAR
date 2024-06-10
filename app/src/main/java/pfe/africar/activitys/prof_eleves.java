@@ -2,6 +2,7 @@ package pfe.africar.activitys;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -82,7 +83,7 @@ public class prof_eleves extends AppCompatActivity {
     private void getCurrentUserDetails() {
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if (currentUser != null) {
-            profId = currentUser.getUid();
+            profId = currentUser.getEmail();
             fetchProfessorDetails(profId);
             getProfessorMatiere(profId); // Fetch the professor's subject
         } else {
@@ -102,18 +103,28 @@ public class prof_eleves extends AppCompatActivity {
                 .addOnFailureListener(e -> Toast.makeText(this, "Error fetching class details", Toast.LENGTH_SHORT).show());
     }
 
-    private void fetchProfessorDetails(String profId) {
-        db.collection("Ecoles").document(ecoleId).collection("Professeurs").document(profId).get()
-                .addOnSuccessListener(documentSnapshot -> {
-                    if (documentSnapshot.exists()) {
-                        profName = documentSnapshot.getString("nom");
-                        profSurname = documentSnapshot.getString("prenom");
+    private void fetchProfessorDetails(String uid) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I")  // replace with your actual ecoleId
+                .collection("Professeurs").whereEqualTo("uid", uid).get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    if (!queryDocumentSnapshots.isEmpty()) {
+                        for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                            String profName = documentSnapshot.getString("nom");
+                            String profSurname = documentSnapshot.getString("prenom");
+
+
+                        }
                     } else {
                         Toast.makeText(this, "Professor details not found", Toast.LENGTH_SHORT).show();
                     }
                 })
-                .addOnFailureListener(e -> Toast.makeText(this, "Error fetching professor details", Toast.LENGTH_SHORT).show());
+                .addOnFailureListener(e -> {
+                    Log.e("FetchProfessorDetails", "Error fetching professor details", e);
+                    Toast.makeText(this, "Error fetching professor details", Toast.LENGTH_SHORT).show();
+                });
     }
+
 
     private void fetchStudents(String classId) {
         db.collection("Eleves")

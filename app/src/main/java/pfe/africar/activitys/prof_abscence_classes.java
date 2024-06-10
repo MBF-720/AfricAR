@@ -85,7 +85,7 @@ public class prof_abscence_classes  extends AppCompatActivity {
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
                         ecoleId = documentSnapshot.getString("idEcole");
-                        fetchProfessorClassesFromEcole(uid, ecoleId);
+                        fetchProfessorClassesFromEcole(currentUser.getEmail(), ecoleId);
                     } else {
                         Toast.makeText(this, "User document not found", Toast.LENGTH_SHORT).show();
                     }
