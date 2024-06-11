@@ -147,10 +147,12 @@
             android:name=".activitys.prof_classes_activity"
             android:exported="false" />
         <activity android:name=".activitys.prof_cour_list_activity" />
-
+        <activity
+            android:name=".activitys.add_quiz_activity"
+            android:exported="false" />
 
         <activity
-            android:name=".activitys.onboarding_screen_activity"
+            android:name=".activitys.prof_quiz_list_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

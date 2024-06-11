@@ -15,7 +15,7 @@
 		android:layout_height="wrap_content"
 		android:layout_centerHorizontal="true"
 		android:layout_marginTop="68dp"
-		android:text="@string/quizzes_ek8_string" />
+		android:text="Quizzes" />
 
 	<ListView
 		android:id="@+id/quiz_list_view"
