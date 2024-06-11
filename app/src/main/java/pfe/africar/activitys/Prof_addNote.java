@@ -50,9 +50,6 @@ public class Prof_addNote extends AppCompatActivity {
         moyenneEditText = findViewById(R.id.moyenneEditText);
         saveButton = findViewById(R.id.saveButton);
 
-
-
-
         db = FirebaseFirestore.getInstance();
 
         studentId = getIntent().getStringExtra("STUDENT_ID");
@@ -105,6 +102,7 @@ public class Prof_addNote extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 matiereName = document.getString("matiere");
+                                loadExistingNote();
                                 break;
                             }
                         } else {
@@ -112,6 +110,40 @@ public class Prof_addNote extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    private void loadExistingNote() {
+        DocumentReference noteRef = db.collection("Ecoles").document(ecoleId)
+                .collection("Eleves").document(studentId)
+                .collection("notes").document(matiereName);
+
+        noteRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Note note = document.toObject(Note.class);
+                        if (note != null) {
+                            controleEditText.setText(String.valueOf(note.getControle()));
+                            controleCoefEditText.setText(String.valueOf(note.getContolecoeff()));
+                            synthezeEditText.setText(String.valueOf(note.getSynthese()));
+                            synthezeCoefEditText.setText(String.valueOf(note.getSyntheseCoef()));
+                            tpEditText.setText(String.valueOf(note.getTp()));
+                            tpCoefEditText.setText(String.valueOf(note.getTpCoef()));
+                            oraleEditText.setText(String.valueOf(note.getOrale()));
+                            oraleCoefEditText.setText(String.valueOf(note.getOraleCoef()));
+                            coefEdit.setText(String.valueOf(note.getMatiereCoeff()));
+                            moyenneEditText.setText(String.valueOf(note.getMoyenne()));
+                        }
+                    } else {
+                        Toast.makeText(Prof_addNote.this, "No existing note for this student and matiere.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(Prof_addNote.this, "Failed to get note: " + task.getException(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void saveNoteDetails() {

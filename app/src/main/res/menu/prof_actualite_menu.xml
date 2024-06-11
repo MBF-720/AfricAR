@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_add_note"
+        android:title="Ajouter note" />
+    <item
+        android:id="@+id/menu_absence_list"
+        android:title="Liste d'absence" />
+    <item
+        android:id="@+id/menu_contact_admin"
+        android:title="Contacter l'administration" />
+</menu>

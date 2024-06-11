@@ -88,7 +88,7 @@ public class prof_comunication_list extends AppCompatActivity {
                 if (document.exists()) {
                     String ecoleId = document.getString("idEcole");
                     if (ecoleId != null) {
-                        fetchProfessorInfo(ecoleId, currentUser.getEmail());
+                        fetchReclamations(ecoleId, currentUser.getEmail());
                     } else {
                         Toast.makeText(this, "Ecole ID not found", Toast.LENGTH_SHORT).show();
                     }
@@ -101,33 +101,11 @@ public class prof_comunication_list extends AppCompatActivity {
         });
     }
 
-    private void fetchProfessorInfo(String ecoleId, String profUid) {
-        db.collection("Ecoles").document(ecoleId)
-                .collection("Professeurs")
-                .whereEqualTo("uid", profUid)
-                .get()
-                .addOnCompleteListener(task -> {
-                    if (task.isSuccessful()) {
-                        for (QueryDocumentSnapshot document : task.getResult()) {
-                            String profNom = document.getString("nom");
-                            String profPrenom = document.getString("prenom");
-                            if (profNom != null && profPrenom != null) {
-                                fetchReclamations(ecoleId, profNom, profPrenom);
-                            } else {
-                                Toast.makeText(this, "Professor details not found", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    } else {
-                        Toast.makeText(this, "Failed to fetch professor details", Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
 
-    private void fetchReclamations(String ecoleId, String profNom, String profPrenom) {
+    private void fetchReclamations(String ecoleId, String userEmail) {
         db.collection("Ecoles").document(ecoleId)
                 .collection("Reclamations")
-                .whereEqualTo("nom", profNom)
-                .whereEqualTo("prenom", profPrenom)
+                .whereEqualTo("user", userEmail)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

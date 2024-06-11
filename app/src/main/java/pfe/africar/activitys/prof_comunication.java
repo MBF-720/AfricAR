@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -62,13 +64,21 @@ public class prof_comunication extends AppCompatActivity {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
             return;
         }
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null) {
+            Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        String userEmail = currentUser.getEmail();
         Map<String, Object> reclamation = new HashMap<>();
         reclamation.put("nom", nom);
         reclamation.put("prenom", prenom);
         reclamation.put("titre", titre);
         reclamation.put("description", description);
         reclamation.put("etat", "En Attente");
+        reclamation.put("user", userEmail);
+
 
         db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I") // Replace with your ecoleId if dynamic
                 .collection("Reclamations")

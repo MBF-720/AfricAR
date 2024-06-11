@@ -45,8 +45,7 @@ public class prof_cour_list_activity extends Activity {
 		ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
 
 
-		// Retrieve the Intent extras
-		Intent intent = getIntent();
+
 		String ecoleId = "Vgv1obkaHUASn7Z8rI7I";
 		String classeId = "CPY5KGWxBex1B5rHnFEb";
 

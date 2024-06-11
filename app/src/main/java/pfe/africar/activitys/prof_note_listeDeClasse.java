@@ -64,7 +64,7 @@ public class prof_note_listeDeClasse extends AppCompatActivity {
     }
 
     private void fetchStudents(String classId) {
-        db.collection("Eleves")
+        db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I").collection("Eleves")
                 .whereEqualTo("idClasse", classId)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override

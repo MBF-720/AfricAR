@@ -3,15 +3,19 @@ package pfe.africar.activitys;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -29,6 +33,8 @@ public class prof_actualites extends AppCompatActivity {
     private List<String> details = new ArrayList<>();
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private static final String TAG = "prof_actualites";
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,28 @@ public class prof_actualites extends AppCompatActivity {
         listViewActualites = findViewById(R.id.listViewActualites);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, titles);
         listViewActualites.setAdapter(adapter);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.navigation_view);
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.menu_add_note) {
+                    Intent intent = new Intent(prof_actualites.this, prof_class_list.class);
+                    startActivity(intent);
+                } else if (id == R.id.menu_absence_list) {
+                    Intent intent = new Intent(prof_actualites.this, prof_abscence_classes.class);
+                    startActivity(intent);
+                } else if (id == R.id.menu_contact_admin) {
+                    Intent intent = new Intent(prof_actualites.this, prof_comunication_list.class);
+                    startActivity(intent);
+                }
+                drawerLayout.closeDrawer(navigationView);
+                return true;
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
@@ -56,6 +84,10 @@ public class prof_actualites extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void openDrawer(View view) {
+        drawerLayout.openDrawer(navigationView);
     }
 
     private void loadActualites() {

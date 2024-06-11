@@ -92,7 +92,7 @@ public class prof_eleves extends AppCompatActivity {
     }
 
     private void fetchClassDetails(String classId) {
-        db.collection("Classes").document(classId).get()
+        db.collection("Ecoles").document(ecoleId).collection("Classes").document(classId).get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
                         className = documentSnapshot.getString("nom");
@@ -110,8 +110,8 @@ public class prof_eleves extends AppCompatActivity {
                 .addOnSuccessListener(queryDocumentSnapshots -> {
                     if (!queryDocumentSnapshots.isEmpty()) {
                         for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                            String profName = documentSnapshot.getString("nom");
-                            String profSurname = documentSnapshot.getString("prenom");
+                             profName = documentSnapshot.getString("nom");
+                             profSurname = documentSnapshot.getString("prenom");
 
 
                         }
@@ -127,7 +127,7 @@ public class prof_eleves extends AppCompatActivity {
 
 
     private void fetchStudents(String classId) {
-        db.collection("Eleves")
+        db.collection("Ecoles").document(ecoleId).collection("Eleves")
                 .whereEqualTo("idClasse", classId)
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override

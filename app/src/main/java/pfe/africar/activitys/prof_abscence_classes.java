@@ -13,9 +13,12 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -48,7 +51,8 @@ public class prof_abscence_classes  extends AppCompatActivity {
 
         lvClasses = findViewById(R.id.lvClasses);
         tvNoClasses = findViewById(R.id.tvNoClasses);
-//the nav bar code
+
+        //the nav bar code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
 
@@ -65,7 +69,7 @@ public class prof_abscence_classes  extends AppCompatActivity {
                 String classId = classIds.get(position);
                 Intent intent = new Intent(prof_abscence_classes .this,prof_eleves.class);
                 intent.putExtra("ecoleId", ecoleId);
-                intent.putExtra("classeId", classId);
+                intent.putExtra("CLASS_ID", classId);
                 intent.putExtra("profId", profId);
 
                 startActivity(intent);
@@ -104,8 +108,13 @@ public class prof_abscence_classes  extends AppCompatActivity {
                         for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                             profId = documentSnapshot.getId();
                             List<String> ids = (List<String>) documentSnapshot.get("idClasses");
+                            Toast.makeText(this, "Professor classes found"+ids, Toast.LENGTH_SHORT).show();
+
                             if (ids != null && !ids.isEmpty()) {
                                 fetchClassNames(ids);
+                                Toast.makeText(this, "ids not empty", Toast.LENGTH_SHORT).show();
+                                tvNoClasses.setVisibility(View.INVISIBLE);
+
                             } else {
                                 tvNoClasses.setVisibility(View.VISIBLE);
                             }
@@ -120,7 +129,7 @@ public class prof_abscence_classes  extends AppCompatActivity {
                 });
     }
 
-    private void fetchClassNames(List<String> ids) {
+    /*private void fetchClassNames(List<String> ids) {
         classIds.clear();
         classNames.clear();
         for (String classId : ids) {
@@ -131,6 +140,8 @@ public class prof_abscence_classes  extends AppCompatActivity {
                             if (className != null) {
                                 classNames.add(className);
                                 classIds.add(classId);
+                                Toast.makeText(this, "i foud "+className, Toast.LENGTH_SHORT).show();
+
                                 adapter.notifyDataSetChanged();
                             }
                         }
@@ -143,5 +154,42 @@ public class prof_abscence_classes  extends AppCompatActivity {
         if (classNames.isEmpty()) {
             tvNoClasses.setVisibility(View.VISIBLE);
         }
+    }*/
+
+    private void fetchClassNames(List<String> ids) {
+        classIds.clear();
+        classNames.clear();
+
+        List<Task<DocumentSnapshot>> tasks = new ArrayList<>();
+        for (String classId : ids) {
+            Task<DocumentSnapshot> task = db.collection("Ecoles").document(ecoleId).collection("Classes").document(classId).get();
+            tasks.add(task);
+        }
+
+        Tasks.whenAllComplete(tasks)
+                .addOnCompleteListener(task -> {
+                    for (Task<DocumentSnapshot> t : tasks) {
+                        if (t.isSuccessful()) {
+                            DocumentSnapshot documentSnapshot = t.getResult();
+                            if (documentSnapshot != null && documentSnapshot.exists()) {
+                                String className = documentSnapshot.getString("nom");
+                                if (className != null) {
+                                    classNames.add(className);
+                                    classIds.add(documentSnapshot.getId());
+                                }
+                            }
+                        } else {
+                            Log.e("ProfClassesActivity", "Error fetching class document", t.getException());
+                            Toast.makeText(this, "Failed to fetch class document", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    if (classNames.isEmpty()) {
+                        tvNoClasses.setVisibility(View.VISIBLE);
+                    } else {
+                        tvNoClasses.setVisibility(View.INVISIBLE);
+                    }
+                    adapter.notifyDataSetChanged();
+                });
     }
+
 }

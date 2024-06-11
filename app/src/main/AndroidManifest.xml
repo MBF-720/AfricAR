@@ -143,6 +143,8 @@
         <activity
             android:name=".activitys.Reclamations"
             android:exported="false" />
+        <activity android:name=".activitys.prof_abscence_classes" />
+
         <activity
             android:name=".activitys.prof_classes_activity"
             android:exported="false" />
@@ -150,6 +152,7 @@
         <activity
             android:name=".activitys.add_quiz_activity"
             android:exported="false" />
+        <activity android:name=".activitys.prof_eleves" />
 
         <activity
             android:name=".activitys.prof_quiz_list_activity"
