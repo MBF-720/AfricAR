@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -18,6 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pfe.africar.R;
+import pfe.africar.helpers.AdminNavHelper;
 
 public class list_des_prof_activity extends Activity {
 
@@ -26,6 +28,7 @@ public class list_des_prof_activity extends Activity {
 	private ArrayList<String> profListnom;
 	private Map<String, String> profMap;
 	private ArrayAdapter<String> adapter;
+	private BottomNavigationView bottomNavigationView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,9 @@ public class list_des_prof_activity extends Activity {
 
 		listeProf = findViewById(R.id.listeProf);
 		addTeacher = findViewById(R.id._bg__frame_132_ek3);
+
+		bottomNavigationView = findViewById(R.id.bottom_navigation);
+		AdminNavHelper.setupBottomNavigation(this, bottomNavigationView);
 
 		profMap = new HashMap<>();
 		profListnom = new ArrayList<>();

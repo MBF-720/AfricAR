@@ -40,8 +40,9 @@ private double overallAverage;
 	private TextView moyenne;
 
 
+//	private String selectedEleveId = "UNfQ0AtYQugZ8eXrENVe";
 
-	private String selectedEleveId = "UNfQ0AtYQugZ8eXrENVe";
+	private String selectedEleveId ;
 	private String ecoleId="Vgv1obkaHUASn7Z8rI7I";
 
 	@Override
@@ -59,6 +60,7 @@ private double overallAverage;
 		adapter = new GradeAdapter(this, gradesList);
 		gradesListView.setAdapter(adapter);
 
+		selectedEleveId=getIntent().getStringExtra("studentId");
 		getStudentName(ecoleId, selectedEleveId);
 
 		loadGrades();

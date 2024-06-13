@@ -7,12 +7,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.Arrays;
 import java.util.List;
 
 import pfe.africar.R;
 import pfe.africar.classes.BarChartView;
 import pfe.africar.classes.PieChartView;
+import pfe.africar.helpers.AdminNavHelper;
 
 public class StatistiqueActivity extends AppCompatActivity {
 
@@ -23,6 +26,7 @@ public class StatistiqueActivity extends AppCompatActivity {
     private Button class3Button;
 
     private BarChartView barChartView;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +40,8 @@ public class StatistiqueActivity extends AppCompatActivity {
         class3Button = findViewById(R.id.class3Button);
         barChartView = findViewById(R.id.barChartView);
 
-
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        AdminNavHelper.setupBottomNavigation(this, bottomNavigationView);
         class1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

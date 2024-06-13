@@ -192,13 +192,9 @@
 
             creatClas = (View) findViewById(R.id._bg__frame_141_ek1);
 
-            x_1_ek14 = (ImageView) findViewById(R.id.x_1_ek14);
-            rectangle_32_ek14 = (ImageView) findViewById(R.id.rectangle_32_ek14);
 
-            vector_ek648 = (ImageView) findViewById(R.id.vector_ek648);
-            vector_ek649 = (ImageView) findViewById(R.id.vector_ek649);
-            vector_ek650 = (ImageView) findViewById(R.id.vector_ek650);
-            vector_ek651 = (ImageView) findViewById(R.id.vector_ek651);
+
+
 
             listeProf = (TextView) findViewById(R.id.listeProf);
 

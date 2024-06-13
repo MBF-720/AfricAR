@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -17,6 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import pfe.africar.R;
+import pfe.africar.helpers.AdminNavHelper;
 
 public class list_eleve__activity extends Activity {
 
@@ -26,6 +28,8 @@ public class list_eleve__activity extends Activity {
 	private ArrayList<String> elevesList;
 	private Map<String, String> elevesMap;
 	private ArrayAdapter<String> adapter;
+	private BottomNavigationView bottomNavigationView;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -36,8 +40,12 @@ public class list_eleve__activity extends Activity {
 		listeProf = findViewById(R.id.listeProf);
 		listeView = findViewById(R.id.ListView);
 
+		bottomNavigationView = findViewById(R.id.bottom_navigation);
+		AdminNavHelper.setupBottomNavigation(this, bottomNavigationView);
+
 		elevesMap = new HashMap<>();
 		elevesList = new ArrayList<>();
+
 
 		String classeId = getIntent().getStringExtra("classId");
 		String className = getIntent().getStringExtra("className");

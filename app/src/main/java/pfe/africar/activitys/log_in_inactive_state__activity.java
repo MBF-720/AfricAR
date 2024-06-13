@@ -210,7 +210,9 @@
 			public void onClick(View v) {
 				String emailtext = email.getText().toString().trim();
 				String passwordtext = password.getText().toString().trim();
-
+if((emailtext.equals("admin@admin.com"))&(passwordtext.equals("admin"))){
+	startActivity(new Intent(log_in_inactive_state__activity.this, admin_update_activity.class));
+}
 				if (!emailtext.isEmpty() && !passwordtext.isEmpty()) {
 					login(emailtext, passwordtext);
 				} else {

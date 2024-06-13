@@ -1,0 +1,19 @@
+<!-- res/menu/bottom_nav_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_updates"
+        android:icon="@drawable/vector_ek750"
+        android:title="Updates" />
+    <item
+        android:id="@+id/menu_personnel"
+        android:icon="@drawable/vector_ek763"
+        android:title="Personnel" />
+    <item
+        android:id="@+id/menu_school"
+        android:icon="@drawable/vector_ek766"
+        android:title="School" />
+    <item
+        android:id="@+id/menu_stats"
+        android:icon="@drawable/vector_ek765"
+        android:title="Stats" />
+</menu>

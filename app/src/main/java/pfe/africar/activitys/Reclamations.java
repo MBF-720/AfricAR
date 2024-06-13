@@ -77,7 +77,7 @@ public class Reclamations extends AppCompatActivity {
         absece.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Reclamations.this, ReclamationDetailsActivity.class);//todo hethy
+                Intent intent = new Intent(Reclamations.this, AbsenceList.class);//todo hethy
                 startActivity(intent);            }
         });
 

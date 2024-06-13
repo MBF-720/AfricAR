@@ -31,6 +31,7 @@
 
 	import com.google.android.gms.tasks.OnFailureListener;
 	import com.google.android.gms.tasks.OnSuccessListener;
+	import com.google.android.material.bottomnavigation.BottomNavigationView;
 	import com.google.firebase.auth.FirebaseAuth;
 	import com.google.firebase.auth.FirebaseUser;
 	import com.google.firebase.firestore.DocumentReference;
@@ -38,6 +39,7 @@
 
 	import pfe.africar.R;
 	import pfe.africar.classes.Professeur;
+	import pfe.africar.helpers.AdminNavHelper;
 
 	public class add_prof_activity extends Activity {
 
@@ -142,6 +144,7 @@
 		}*/ // creation des users impossible
 
 
+		private BottomNavigationView bottomNavigationView;
 
 		@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -166,11 +169,9 @@
 			x_1_ek18 = (ImageView) findViewById(R.id.x_1_ek18);//exit
 
 			//nav bar
+			bottomNavigationView = findViewById(R.id.bottom_navigation);
+			AdminNavHelper.setupBottomNavigation(this, bottomNavigationView);
 
-			vector_ek728 = (ImageView) findViewById(R.id.vector_ek728);
-			vector_ek729 = (ImageView) findViewById(R.id.vector_ek729);
-			vector_ek730 = (ImageView) findViewById(R.id.vector_ek730);
-			vector_ek731 = (ImageView) findViewById(R.id.vector_ek731);
 
 			x_1_ek18.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -251,7 +252,7 @@
 					} else {
 						Toast.makeText(add_prof_activity.this, "Veuillez saisir le nom et le prénom séparés par '_' (nom_prenom)", Toast.LENGTH_SHORT).show();
 					}
-                          // <!-- TODO: nav bar , test .
+
 				}
 			});
 

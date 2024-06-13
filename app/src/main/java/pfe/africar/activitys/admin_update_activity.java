@@ -29,6 +29,7 @@
 	import android.widget.TextView;
 	import android.widget.Toast;
 
+	import com.google.android.material.bottomnavigation.BottomNavigationView;
 	import com.google.firebase.firestore.FirebaseFirestore;
 	import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -36,6 +37,7 @@
 	import java.util.List;
 
 	import pfe.africar.R;
+	import pfe.africar.helpers.AdminNavHelper;
 
 	public class admin_update_activity extends Activity {
 
@@ -111,6 +113,7 @@
 				Toast.makeText(this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
 			});
 		}
+		private BottomNavigationView bottomNavigationView;
 
 	@SuppressLint("MissingInflatedId")
 	@Override
@@ -133,23 +136,16 @@
 				startActivity(intent);
 			}
 		});
-		rectangle_32_ek25 = (ImageView) findViewById(R.id.rectangle_32_ek25);
 
 		welcome_to = (TextView) findViewById(R.id.welcome_to);
 		fallujah = (TextView) findViewById(R.id.fallujah);
 
 		vector_ek762 = (ImageView) findViewById(R.id.vector_ek762);
-		updates_ek12 = (TextView) findViewById(R.id.updates_ek12);
-		personnel_ek14 = (TextView) findViewById(R.id.personnel_ek14);
-		school_ek12 = (TextView) findViewById(R.id.school_ek12);
-		stats_ek12 = (TextView) findViewById(R.id.stats_ek12);
-		vector_ek763 = (ImageView) findViewById(R.id.vector_ek763);
-		vector_ek764 = (ImageView) findViewById(R.id.vector_ek764);
-		vector_ek765 = (ImageView) findViewById(R.id.vector_ek765);
-		vector_ek766 = (ImageView) findViewById(R.id.vector_ek766);
+
 		vector_ek31 = findViewById(R.id.vector_ek31);
 
-
+		bottomNavigationView = findViewById(R.id.bottom_navigation);
+		AdminNavHelper.setupBottomNavigation(this, bottomNavigationView);
 
 		// Initialiser ListView et adapter
 		listViewActualites = findViewById(R.id.listViewActualites);
