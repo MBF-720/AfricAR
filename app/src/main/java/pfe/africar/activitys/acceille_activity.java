@@ -79,20 +79,18 @@ public class acceille_activity extends AppCompatActivity implements NavigationVi
 
 	@Override
 	public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-		switch (item.getItemId()) {
-			case R.id.nav_consulter_releve_notes:
-				startActivity(new Intent(this, ReleveNotesActivity.class));
-				break;
-			case R.id.nav_consulter_emploi_temps:
-				startActivity(new Intent(this, eleve_timetable.class));
-				break;
-			case R.id.nav_contacter_administration:
-				startActivity(new Intent(this, comunication_activity.class));
-				break;
+		int id = item.getItemId();
+		if (id == R.id.nav_consulter_releve_notes) {
+			startActivity(new Intent(this, ReleveNotesActivity.class));
+		} else if (id == R.id.nav_consulter_emploi_temps) {
+			startActivity(new Intent(this, eleve_timetable.class));
+		} else if (id == R.id.nav_contacter_administration) {
+			startActivity(new Intent(this, comunication_activity.class));
 		}
 		drawerLayout.closeDrawers();
 		return true;
 	}
+
 
 	private void fetchEcoleIdAndLoadActualites() {
 		FirebaseUser currentUser = mAuth.getCurrentUser();

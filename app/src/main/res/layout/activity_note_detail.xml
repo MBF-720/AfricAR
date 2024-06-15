@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/eleveNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom de l'élève"
+            android:textColor="@color/_bg__component_2_ek1_color"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/matiereTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Matière"
+            android:textColor="@color/black"
+
+
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:gravity="center" />
+        <TextView
+            android:id="@+id/coef"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Coefficient matière"
+            android:textColor="@color/black"
+            android:layout_marginLeft="-100dp"
+
+            android:layout_marginTop="30dp"
+
+            android:textStyle="bold"
+            android:textSize="14sp"
+            />
+        <EditText
+            android:id="@+id/coefEdit"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="-30dp"
+
+            android:layout_columnWeight="1"
+            android:minHeight="48dp"
+            android:background="@drawable/_bg__medium_ek19_shape"
+            android:gravity="center"
+            android:hint="Coef"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:columnCount="2"
+            android:rowCount="10"
+            android:layout_marginTop="30dp">
+
+            <!-- Note de contrôle -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:text="Note de contrôle"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/controleEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:minHeight="48dp"
+                android:background="@drawable/_bg__medium_ek19_shape"
+                android:gravity="center"
+                android:hint="Note de contrôle"/>
+
+            <!-- Coefficient de contrôle -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Coefficient de contrôle"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/controleCoefEditText"
+                android:layout_width="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:minHeight="48dp"
+                android:background="@drawable/_bg__medium_ek19_shape"
+                android:hint="Coefficient de contrôle"
+                android:gravity="center"/>
+
+            <!-- Note de synthèse -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="2"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:text="Note de synthèse"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/synthezeEditText"
+                android:layout_marginBottom="8dp"
+                android:layout_width="1dp"
+                android:layout_height="48dp"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:minHeight="48dp"
+                android:background="@drawable/_bg__medium_ek19_shape"
+                android:hint="Note de synthèse"
+                android:gravity="center"/>
+
+            <!-- Coefficient de synthèse -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Coefficient de synthèse"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/synthezeCoefEditText"
+                android:layout_width="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:minHeight="48dp"
+                android:background="@drawable/_bg__medium_ek19_shape"
+                android:hint="Coefficient de synthèse"
+                android:gravity="center"/>
+
+            <!-- Note de TP -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="4"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:text="Note de TP"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/tpEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_row="4"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:minHeight="48dp"
+                android:background="@drawable/_bg__medium_ek19_shape"
+                android:hint="Note de TP"
+                android:gravity="center"/>
+
+            <!-- Coefficient de TP -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_row="5"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:text="Coefficient de TP"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/tpCoefEditText"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="5"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:minHeight="48dp"
+                android:background="@drawable/_bg__medium_ek19_shape"
+                android:hint="Coefficient de TP"
+                android:gravity="center"/>
+
+            <!-- Note orale -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:text="Note orale"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/oraleEditText"
+                android:layout_width="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content"
+                android:layout_row="6"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:minHeight="48dp"
+                android:background="@drawable/_bg__medium_ek19_shape"
+                android:hint="Note orale"
+
+                android:gravity="center"/>
+
+            <!-- Coefficient orale -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="7"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:text="Coefficient orale"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/oraleCoefEditText"
+                android:layout_width="0dp"
+                android:layout_marginBottom="8dp"
+                android:layout_height="wrap_content"
+                android:hint="Coefficient orale"
+
+                android:layout_row="7"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:minHeight="48dp"
+                android:background="@drawable/_bg__medium_ek19_shape"
+                android:gravity="center"/>
+
+            <!-- Moyenne -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="8"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:text="Moyenne"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/moyenneEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_row="8"
+                android:layout_column="1"
+                android:hint="Moyenne"
+
+                android:layout_columnWeight="1"
+                android:minHeight="48dp"
+                android:background="@drawable/_bg__medium_ek19_shape"
+
+                android:gravity="center"/>
+
+        </GridLayout>
+
+    </LinearLayout>
+</ScrollView>

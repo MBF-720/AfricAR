@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/grade_sheet"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/content_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/page_grade_sheet_ek1"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/_bg__grade_sheet_ek2"
+                        android:background="@drawable/_bg__grade_sheet_ek2_shape"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_width="385dp"
+                        android:layout_height="812dp" />
+
+                    <TextView
+                        android:id="@+id/grade_sheet_ek3"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal|center"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="@color/enter_your_scholar_id_color"
+                        android:layout_marginLeft="136dp"
+                        android:layout_marginTop="71dp"
+                        android:layout_width="114dp"
+                        android:layout_height="27.8dp"
+                        android:text="@string/grade_sheet_ek3_string" />
+
+                    <TextView
+                        android:id="@+id/studentName"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal|center"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        android:textColor="@color/_bg__component_2_ek1_color"
+                        android:layout_marginLeft="90dp"
+                        android:layout_marginTop="100dp"
+                        android:layout_width="200dp"
+                        android:layout_height="48dp"
+                        android:text="Student Name" />
+
+                    <TextView
+                        android:id="@+id/moyenne"
+                        android:layout_width="100dp"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="150dp"
+                        android:layout_marginLeft="145dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:minHeight="48dp"
+                        android:background="@drawable/_bg__medium_ek19_shape"
+                        android:gravity="center"
+                        android:hint="Moyenne" />
+
+                    <LinearLayout
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        android:layout_marginTop="200dp">
+
+                        <ListView
+                            android:id="@+id/gradesListView"
+                            android:layout_width="match_parent"
+                            android:layout_height="450dp"
+                            android:divider="@android:color/darker_gray"
+                            android:dividerHeight="1dp"
+                            android:layout_marginStart="-15dp"
+                            android:scrollbars="vertical" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </HorizontalScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/eleve_navbar" />
+</RelativeLayout>
