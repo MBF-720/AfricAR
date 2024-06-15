@@ -12,18 +12,16 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import pfe.africar.R;
-import pfe.africar.helpers.EleveNavBar;
+import pfe.africar.helpers.ProfNavBar;
 
-public class Prof_comunication_reponse extends AppCompatActivity {
-
+public class comunication_reponce extends AppCompatActivity {
     private FirebaseFirestore db;
     private EditText etNom, etPrenom, etTitre, etDescription;
     private TextView tvReponse;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prof_comunication_reponse);
+        setContentView(R.layout.activity_comunication_reponce);
 
         etNom = findViewById(R.id.et_nom);
         etPrenom = findViewById(R.id.et_prenom);
@@ -32,14 +30,14 @@ public class Prof_comunication_reponse extends AppCompatActivity {
         tvReponse = findViewById(R.id.Reponse);
 //the nav bar code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        EleveNavBar.setupBottomNavigation(this, bottomNavigationView);
+        ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
 
         db = FirebaseFirestore.getInstance();
 
         String reclamationId = getIntent().getStringExtra("RECLAMATION_ID");
         fetchReclamationDetails(reclamationId);
-    }
 
+    }
     private void fetchReclamationDetails(String reclamationId) {
         db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I") // Use actual ecoleId
                 .collection("Reclamations").document(reclamationId)
@@ -60,4 +58,5 @@ public class Prof_comunication_reponse extends AppCompatActivity {
                     }
                 });
     }
+
 }

@@ -202,6 +202,8 @@
     <string name="button_ek12_string">Add new quiz</string>
     <string name="quizzes_ek9_string">Quizzes</string>
     <string name="courses_ek12_string">Courses</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
     <string name="discover_ek6_string">Discover</string>
     <string name="profile_ek7_string">Profile</string>
     <string name="academics_ek3_string">Academics</string>
@@ -743,4 +745,8 @@
     <string name="button_ek28_string">Continue</string>
     <string name="default_web_client_id" />
     <string name="client_id">759526640442-41pgg1j0rqt2hbdpaektuo4cdq2sk914.apps.googleusercontent.com</string>
+    <string name="title_activity_eleve_profile">eleve_profile</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

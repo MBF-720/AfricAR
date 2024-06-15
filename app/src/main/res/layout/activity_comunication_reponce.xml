@@ -37,29 +37,31 @@
                     android:layout_marginTop="60dp"
                     android:layout_marginStart="16dp">
 
-                    <EditText
+                    <TextView
                         android:id="@+id/et_nom"
                         android:textSize="16sp"
                         android:textColor="@color/label_color"
                         android:layout_width="350dp"
                         android:layout_height="48dp"
+                        android:gravity="center"
 
                         android:layout_marginTop="80dp"
                         android:hint="   Nom"
                         android:background="@drawable/_bg__medium_ek19_shape"/>
 
-                    <EditText
+                    <TextView
                         android:id="@+id/et_prenom"
                         android:textSize="16sp"
                         android:textColor="@color/label_color"
                         android:layout_width="350dp"
                         android:layout_height="48dp"
                         android:hint="  Prenom"
+                        android:gravity="center"
                         android:background="@drawable/_bg__medium_ek19_shape"
                         android:layout_below="@id/et_nom"
                         android:layout_marginTop="16dp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/et_titre"
                         android:textSize="16sp"
                         android:textColor="@color/label_color"
@@ -68,9 +70,11 @@
                         android:hint="  Titre"
                         android:background="@drawable/_bg__medium_ek19_shape"
                         android:layout_below="@id/et_prenom"
+                        android:gravity="center"
+
                         android:layout_marginTop="16dp" />
 
-                    <EditText
+                    <TextView
                         android:id="@+id/et_description"
                         android:textSize="16sp"
                         android:textColor="@color/label_color"
@@ -113,6 +117,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/white"
-        app:menu="@menu/prof_navigation_menu" />
+        app:menu="@menu/eleve_navbar" />
 
 </RelativeLayout>

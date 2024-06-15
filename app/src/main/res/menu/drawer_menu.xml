@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_consulter_releve_notes"
+        android:title="Consulter les reléve de notes" />
+    <item
+        android:id="@+id/nav_consulter_emploi_temps"
+        android:title="Consulter les emploi des temps" />
+    <item
+        android:id="@+id/nav_contacter_administration"
+        android:title="Contacter l'administration" />
+</menu>

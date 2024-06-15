@@ -1,65 +1,30 @@
 
-	 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		enter_id
-	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-
 
 	package pfe.africar.activitys;
 
-import android.app.Activity;
-import android.os.Bundle;
+	import android.app.Activity;
+	import android.os.Bundle;
+	import android.text.TextUtils;
+	import android.view.View;
+	import android.widget.Button;
+	import android.widget.EditText;
+	import android.widget.Toast;
 
+	import com.google.firebase.auth.FirebaseAuth;
+	import com.google.firebase.auth.FirebaseUser;
+	import com.google.firebase.firestore.FirebaseFirestore;
 
-import android.view.View;
-import android.widget.TextView;
-import android.widget.ImageView;
+	import java.util.HashMap;
+	import java.util.Map;
 
-import pfe.africar.R;
+	import pfe.africar.R;
 
 	public class comunication_activity extends Activity {
 
-	
-	private View _bg__comunication_ek2;
-	private TextView communications;
-	private View _bg__frame_93_ek1;
-	private View _bg__frame_92_ek1;
-	private View _bg__medium_ek19;
-	private View _bg__frame_7_ek43;
-	private TextView label_ek17;
-	private View _bg__medium_ek21;
-	private View _bg__frame_7_ek45;
-	private TextView label_ek18;
-	private View _bg__medium_ek23;
-	private View _bg__frame_7_ek47;
-	private TextView label_ek19;
-	private View _bg__medium_ek25;
-	private View _bg__frame_7_ek49;
-	private TextView label_ek20;
-	private View _bg__component_1_ek23;
-	private TextView button_ek15;
-	private ImageView x_1_ek10;
-	private View _bg__healthicons_i_exam_multiple_choice_ek19;
-	private ImageView rectangle_32_ek11;
-	private TextView quizzes_ek13;
-	private TextView courses_ek18;
-	private TextView discover_ek12;
-	private TextView profile_ek13;
-	private View _bg__group_52_ek25;
-	private ImageView vector_ek621;
-	private ImageView vector_ek622;
-	private ImageView vector_ek623;
-	private ImageView vector_ek624;
+		private EditText etNom, etPrenom, etTitre, etDescription;
+		private Button btnSave;
+		private FirebaseFirestore db;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -67,37 +32,68 @@ import pfe.africar.R;
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.comunication);
 
-		
-		_bg__comunication_ek2 = (View) findViewById(R.id._bg__comunication_ek2);
-		communications = (TextView) findViewById(R.id.communications);
+		etNom = findViewById(R.id.et_nom);
+		etPrenom = findViewById(R.id.et_prenom);
+		etTitre = findViewById(R.id.et_titre);
+		etDescription = findViewById(R.id.et_description);
+		btnSave = findViewById(R.id.btn_save);
 
-		_bg__medium_ek19 = (View) findViewById(R.id._bg__medium_ek19);
-		label_ek17 = (TextView) findViewById(R.id.label_ek17);
-		_bg__medium_ek21 = (View) findViewById(R.id._bg__medium_ek21);
-		label_ek18 = (TextView) findViewById(R.id.label_ek18);
-		_bg__medium_ek23 = (View) findViewById(R.id._bg__medium_ek23);
-		label_ek19 = (TextView) findViewById(R.id.label_ek19);
-		_bg__medium_ek25 = (View) findViewById(R.id._bg__medium_ek25);
-		label_ek20 = (TextView) findViewById(R.id.label_ek20);
-		_bg__component_1_ek23 = (View) findViewById(R.id._bg__component_1_ek23);
-		button_ek15 = (TextView) findViewById(R.id.button_ek15);
-		x_1_ek10 = (ImageView) findViewById(R.id.x_1_ek10);
-		_bg__healthicons_i_exam_multiple_choice_ek19 = (View) findViewById(R.id._bg__healthicons_i_exam_multiple_choice_ek19);
-		rectangle_32_ek11 = (ImageView) findViewById(R.id.rectangle_32_ek11);
-		quizzes_ek13 = (TextView) findViewById(R.id.quizzes_ek13);
-		courses_ek18 = (TextView) findViewById(R.id.courses_ek18);
-		discover_ek12 = (TextView) findViewById(R.id.discover_ek12);
-		profile_ek13 = (TextView) findViewById(R.id.profile_ek13);
-		_bg__group_52_ek25 = (View) findViewById(R.id._bg__group_52_ek25);
-		vector_ek621 = (ImageView) findViewById(R.id.vector_ek621);
-		vector_ek622 = (ImageView) findViewById(R.id.vector_ek622);
-		vector_ek623 = (ImageView) findViewById(R.id.vector_ek623);
-		vector_ek624 = (ImageView) findViewById(R.id.vector_ek624);
-	
-		
-		//custom code goes here
-	
+
+
+		db = FirebaseFirestore.getInstance();
+
+		btnSave.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				saveReclamation();
+			}
+		});
+
+
+
+
+
+
 	}
-}
+
+		private void saveReclamation() {
+			String nom = etNom.getText().toString().trim();
+			String prenom = etPrenom.getText().toString().trim();
+			String titre = etTitre.getText().toString().trim();
+			String description = etDescription.getText().toString().trim();
+
+			if (TextUtils.isEmpty(nom) || TextUtils.isEmpty(prenom) || TextUtils.isEmpty(titre) || TextUtils.isEmpty(description)) {
+				Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+				return;
+			}
+			FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+			if (currentUser == null) {
+				Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
+				return;
+			}
+
+			String userEmail = currentUser.getEmail();
+			Map<String, Object> reclamation = new HashMap<>();
+			reclamation.put("nom", nom);
+			reclamation.put("prenom", prenom);
+			reclamation.put("titre", titre);
+			reclamation.put("description", description);
+			reclamation.put("etat", "En Attente");
+			reclamation.put("user", userEmail);
+
+
+			db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I") // Replace with your ecoleId if dynamic
+					.collection("Reclamations")
+					.add(reclamation)
+					.addOnSuccessListener(documentReference -> {
+						Toast.makeText(comunication_activity.this, "Reclamation added successfully!", Toast.LENGTH_SHORT).show();
+						finish();
+					})
+					.addOnFailureListener(e -> {
+						Toast.makeText(comunication_activity.this, "Error adding reclamation", Toast.LENGTH_SHORT).show();
+					});
+		}
+
+	}
 	
 	

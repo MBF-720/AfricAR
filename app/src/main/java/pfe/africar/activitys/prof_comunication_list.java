@@ -126,7 +126,7 @@ public class prof_comunication_list extends AppCompatActivity {
                 });
     }
 
-    private static class Reclamation {
+    public static class Reclamation {
         String id;
         String titre;
         String etat;
@@ -138,7 +138,7 @@ public class prof_comunication_list extends AppCompatActivity {
         }
     }
 
-    private static class ReclamationAdapter extends ArrayAdapter<Reclamation> {
+    public static class ReclamationAdapter extends ArrayAdapter<Reclamation> {
         private int resourceLayout;
         private List<Reclamation> items;
 

@@ -104,7 +104,7 @@
 												startActivity(new Intent(log_in_inactive_state__activity.this, acceille_activity.class));
 												break;
 											case "Professeur":
-												startActivity(new Intent(log_in_inactive_state__activity.this, add_cours_activity.class));
+												startActivity(new Intent(log_in_inactive_state__activity.this, prof_actualites.class));
 												break;
 											default:
 												Log.d(TAG, "Unknown statue: " + statue);

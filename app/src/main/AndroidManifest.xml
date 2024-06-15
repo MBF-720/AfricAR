@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -24,7 +25,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
-
+        <activity
+            android:name=".activitys.eleve_timetable"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.comunication_reponce"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.eleve_profile"
+            android:exported="false"
+            android:label="@string/title_activity_eleve_profile" />
         <activity
             android:name=".activitys.Prof_details"
             android:exported="false" />
@@ -114,8 +124,8 @@
             android:exported="false" />
         <activity
             android:name=".activitys.enter_id_classe_activity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activitys.log_in_inactive_state__activity"
             android:exported="false" />
@@ -144,26 +154,24 @@
             android:name=".activitys.Reclamations"
             android:exported="false" />
         <activity android:name=".activitys.prof_abscence_classes" />
-
         <activity
             android:name=".activitys.prof_classes_activity"
             android:exported="false" />
         <activity android:name=".activitys.prof_cour_list_activity" />
-
         <activity
             android:name=".activitys.add_quiz_activity"
             android:exported="false" />
         <activity android:name=".activitys.prof_eleves" />
         <activity android:name=".activitys.prof_quiz_list_activity" />
-
         <activity
             android:name=".activitys.onboarding_screen_activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
+
 </manifest>

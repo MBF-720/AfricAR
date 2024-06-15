@@ -1,397 +1,135 @@
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent" android:layout_height="wrap_content" >
-	<!--
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc
-	 *	@file 		enter_id
-	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
-	 *	@title 		Page 1
-	 *	@author
-	 *	@keywords
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-	-->
-	<ScrollView android:id="@+id/acceille"
-		android:layout_width="wrap_content"
-		android:layout_height="match_parent" >
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/drawer_layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".activitys.acceille_activity">
 
-		<RelativeLayout android:id="@+id/content_container"
+	<HorizontalScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<ScrollView
+			android:id="@+id/acceille"
 			android:layout_width="wrap_content"
-			android:layout_height="wrap_content" >
+			android:layout_height="match_parent">
 
-
-
-
-
-
-
-			<RelativeLayout android:id="@+id/page_acceille_ek1"
-				android:layout_marginTop="0dp"
-				android:layout_marginStart="0dp"
+			<RelativeLayout
+				android:id="@+id/content_container"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				>
+				android:layout_height="wrap_content">
 
-
-				<View
-					android:id="@+id/_bg__acceille_ek2"
-					android:layout_width="match_parent"
-					android:layout_height="match_parent"
-					android:layout_marginStart="0dp"
+				<RelativeLayout
+					android:id="@+id/page_acceille_ek1"
 					android:layout_marginTop="0dp"
-					android:background="@drawable/_bg__acceille_ek2_shape" />
-
-				<RelativeLayout android:id="@+id/search_bar"
-					android:layout_marginTop="125dp"
-					android:layout_marginStart="22dp"
+					android:layout_marginStart="0dp"
 					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
+					android:layout_height="785dp">
 
-					<View   android:id="@+id/_bg__search_bar_ek1"
-						android:background="@drawable/_bg__search_bar_ek1_shape"
-						 android:layout_marginStart="0dp"
+					<View
+						android:id="@+id/_bg__acceille_ek2"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:layout_marginStart="0dp"
 						android:layout_marginTop="0dp"
-						android:layout_width="341dp"
-						android:layout_height="40dp" />
+						android:background="@drawable/_bg__acceille_ek2_shape" />
 
-					<View   android:id="@+id/rectangle_25"
-						android:background="@drawable/rectangle_25_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="341dp"
-						android:layout_height="40dp" />
-
-					<TextView android:id="@+id/search_courses__quizzes__grades___"
-						android:textSize="12sp"
-						android:textColor="@color/label_color"
-						android:layout_marginLeft="48dp"
-						android:layout_marginTop="13dp"
-						android:layout_width="206.2dp"
-						android:layout_height="18.2dp"
-						android:text="@string/search_courses__quizzes__grades____string"
-						 />
-
-
-					<RelativeLayout android:id="@+id/tabler_search"
-						android:layout_marginTop="10dp"
-						android:layout_marginStart="12dp"
+					<RelativeLayout
+						android:id="@+id/search_bar"
+						android:layout_marginTop="125dp"
+						android:layout_marginStart="22dp"
 						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						>
-
-						<ImageView android:id="@+id/vector_ek17"
-							android:src="@drawable/vector_ek17"
-							android:contentDescription="vector_ek17"
-							 android:layout_marginStart="0.5dp"
-							android:layout_marginTop="0.5dp"
-							android:layout_width="17dp"
-							android:layout_height="17dp" />
-
-					</RelativeLayout>
-
-
-					<RelativeLayout android:id="@+id/mingcute_settings_6_fill"
-						android:layout_marginTop="8dp"
-						android:layout_marginStart="305dp"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						>
-
-
-						<RelativeLayout android:id="@+id/group"
-							android:layout_marginTop="0dp"
-							android:layout_marginStart="0dp"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							>
-
-							<ImageView android:id="@+id/vector_ek18"
-								android:src="@drawable/vector_ek18"
-								android:contentDescription="vector_ek18"
-								 android:layout_marginStart="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="24dp"
-								android:layout_height="24dp" />
-
-							<ImageView android:id="@+id/vector_ek19"
-								android:src="@drawable/vector_ek19"
-								android:contentDescription="vector_ek19"
-								 android:layout_marginStart="3dp"
-								android:layout_marginTop="3dp"
-								android:layout_width="18dp"
-								android:layout_height="18dp" />
-
-						</RelativeLayout>
-
-					</RelativeLayout>
-					<!-- Début de votre ScrollView existant -->
-					<ScrollView
-						android:layout_width="wrap_content"
-						android:layout_height="match_parent" >
+						android:layout_height="wrap_content">
 
 						<RelativeLayout
 							android:layout_width="wrap_content"
 							android:layout_height="wrap_content"
 							tools:ignore="ExtraText">
 
-							<!-- Autres éléments existants... -->
-
 							<!-- ListView pour afficher les actualités -->
 							<ListView
 								android:id="@+id/listViewActualites"
-								android:layout_below="@id/_bg__search_bar_ek1"
 								android:layout_width="385dp"
-								android:layout_height="570dp"
+								android:layout_height="550dp"
 								android:layout_marginStart="-15dp"
 								android:layout_marginTop="40dp"
 								android:scrollbars="vertical"
-								tools:ignore="NotSibling" /> <!-- Assurez-vous que cet ID référence l'élément au-dessus de la ListView -->
-
-							android:divider="@android:color/darker_gray"
-							android:dividerHeight="1dp" />
-
-							<!-- Continuation de vos autres éléments... -->
+								tools:ignore="NotSibling" />
 
 						</RelativeLayout>
-					</ScrollView>
-
-				</RelativeLayout>
-
-
-				<ImageView
-					android:id="@+id/rectangle_32"
-					android:layout_width="385dp"
-					android:layout_height="75dp"
-					android:layout_marginStart="0dp"
-					android:layout_marginTop="737dp"
-					android:contentDescription="rectangle_32"
-					android:src="@drawable/rectangle_32" />
-
-				<TextView android:id="@+id/good_morning__"
-					android:textColor="@color/label_color"
-					android:layout_marginLeft="68dp"
-					android:layout_marginTop="70dp"
-					android:layout_width="89dp"
-					android:layout_height="15dp"
-					android:text="@string/good_morning___string"
-					 />
-
-				<TextView android:id="@+id/foulen_ben_foulen"
-					android:textSize="12sp"
-					android:textColor="@color/enter_your_scholar_id_color"
-					android:layout_marginLeft="68dp"
-					android:layout_marginTop="86dp"
-					android:layout_width="114.2dp"
-					android:layout_height="18.2dp"
-					android:text="@string/foulen_ben_foulen_string"
-					 />
-
-
-				<RelativeLayout android:id="@+id/mingcute_notification_fill"
-					android:layout_marginTop="74dp"
-					android:layout_marginStart="335dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
-
-
-					<RelativeLayout android:id="@+id/group_ek2"
-						android:layout_marginTop="0dp"
-						android:layout_marginStart="0dp"
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						>
-
-						<ImageView android:id="@+id/vector_ek20"
-							android:src="@drawable/vector_ek20"
-							android:contentDescription="vector_ek20"
-							 android:layout_marginStart="0dp"
-							android:layout_marginTop="0dp"
-							android:layout_width="24dp"
-							android:layout_height="24dp" />
-
-						<ImageView android:id="@+id/vector_ek21"
-							android:src="@drawable/vector_ek21"
-							android:contentDescription="vector_ek21"
-							 android:layout_marginStart="3dp"
-							android:layout_marginTop="2dp"
-							android:layout_width="17.88dp"
-							android:layout_height="19dp" />
 
 					</RelativeLayout>
 
-					<View   android:id="@+id/ellipse_24"
-						android:background="@drawable/ellipse_24_shape"
-						 android:layout_marginStart="3dp"
-						android:layout_marginTop="15dp"
-						android:layout_width="6dp"
-						android:layout_height="6dp" />
+					<TextView
+						android:id="@+id/nom_eleve"
+						android:textSize="12sp"
+						android:textColor="@color/enter_your_scholar_id_color"
+						android:layout_marginLeft="68dp"
+						android:layout_marginTop="80dp"
+						android:layout_width="114.2dp"
+						android:layout_height="18.2dp"
+						android:text="@string/foulen_ben_foulen_string" />
+
+					<RelativeLayout
+						android:id="@+id/healthicons_i_exam_multiple_choice"
+						android:layout_marginTop="745dp"
+						android:layout_marginStart="241.33dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content" />
+
+					<RelativeLayout
+						android:id="@+id/component_2_ek8"
+						android:layout_marginTop="68dp"
+						android:layout_marginStart="16dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content">
+
+						<ImageView
+							android:id="@+id/vector_ek22"
+							android:src="@drawable/vector_ek22"
+							android:contentDescription="vector_ek22"
+							android:layout_marginStart="7.5dp"
+							android:layout_marginTop="10.5dp"
+							android:layout_width="21dp"
+							android:layout_height="15dp" />
+					</RelativeLayout>
+
+					<RelativeLayout
+						android:id="@+id/group_52"
+						android:layout_marginTop="748dp"
+						android:layout_marginStart="336.5dp"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content">
+
+						<View
+							android:id="@+id/_bg__group_52_ek1"
+							android:background="@drawable/_bg__group_52_ek1_shape"
+							android:layout_marginStart="-337dp"
+							android:layout_marginTop="-748dp"
+							android:layout_width="18dp"
+							android:layout_height="18dp" />
+					</RelativeLayout>
+
+					<com.google.android.material.bottomnavigation.BottomNavigationView
+						android:id="@+id/bottom_navigation"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_alignParentBottom="true"
+						android:background="@color/white"
+						app:menu="@menu/eleve_navbar" />
 
 				</RelativeLayout>
-
-
-				<RelativeLayout android:id="@+id/healthicons_i_exam_multiple_choice"
-					android:layout_marginTop="745dp"
-					android:layout_marginStart="241.33dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
-
-					<View   android:id="@+id/_bg__healthicons_i_exam_multiple_choice_ek1"
-						android:background="@drawable/_bg__healthicons_i_exam_multiple_choice_ek1_shape"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="24dp"
-						android:layout_height="24dp" />
-
-				</RelativeLayout>
-
-
-				<RelativeLayout android:id="@+id/component_2_ek8"
-					android:layout_marginTop="68dp"
-					android:layout_marginStart="16dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
-
-					<ImageView android:id="@+id/vector_ek22"
-						android:src="@drawable/vector_ek22"
-						android:contentDescription="vector_ek22"
-						 android:layout_marginStart="7.5dp"
-						android:layout_marginTop="10.5dp"
-						android:layout_width="21dp"
-						android:layout_height="15dp" />
-
-				</RelativeLayout>
-
-				<TextView android:id="@+id/quizzes"
-					android:textSize="16sp"
-					android:textColor="@color/don_t_have_an_account__sign_up_color"
-					android:layout_marginLeft="222.33dp"
-					android:layout_marginTop="769dp"
-					android:layout_width="76.6dp"
-					android:layout_height="23.6dp"
-					android:text="@string/quizzes_string"
-					 />
-
-				<TextView android:id="@+id/courses"
-					android:layout_gravity="center_horizontal|center"
-					android:gravity="center"
-					android:textSize="16sp"
-					android:textColor="@color/don_t_have_an_account__sign_up_color"
-					android:layout_marginLeft="117.67dp"
-					android:layout_marginTop="769dp"
-					android:layout_width="71dp"
-					android:layout_height="23.6dp"
-					android:text="@string/courses_string"
-					 />
-
-				<TextView android:id="@+id/profile"
-					android:layout_gravity="center_horizontal|center"
-					android:gravity="center"
-					android:textSize="16sp"
-					android:textColor="@color/don_t_have_an_account__sign_up_color"
-					android:layout_marginLeft="319dp"
-					android:layout_marginTop="769dp"
-					android:layout_width="54dp"
-					android:layout_height="23.6dp"
-					android:text="@string/profile_string"
-					 />
-
-				<TextView android:id="@+id/discover"
-					android:layout_gravity="center_horizontal|center"
-					android:gravity="center"
-					android:textSize="16sp"
-					android:textColor="@color/_bg__checkbox_ek5_color"
-					android:layout_marginLeft="13dp"
-					android:layout_marginTop="769dp"
-					android:layout_width="74dp"
-					android:layout_height="23.6dp"
-					android:text="@string/discover_string"
-					 />
-
-
-				<RelativeLayout android:id="@+id/group_52"
-					android:layout_marginTop="748dp"
-					android:layout_marginStart="336.5dp"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					>
-
-					<View   android:id="@+id/_bg__group_52_ek1"
-						android:background="@drawable/_bg__group_52_ek1_shape"
-						 android:layout_marginStart="-337dp"
-						android:layout_marginTop="-748dp"
-						android:layout_width="18dp"
-						android:layout_height="18dp" />
-
-					<ImageView android:id="@+id/vector_ek23"
-						android:src="@drawable/vector_ek23"
-						android:contentDescription="vector_ek23"
-						 android:layout_marginStart="0dp"
-						android:layout_marginTop="0dp"
-						android:layout_width="18dp"
-						android:layout_height="18dp" />
-
-				</RelativeLayout>
-
-				<ImageView android:id="@+id/vector_ek24"
-					android:src="@drawable/vector_ek24"
-					android:contentDescription="vector_ek24"
-					 android:layout_marginStart="39.5dp"
-					android:layout_marginTop="747dp"
-					android:layout_width="20dp"
-					android:layout_height="20dp" />
-
-				<ImageView android:id="@+id/vector_ek25"
-					android:src="@drawable/vector_ek25"
-					android:contentDescription="vector_ek25"
-					 android:layout_marginStart="244.33dp"
-					android:layout_marginTop="748dp"
-					android:layout_width="18dp"
-					android:layout_height="18dp" />
-
-				<ImageView android:id="@+id/vector_ek26"
-					android:src="@drawable/vector_ek26"
-					android:contentDescription="vector_ek26"
-					 android:layout_marginStart="143.67dp"
-					android:layout_marginTop="747dp"
-					android:layout_width="18dp"
-					android:layout_height="20dp" />
-
 			</RelativeLayout>
+		</ScrollView>
+	</HorizontalScrollView>
 
+	<com.google.android.material.navigation.NavigationView
+		android:id="@+id/nav_view"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:layout_gravity="start"
+		app:menu="@menu/drawer_menu" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		</RelativeLayout>
-
-	</ScrollView>
-</HorizontalScrollView>
+</androidx.drawerlayout.widget.DrawerLayout>
