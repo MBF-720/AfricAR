@@ -26,6 +26,12 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.QuestionViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.QuizListActivity"
+            android:exported="false" />
+        <activity
             android:name=".activitys.CourseViewActivity"
             android:exported="false" />
         <activity
