@@ -26,6 +26,15 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.CourseViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.CourseListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.SubjectListActivity"
+            android:exported="false" />
+        <activity
             android:name=".activitys.Note_detail"
             android:exported="false" />
         <activity
