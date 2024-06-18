@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -41,6 +42,7 @@ public class acceille_activity extends AppCompatActivity implements NavigationVi
 	private DrawerLayout drawerLayout;
 	private ActionBarDrawerToggle toggle;
 	private ImageView vectorEk22;
+	private List<String> details = new ArrayList<>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,18 @@ public class acceille_activity extends AppCompatActivity implements NavigationVi
 		});
 
 		fetchEcoleIdAndLoadActualites();
+		listViewActualites.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				String selectedTitle = titles.get(position);
+				String selectedDetail = details.get(position);
+
+				Intent intent = new Intent(acceille_activity.this, DetailActivity.class);
+				intent.putExtra("selectedTitle", selectedTitle);
+				intent.putExtra("selectedId", selectedDetail);
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override
@@ -85,7 +99,7 @@ public class acceille_activity extends AppCompatActivity implements NavigationVi
 		} else if (id == R.id.nav_consulter_emploi_temps) {
 			startActivity(new Intent(this, eleve_timetable.class));
 		} else if (id == R.id.nav_contacter_administration) {
-			startActivity(new Intent(this, comunication_activity.class));
+			startActivity(new Intent(this, comunication_list_activity.class));
 		}
 		drawerLayout.closeDrawers();
 		return true;
@@ -123,7 +137,8 @@ public class acceille_activity extends AppCompatActivity implements NavigationVi
 				.addOnCompleteListener(task -> {
 					if (task.isSuccessful()) {
 						for (QueryDocumentSnapshot document : task.getResult()) {
-							titles.add(document.getString("title")); // Ensure 'title' field exists
+							titles.add(document.getString("title"));
+							details.add(document.getId());// Ensure 'title' field exists
 						}
 						adapter.notifyDataSetChanged();
 					} else {

@@ -35,6 +35,7 @@ public class QuestionViewActivity extends AppCompatActivity {
     private List<DocumentSnapshot> questions = new ArrayList<>();
     private int currentQuestionIndex = 0;
     private DocumentSnapshot currentQuestion;
+    private int score = 0; // Variable to store the score
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +62,12 @@ public class QuestionViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (radioGroup.getCheckedRadioButtonId() != -1) {
+                    checkAnswer();
                     if (currentQuestionIndex < questions.size() - 1) {
                         currentQuestionIndex++;
                         displayQuestion();
                     } else {
-                        Toast.makeText(QuestionViewActivity.this, "Quiz completed!", Toast.LENGTH_SHORT).show();
+                        showScore();
                     }
                 } else {
                     Toast.makeText(QuestionViewActivity.this, "Please select an answer", Toast.LENGTH_SHORT).show();
@@ -113,5 +115,20 @@ public class QuestionViewActivity extends AppCompatActivity {
         option4.setText(answers.get(3));
 
         radioGroup.clearCheck();
+    }
+
+    private void checkAnswer() {
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+        RadioButton selectedRadioButton = findViewById(selectedId);
+        String selectedAnswer = selectedRadioButton.getText().toString();
+
+        if (selectedAnswer.equals(currentQuestion.getString("correct_answer"))) {
+            score++;
+        }
+    }
+
+    private void showScore() {
+        Toast.makeText(this, "Quiz completed! Your score is: " + score, Toast.LENGTH_LONG).show();
+        finish();
     }
 }

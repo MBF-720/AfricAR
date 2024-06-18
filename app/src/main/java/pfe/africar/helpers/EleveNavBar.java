@@ -11,6 +11,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import pfe.africar.R;
 
+import pfe.africar.activitys.QuizListActivity;
 import pfe.africar.activitys.SubjectListActivity;
 import pfe.africar.activitys.acceille_activity;
 import pfe.africar.activitys.eleve_profile;
@@ -32,7 +33,7 @@ public class EleveNavBar {
                     context.startActivity(intent);
                     return true;
                 } else if (id == R.id.navigation_quizzes) {
-                    Intent intent = new Intent(context, .class);
+                    Intent intent = new Intent(context, QuizListActivity.class);
                     context.startActivity(intent);
                     return true;
                 } else if (id == R.id.navigation_profile) {

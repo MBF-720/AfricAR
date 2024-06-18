@@ -101,7 +101,7 @@ private double overallAverage;
 							gradesList.clear();
 							for (DocumentSnapshot document : task.getResult()) {
 								String matiereId = document.getId();
-								double averageGrade = document.getDouble("moyenne"); // Assuming you have an "average" field
+								double averageGrade = document.getDouble("moyenne");
 								gradesList.add(new GradeInfo(matiereId, averageGrade));
 							}
 							adapter.notifyDataSetChanged();

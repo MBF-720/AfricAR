@@ -87,7 +87,7 @@
 							<!-- ListView pour afficher les actualités -->
 							<ListView
 								android:id="@+id/listViewActualites"
-								android:layout_below="@id/_bg__search_bar_ek1"
+
 								android:layout_width="385dp"
 								android:layout_height="560dp"
 								android:layout_marginStart="-15dp"

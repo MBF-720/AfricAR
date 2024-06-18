@@ -1,7 +1,6 @@
 package pfe.africar.activitys;
 
 import android.os.Bundle;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +15,7 @@ import pfe.africar.helpers.ProfNavBar;
 
 public class comunication_reponce extends AppCompatActivity {
     private FirebaseFirestore db;
-    private EditText etNom, etPrenom, etTitre, etDescription;
+    private TextView etNom, etPrenom, etTitre, etDescription;
     private TextView tvReponse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

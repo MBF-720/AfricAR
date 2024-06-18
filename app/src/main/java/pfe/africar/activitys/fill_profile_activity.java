@@ -451,6 +451,7 @@
 
 										Log.d(TAG, "DocumentSnapshot ajouté avec ID: " + documentReference.getId());
 										Toast.makeText(fill_profile_activity.this, "Eleve ajouté avec succès !", Toast.LENGTH_SHORT).show();
+										Intent intent = new Intent(fill_profile_activity.this, acceille_activity.class);
 
 										// Add the student's ID to the listEleves field in the class document
 										db.collection("Ecoles").document(String.valueOf(schoolId)).collection("Classes").document(classeId)
@@ -460,6 +461,7 @@
 													public void onSuccess(Void aVoid) {
 														Log.d(TAG, "Student ID added to class document");
 														Toast.makeText(fill_profile_activity.this, "Eleve ajouté avec succès !", Toast.LENGTH_SHORT).show();
+														Intent intent = new Intent(fill_profile_activity.this, acceille_activity.class);
 													}
 												})
 												.addOnFailureListener(new OnFailureListener() {

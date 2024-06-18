@@ -19,7 +19,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="AfricAR"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -39,6 +39,9 @@
             android:exported="false" />
         <activity
             android:name=".activitys.SubjectListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.comunication_activity"
             android:exported="false" />
         <activity
             android:name=".activitys.Note_detail"
@@ -61,6 +64,9 @@
             android:exported="false" />
         <activity
             android:name=".activitys.prof_profile"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.acceille_activity"
             android:exported="false" />
         <activity
             android:name=".activitys.prof_actualites"
@@ -137,9 +143,10 @@
         <activity
             android:name=".activitys.create_acount__inactive_state__activity"
             android:exported="false" />
-        <activity
-            android:name=".activitys.acceille_activity"
-            android:exported="false" />
+        <activity android:name=".activitys.comunication_list_activity" />
+
+
+
         <activity
             android:name=".activitys.enter_id_activity"
             android:exported="false" />

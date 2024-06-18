@@ -72,10 +72,7 @@
 			button = findViewById(R.id._bg__component_1_ek35);
 			button_ek23 = findViewById(R.id.button_ek23);
 			x_1_ek17 = findViewById(R.id.x_1_ek17);
-			vector_ek724 = findViewById(R.id.vector_ek724);
-			vector_ek725 = findViewById(R.id.vector_ek725);
-			vector_ek726 = findViewById(R.id.vector_ek726);
-			vector_ek727 = findViewById(R.id.vector_ek727);
+
 
 			// Ajouter un écouteur de clics au bouton
 			button.setOnClickListener(new View.OnClickListener() {

@@ -89,7 +89,7 @@ public class eleve_timetable extends AppCompatActivity {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
                         for (DocumentSnapshot document : task.getResult()) {
-                            String classId = document.getString("classId");
+                            String classId = document.getString("idClasse");
                             if (classId != null) {
                                 loadTimetable(classId, ecoleId);
                             } else {
@@ -121,7 +121,7 @@ public class eleve_timetable extends AppCompatActivity {
     }
 
     private void loadTimetableFromStorage(String timetablePath) {
-        StorageReference storageRef = storage.getReference().child(timetablePath);
+        StorageReference storageRef = storage.getReferenceFromUrl(timetablePath);
         storageRef.getDownloadUrl().addOnSuccessListener(uri -> {
             timetableUrl = uri.toString();
             webView.loadUrl(timetableUrl);
