@@ -1,20 +1,6 @@
 <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent" android:layout_height="wrap_content" >
-	<!-- 
-	/*
-	 *	This content is generated from the API File Info.
-	 *	(Alt+Shift+Ctrl+I).
-	 *
-	 *	@desc 		
-	 *	@file 		enter_id
-	 *	@date 		Thursday 25th of April 2024 10:03:48 AM
-	 *	@title 		Page 1
-	 *	@author 	
-	 *	@keywords 	
-	 *	@generator 	Export Kit v1.3.figma
-	 *
-	 */
-	-->
+
 	<ScrollView android:id="@+id/add_cours" 
 		android:layout_width="wrap_content" 
 		android:layout_height="match_parent" >
@@ -22,20 +8,6 @@
 		<RelativeLayout android:id="@+id/content_container" 
 			android:layout_width="wrap_content" 
 			android:layout_height="wrap_content" >
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 			<RelativeLayout android:id="@+id/page_add_cours_ek1"
 				android:layout_marginTop="0dp"
@@ -191,112 +163,6 @@
 
 						</RelativeLayout>
 
-
-						<RelativeLayout android:id="@+id/frame_111"
-							android:layout_marginTop="171dp"
-							android:layout_marginStart="0dp"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							>
-
-							<TextView android:id="@+id/course_schedule__"
-								android:textSize="20sp"
-								android:textColor="@color/_bg__frame_96_ek1_color"
-								android:layout_marginLeft="0dp"
-								android:layout_marginTop="0dp"
-								android:layout_width="192dp"
-								android:layout_height="30dp"
-								android:text="@string/course_schedule___string"
-								 />
-
-
-							<RelativeLayout android:id="@+id/frame_109"
-								android:layout_marginTop="40dp"
-								android:layout_marginStart="0dp"
-								android:layout_width="wrap_content"
-								android:layout_height="wrap_content"
-								>
-
-
-								<RelativeLayout android:id="@+id/medium_ek4"
-									android:layout_marginTop="0dp"
-									android:layout_marginStart="0dp"
-									android:layout_width="wrap_content"
-									android:layout_height="wrap_content"
-									>
-
-									<View   android:id="@+id/_bg__medium_ek5"
-										android:background="@drawable/_bg__medium_ek5_shape"
-										 android:layout_marginStart="2dp"
-										android:layout_marginTop="2dp"
-										android:layout_width="343dp"
-										android:layout_height="51dp" />
-
-
-									<RelativeLayout android:id="@+id/frame_7_ek28"
-										android:layout_marginTop="16dp"
-										android:layout_marginStart="8dp"
-										android:layout_width="wrap_content"
-										android:layout_height="wrap_content"
-										>
-
-										<TextView android:id="@+id/label_ek10"
-											android:textSize="16sp"
-											android:textColor="@color/label_color"
-											android:layout_marginLeft="0dp"
-											android:layout_marginTop="0dp"
-											android:layout_width="109.6dp"
-											android:layout_height="23.6dp"
-											android:text="@string/label_ek10_string"
-											 />
-
-									</RelativeLayout>
-
-								</RelativeLayout>
-
-
-								<RelativeLayout android:id="@+id/medium_ek6"
-									android:layout_marginTop="59dp"
-									android:layout_marginStart="0dp"
-									android:layout_width="wrap_content"
-									android:layout_height="wrap_content"
-									>
-
-									<View   android:id="@+id/_bg__medium_ek7"
-										android:background="@drawable/_bg__medium_ek7_shape"
-										 android:layout_marginStart="2dp"
-										android:layout_marginTop="2dp"
-										android:layout_width="343dp"
-										android:layout_height="51dp" />
-
-
-									<RelativeLayout android:id="@+id/frame_7_ek30"
-										android:layout_marginTop="16dp"
-										android:layout_marginStart="8dp"
-										android:layout_width="wrap_content"
-										android:layout_height="wrap_content"
-										>
-
-										<EditText android:id="@+id/label_ek11"
-											android:textSize="16sp"
-											android:layout_marginLeft="0dp"
-											android:layout_marginTop="0dp"
-											android:layout_width="60.6dp"
-											android:layout_height="23.6dp"
-											android:hint="@string/label_ek11_string"
-											android:textColor="@color/black"
-											android:textColorHint="@color/label_color"
-											android:background="@null"
-											/>
-											 />
-
-									</RelativeLayout>
-
-								</RelativeLayout>
-
-							</RelativeLayout>
-
-						</RelativeLayout>
 
 					</RelativeLayout>
 

@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -62,6 +63,12 @@ public class prof_actualites extends AppCompatActivity {
                     Intent intent = new Intent(prof_actualites.this, prof_comunication_list.class);
                     startActivity(intent);
                 }
+                else if (id == R.id.deconnecter) {
+                    FirebaseAuth.getInstance().signOut();
+                    Intent intent = new Intent(prof_actualites.this, onboarding_screen_activity.class);
+                    startActivity(intent);
+
+            }
                 drawerLayout.closeDrawer(navigationView);
                 return true;
             }

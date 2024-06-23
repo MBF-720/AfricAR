@@ -32,10 +32,24 @@
 						android:textSize="18sp"
 						android:textColor="@color/enter_your_scholar_id_color"
 						android:layout_marginLeft="122dp"
-						android:layout_marginTop="71dp"
+						android:layout_marginTop="40dp"
 						android:layout_width="141dp"
 						android:layout_height="27.8dp"
 						android:text="Students list" />
+
+					<TextView
+						android:id="@+id/timetable"
+						android:textSize="15sp"
+						android:textColor="@color/white"
+						android:background="@drawable/_bg__frame_141_ek3_shape"
+
+
+						android:gravity="center"
+						android:layout_marginLeft="122dp"
+						android:layout_marginTop="180dp"
+						android:layout_width="163dp"
+						android:layout_height="34dp"
+						android:text="add timetable" />
 
 					<RelativeLayout
 						android:id="@+id/frame_141_ek2"
@@ -49,6 +63,7 @@
 							android:background="@drawable/_bg__frame_141_ek3_shape"
 							android:layout_marginStart="0dp"
 							android:layout_marginTop="0dp"
+
 							android:layout_width="163dp"
 							android:layout_height="34dp" />
 
@@ -58,6 +73,8 @@
 							android:textColor="@color/button_color"
 							android:layout_marginLeft="17.5dp"
 							android:layout_marginTop="9.5dp"
+							style="bol"
+							android:gravity="center"
 							android:layout_width="114.2dp"
 							android:layout_height="18.2dp"
 							android:text="@string/add_new_student_string" />
@@ -73,13 +90,15 @@
 
 						<TextView
 							android:id="@+id/listeProf"
-							android:textSize="15sp"
-							android:textColor="@color/don_t_have_an_account__sign_up_color"
+							android:layout_width="163dp"
+							android:layout_height="34dp"
 							android:layout_marginLeft="17dp"
-							android:layout_marginTop="9.5dp"
-							android:layout_width="115.2dp"
-							android:layout_height="40.2dp"
-							android:text="Liste des prof" />
+							android:background="@drawable/_bg__frame_141_ek3_shape"
+							android:gravity="center"
+
+							android:text="Liste des prof"
+							android:textColor="@color/white"
+							android:textSize="15sp" />
 
 					</RelativeLayout>
 

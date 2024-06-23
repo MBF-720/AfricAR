@@ -1,5 +1,6 @@
 package pfe.africar.activitys;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -63,11 +64,13 @@ public class QuestionViewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (radioGroup.getCheckedRadioButtonId() != -1) {
                     checkAnswer();
-                    if (currentQuestionIndex < questions.size() - 1) {
+                    if (currentQuestionIndex < questions.size() -1) {
                         currentQuestionIndex++;
                         displayQuestion();
                     } else {
                         showScore();
+
+
                     }
                 } else {
                     Toast.makeText(QuestionViewActivity.this, "Please select an answer", Toast.LENGTH_SHORT).show();
@@ -128,7 +131,11 @@ public class QuestionViewActivity extends AppCompatActivity {
     }
 
     private void showScore() {
-        Toast.makeText(this, "Quiz completed! Your score is: " + score, Toast.LENGTH_LONG).show();
-        finish();
+        Intent intent = new Intent(QuestionViewActivity.this, quiz_score.class);
+        intent.putExtra("score", score);
+        intent.putExtra("questions", (questions.size()));
+        startActivity(intent);
+
     }
+
 }

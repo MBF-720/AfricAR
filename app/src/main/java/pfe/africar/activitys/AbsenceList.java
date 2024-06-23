@@ -62,7 +62,7 @@ public class AbsenceList extends AppCompatActivity {
 
     private void loadAbsences() {
         CollectionReference absencesRef = db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I")
-                .collection("Reclamations").document("Absence").collection("Liste absence");
+                .collection("Reclamations").document("Absences").collection("Liste absence");
         absencesRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 for (QueryDocumentSnapshot document : task.getResult()) {

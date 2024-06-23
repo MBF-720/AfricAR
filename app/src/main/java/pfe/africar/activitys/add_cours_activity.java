@@ -1,7 +1,6 @@
 package pfe.africar.activitys;
 
 import android.app.Activity;
-import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -82,8 +81,7 @@ public class add_cours_activity extends Activity {
 		add_new_course = findViewById(R.id.add_new_course);
 		label_ek9 = findViewById(R.id.label_ek9);
 		upload_file = findViewById(R.id.upload_file);
-		label_ek10 = findViewById(R.id.label_ek10);
-		label_ek11 = findViewById(R.id.label_ek11);
+
 		button_ek13 = findViewById(R.id.button_ek13);
 
 		// Set single line for EditText programmatically
@@ -93,24 +91,11 @@ public class add_cours_activity extends Activity {
 
 		// Set listeners
 		upload_file.setOnClickListener(this::uploadFile);
-		label_ek10.setOnClickListener(v -> showDatePicker());
+
 		button_ek13.setOnClickListener(v -> submitForm());
 	}
 
-	private void showDatePicker() {
-		DatePickerDialog datePickerDialog = new DatePickerDialog(
-				this,
-				(view, year, monthOfYear, dayOfMonth) -> {
-					selectedDate.set(year, monthOfYear, dayOfMonth);
-					updateDateInView();
-				},
-				selectedDate.get(Calendar.YEAR),
-				selectedDate.get(Calendar.MONTH),
-				selectedDate.get(Calendar.DAY_OF_MONTH)
-		);
 
-		datePickerDialog.show();
-	}
 
 	private void updateDateInView() {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
@@ -144,7 +129,7 @@ public class add_cours_activity extends Activity {
 		String date = label_ek10.getText().toString();
 		String time = label_ek11.getText().toString();
 
-		if (title.isEmpty() || fileUri == null || date.isEmpty() || time.isEmpty()) {
+		if (title.isEmpty() || fileUri == null ) {
 			Toast.makeText(this, "Please fill all fields correctly.", Toast.LENGTH_LONG).show();
 			return;
 		}
@@ -154,17 +139,16 @@ public class add_cours_activity extends Activity {
 		fileRef.putFile(fileUri)
 				.addOnSuccessListener(taskSnapshot -> fileRef.getDownloadUrl().addOnSuccessListener(uri -> {
 					String fileUrl = uri.toString();
-					saveCourseToFirestore(title, date, time, fileUrl);
+					saveCourseToFirestore(title,  fileUrl);
 				}))
 				.addOnFailureListener(e -> Toast.makeText(add_cours_activity.this, "Error uploading file.", Toast.LENGTH_SHORT).show());
 	}
 
-	private void saveCourseToFirestore(String title, String date, String time, String fileUrl) {
+	private void saveCourseToFirestore(String title,  String fileUrl) {
 		Map<String, Object> data = new HashMap<>();
 		data.put("title", title);
 		data.put("file", fileUrl);
-		data.put("date", date);
-		data.put("time", time);
+
 		data.put("userId", userId);
 
 		// Generate a new courId if not provided

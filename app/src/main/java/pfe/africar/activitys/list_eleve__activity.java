@@ -22,7 +22,7 @@ import pfe.africar.helpers.AdminNavHelper;
 
 public class list_eleve__activity extends Activity {
 
-	private TextView listeProf, addStudent;
+	private TextView listeProf, addStudent,timetable;
 	private ListView listeView;
 	private String ecoleId = "Vgv1obkaHUASn7Z8rI7I";
 	private ArrayList<String> elevesList;
@@ -39,6 +39,7 @@ public class list_eleve__activity extends Activity {
 		addStudent = findViewById(R.id.add_new_student);
 		listeProf = findViewById(R.id.listeProf);
 		listeView = findViewById(R.id.ListView);
+		timetable = findViewById(R.id.timetable);
 
 		bottomNavigationView = findViewById(R.id.bottom_navigation);
 		AdminNavHelper.setupBottomNavigation(this, bottomNavigationView);
@@ -97,6 +98,11 @@ public class list_eleve__activity extends Activity {
 
 		addStudent.setOnClickListener(v -> {
 			Intent intent = new Intent(list_eleve__activity.this, add_student_activity.class);
+			startActivity(intent);
+		});
+
+		timetable.setOnClickListener(v -> {
+			Intent intent = new Intent(list_eleve__activity.this, add_emploi_de_temps_activity.class);
 			startActivity(intent);
 		});
 

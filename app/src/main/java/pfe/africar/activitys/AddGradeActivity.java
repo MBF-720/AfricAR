@@ -28,13 +28,13 @@
     import android.widget.AdapterView;
     import android.widget.ArrayAdapter;
     import android.widget.EditText;
-    import android.widget.ImageView;
     import android.widget.ListView;
     import android.widget.TextView;
     import android.widget.Toast;
 
     import com.google.android.gms.tasks.OnCompleteListener;
     import com.google.android.gms.tasks.Task;
+    import com.google.android.material.bottomnavigation.BottomNavigationView;
     import com.google.firebase.firestore.DocumentReference;
     import com.google.firebase.firestore.DocumentSnapshot;
     import com.google.firebase.firestore.FirebaseFirestore;
@@ -46,20 +46,14 @@
     import java.util.Map;
 
     import pfe.africar.R;
+    import pfe.africar.helpers.AdminNavHelper;
 
     public class AddGradeActivity extends Activity {
 
 
 
-        private View creatClas;
 
-        private ImageView x_1_ek14;
-        private ImageView rectangle_32_ek14;
 
-        private ImageView vector_ek648;
-        private ImageView vector_ek649;
-        private ImageView vector_ek650;
-        private ImageView vector_ek651;
         private  ListView listeView;
         private TextView listeProf;
 
@@ -182,6 +176,7 @@
             alertDialog.show();
         }
 
+        private BottomNavigationView bottomNavigationView;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -190,19 +185,26 @@
             setContentView(R.layout.classroom_lists);
 
 
-            creatClas = (View) findViewById(R.id._bg__frame_141_ek1);
 
 
 
 
+View background=(View) findViewById(R.id._bg__frame_141_ek1);
+background.setVisibility(View.INVISIBLE);
 
-            listeProf = (TextView) findViewById(R.id.listeProf);
+
+listeProf = (TextView) findViewById(R.id.listeProf);
+            listeProf.setVisibility(View.INVISIBLE);
+
+            TextView newClasse = (TextView) findViewById(R.id.create_new_category);
+           newClasse.setVisibility(View.INVISIBLE);
 
             listeView =(ListView) findViewById(R.id.ListView);
 
             db = FirebaseFirestore.getInstance();
 
-
+            bottomNavigationView = findViewById(R.id.bottom_navigation);
+            AdminNavHelper.setupBottomNavigation(this, bottomNavigationView);
 
 		/*FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 		String userId = user.getUid();
@@ -247,12 +249,7 @@
 
 
 
-            creatClas.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    showAddClassDialog();
-                }
-            });
+
 
 
 

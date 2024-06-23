@@ -101,6 +101,12 @@ public class acceille_activity extends AppCompatActivity implements NavigationVi
 		} else if (id == R.id.nav_contacter_administration) {
 			startActivity(new Intent(this, comunication_list_activity.class));
 		}
+		else if (id == R.id.deconnecter) {
+			FirebaseAuth.getInstance().signOut();
+			Intent intent = new Intent(acceille_activity.this, onboarding_screen_activity.class);
+			startActivity(intent);
+
+		}
 		drawerLayout.closeDrawers();
 		return true;
 	}

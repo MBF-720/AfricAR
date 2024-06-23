@@ -118,6 +118,7 @@ public class add_emploi_de_temps_activity extends Activity {
 											@Override
 											public void onSuccess(Void aVoid) {
 												Toast.makeText(add_emploi_de_temps_activity.this, "Timetable uploaded successfully.", Toast.LENGTH_SHORT).show();
+											finish();
 											}
 										})
 										.addOnFailureListener(new OnFailureListener() {

@@ -42,7 +42,7 @@ public class AbsenceDetailActivity extends AppCompatActivity {
 
     private void loadAbsenceDetails(String documentId) {
         DocumentReference docRef = db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I")
-                .collection("Reclamations").document("Absence").collection("Liste absence").document(documentId);
+                .collection("Reclamations").document("Absences").collection("Liste absence").document(documentId);
         docRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 DocumentSnapshot document = task.getResult();

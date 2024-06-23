@@ -26,7 +26,13 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".activitys.quiz_score"
+            android:exported="false" />
+        <activity
             android:name=".activitys.QuestionViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activitys.add_emploi_de_temps_activity"
             android:exported="false" />
         <activity
             android:name=".activitys.QuizListActivity"
@@ -144,9 +150,6 @@
             android:name=".activitys.create_acount__inactive_state__activity"
             android:exported="false" />
         <activity android:name=".activitys.comunication_list_activity" />
-
-
-
         <activity
             android:name=".activitys.enter_id_activity"
             android:exported="false" />

@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -30,6 +31,7 @@ public class prof_cour_list_activity extends Activity {
 	private List<String> courseList;
 	private ArrayAdapter<String> adapter;
 	private String ecoleId, classeId, profId, matiereId;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,14 +46,11 @@ public class prof_cour_list_activity extends Activity {
 		BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
 		ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
 
-
-
-		String ecoleId = "Vgv1obkaHUASn7Z8rI7I";
-		String classeId = "CPY5KGWxBex1B5rHnFEb";
+		ecoleId = "Vgv1obkaHUASn7Z8rI7I";
+		classeId = "CPY5KGWxBex1B5rHnFEb";
 
 		FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-
-		String profId =currentUser.getEmail() ;
+		profId = currentUser.getEmail();
 
 		if (ecoleId == null || classeId == null || profId == null) {
 			Toast.makeText(this, "Missing parameters cour list", Toast.LENGTH_SHORT).show();
@@ -70,18 +69,14 @@ public class prof_cour_list_activity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(prof_cour_list_activity.this, add_cours_activity.class);
-				intent.putExtra("ecoleId",ecoleId);
-				intent.putExtra("classeId",classeId);
-				intent.putExtra("matiereId",matiereId);
+				intent.putExtra("ecoleId", ecoleId);
+				intent.putExtra("classeId", classeId);
+				intent.putExtra("matiereId", matiereId);
 				startActivity(intent);
-
 			}
 		});
-
-		ImageView x_1_ek3 = findViewById(R.id.x_1_ek3);
-
-		View _bg__group_52_ek11 = findViewById(R.id._bg__group_52_ek11);
 	}
+
 	private void fetchMatiereForProfessor(String ecoleId, String classeId) {
 		FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 		if (currentUser == null) {
@@ -100,7 +95,6 @@ public class prof_cour_list_activity extends Activity {
 					String profId = document.getId();
 					String matiereName = document.getString("matiere");
 					Toast.makeText(prof_cour_list_activity.this, matiereName, Toast.LENGTH_SHORT).show();
-
 
 					if (matiereName != null) {
 						// Fetch courses for the matiere
@@ -128,7 +122,7 @@ public class prof_cour_list_activity extends Activity {
 			if (task.isSuccessful()) {
 				if (!task.getResult().isEmpty()) {
 					for (DocumentSnapshot matiereSnapshot : task.getResult()) {
-						 matiereId = matiereSnapshot.getId();
+						matiereId = matiereSnapshot.getId();
 						Toast.makeText(prof_cour_list_activity.this, "Matiere id " + matiereId, Toast.LENGTH_SHORT).show();
 
 						CollectionReference coursesRef = matiereSnapshot.getReference().collection("Cours");
@@ -156,6 +150,14 @@ public class prof_cour_list_activity extends Activity {
 					}
 				}
 				runOnUiThread(() -> adapter.notifyDataSetChanged());
+
+				// Set up the long-click listener for course deletion
+				listView.setOnItemLongClickListener((parent, view, position, id) -> {
+					String selectedCourse = courseList.get(position);
+					showDeletePopup(view, selectedCourse, coursesRef.document(selectedCourse));
+					return true;
+				});
+
 			} else {
 				Log.e("ProfCourListActivity", "Error fetching course list", task.getException());
 				Toast.makeText(prof_cour_list_activity.this, "Error fetching course list", Toast.LENGTH_SHORT).show();
@@ -163,6 +165,27 @@ public class prof_cour_list_activity extends Activity {
 		});
 	}
 
+	private void showDeletePopup(View view, String courseName, DocumentReference courseRef) {
+		PopupMenu popup = new PopupMenu(this, view);
+		popup.getMenuInflater().inflate(R.menu.delete_menu, popup.getMenu());
+		popup.setOnMenuItemClickListener(item -> {
+			if (item.getItemId() == R.id.delete) {
+				deleteCourse(courseName, courseRef);
+				return true;
+			}
+			return false;
+		});
+		popup.show();
+	}
 
-
+	private void deleteCourse(String courseName, DocumentReference courseRef) {
+		courseRef.delete().addOnSuccessListener(aVoid -> {
+			Toast.makeText(prof_cour_list_activity.this, "Course deleted", Toast.LENGTH_SHORT).show();
+			courseList.remove(courseName);
+			adapter.notifyDataSetChanged();
+		}).addOnFailureListener(e -> {
+			Toast.makeText(prof_cour_list_activity.this, "Failed to delete course", Toast.LENGTH_SHORT).show();
+			Log.e("ProfCourListActivity", "Error deleting course", e);
+		});
+	}
 }

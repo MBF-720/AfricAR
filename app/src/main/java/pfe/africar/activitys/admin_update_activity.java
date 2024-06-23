@@ -19,6 +19,8 @@
 
 	import android.annotation.SuppressLint;
 	import android.app.Activity;
+	import android.app.AlertDialog;
+	import android.content.DialogInterface;
 	import android.content.Intent;
 	import android.os.Bundle;
 	import android.view.View;
@@ -183,6 +185,41 @@
 		vector_ek31.setOnClickListener(v -> {
 			Intent intent = new Intent(admin_update_activity.this, Reclamations.class); // Replace NewActivity with the activity you want to start
 			startActivity(intent);
+		});
+
+		// Ajouter un écouteur de clic long sur un élément de la ListView
+		listViewActualites.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+			@Override
+			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+				String selectedTitle = adapter.getItem(position);
+				String selectedId = idsList.get(position);
+
+				new AlertDialog.Builder(admin_update_activity.this)
+						.setTitle("Confirmation")
+						.setMessage("Voulez-vous supprimer cet élément : " + selectedTitle + " ?")
+						.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								// Supprimer l'élément de Firestore
+								db.collection("Ecoles")
+										.document("Vgv1obkaHUASn7Z8rI7I")
+										.collection("Actualités")
+										.document(selectedId)
+										.delete()
+										.addOnSuccessListener(aVoid -> {
+											Toast.makeText(admin_update_activity.this, "Élément supprimé", Toast.LENGTH_SHORT).show();
+											loadActualites(); // Recharger les actualités après suppression
+										})
+										.addOnFailureListener(e -> {
+											Toast.makeText(admin_update_activity.this, "Erreur de suppression", Toast.LENGTH_SHORT).show();
+										});
+							}
+						})
+						.setNegativeButton("Non", null)
+						.show();
+
+				return true;
+			}
 		});
 
 	}

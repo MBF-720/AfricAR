@@ -41,13 +41,13 @@
 
                     <TextView
                         android:id="@+id/fill_your_profile"
-                        android:textSize="18sp"
-                        android:textColor="@color/enter_your_scholar_id_color"
                         android:layout_width="142.8dp"
                         android:layout_height="27.8dp"
                         android:layout_marginLeft="140dp"
                         android:layout_marginTop="7dp"
-                        android:text="Details" />
+                        android:text="Profile"
+                        android:textColor="@color/enter_your_scholar_id_color"
+                        android:textSize="18sp" />
                 </RelativeLayout>
 
                 <RelativeLayout

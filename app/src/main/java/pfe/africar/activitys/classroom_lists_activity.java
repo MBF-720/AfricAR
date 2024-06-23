@@ -259,6 +259,22 @@
 					Intent intent = new Intent(classroom_lists_activity.this, list_des_prof_activity.class);
 					startActivity(intent);
 				}
+
+			});
+
+
+// Ajoutez ce code dans la méthode onCreate après avoir initialisé listeView
+
+			listeView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+				@Override
+				public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+					String className = nomClassesList.get(position);
+
+					// Afficher la boîte de dialogue de confirmation pour supprimer la classe
+					showDeleteClassDialog(className);
+
+					return true; // Indiquer que l'événement a été consommé
+				}
 			});
 
 
@@ -268,9 +284,76 @@
 
 
 
+	}
+		private void deleteClass(String className) {
+			db.collection("Ecoles").document(ecoleId).collection("Classes")
+					.whereEqualTo("nom", className)
+					.get()
+					.addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+						@Override
+						public void onComplete(Task<QuerySnapshot> task) {
+							if (task.isSuccessful() && !task.getResult().isEmpty()) {
+								for (DocumentSnapshot document : task.getResult()) {
+									String classId = document.getId();
+
+									// Supprimer le document de la collection
+									db.collection("Ecoles").document(ecoleId).collection("Classes")
+											.document(classId)
+											.delete()
+											.addOnCompleteListener(new OnCompleteListener<Void>() {
+												@Override
+												public void onComplete(Task<Void> deleteTask) {
+													if (deleteTask.isSuccessful()) {
+														Toast.makeText(getApplicationContext(), "Class deleted successfully", Toast.LENGTH_SHORT).show();
+														// Mettre à jour la liste des classes
+														getNomClasses(ecoleId).addOnCompleteListener(new OnCompleteListener<List<String>>() {
+															@Override
+															public void onComplete(Task<List<String>> getTask) {
+																if (getTask.isSuccessful()) {
+																	nomClassesList = getTask.getResult();
+																	ArrayAdapter<String> adapter = new ArrayAdapter<>(classroom_lists_activity.this, android.R.layout.simple_list_item_1, nomClassesList);
+																	listeView.setAdapter(adapter);
+																} else {
+																	Toast.makeText(getApplicationContext(), "Failed to update class list", Toast.LENGTH_SHORT).show();
+																}
+															}
+														});
+													} else {
+														Toast.makeText(getApplicationContext(), "Failed to delete class", Toast.LENGTH_SHORT).show();
+													}
+												}
+											});
+								}
+							} else {
+								Toast.makeText(getApplicationContext(), "Class not found", Toast.LENGTH_SHORT).show();
+							}
+						}
+					});
+		}
+		private void showDeleteClassDialog(String className) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Delete Class")
+					.setMessage("Are you sure you want to delete the class \"" + className + "\"?")
+					.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							// Supprimer la classe de Firestore
+							deleteClass(className);
+						}
+					})
+					.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							dialog.cancel();
+						}
+					});
+
+			AlertDialog alertDialog = builder.create();
+			alertDialog.show();
+		}
 
 
-	}}
+
+
+	}
 
 	
 	
