@@ -53,7 +53,7 @@ public class SubjectListActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
         EleveNavBar.setupBottomNavigation(this, bottomNavigationView);
-
+        subjects.clear();
         fetchEcoleIdAndClassId();
 
         subjectListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -64,6 +64,7 @@ public class SubjectListActivity extends AppCompatActivity {
                 intent.putExtra("ecoleId", ecoleId);
                 intent.putExtra("classId", classId);
                 intent.putExtra("subjectId", subjectId);
+
                 startActivity(intent);
             }
         });

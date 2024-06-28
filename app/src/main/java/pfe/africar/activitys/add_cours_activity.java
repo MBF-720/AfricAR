@@ -86,8 +86,7 @@ public class add_cours_activity extends Activity {
 
 		// Set single line for EditText programmatically
 		label_ek9.setSingleLine(true);
-		label_ek10.setSingleLine(true);
-		label_ek11.setSingleLine(true);
+
 
 		// Set listeners
 		upload_file.setOnClickListener(this::uploadFile);
@@ -97,10 +96,7 @@ public class add_cours_activity extends Activity {
 
 
 
-	private void updateDateInView() {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
-		label_ek10.setText(sdf.format(selectedDate.getTime()));
-	}
+
 
 	public void uploadFile(View view) {
 		Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -126,8 +122,7 @@ public class add_cours_activity extends Activity {
 
 	public void submitForm() {
 		String title = label_ek9.getText().toString();
-		String date = label_ek10.getText().toString();
-		String time = label_ek11.getText().toString();
+
 
 		if (title.isEmpty() || fileUri == null ) {
 			Toast.makeText(this, "Please fill all fields correctly.", Toast.LENGTH_LONG).show();

@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -20,6 +22,7 @@ import pfe.africar.R;
 import pfe.africar.activitys.Eleve_Details;
 import pfe.africar.activitys.ProfClasse;
 import pfe.africar.activitys.add_student_activity;
+import pfe.africar.helpers.AdminNavHelper;
 
 public class EditGradeActivity extends Activity {
 
@@ -29,6 +32,7 @@ public class EditGradeActivity extends Activity {
     private ArrayList<String> elevesList;
     private Map<String, String> elevesMap;
     private ArrayAdapter<String> adapter;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,8 +43,25 @@ public class EditGradeActivity extends Activity {
         listeProf = findViewById(R.id.listeProf);
         listeView = findViewById(R.id.ListView);
 
+      View  background=(View) findViewById(R.id._bg__frame_141_ek3);
+        background.setVisibility(View.INVISIBLE);
+
+        addStudent.setVisibility(View.INVISIBLE);
+
+        listeProf = (TextView) findViewById(R.id.listeProf);
+        listeProf.setVisibility(View.INVISIBLE);
+
+       TextView timetable = (TextView) findViewById(R.id.timetable);
+        timetable.setVisibility(View.INVISIBLE);
+
+
+
+
         elevesMap = new HashMap<>();
         elevesList = new ArrayList<>();
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        AdminNavHelper.setupBottomNavigation(this, bottomNavigationView);
 
         String classeId = getIntent().getStringExtra("classId");
         String className = getIntent().getStringExtra("className");

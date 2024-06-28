@@ -51,6 +51,8 @@ public class CourseListActivity extends AppCompatActivity {
         classId = getIntent().getStringExtra("classId");
         subjectId = getIntent().getStringExtra("subjectId");
 
+
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.nav_view);
         EleveNavBar.setupBottomNavigation(this, bottomNavigationView);
 
@@ -70,7 +72,7 @@ public class CourseListActivity extends AppCompatActivity {
         });
     }
 
-    private void loadCourses() {
+   /* private void loadCourses() {
         db.collection("Ecoles").document(ecoleId).collection("Classes").document(classId).collection("Matieres").document(subjectId).collection("Cours")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -87,5 +89,30 @@ public class CourseListActivity extends AppCompatActivity {
                         }
                     }
                 });
-    }
+    }*/
+   private void loadCourses() {
+       db.collection("Ecoles").document(ecoleId).collection("Classes").document(classId).collection("Matieres").document(subjectId).collection("Cours")
+               .get()
+               .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                   @Override
+                   public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                       if (task.isSuccessful()) {
+                           for (QueryDocumentSnapshot document : task.getResult()) {
+                               String title = document.getString("title");
+                               if (title != null) {
+                                   courses.add(title);
+                                   courseIds.add(document.getId());
+                               } else {
+                                   courses.add("No title provided");
+                                   courseIds.add(document.getId());
+                               }
+                           }
+                           adapter.notifyDataSetChanged();
+                       } else {
+                           Toast.makeText(CourseListActivity.this, "Failed to fetch courses", Toast.LENGTH_SHORT).show();
+                       }
+                   }
+               });
+   }
+
 }

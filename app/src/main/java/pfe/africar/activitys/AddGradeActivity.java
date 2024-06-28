@@ -55,9 +55,9 @@
 
 
         private  ListView listeView;
-        private TextView listeProf;
+        private TextView listeProf,newClasse;
 
-
+private View  background;
 
         private String ecoleId="Vgv1obkaHUASn7Z8rI7I";
 
@@ -115,66 +115,7 @@
 
         }
 
-        private void addNewClass(String className) {
-            Map<String, Object> classData = new HashMap<>();
-            classData.put("nom", className);
 
-
-            db.collection("Ecoles").document(ecoleId).collection("Classes")
-                    .add(classData)
-                    .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                        @Override
-                        public void onComplete(Task<DocumentReference> addTask) {
-                            if (addTask.isSuccessful()) {
-                                Toast.makeText(getApplicationContext(), "Class added successfully", Toast.LENGTH_SHORT).show();
-                                // Update the list
-                                getNomClasses(ecoleId).addOnCompleteListener(new OnCompleteListener<List<String>>() {
-                                    @Override
-                                    public void onComplete(Task<List<String>> getTask) {
-                                        if (getTask.isSuccessful()) {
-                                            nomClassesList = getTask.getResult();
-                                            ArrayAdapter<String> adapter = new ArrayAdapter<>(AddGradeActivity.this, android.R.layout.simple_list_item_1, nomClassesList);
-                                            listeView.setAdapter(adapter);
-                                        } else {
-                                            Toast.makeText(getApplicationContext(), "Failed to update class list", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                });
-                            } else {
-                                Toast.makeText(getApplicationContext(), "Failed to add class", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-        }
-
-        private void showAddClassDialog() {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            LayoutInflater inflater = getLayoutInflater();
-            View dialogView = inflater.inflate(R.layout.dialog_add_class, null);
-            builder.setView(dialogView);
-
-            final EditText editTextClassName = dialogView.findViewById(R.id.editTextClassName);
-
-            builder.setTitle("Add New Class")
-                    .setPositiveButton("Add", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            String className = editTextClassName.getText().toString();
-                            if (!className.isEmpty()) {
-                                addNewClass(className);
-                            } else {
-                                Toast.makeText(getApplicationContext(), "Class name cannot be empty", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    })
-                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                        }
-                    });
-
-            AlertDialog alertDialog = builder.create();
-            alertDialog.show();
-        }
 
         private BottomNavigationView bottomNavigationView;
 
@@ -188,15 +129,18 @@
 
 
 
+            bottomNavigationView = findViewById(R.id.bottom_navigation);
+            AdminNavHelper.setupBottomNavigation(this, bottomNavigationView);
 
-View background=(View) findViewById(R.id._bg__frame_141_ek1);
+
+ background=(View) findViewById(R.id._bg__frame_141_ek1);
 background.setVisibility(View.INVISIBLE);
 
 
 listeProf = (TextView) findViewById(R.id.listeProf);
             listeProf.setVisibility(View.INVISIBLE);
 
-            TextView newClasse = (TextView) findViewById(R.id.create_new_category);
+             newClasse = (TextView) findViewById(R.id.create_new_category);
            newClasse.setVisibility(View.INVISIBLE);
 
             listeView =(ListView) findViewById(R.id.ListView);
