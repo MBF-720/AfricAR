@@ -1,6 +1,7 @@
 package pfe.africar.activitys;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -106,7 +107,21 @@ public class acceille_activity extends AppCompatActivity implements NavigationVi
 			Intent intent = new Intent(acceille_activity.this, onboarding_screen_activity.class);
 			startActivity(intent);
 
+		}else if (id == R.id.tpAR) {
+			String packageName = "com.DefaultCompany.tpar1";
+			if (isAppInstalled(packageName)) {
+				Intent launchIntent = getPackageManager().getLaunchIntentForPackage(packageName);
+				if (launchIntent != null) {
+					startActivity(launchIntent);
+				} else {
+					Toast.makeText(acceille_activity.this, "Impossible de lancer l'application", Toast.LENGTH_SHORT).show();
+				}
+			} else {
+				Toast.makeText(acceille_activity.this, "L'application n'est pas installée", Toast.LENGTH_SHORT).show();
+			}
+
 		}
+
 		drawerLayout.closeDrawers();
 		return true;
 	}
@@ -173,4 +188,14 @@ public class acceille_activity extends AppCompatActivity implements NavigationVi
 					}
 				});
 	}
+	private boolean isAppInstalled(String packageName) {
+		PackageManager packageManager = getPackageManager();
+		try {
+			packageManager.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+			return true;
+		} catch (PackageManager.NameNotFoundException e) {
+			return false;
+		}
+	}
+
 }

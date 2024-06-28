@@ -9,6 +9,9 @@
         android:id="@+id/menu_contact_admin"
         android:title="Contacter l'administration" />
     <item
+        android:id="@+id/tpAR"
+        android:title="tp en RA " />
+    <item
         android:id="@+id/deconnecter"
         android:title="déconnecter " />
 

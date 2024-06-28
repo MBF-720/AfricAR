@@ -1,6 +1,7 @@
 package pfe.africar.activitys;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -68,7 +69,20 @@ public class prof_actualites extends AppCompatActivity {
                     Intent intent = new Intent(prof_actualites.this, onboarding_screen_activity.class);
                     startActivity(intent);
 
-            }
+            }else if (id == R.id.tpAR) {
+                    String packageName = "com.DefaultCompany.tpar1";
+                    if (isAppInstalled(packageName)) {
+                        Intent launchIntent = getPackageManager().getLaunchIntentForPackage(packageName);
+                        if (launchIntent != null) {
+                            startActivity(launchIntent);
+                        } else {
+                            Toast.makeText(prof_actualites.this, "Impossible de lancer l'application", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(prof_actualites.this, "L'application n'est pas installée", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
                 drawerLayout.closeDrawer(navigationView);
                 return true;
             }
@@ -91,6 +105,7 @@ public class prof_actualites extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     public void openDrawer(View view) {
@@ -117,5 +132,14 @@ public class prof_actualites extends AppCompatActivity {
                         Toast.makeText(this, "Error getting documents: " + task.getException(), Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+    private boolean isAppInstalled(String packageName) {
+        PackageManager packageManager = getPackageManager();
+        try {
+            packageManager.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 }
