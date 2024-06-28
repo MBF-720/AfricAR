@@ -127,7 +127,8 @@ public class CourseViewActivity extends AppCompatActivity {
 
     private void downloadFile(String fileUrl) {
         StorageReference storageRef = storage.getReferenceFromUrl(fileUrl);
-        File localFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "course.pdf");
+        File localFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "course1.pdf");
+        Toast.makeText(CourseViewActivity.this, "url:"+fileUrl, Toast.LENGTH_SHORT).show();
 
         storageRef.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
             @Override
@@ -138,6 +139,7 @@ public class CourseViewActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception exception) {
                 Toast.makeText(CourseViewActivity.this, "Download failed: " + exception.getMessage(), Toast.LENGTH_SHORT).show();
+
             }
         });
     }
