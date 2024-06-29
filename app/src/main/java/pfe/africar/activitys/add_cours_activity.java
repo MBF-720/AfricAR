@@ -58,7 +58,7 @@ public class add_cours_activity extends Activity {
 		classeId = getIntent().getStringExtra("classeId");
 		matiereId = getIntent().getStringExtra("matiereId");
 
-		if (ecoleId == null || classeId == null || matiereId == null) {
+		if (ecoleId == null || classeId == null ) {
 			Toast.makeText(this, "Missing parameters", Toast.LENGTH_SHORT).show();
 			Toast.makeText(this, "ecole+"+ecoleId, Toast.LENGTH_SHORT).show();
 			Toast.makeText(this, "classe"+classeId, Toast.LENGTH_SHORT).show();
@@ -128,6 +128,9 @@ public class add_cours_activity extends Activity {
 			Toast.makeText(this, "Please fill all fields correctly.", Toast.LENGTH_LONG).show();
 			return;
 		}
+		if (matiereId == null) {
+			createNewMatiereAndAddCourse(title);
+		}
 
 		// Upload file to Firebase Storage
 		StorageReference fileRef = storageRef.child("cours/" + fileUri.getLastPathSegment());
@@ -165,5 +168,41 @@ public class add_cours_activity extends Activity {
 					finish(); // Optional: Finish current activity
 				})
 				.addOnFailureListener(e -> Toast.makeText(add_cours_activity.this, "Error adding course.", Toast.LENGTH_SHORT).show());
+	}
+	private void createNewMatiereAndAddCourse(String courseTitle) {
+		FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+		if (currentUser != null) {
+			String userEmail = currentUser.getEmail();
+			FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+			// Fetch professor's field
+			db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I")
+					.collection("Professeurs").whereEqualTo("email", userEmail)
+					.get()
+					.addOnCompleteListener(task -> {
+						if (task.isSuccessful() && !task.getResult().isEmpty()) {
+							String professorField = task.getResult().getDocuments().get(0).getString("matiere"); // Assuming 'matiere' holds the field name
+							createMatiere(professorField, courseTitle);
+						} else {
+							Toast.makeText(this, "Failed to get professor details", Toast.LENGTH_SHORT).show();
+						}
+					});
+		} else {
+			Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show();
+		}
+	}
+
+	private void createMatiere(String matiereName, String courseTitle) {
+		Map<String, Object> newMatiere = new HashMap<>();
+		newMatiere.put("nom", matiereName);
+
+		db.collection("Ecoles").document(ecoleId)
+				.collection("Classes").document(classeId)
+				.collection("Matieres").add(newMatiere)
+				.addOnSuccessListener(documentReference -> {
+					matiereId = documentReference.getId();
+
+				})
+				.addOnFailureListener(e -> Toast.makeText(this, "Failed to create new subject", Toast.LENGTH_SHORT).show());
 	}
 }
