@@ -108,7 +108,7 @@ public class acceille_activity extends AppCompatActivity implements NavigationVi
 			startActivity(intent);
 
 		}else if (id == R.id.tpAR) {
-			String packageName = "com.DefaultCompany.tpar1";
+			String packageName = "com.facebook.android";
 			if (isAppInstalled(packageName)) {
 				Intent launchIntent = getPackageManager().getLaunchIntentForPackage(packageName);
 				if (launchIntent != null) {

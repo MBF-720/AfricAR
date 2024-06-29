@@ -2,6 +2,7 @@ package pfe.africar.activitys;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -35,6 +37,8 @@ public class prof_profile extends AppCompatActivity {
         field = findViewById(R.id.label_ek56);
         phone = findViewById(R.id.label_ek57);
         email = findViewById(R.id.email);
+        Button updateFieldButton = findViewById(R.id.update_field_button);
+
 // the nav bar code
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         ProfNavBar.setupBottomNavigation(this, bottomNavigationView);
@@ -79,5 +83,49 @@ public class prof_profile extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "User not logged in", Toast.LENGTH_SHORT).show();
             Log.d(TAG, "No current user logged in");
         }
+
+
+        updateFieldButton.setOnClickListener(v -> {
+            String newFieldValue = field.getText().toString();
+            updateProfessorField(newFieldValue);
+        });
+
+
     }
+    private void updateProfessorField(String fieldValue) {
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null && !fieldValue.isEmpty()) {
+            String userEmail = currentUser.getEmail();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            // First, query the documents with the matching email
+            db.collection("Ecoles").document("Vgv1obkaHUASn7Z8rI7I")
+                    .collection("Professeurs").whereEqualTo("email", userEmail)
+                    .get()
+                    .addOnSuccessListener(queryDocumentSnapshots -> {
+                        // Check if the query returned any documents
+                        if (!queryDocumentSnapshots.isEmpty()) {
+                            // Loop through the documents and update each one
+                            for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                                document.getReference().update("matiere", fieldValue)
+                                        .addOnSuccessListener(aVoid -> Toast.makeText(prof_profile.this, "Field updated successfully", Toast.LENGTH_SHORT).show())
+                                        .addOnFailureListener(e -> Toast.makeText(prof_profile.this, "Failed to update field", Toast.LENGTH_SHORT).show());
+                            }
+                        } else {
+                            Toast.makeText(prof_profile.this, "No matching professor found", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(prof_profile.this, "Error fetching documents: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    });
+        } else {
+            if (currentUser == null) {
+                Toast.makeText(this, "User not logged in", Toast.LENGTH_SHORT).show();
+            } else if (fieldValue.isEmpty()) {
+                Toast.makeText(this, "Field cannot be empty", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+
 }

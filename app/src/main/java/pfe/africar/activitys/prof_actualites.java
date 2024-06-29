@@ -70,9 +70,10 @@ public class prof_actualites extends AppCompatActivity {
                     startActivity(intent);
 
             }else if (id == R.id.tpAR) {
-                    String packageName = "com.DefaultCompany.tpar1";
+                    String packageName = "com.samsung.android.incallui";
                     if (isAppInstalled(packageName)) {
                         Intent launchIntent = getPackageManager().getLaunchIntentForPackage(packageName);
+
                         if (launchIntent != null) {
                             startActivity(launchIntent);
                         } else {
