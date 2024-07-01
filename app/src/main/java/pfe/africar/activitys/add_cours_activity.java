@@ -165,7 +165,7 @@ public class add_cours_activity extends Activity {
 				.addOnSuccessListener(documentReference -> {
 					Toast.makeText(add_cours_activity.this, "Course added successfully!", Toast.LENGTH_SHORT).show();
 
-					finish(); // Optional: Finish current activity
+					finish();
 				})
 				.addOnFailureListener(e -> Toast.makeText(add_cours_activity.this, "Error adding course.", Toast.LENGTH_SHORT).show());
 	}

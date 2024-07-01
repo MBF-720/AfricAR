@@ -116,7 +116,7 @@
 								android:layout_height="27.8dp"
 								android:layout_marginLeft="90dp"
 								android:layout_marginTop="60dp"
-								android:text="Login with passwor "
+								android:text="Login with password"
 								android:textColor="@color/button_color"
 								android:textSize="18sp" />
 

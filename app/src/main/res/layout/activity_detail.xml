@@ -9,13 +9,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textColor="@color/_bg__component_2_ek1_color"
+
+        android:hint="titre"/>
 
     <TextView
         android:id="@+id/descriptionTextView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:textSize="16sp"
+        android:minHeight="300dp"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
         android:textColor="@color/black"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="70dp"
+        android:paddingStart="10dp"
+        android:background="@drawable/_bg__medium_ek19_shape"
+        android:gravity="top|start"
+        android:hint="Description"/>
 </LinearLayout>
